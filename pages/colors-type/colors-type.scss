@@ -1,0 +1,18 @@
+@import '../ui-base/ui-base';
+@import "../../modules/colors/__colors";
+@import "../../modules/type/__type";
+
+body {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+main {
+  margin-left: 9.0625rem;
+  margin-right: 11.9375rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+

@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-VariableFont_wght.ttf");
+}
+body {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+main {
+  margin-left: 9.0625rem;
+  margin-right: 11.9375rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=colors-type.css.map */

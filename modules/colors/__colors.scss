@@ -1,0 +1,29 @@
+$colors: ('main-100': #1F2041,
+        'main-75': rgba(31, 32, 65, 0.5),
+        'main-50': rgba(31, 32, 65, 0.25),
+        'main-25': rgba(31, 32, 65, 0.25),
+        'main-5': rgba(31, 32, 65, 0.05),
+        'primary': #BC9CFF,
+        'secondary': #6FCF97);
+
+%main-100 {
+  color: map-get($colors, 'main-100');
+}
+%main-75 {
+  color: map-get($colors, 'main-75');
+}
+%main-50 {
+  color: map-get($colors, 'main-50');
+}
+%main-25 {
+  color: map-get($colors, 'main-25');
+}
+%main-5 {
+  color: map-get($colors, 'main-5');
+}
+%primary {
+  color: map-get($colors, 'primary');
+}
+%secondary {
+  color: map-get($colors, 'secondary');
+}

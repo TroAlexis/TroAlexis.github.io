@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url("../../fonts/Quicksand-VariableFont_wght.ttf");
+}
+
+$f-sizes: ('h1': 1.5rem,
+        'h2': 1.1875rem,
+        'h3': 0.75rem,
+        'body': 0.875rem);
+
+%heading-1 {
+  font-size: map_get($f-sizes, 'h1');
+}
+
+%heading-2 {
+  font-size: map_get($f-sizes, 'h2');
+}
+
+%heading-3 {
+  font-size: map_get($f-sizes, 'h3');
+}
+
+%heading-body {
+  font-size: map_get($f-sizes, 'body');
+}
+
