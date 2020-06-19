@@ -5,3 +5,14 @@ block links
     link(rel='stylesheet' href='colors-type.css')
 block content
     main
+        .colors
+            include ../../modules/color-box/__color-box
+            +color-box(['Dark Shade 100%', '#1F2041'], 'main-100')
+            +color-box(['Dark Shade 75%', '#1F2041'], 'main-75')
+            +color-box(['Dark Shade 50%', '#1F2041'], 'main-50')
+            +color-box(['Dark Shade 25%', '#1F2041'], 'main-25')
+            +color-box(['Dark Shade 5%', '#1F2041'], 'main-5')
+            +color-box(['Purple', '#BC9CFF'], 'primary')
+            +color-box(['Green', '#6FCF97'], 'secondary')
+        .fonts
+            include ../../modules/font-box/__font-box

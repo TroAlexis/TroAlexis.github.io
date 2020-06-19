@@ -1,0 +1,5 @@
+mixin color-box(content, color)
+    .color-box
+        .color-box__color(class='color-box__color--' + color)
+        h2.color-box__name=content[0]
+            p.color-box__hex=[content[1]]

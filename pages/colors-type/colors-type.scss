@@ -1,6 +1,7 @@
 @import '../ui-base/ui-base';
 @import "../../modules/colors/__colors";
 @import "../../modules/type/__type";
+@import "../../modules/color-box/__color-box";
 
 body {
   display: flex;
@@ -13,6 +14,5 @@ main {
   margin-right: 11.9375rem;
   display: flex;
   width: 100%;
-  justify-content: space-between;
 }
 
