@@ -1,0 +1,77 @@
+.btn {
+  color: #BC9CFF;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+}
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.btn {
+  font-size: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.main-logo {
+  position: absolute;
+  left: 1.875rem;
+  top: 1.875rem;
+}
+@media (max-width: 567.98px) {
+  .main-logo {
+    left: auto;
+    right: 1.875rem;
+  }
+}
+
+.btn {
+  background: white;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.55rem 1.5rem;
+  border-radius: 20px;
+}
+
+.btn-border {
+  padding: 2px;
+  background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
+  border-radius: 22px;
+  display: inline-block;
+  text-align: center;
+}
+
+body {
+  padding: 200px;
+}
+
+/*# sourceMappingURL=test.css.map */

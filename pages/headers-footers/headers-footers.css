@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.main-logo {
+  position: absolute;
+  left: 1.875rem;
+  top: 1.875rem;
+}
+@media (max-width: 567.98px) {
+  .main-logo {
+    left: auto;
+    right: 1.875rem;
+  }
+}
+
+/*# sourceMappingURL=headers-footers.css.map */
