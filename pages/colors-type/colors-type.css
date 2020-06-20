@@ -1,17 +1,94 @@
+.font-box {
+  color: #1F2041;
+}
+
+.font-box__title--body {
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.font-box__name {
+  color: rgba(31, 32, 65, 0.25);
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../fonts/Quicksand-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+}
+.font-box__title--h2, .font-box__title--h1 {
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.font-box__name, .font-box__title--body {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.font-box__title--h3 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.font-box__title--h1 {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+
+.font-box__title--h2 {
+  font-size: 1.1875rem;
+  line-height: 1.5rem;
+}
+
+.font-box__title--h3 {
+  font-size: 0.75rem;
+}
+
+.font-box__title--body {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
-html, body {
+html {
   height: 100%;
 }
 
-@font-face {
-  font-family: "Quicksand";
-  src: url("../../fonts/Quicksand-VariableFont_wght.ttf");
+.main-logo {
+  position: absolute;
+  left: 1.875rem;
+  top: 1.875rem;
 }
-.color-box__hex, .color-box__name {
+@media (max-width: 567.98px) {
+  .main-logo {
+    left: auto;
+    right: 1.875rem;
+  }
+}
+
+.color-box__name {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -36,14 +113,19 @@ html, body {
   margin-right: 2.5rem;
   border-radius: 0.375rem;
 }
+@media (max-width: 567.98px) {
+  .color-box__color {
+    margin-right: 1.25rem;
+  }
+}
 .color-box__color--main-100 {
   background-color: #1F2041;
 }
 .color-box__color--main-75 {
-  background-color: rgba(31, 32, 65, 0.5);
+  background-color: rgba(31, 32, 65, 0.75);
 }
 .color-box__color--main-50 {
-  background-color: rgba(31, 32, 65, 0.25);
+  background-color: rgba(31, 32, 65, 0.5);
 }
 .color-box__color--main-25 {
   background-color: rgba(31, 32, 65, 0.25);
@@ -57,17 +139,79 @@ html, body {
 .color-box__color--secondary {
   background-color: #6FCF97;
 }
+.color-box__hex {
+  font-weight: normal;
+}
+
+.font-box {
+  display: flex;
+  margin-bottom: 3.125rem;
+  align-items: baseline;
+}
+.font-box:last-of-type {
+  margin-bottom: 0;
+}
+.font-box__name {
+  margin-right: 1.875rem;
+  flex: 0 0 2.3125rem;
+  text-align: right;
+}
+.font-box__name--h1 {
+  font-size: 1.5rem;
+}
+.font-box__name--h2 {
+  font-size: 1.1875rem;
+}
+.font-box__name--h3 {
+  font-size: 0.75rem;
+}
+.font-box__name--body {
+  font-size: 0.875rem;
+}
 body {
+  margin: 0;
+  padding: 9.0625rem 11.9375rem 9.0625rem 9.0625rem;
   display: flex;
   align-items: center;
-  margin: 0;
+  justify-content: center;
+}
+@media (max-width: 567.98px) {
+  body {
+    padding: 6.0416666667rem 1.8125rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  body {
+    padding: 6.0416666667rem 1.5104166667rem;
+  }
 }
 
 main {
-  margin-left: 9.0625rem;
-  margin-right: 11.9375rem;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  max-width: 1110px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@media (max-width: 767.98px) {
+  main {
+    justify-content: center;
+  }
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 991.98px) {
+  .colors {
+    margin-bottom: 5rem;
+  }
+}
+
+.fonts {
+  max-width: 25.1875rem;
 }
 
 /*# sourceMappingURL=colors-type.css.map */

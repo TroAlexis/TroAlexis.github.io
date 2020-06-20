@@ -19,6 +19,9 @@
     width: 4.375rem;
     height: 4.375rem;
     margin-right: 2.5rem;
+    @include media-sm {
+      margin-right: 1.25rem;
+    }
     border-radius: 0.375rem;
     &--main-100 {
       background-color: map_get($colors, 'main-100');
@@ -51,6 +54,6 @@
     @extend %color-box__font;
   }
   &__hex {
-    @extend %color-box__font;
+    font-weight: normal;
   }
 }

@@ -1,6 +1,40 @@
 @font-face {
   font-family: 'Quicksand';
-  src: url("../../fonts/Quicksand-VariableFont_wght.ttf");
+  src: url("../../fonts/Quicksand-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url("../../fonts/Quicksand-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+}
+
+%font-main {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+%font-secondary {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+%font-secondary-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
 }
 
 $f-sizes: ('h1': 1.5rem,
@@ -9,18 +43,26 @@ $f-sizes: ('h1': 1.5rem,
         'body': 0.875rem);
 
 %heading-1 {
+  @extend %font-main;
   font-size: map_get($f-sizes, 'h1');
+  line-height: 1.875rem;
 }
 
 %heading-2 {
+  @extend %font-main;
   font-size: map_get($f-sizes, 'h2');
+  line-height: 1.5rem;
 }
 
 %heading-3 {
+  @extend %font-secondary-bold;
   font-size: map_get($f-sizes, 'h3');
 }
 
 %heading-body {
+  @extend %font-secondary;
   font-size: map_get($f-sizes, 'body');
+  line-height: 1.5rem;
+  @extend %main-75;
 }
 
