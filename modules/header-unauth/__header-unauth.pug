@@ -1,14 +1,18 @@
--var header_links=['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения']
+-var header_links=[['О нас', '#'], ['Услуги', '#'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#']]
 
 header.header-unauth
     .header-unauth__container
-        .header-unauth__brand
-            .header-unath__logo
-                include ../../img/__main-logo.svg
-            .header-unath__name
-                include ../../img/__toxin.svg
-        ul.header-unath__links
-            each text in header_links
-                li.header-unath__item
-                    a.header-unath__link=text
-                li.header-unath__btn-container
+        .header-unauth__logo
+            include ../../img/__main-logo-gradient.svg
+        ul.header-unauth__links
+            each link in header_links
+                -var href= link[1]
+                -var text= link[0]
+                li.header-unauth__item
+                    a.header-unauth__link(href=href)=text
+            include ../btn/__btn-border
+            li.header-unauth__item
+                +btn-border('Войти', '#')
+            include ../btn/__btn
+            li.header-unauth__item
+                +btn('Зарегистрироваться', '#')

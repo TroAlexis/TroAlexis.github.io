@@ -1,0 +1,9 @@
+.btn {
+  @extend %heading-3;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  padding: 0.625rem 1.25rem;
+  border-radius: 22px;
+}

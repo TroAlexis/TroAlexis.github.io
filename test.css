@@ -1,4 +1,12 @@
-.btn {
+.header-unauth__item:first-of-type a {
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.header-unauth__link {
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.btn-border__link {
   color: #BC9CFF;
 }
 
@@ -22,13 +30,19 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.btn {
+.header-unauth__link {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.header-unauth__item:first-of-type a, .btn-border__link, .btn {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.btn {
+.btn-border__link, .btn {
   font-size: 0.75rem;
 }
 
@@ -54,12 +68,12 @@ html {
 }
 
 .btn {
-  background: white;
-  display: block;
-  text-decoration: none;
   text-transform: uppercase;
-  padding: 0.55rem 1.5rem;
-  border-radius: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  padding: 0.625rem 1.25rem;
+  border-radius: 22px;
 }
 
 .btn-border {
@@ -69,9 +83,46 @@ html {
   display: inline-block;
   text-align: center;
 }
+.btn-border__link {
+  background: white;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.55rem 1.5rem;
+  border-radius: 20px;
+}
 
+.header-unauth {
+  height: 70px;
+  padding: 15px 140px;
+}
+.header-unauth__container {
+  display: flex;
+  justify-content: space-between;
+}
+.header-unauth__brand {
+  display: flex;
+  align-items: center;
+}
+.header-unauth__logo {
+  display: inline-block;
+}
+.header-unauth__links {
+  padding: 0;
+  margin: 0 -8px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.header-unauth__link {
+  text-decoration: none;
+}
+.header-unauth__item {
+  padding: 0 8px;
+}
 body {
-  padding: 200px;
+  padding: 200px 20px;
 }
 
 /*# sourceMappingURL=test.css.map */
