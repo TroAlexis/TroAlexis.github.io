@@ -1,0 +1,6 @@
+mixin link(href, title, dropdown)
+    a.link(href=href)
+        span.link__title=title
+        if dropdown
+            span.link--dropdown
+                include ../../img/__expand-more.svg

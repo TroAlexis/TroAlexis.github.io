@@ -1,0 +1,28 @@
+-var header_links=[['О нас', '#'], ['Услуги', '#', 'dropdown'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#', 'dropdown']]
+
+mixin header(header_links, is_auth, username='Юлий Цезарь')
+    header.header
+        nav.header__container
+            .header__logo
+                a.header__logo-link(href='#')
+                    include ../../img/__main-logo-gradient.svg
+            ul.header__links
+                each link in header_links
+                    -var href= link[1]
+                    -var text= link[0]
+                    -var dropdown= link[2]
+                    li.header__item
+                        include ../link/__link
+                        +link(href, text, dropdown)
+                unless is_auth
+                    include ../btn/__btn-border
+                    li.header__item
+                        +btn-border('Войти', '#')
+                    include ../btn/__btn
+                    li.header__item
+                        +btn('Зарегистрироваться', '#')
+                else
+                    .header__vline
+                    li.header__item
+                        +link('#', username)
+

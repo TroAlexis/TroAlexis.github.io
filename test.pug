@@ -4,4 +4,8 @@ block links
     link(rel='stylesheet', href='test.css')
 
 block content
-    include modules/header-unauth/__header-unauth
+    include modules/header/__header
+    +header([['О нас', '#'], ['Услуги', '#', 'dropdown'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#', 'dropdown']], false)
+    +header([['О нас', '#'], ['Услуги', '#', 'dropdown'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#', 'dropdown']], true)
+    include modules/footer/__footer-main/__footer-main
+    .padding

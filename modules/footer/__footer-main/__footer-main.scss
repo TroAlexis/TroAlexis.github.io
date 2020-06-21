@@ -1,0 +1,27 @@
+@import "../../link/_link";
+@import "../../type/__body-text/_body-text";
+@import "../../type/__heading-3/__heading-3";
+
+.footer-main {
+  padding: 100px 140px;
+  //height: 372px;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1160px;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    .link {
+      padding-top: 20px;
+    }
+    &--big {
+      flex: 0 1 260px;
+      .body-text {
+        padding-top: 20px;
+      }
+    }
+  }
+}

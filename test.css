@@ -1,8 +1,8 @@
-.header-unauth__item:first-of-type a {
+.header__item:first-of-type a, .body-text {
   color: rgba(31, 32, 65, 0.75);
 }
 
-.header-unauth__link {
+.link {
   color: rgba(31, 32, 65, 0.5);
 }
 
@@ -30,20 +30,27 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.header-unauth__link {
+.link, .body-text {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.header-unauth__item:first-of-type a, .btn-border__link, .btn {
+.header__item:first-of-type a, .heading-3, .btn-border__link, .btn {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.btn-border__link, .btn {
+.heading-3, .btn-border__link, .btn {
   font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #1F2041;
+}
+
+.body-text {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
 }
 
 * {
@@ -92,37 +99,89 @@ html {
   border-radius: 20px;
 }
 
-.header-unauth {
+.link {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.link--dropdown {
+  display: flex;
+  padding-top: 2px;
+}
+.link--dropdown .arrow {
+  fill: rgba(31, 32, 65, 0.5);
+}
+
+.header {
   height: 70px;
   padding: 15px 140px;
 }
-.header-unauth__container {
+.header__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1160px;
 }
-.header-unauth__brand {
+.header__brand {
   display: flex;
   align-items: center;
 }
-.header-unauth__logo {
-  display: inline-block;
+.header__logo-link {
+  display: flex;
 }
-.header-unauth__links {
+.header__links {
   padding: 0;
   margin: 0 -8px;
   list-style: none;
   display: flex;
   align-items: center;
-  font-size: 14px;
 }
-.header-unauth__link {
-  text-decoration: none;
-}
-.header-unauth__item {
+.header__item {
   padding: 0 8px;
 }
+.header__vline {
+  border-left: 1px solid rgba(31, 32, 65, 0.1);
+  height: 30px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-main {
+  padding: 100px 140px;
+}
+.footer-main__row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1160px;
+}
+.footer-main__column {
+  display: flex;
+  flex-direction: column;
+}
+.footer-main__column .link {
+  padding-top: 20px;
+}
+.footer-main__column--big {
+  flex: 0 1 260px;
+}
+.footer-main__column--big .body-text {
+  padding-top: 20px;
+}
+
 body {
-  padding: 200px 20px;
+  padding: 200px 0;
+}
+
+.padding {
+  height: 200px;
+  padding: 100px;
 }
 
 /*# sourceMappingURL=test.css.map */

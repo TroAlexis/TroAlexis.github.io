@@ -1,0 +1,29 @@
+include ../../link/__link
+include ../../type/__body-text/__body-text
+include ../../type/__heading-3/__heading-3
+footer.footer-main
+    .footer-main__row
+        .footer-main__column--big
+            .footer-main__logo
+                include ../../../img/__main-logo-gradient.svg
+            +body-text('Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»')
+        .footer-main__column
+            +heading-3('навигация').footer-main__heading-3
+            +link('#', 'О нас')
+            +link('#', 'Новости')
+            +link('#', 'Служба поддержки')
+            +link('#', 'Услуги ')
+        .footer-main__column
+            +heading-3('о нас')
+            +link('#', 'О сервисе')
+            +link('#', 'Наша команда')
+            +link('#', 'Вакансии')
+            +link('#', 'Инвесторы ')
+        .footer-main__column
+            +heading-3('Служба поддержки')
+            +link('#', 'Соглашения')
+            +link('#', 'Сообщества')
+            +link('#', 'Связь с нами')
+        .footer-main__column--big
+            +heading-3('Подписка')
+            +body-text('Получайте специальные предложения и новости сервиса')
