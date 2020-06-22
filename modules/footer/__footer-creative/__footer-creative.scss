@@ -1,0 +1,17 @@
+@import "../../type/__body-text/__body-text";
+@import "../../socials/__socials";
+
+.footer-creative {
+  width: 768px;
+  margin: 0 auto;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 104px;
+    .body-text {
+      margin: 20px 0 25px 0;
+    }
+  }
+}

@@ -4,12 +4,14 @@
 
 .header {
   height: 70px;
-  padding: 15px 140px;
+  display: flex;
+  justify-content: center;
   &__container {
     display: flex;
+    padding: 15px 140px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    max-width: 1160px;
   }
   &__brand {
     display: flex;

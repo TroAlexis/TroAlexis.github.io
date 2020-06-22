@@ -1,11 +1,14 @@
 @import "../../link/_link";
 @import "../../type/__body-text/_body-text";
 @import "../../type/__heading-3/__heading-3";
+@import "../../subscription-tf/__subscription-tf";
+@import "../__footer-copyright/__footer-copyright";
 
 .footer-main {
-  padding: 100px 140px;
   //height: 372px;
-
+  &__container {
+    padding: 100px 140px;
+  }
   &__row {
     display: flex;
     justify-content: space-between;
@@ -15,12 +18,15 @@
     display: flex;
     flex-direction: column;
     .link {
-      padding-top: 20px;
+      margin-top: 20px;
     }
     &--big {
       flex: 0 1 260px;
       .body-text {
-        padding-top: 20px;
+        margin-top: 20px;
+      }
+      .subscription-tf {
+        margin-top: 20px;
       }
     }
   }
