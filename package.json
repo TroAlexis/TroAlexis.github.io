@@ -4,6 +4,7 @@
   "description": "Fsd Task.",
   "main": "index.js",
   "dependencies": {
+    "formatter.js-pebble": "^0.1.8",
     "pug": "^3.0.0"
   },
   "devDependencies": {},

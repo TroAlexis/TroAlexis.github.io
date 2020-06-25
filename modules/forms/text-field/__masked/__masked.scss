@@ -1,0 +1,10 @@
+@import '../../_shared';
+
+.text-field--masked {
+  width: 320px;
+  height: 44px;
+  @extend %input-common;
+  &::placeholder {
+    @extend %main-25;
+  }
+  }

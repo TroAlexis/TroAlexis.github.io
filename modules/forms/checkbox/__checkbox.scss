@@ -1,0 +1,39 @@
+.checkbox {
+  // HIDING THE CHECKBOX
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  //CHECKED STATE FOR CUSTOM CHECKBOX
+  &:checked {
+    +.checkbox__label {
+      &:before {
+        border-color: map-get($colors, 'primary');
+        background: url("../../../img/__tick.svg");
+        background-repeat: no-repeat;
+        background-position: 50% 40%;
+      }
+    }
+  }
+  //STYLING THE LABEL
+  &__label {
+    @extend %heading-body;
+    @extend %main-50;
+    line-height: 1.125rem;
+    max-width: 200px;
+    display: inline-flex;
+    user-select: none;
+    // STYLING THE CUSTOM CHECKBOX
+    &:before {
+      content: '';
+      display: inline-block;
+      box-sizing: border-box;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      border: 1px solid map_get($colors, 'main-25');
+      border-radius: 0.25rem;
+      margin-right: 10px;
+    }
+  }
+}

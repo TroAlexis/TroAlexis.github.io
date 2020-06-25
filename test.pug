@@ -5,8 +5,8 @@ block links
 
 block content
     .main-container
-        include modules/header/__header
-        +header([['О нас', '#'], ['Услуги', '#', 'dropdown'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#', 'dropdown']], false)
-        +header([['О нас', '#'], ['Услуги', '#', 'dropdown'], ['Вакансии', '#'], ['Новости', '#'], ['Соглашения', '#', 'dropdown']], true)
-        include modules/footer/__footer-main/__footer-main
-        include modules/footer/__footer-creative/__footer-creative
+        include modules/forms/text-field/__text-field
+        +text-field('email','email', 'Email')
+        include modules/forms/toggle/__toggle
+        +toggle('specials', 'Получать спецпредложения', false)
+        +toggle('specials', 'Получать спецпредложения', true)

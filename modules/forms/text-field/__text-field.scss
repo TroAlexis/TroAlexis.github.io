@@ -1,0 +1,13 @@
+@import '../_shared';
+
+.text-field {
+  width: 320px;
+  height: 44px;
+  @extend %input-common;
+  &::placeholder {
+    @extend %main-25;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+  }

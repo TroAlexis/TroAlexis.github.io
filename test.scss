@@ -1,27 +1,18 @@
 @import "pages/ui-base/ui-base";
-@import "modules/header/_header";
-@import "modules/footer/__footer-main/__footer-main";
-@import "modules/footer/__footer-creative/__footer-creative";
+@import "modules/forms/text-field/__text-field";
+@import "modules/forms/text-field/__masked/__masked";
+//@import "modules/forms/checkbox/__checkbox";
+//@import "modules/forms/radio/__radio";
+@import "modules/forms/toggle/__toggle";
+
+
 body {
   background: #F4F4F6;
   .main-container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 140px 0;
+    padding: 140px 100px;
     max-width: 1440px;
-  }
-  .header {
-    margin-bottom: 40px;
-  }
-  .footer-main {
-    margin-bottom: 40px;
-  }
-  .header,
-  .footer-main,
-  .footer-copyright,
-  .footer-creative {
-    background: #FFFFFF;
-    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   }
 }

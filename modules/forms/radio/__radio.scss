@@ -1,0 +1,53 @@
+.radio {
+  // HIDING THE DEFAULT RADIO BUTTON
+  &__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    // HOVERING THE RADIO BUTTON
+    &:not(:disabled):not(:checked) {
+      +.radio__label:hover::before {
+          border-color: map_get($colors, 'primary');
+      }
+    }
+    // CLICKING THE RADIO BUTTON (ACTIVE STATE)
+    &:not(:disabled):active {
+      +.radio__label::before {
+        border-color: map_get($colors, 'primary');
+        background-color: rgba(188, 156, 255, 0.2);
+      }
+    }
+    // CHECKED RADIO BUTTON
+    &:checked {
+      +.radio__label::before {
+        border-color: map_get($colors, 'primary');
+        background: {
+          image: url("../../../img/__radio.svg");
+          repeat: no-repeat;
+          position: center center;
+        }
+      }
+    }
+  }
+  //STYLING THE LABEL
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    @extend %heading-body;
+    @extend %main-50;
+    //STYLING THE CUSTOM RADIO
+    &:before {
+      content: '';
+      cursor: pointer;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      flex: 0 0 auto;
+      border: 1px solid map_get($colors, 'main-25');
+      border-radius: 50%;
+    }
+  }
+}
