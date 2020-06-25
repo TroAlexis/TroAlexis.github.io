@@ -1,0 +1,11 @@
+.like-btn {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=__like-btn.css.map */

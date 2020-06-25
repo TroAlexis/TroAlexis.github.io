@@ -1,4 +1,4 @@
-.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -30,13 +30,13 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -256,12 +256,77 @@ html {
   color: rgba(31, 32, 65, 0.75);
 }
 
+@keyframes like {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes like-border {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.like-btn {
+  display: inline-block;
+  background: rgba(31, 32, 65, 0.25);
+  height: 20px;
+  padding: 1px;
+  border-radius: 10px;
+}
+.like-btn__container {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background: #FFFFFF;
+  height: 100%;
+  border-radius: 9px;
+}
+.like-btn__icon {
+  width: 19px;
+  height: 100%;
+  background-image: url("../../../img/__like-icon--border.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.like-btn__count {
+  line-height: normal;
+  font-size: 10px;
+  padding: 0 7px 0 3px;
+  min-width: 19px;
+  color: rgba(31, 32, 65, 0.25);
+  transition: 0.2s;
+}
+
+.like-btn.active {
+  background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
+  animation: like-border 0.3s ease-out;
+}
+.like-btn.active .like-btn__container .like-btn__icon {
+  animation: like 0.3s ease-out;
+  background-image: url("../../../img/__like-icon.svg");
+}
+.like-btn.active .like-btn__container .like-btn__count {
+  color: #BC9CFF;
+  transition: none;
+  animation: like-border 0.3s ease-out;
+}
+
 body {
   background: #F4F4F6;
 }
 body .main-container {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   padding: 140px 100px;
   max-width: 1440px;
