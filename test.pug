@@ -10,3 +10,9 @@ block content
         include modules/forms/toggle/__toggle
         +toggle('specials', 'Получать спецпредложения', false)
         +toggle('specials', 'Получать спецпредложения', true)
+        include modules/forms/radio/__radio
+        +radio('sex', 'Мужчина', 'male')
+        +radio('sex', 'Женщина', 'female')
+        include modules/forms/checkbox/__checkbox
+        +checkbox('smoking', 'Можно курить')
+        include modules/forms/subscription-tf/__subscription-tf

@@ -10,22 +10,29 @@
           border-color: map_get($colors, 'primary');
       }
     }
+    // FOCUS ON THE BUTTON
+    &:focus+.radio__label::before, &:focus:not(:checked)+.radio__label::before {
+      box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.20);
+    }
     // CLICKING THE RADIO BUTTON (ACTIVE STATE)
     &:not(:disabled):active {
       +.radio__label::before {
         border-color: map_get($colors, 'primary');
-        background-color: rgba(188, 156, 255, 0.2);
+        background-color: rgba(188, 156, 255, 0.1);
       }
     }
     // CHECKED RADIO BUTTON
     &:checked {
-      +.radio__label::before {
+      +.radio__label {
+        &::before {
         border-color: map_get($colors, 'primary');
         background: {
           image: url("../../../img/__radio.svg");
           repeat: no-repeat;
           position: center center;
+          }
         }
+        color: map-get($colors, 'main-75');
       }
     }
   }
@@ -36,6 +43,7 @@
     user-select: none;
     @extend %heading-body;
     @extend %main-50;
+    transition: .2s;
     //STYLING THE CUSTOM RADIO
     &:before {
       content: '';
@@ -48,6 +56,7 @@
       flex: 0 0 auto;
       border: 1px solid map_get($colors, 'main-25');
       border-radius: 50%;
+      transition: border-color .2s;
     }
   }
 }

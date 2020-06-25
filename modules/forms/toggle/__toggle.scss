@@ -6,10 +6,9 @@
 
   // HIDING THE DEFAULT CHECKBOX
   &__box {
-    position: absolute;
-    z-index: -1;
+    width: 0;
+    height: 0;
     opacity: 0;
-
     // STYLING THE CHECKED BUTTON
     &:checked+.toggle__button {
       &::before {
@@ -21,6 +20,17 @@
           opacity: 0;
           transform: translateX(22px);
         }
+      }
+    }
+    // FOCUS ON THE BUTTON
+    &:focus+.toggle__button, &:focus:not(:checked)+.toggle__button {
+      box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.20);
+    }
+    // HOVERING THE TOGGLE BUTTON
+    &:not(:disabled):not(:checked)+.toggle__button:hover {
+      border-color: map_get($colors, 'main-35');
+      .toggle__dummybg::before {
+        background: rgb(170, 167, 182);
       }
     }
 

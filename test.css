@@ -1,8 +1,8 @@
-.toggle__label, .text-field--masked, .text-field {
+.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   color: rgba(31, 32, 65, 0.75);
 }
 
-.toggle__label {
+.toggle__label, .radio__label, .checkbox__label {
   color: rgba(31, 32, 65, 0.5);
 }
 
@@ -30,13 +30,13 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.toggle__label, .text-field--masked, .text-field {
+.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.toggle__label, .text-field--masked, .text-field {
+.toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -102,6 +102,87 @@ html {
   width: 320px;
   height: 44px;
 }
+.checkbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.checkbox:checked + .checkbox__label::before {
+  border-color: #BC9CFF;
+  background-image: url("../../../img/__tick.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 40%;
+}
+.checkbox:focus + .checkbox__label::before, .checkbox:focus:not(:checked) + .checkbox__label::before {
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.2);
+}
+.checkbox:not(:checked):not(:disabled):not(:focus) + .checkbox__label:hover::before {
+  border-color: rgba(31, 32, 65, 0.35);
+}
+.checkbox__label {
+  line-height: 1.125rem;
+  max-width: 200px;
+  display: inline-flex;
+  user-select: none;
+}
+.checkbox__label:before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 0.25rem;
+  margin-right: 10px;
+  transition: border-color 0.4s;
+}
+
+.radio__input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.radio__input:not(:disabled):not(:checked) + .radio__label:hover::before {
+  border-color: #BC9CFF;
+}
+.radio__input:focus + .radio__label::before, .radio__input:focus:not(:checked) + .radio__label::before {
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.2);
+}
+.radio__input:not(:disabled):active + .radio__label::before {
+  border-color: #BC9CFF;
+  background-color: rgba(188, 156, 255, 0.1);
+}
+.radio__input:checked + .radio__label {
+  color: rgba(31, 32, 65, 0.75);
+}
+.radio__input:checked + .radio__label::before {
+  border-color: #BC9CFF;
+  background-image: url("../../../img/__radio.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.radio__label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  transition: 0.2s;
+}
+.radio__label:before {
+  content: "";
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 50%;
+  transition: border-color 0.2s;
+}
+
 .toggle {
   display: inline-flex;
   flex-wrap: wrap;
@@ -109,8 +190,8 @@ html {
   user-select: none;
 }
 .toggle__box {
-  position: absolute;
-  z-index: -1;
+  width: 0;
+  height: 0;
   opacity: 0;
 }
 .toggle__box:checked + .toggle__button {
@@ -122,6 +203,15 @@ html {
 .toggle__box:checked + .toggle__button .toggle__dummybg::before {
   opacity: 0;
   transform: translateX(22px);
+}
+.toggle__box:focus + .toggle__button, .toggle__box:focus:not(:checked) + .toggle__button {
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.2);
+}
+.toggle__box:not(:disabled):not(:checked) + .toggle__button:hover {
+  border-color: rgba(31, 32, 65, 0.35);
+}
+.toggle__box:not(:disabled):not(:checked) + .toggle__button:hover .toggle__dummybg::before {
+  background: #aaa7b6;
 }
 .toggle__box:active + .toggle__button {
   box-shadow: 0 0 1px #BC9CFF;
