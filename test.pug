@@ -21,4 +21,20 @@ block content
         +like-btn('3')
         +like-btn('5')
         +like-btn('1')
+        include modules/expandable/__expandable
+        +expandable('expandable checkbox list')
+            .expandable__content
+                +checkbox('breakfast', 'Завтрак')
+                +checkbox('desk', 'Письменный стол')
+                +checkbox('feeding-chair', 'Стул для кормления')
+                +checkbox('children-bed', 'Кроватка')
+                +checkbox('tv1', 'Телевизор')
+                +checkbox('shampoo1', 'Шампунь')
+                +checkbox('tv2', 'Телевизор')
+                +checkbox('shampoo2', 'Шампунь')
+        include modules/advantage/__advantage
+        +advantage('Комфорт', 'Шумопоглощающие стены', '1')
+        +advantage('Удобство', 'Окно в каждой из спален', '2')
+        +advantage('Уют', 'Номер оснащён камином', '3')
         script(src='modules/forms/like-btn/__like-btn.js')
+        script(src='modules/expandable/__expandable.js')

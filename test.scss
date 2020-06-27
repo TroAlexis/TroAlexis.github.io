@@ -5,6 +5,8 @@
 @import "modules/forms/radio/__radio";
 @import "modules/forms/toggle/__toggle";
 @import "modules/forms/like-btn/__like-btn";
+@import "modules/expandable/__expandable";
+@import "modules/advantage/__advantage";
 
 
 body {
@@ -13,5 +15,7 @@ body {
     margin: 0 auto;
     padding: 140px 100px;
     max-width: 1440px;
+    //display: flex;
+    //flex-direction: column;
   }
 }

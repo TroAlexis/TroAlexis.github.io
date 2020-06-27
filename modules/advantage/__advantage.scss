@@ -1,0 +1,16 @@
+.advantage {
+  display: inline-flex;
+  padding: 20px 0;
+  &__label {
+    @extend %heading-body;
+    margin-left: 10px;
+    padding-right: 36px;
+    max-width: 280px;
+  }
+  &__title {
+    font-weight: bold;
+    overflow-wrap: break-spaces;
+  }
+  &__description {
+  }
+}

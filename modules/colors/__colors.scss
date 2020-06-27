@@ -29,3 +29,18 @@ $colors: ('main-100': #1F2041,
 %secondary {
   color: map-get($colors, 'secondary');
 }
+// ROOT IMAGES PATH
+$images-path--root: '../../img/';
+
+$icons: 3;
+
+.icon {
+  $image-path: $images-path--root + 'icons/';
+  width: 48px;
+  height: 48px;
+  @for $i from 1 through $icons {
+    &.icon--#{$i} {
+      background: url("#{$image-path}#{$i}.svg") center center no-repeat;
+    }
+  }
+}
