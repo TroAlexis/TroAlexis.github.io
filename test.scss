@@ -2,12 +2,18 @@
 @import "modules/forms/text-field/__text-field";
 @import "modules/forms/text-field/__masked/__masked";
 @import "modules/forms/checkbox/__checkbox";
+@import "modules/forms/checkbox/__checkbox--rich";
 @import "modules/forms/radio/__radio";
 @import "modules/forms/toggle/__toggle";
 @import "modules/forms/like-btn/__like-btn";
 @import "modules/expandable/__expandable";
 @import "modules/advantage/__advantage";
-
+@import "modules/rate-btn/__rate-btn";
+@import "modules/bullet-list/__bullet-list";
+@import "modules/btn/__btn";
+@import "modules/btn/__btn-border";
+@import "modules/btn/__btn-bdless";
+@import "modules/feedback/__feedback";
 
 body {
   background: #F4F4F6;

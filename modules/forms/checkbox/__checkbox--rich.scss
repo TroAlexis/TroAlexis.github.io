@@ -1,0 +1,12 @@
+@import "__checkbox";
+
+.checkbox__label--rich {
+  max-width: 266px;
+  .checkbox__info {
+    .checkbox__title {
+      font-weight: bold;
+      color: map-get($colors, 'main-75');
+      margin-bottom: 5px;
+    }
+  }
+}

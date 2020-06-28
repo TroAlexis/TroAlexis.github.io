@@ -1,0 +1,5 @@
+mixin btn-bdless(content, href, disabled)
+    if disabled
+        a.btn-bdless.btn-bdless--disabled(href=href)= content
+    else
+        a.btn-bdless(href=href)= content

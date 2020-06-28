@@ -1,3 +1,12 @@
-mixin checkbox(id, label)
-    input.checkbox(type='checkbox' id=id name=id value='yes')
-    label.checkbox__label(for=id)= label
+mixin checkbox(id, label, isrich)
+    if isrich
+        -var title= label[0]
+        -var description= label[1]
+        input.checkbox(type='checkbox' id=id name=id value='yes')
+        label.checkbox__label.checkbox__label--rich(for=id)
+            .checkbox__info
+                .checkbox__title= title
+                .checkbox__description= description
+    else
+        input.checkbox(type='checkbox' id=id name=id value='yes')
+        label.checkbox__label(for=id)= label

@@ -6,10 +6,6 @@
   color: rgba(31, 32, 65, 0.5);
 }
 
-.btn-border__link {
-  color: #BC9CFF;
-}
-
 .icon {
   width: 48px;
   height: 48px;
@@ -93,8 +89,26 @@ html {
   color: #ffffff;
   text-decoration: none;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-  padding: 0.625rem 1.25rem;
+  padding: 0.90625rem 0;
   border-radius: 22px;
+  position: relative;
+}
+.btn--disabled {
+  opacity: 0.5;
+}
+.btn--arrow {
+  display: inline-flex;
+  width: 320px;
+  align-items: center;
+  justify-content: center;
+}
+.btn--arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  background: url("../../img/__arrow_forward--white.svg") center center no-repeat;
+  width: 44px;
+  height: 44px;
 }
 
 .btn-border {
@@ -104,12 +118,16 @@ html {
   display: inline-block;
   text-align: center;
 }
+.btn-border--disabled {
+  background: linear-gradient(to bottom, rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
+}
 .btn-border__link {
   background: white;
   display: block;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0.55rem 1.5rem;
+  color: #BC9CFF;
+  padding: 0.78125rem 1.125rem;
   border-radius: 20px;
 }
 

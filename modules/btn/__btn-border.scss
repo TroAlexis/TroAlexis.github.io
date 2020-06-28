@@ -4,14 +4,17 @@
   border-radius: 22px;
   display: inline-block;
   text-align: center;
+  &--disabled {
+    background: linear-gradient(to bottom, rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
+  }
   &__link {
     background: white;
     display: block;
     text-decoration: none;
     @extend %heading-3;
     text-transform: uppercase;
-    @extend %primary;
-    padding: .55rem 1.5rem;
+    color: map-get($colors, 'primary');
+    padding: 0.78125rem 1.125rem;
     border-radius: 20px;
   }
 }

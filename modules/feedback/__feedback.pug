@@ -1,0 +1,14 @@
+include ../forms/like-btn/__like-btn
+
+mixin feedback(photo, name, date,likes, content)
+    .feedback
+        .feedback__info
+            img.feedback__image(src=photo[0], alt=photo[1])
+            .feedback__title
+                p.feedback__name= name
+                p.feedback__date= date
+        .feedback__description
+            .feedback__button
+                +like-btn(likes).feedback__like-btn
+            p.feedback__content= content
+

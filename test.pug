@@ -36,5 +36,22 @@ block content
         +advantage('Комфорт', 'Шумопоглощающие стены', '1')
         +advantage('Удобство', 'Окно в каждой из спален', '2')
         +advantage('Уют', 'Номер оснащён камином', '3')
+        +checkbox('invalid', ['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.'], true)
+        +checkbox('corridor', ['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.'], true)
+        include modules/bullet-list/__bullet-list
+        +bullet-list(['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00','Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
+        include modules/rate-btn/__rate-btn
+        +rate-btn
+        +rate-btn
+        +rate-btn
+        include modules/btn/__btn
+        include modules/btn/__btn-border
+        include modules/btn/__btn-bdless
+        +btn('Забронировать', '#', 'btn--arrow')
+        +btn-border('click me', '#', true)
+        +btn-bdless('click me', '#', true)
+        include modules/feedback/__feedback
+        +feedback(['https://sun9-59.userapi.com/c845124/v845124363/ac661/Qtvsb1YKyX4.jpg?ava=1', 'someimage'], 'Мурад Сарафанов', '5 дней назад', '11', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.')
         script(src='modules/forms/like-btn/__like-btn.js')
         script(src='modules/expandable/__expandable.js')
+        script(src='modules/rate-btn/__rate-btn.js')

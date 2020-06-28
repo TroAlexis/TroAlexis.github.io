@@ -1,0 +1,27 @@
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  //max-width: 292px;
+  &__item {
+    @extend %heading-body;
+    color: map-get($colors, 'main-75');
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10.43px;
+      height: 10px;
+      background: url("../../img/__ellipse.svg") no-repeat;
+      margin: 0 10.43px 0 0;
+    }
+  }
+  &__content {
+    flex: 0 1 240px;
+  }
+}

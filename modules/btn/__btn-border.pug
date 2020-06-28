@@ -1,3 +1,7 @@
-mixin btn-border(text, href)
-    .btn-border
-        a.btn-border__link(href=href)=text
+mixin btn-border(text, href, disabled)
+    if disabled
+        .btn-border.btn-border--disabled
+            a.btn-border__link(href=href)=text
+    else
+        .btn-border
+            a.btn-border__link(href=href)=text
