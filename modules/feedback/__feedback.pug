@@ -9,6 +9,6 @@ mixin feedback(photo, name, date,likes, content)
                 p.feedback__date= date
         .feedback__description
             .feedback__button
-                +like-btn(likes).feedback__like-btn
+                +like-btn(likes)
             p.feedback__content= content
 
