@@ -1,14 +1,19 @@
 include ../../type/__heading-3/__heading-3
 include ../../btn/__btn-bdless
-mixin dropdown(placeholder, items)
-    .dropdown
+mixin dropdown(placeholder, items, type)
+    .dropdown(class=type)
         a.dropdown__select
             span= placeholder
         .dropdown__content
-            each item in items
-                .dropdown__item
+            -var last = ''
+            each item, index in items
+                .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
                     +heading-3(item, 'dropdown__label')
-                    button.dropdown__minus
+                    button.dropdown__minus.dropdown__minus--disabled
                     +heading-3('0', 'dropdown__count')
                     button.dropdown__plus
-            +btn-bdless('применить', '#', false, 'dropdown__apply')
+            if type === 'dropdown--guests'
+                +btn-bdless('применить', '#', false, 'dropdown__apply')
+                +btn-bdless('очистить', '#', true, 'dropdown__clear')
+
+
