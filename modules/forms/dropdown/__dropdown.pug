@@ -1,19 +1,42 @@
 include ../../type/__heading-3/__heading-3
 include ../../btn/__btn-bdless
-mixin dropdown(placeholder, items, type)
-    .dropdown(class=type)
-        a.dropdown__select
-            span= placeholder
+mixin dropdown(placeholder, items, exclass, type)
+    .dropdown(class=exclass)
+        a.dropdown__select(class=(exclass === 'dropdown--date') ? 'arrival' : '')
+            if exclass === 'dropdown--date'
+                input.dropdown__arrival(type ='text' placeholder= placeholder)
+            else
+                span= placeholder
+        if exclass === 'dropdown--date'
+            a.dropdown__select.depart
+                input.dropdown__depart(type ='text' placeholder= placeholder)
         .dropdown__content
-            -var last = ''
-            each item, index in items
-                .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
-                    +heading-3(item, 'dropdown__label')
-                    button.dropdown__minus.dropdown__minus--disabled
-                    +heading-3('0', 'dropdown__count')
-                    button.dropdown__plus
-            if type === 'dropdown--guests'
-                +btn-bdless('применить', '#', false, 'dropdown__apply')
-                +btn-bdless('очистить', '#', true, 'dropdown__clear')
+            if (exclass === 'dropdown--date')
+                .dropdown--date__calendar
+                    .dropdown--date__header
+                        .dropdown--date__arrow
+                        .dropdown--date__text
+                            span.dropdown--date__month
+                            span.dropdown--date__year
+                        .dropdown--date__arrow.dropdown--date__arrow--forward
+                    .dropdown--date__weekdays
+                        - const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+                        each day in weekdays
+                            span.dropdown--date__weekday=day
+                    .dropdown--date__days
+                    if type === 'buttons'
+                        +btn-bdless('применить', '#', false, 'dropdown__apply')
+                        +btn-bdless('очистить', '#', true, 'dropdown__clear')
+            else
+                -var last = ''
+                each item, index in items
+                    .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
+                        +heading-3(item, 'dropdown__label')
+                        button.dropdown__minus.dropdown__minus--disabled
+                        +heading-3('0', 'dropdown__count')
+                        button.dropdown__plus
+                if type === 'buttons'
+                    +btn-bdless('применить', '#', false, 'dropdown__apply')
+                    +btn-bdless('очистить', '#', true, 'dropdown__clear')
 
 

@@ -152,7 +152,7 @@
                 </div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
               </div>
             </div>
-            <div class="dropdown dropdown--rooms"><a class="dropdown__select"><span>Спальни, кровати, ванные комнаты</span></a>
+            <div class="dropdown dropdown--rooms"><a class="dropdown__select"><span>Сколько спален, кроватей</span></a>
               <div class="dropdown__content">
                 <div class="dropdown__item">
                         <h3 class="heading-3 dropdown__label">спальни</h3>
@@ -174,11 +174,45 @@
                 </div>
               </div>
             </div>
+            <div class="dropdown dropdown--date"><a class="dropdown__select arrival">
+                <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
+                <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
+              <div class="dropdown__content">
+                <div class="dropdown--date__calendar">
+                  <div class="dropdown--date__header">
+                    <div class="dropdown--date__arrow"></div>
+                    <div class="dropdown--date__text"><span class="dropdown--date__month"></span><span class="dropdown--date__year"></span></div>
+                    <div class="dropdown--date__arrow dropdown--date__arrow--forward"></div>
+                  </div>
+                  <div class="dropdown--date__weekdays"><span class="dropdown--date__weekday">Пн</span><span class="dropdown--date__weekday">Вт</span><span class="dropdown--date__weekday">Ср</span><span class="dropdown--date__weekday">Чт</span><span class="dropdown--date__weekday">Пт</span><span class="dropdown--date__weekday">Сб</span><span class="dropdown--date__weekday">Вс</span>
+                  </div>
+                  <div class="dropdown--date__days"></div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown dropdown--date"><a class="dropdown__select arrival">
+                <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
+                <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
+              <div class="dropdown__content">
+                <div class="dropdown--date__calendar">
+                  <div class="dropdown--date__header">
+                    <div class="dropdown--date__arrow"></div>
+                    <div class="dropdown--date__text"><span class="dropdown--date__month"></span><span class="dropdown--date__year"></span></div>
+                    <div class="dropdown--date__arrow dropdown--date__arrow--forward"></div>
+                  </div>
+                  <div class="dropdown--date__weekdays"><span class="dropdown--date__weekday">Пн</span><span class="dropdown--date__weekday">Вт</span><span class="dropdown--date__weekday">Ср</span><span class="dropdown--date__weekday">Чт</span><span class="dropdown--date__weekday">Пт</span><span class="dropdown--date__weekday">Сб</span><span class="dropdown--date__weekday">Вс</span>
+                  </div>
+                  <div class="dropdown--date__days"></div>
+                </div>
+              </div>
+            </div>
+      <script src="modules/forms/dropdown/dropdown--date/formatter.js"></script>
       <script src="modules/forms/like-btn/__like-btn.js"></script>
       <script src="modules/expandable/__expandable.js"></script>
       <script src="modules/rate-btn/__rate-btn.js"></script>
       <script src="modules/forms/dropdown/__dropdown.js"></script>
       <script src="modules/forms/dropdown/dropdown--guests/__dropdown--guests.js"></script>
+      <script src="modules/forms/dropdown/dropdown--date/__dropdown--date.js"></script>
     </div>
   </body>
 </html>

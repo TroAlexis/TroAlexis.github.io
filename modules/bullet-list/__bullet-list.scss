@@ -14,8 +14,9 @@
     }
     &::before {
       content: '';
+      flex: 1 0 10.43px;
+      max-width: 10.43px;
       display: inline-block;
-      width: 10.43px;
       height: 10px;
       background: url("../../img/__ellipse.svg") no-repeat;
       margin: 0 10.43px 0 0;

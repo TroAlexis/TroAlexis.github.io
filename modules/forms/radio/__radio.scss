@@ -24,9 +24,16 @@
     // CHECKED RADIO BUTTON
     &:checked {
       +.radio__label {
+        position: relative;
         &::before {
         border-color: map_get($colors, 'primary');
-        background: {
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background: {
           image: url("../../../img/__radio.svg");
           repeat: no-repeat;
           position: center center;

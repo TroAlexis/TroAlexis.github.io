@@ -5,26 +5,31 @@ var i = 0;
 for (i = 0; i < selects.length; i++) {
     var select = selects[i];
     select.addEventListener('click', function () {
-        var content = this.nextElementSibling;
+        let content = (this.nextElementSibling.classList.contains('dropdown__content')) ? this.nextElementSibling : this.nextElementSibling.nextElementSibling;
+        // if closed
         if (content.style.display === '') {
             content.style.display = 'flex';
         }
+        // if open
         else {
-            content.style.display = '';
+            if (this.className === 'dropdown__select') {
+                content.style.display = '';
+            }
         }
     });
 }
 
 document.documentElement.addEventListener('click', function (e) {
-    // console.log(e.target)
     var selects = document.querySelectorAll('.dropdown__select');
     var i = 0;
 
     for (i = 0; i < selects.length; i++) {
         var select = selects[i];
-        var content = select.nextElementSibling;
+        var content = (select.nextElementSibling.classList.contains('dropdown__content')) ? select.nextElementSibling : select.nextElementSibling.nextElementSibling;
         if (!e.target.closest('.dropdown')) {
             content.style.display = '';
+            content.classList.remove('arrival', 'depart')
+            select.classList.remove('active');
         }
     }
 })
@@ -35,7 +40,7 @@ if (plusBtnsRooms) {
 }
 
 
-var minusBtns = document.querySelectorAll('.dropdown__minus');
+var minusBtns = document.querySelectorAll('.dropdown--rooms .dropdown__minus');
 
 for (i = 0; i < minusBtns.length; i++) {
     var minusBtn = minusBtns[i];
@@ -47,8 +52,21 @@ for (i = 0; i < minusBtns.length; i++) {
         }
         if (numb !== 0) {
             counter.textContent = numb - 1;
+            let total = counter.textContent;
+            let label = this.previousElementSibling.textContent;
+            if (label === 'спальни') {
+                var exp = /\d+\sспал[а-яё]+/
+                wordforms(this, total, 'спальня', 'спальни', 'спален', exp)
+            }
+            else if (label === 'кровати') {
+                var exp = /\d+\sкроват[а-яё]+/
+                wordforms(this, total, 'кровать', 'кровати', 'кроватей', exp)
+            }
+            else {
+                var exp = /\d+\sванн[а-яё]{2}\sкомнат[а-яё]?/;
+                wordforms(this, total, 'ванная комната', 'ванные комнаты', 'ванных комнат', exp);
+            }
         }
-
     })
 }
 
@@ -68,9 +86,9 @@ function recursiveCounters(object) {
 
 function wordforms(button, total, form1, form2, form3, exp) {
     function defaultText(text) {
-        return text.startsWith('Спальни');
+        return text.startsWith('Сколько');
     }
-    txt = button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent;
+    let txt = button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent;
     console.log(txt)
     if (total.endsWith('1') && parseInt(total, 10) !== 11) {
         if (defaultText(txt)) {
@@ -91,6 +109,21 @@ function wordforms(button, total, form1, form2, form3, exp) {
         }
         else {
         button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent = button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent.replace(exp, total + ' ' + form2);
+        }
+    }
+    else if (total.startsWith('0')) {
+        if (button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent.length > (', ' + total + ' ' + form1).length) {
+            if (txt.match(new RegExp((exp.toString().slice(1, -1) + ',')))) {
+                let nu_exp = new RegExp((exp.toString().slice(1, -1) + ','));
+                button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent = button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent.replace(nu_exp, '');
+            }
+            else {
+                let nu_exp = new RegExp((',\\s'+exp.toString().slice(1, -1)))
+                button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent = button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent.replace(nu_exp, '');
+            }
+        }
+        else {
+            button.parentElement.parentElement.previousElementSibling.querySelector('span').textContent = 'Сколько спален, кроватей';
         }
     }
     else {

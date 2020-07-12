@@ -3,7 +3,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.15);
+
   }
   100% {
     transform: scale(1);
@@ -23,12 +23,25 @@
 }
 
 .like-btn {
+  -webkit-tap-highlight-color: transparent;
   // BORDER STYLES
   display: inline-flex;
-  background: rgba(31, 32, 65, 0.25);
+  //background: rgba(31, 32, 65, 0.25);
   height: 20px;
   padding: 1px;
-  border-radius: 10px;
+  //border-radius: 10px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(31, 32, 65, 0.25);
+    border-radius: 10px;
+    z-index: -1;
+  }
   // CONTAINER STYLES
   &__container {
     display: inline-flex;
@@ -53,7 +66,7 @@
     @extend %heading-body;
     line-height: normal;
     font-size: 10px;
-    padding: 0 7px 0 3px;
+    padding: 0 7px 0 2px;
     min-width: 19px;
     color: map-get($colors, 'main-25');
     transition: .2s;
@@ -62,8 +75,12 @@
 
 // ACTIVE STYLES
 .like-btn.active {
+  &::before {
+    background: transparent;
+  }
   background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
   animation: like-border .3s ease-out;
+  border-radius: 10px;
   .like-btn {
     &__container {
       .like-btn__icon {

@@ -3,11 +3,27 @@ if (plusBtnsGuests) {
     guestsPlusBtnsListener(plusBtnsGuests);
 }
 
+var minusBtns = document.querySelectorAll('.dropdown--guests .dropdown__minus');
 
-var applyBtns = document.querySelectorAll('.dropdown__apply')
+for (i = 0; i < minusBtns.length; i++) {
+    let minusBtn = minusBtns[i];
+    minusBtn.addEventListener('click', function () {
+        let counter = this.nextElementSibling;
+        let numb = parseInt(counter.textContent, 10);
+        if (numb < 2) {
+            this.classList.add('dropdown__minus--disabled')
+        }
+        if (numb !== 0) {
+            counter.textContent = numb - 1;
+        }
+    });
+}
 
-for (i = 0; i < applyBtns.length; i++) {
-    var applyBtn = applyBtns[i];
+
+var applyBtnsGuests = document.querySelectorAll('.dropdown--guests .dropdown__apply')
+
+for (i = 0; i < applyBtnsGuests.length; i++) {
+    var applyBtn = applyBtnsGuests[i];
     applyBtn.addEventListener('click',function (event) {
         event.preventDefault();
         return false;
@@ -26,16 +42,23 @@ for (i = 0; i < applyBtns.length; i++) {
     })
 }
 
-var clearBtns = document.querySelectorAll('.dropdown__clear')
+var clearBtnsGuests = document.querySelectorAll('.dropdown--guests .dropdown__clear')
 
-for (i = 0; i < clearBtns.length; i++) {
-    var clearBtn = clearBtns[i];
+for (i = 0; i < clearBtnsGuests.length; i++) {
+    var clearBtn = clearBtnsGuests[i];
     clearBtn.addEventListener('click', function (event) {
         event.preventDefault();
         return false;
     })
     clearBtn.addEventListener('click', function () {
-        this.parentElement.previousElementSibling.querySelector('span').textContent = 'Сколько гостей'
+        this.parentElement.previousElementSibling.querySelector('span').textContent = 'Сколько гостей';
+        let counts = this.parentElement.querySelectorAll('.dropdown__count');
+        counts.forEach(function (count) {
+            count.textContent = '0';
+            if (!count.previousElementSibling.classList.contains('dropdown__minus--disabled')) {
+                count.previousElementSibling.classList.add('dropdown__minus--disabled');
+            }
+        });
     })
 
 }

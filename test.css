@@ -1,4 +1,4 @@
-.dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -44,25 +44,36 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.dropdown--date__header {
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.dropdown--date__header {
+  font-size: 1.1875rem;
+  line-height: 1.5rem;
+}
+
+.dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #1F2041;
 }
 
-.dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -227,10 +238,17 @@ html {
   background-color: rgba(188, 156, 255, 0.1);
 }
 .radio__input:checked + .radio__label {
+  position: relative;
   color: rgba(31, 32, 65, 0.75);
 }
 .radio__input:checked + .radio__label::before {
   border-color: #BC9CFF;
+}
+.radio__input:checked + .radio__label::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
   background-image: url("../../../img/__radio.svg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -332,9 +350,6 @@ html {
   0% {
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.15);
-  }
   100% {
     transform: scale(1);
   }
@@ -351,11 +366,22 @@ html {
   }
 }
 .like-btn {
+  -webkit-tap-highlight-color: transparent;
   display: inline-flex;
-  background: rgba(31, 32, 65, 0.25);
   height: 20px;
   padding: 1px;
+  position: relative;
+}
+.like-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(31, 32, 65, 0.25);
   border-radius: 10px;
+  z-index: -1;
 }
 .like-btn__container {
   display: inline-flex;
@@ -375,7 +401,7 @@ html {
 .like-btn__count {
   line-height: normal;
   font-size: 10px;
-  padding: 0 7px 0 3px;
+  padding: 0 7px 0 2px;
   min-width: 19px;
   color: rgba(31, 32, 65, 0.25);
   transition: 0.2s;
@@ -384,6 +410,10 @@ html {
 .like-btn.active {
   background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
   animation: like-border 0.3s ease-out;
+  border-radius: 10px;
+}
+.like-btn.active::before {
+  background: transparent;
 }
 .like-btn.active .like-btn__container .like-btn__icon {
   animation: like 0.3s ease-out;
@@ -476,8 +506,9 @@ html {
 }
 .bullet-list__item::before {
   content: "";
+  flex: 1 0 10.43px;
+  max-width: 10.43px;
   display: inline-block;
-  width: 10.43px;
   height: 10px;
   background: url("../../img/__ellipse.svg") no-repeat;
   margin: 0 10.43px 0 0;
@@ -590,7 +621,7 @@ html {
   position: relative;
   width: 100%;
   height: 44px;
-  border: 1px solid rgba(31, 32, 65, 0.5);
+  border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 4px 4px 0 0;
   padding: 0 15px;
 }
@@ -604,7 +635,7 @@ html {
   content: "";
   position: absolute;
   right: 0;
-  background: url("../../../img/__expand_more--75.svg") center center no-repeat;
+  background: url("../../../img/__expand-more--grey.svg") center center no-repeat;
   width: 44px;
   height: 44px;
 }
@@ -613,11 +644,12 @@ html {
   display: none;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   position: absolute;
   z-index: 2;
   padding: 7px 7px 13px 15px;
-  border: 1px solid rgba(31, 32, 65, 0.5);
+  border: 1px solid rgba(31, 32, 65, 0.25);
   border-top: none;
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -689,6 +721,166 @@ html {
 }
 .dropdown--guests .dropdown__clear {
   order: 0;
+}
+
+.dropdown--date {
+  display: inline-flex;
+  width: 320px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.dropdown--date__calendar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.dropdown--date .dropdown__apply {
+  align-self: end;
+  order: 1;
+}
+.dropdown--date .dropdown__clear {
+  align-self: end;
+  order: 0;
+}
+.dropdown--date .dropdown__select:first-child {
+  margin-right: 20px;
+}
+.dropdown--date .dropdown__select.arrival, .dropdown--date .dropdown__select.depart {
+  flex: 0 1 150px;
+  padding: 0;
+  border: none;
+}
+.dropdown--date .dropdown__select input {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  outline: none;
+  padding: 0 15px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+  transition: border-color 0.3s ease-out;
+}
+.dropdown--date .dropdown__select input:active, .dropdown--date .dropdown__select input:focus {
+  border-color: rgba(31, 32, 65, 0.75);
+}
+.dropdown--date .dropdown__content {
+  width: 320px;
+  min-height: 369px;
+  padding: 20px;
+  top: 50px;
+  border-top: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+}
+.dropdown--date__header {
+  flex: 0 1 100%;
+  display: flex;
+  color: #1F2041;
+  margin-bottom: 30px;
+}
+.dropdown--date__text {
+  flex: 1 0 auto;
+  text-align: center;
+}
+.dropdown--date__arrow {
+  width: 24px;
+  height: 24px;
+  background: url("../../../../img/__arrow--nograd.svg") center center no-repeat;
+  cursor: pointer;
+}
+.dropdown--date__arrow--forward {
+  transform: rotateY(180deg);
+}
+.dropdown--date__weekdays {
+  flex: 0 1 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  text-transform: none;
+  color: #BC9CFF;
+}
+.dropdown--date__weekday {
+  flex: 0 1 39.71px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown--date__days {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-bottom: 20px;
+}
+.dropdown--date__day {
+  flex: 0 1 39.71px;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  color: rgba(31, 32, 65, 0.5);
+}
+.dropdown--date__day:not(.disabled):hover {
+  border: 1px solid #BC9CFF;
+  border-radius: 22px;
+}
+.dropdown--date__day.current {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 22px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.dropdown--date__day.disabled {
+  color: rgba(31, 32, 65, 0.25);
+}
+.dropdown--date__day.arrival, .dropdown--date__day.depart {
+  position: relative;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  border-radius: 22px;
+}
+.dropdown--date__day.arrival:hover, .dropdown--date__day.depart:hover {
+  border: none;
+}
+.dropdown--date__day.arrival::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  opacity: 0.25;
+}
+.dropdown--date__day.depart::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+  right: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  opacity: 0.25;
+}
+.dropdown--date__day.between {
+  position: relative;
+}
+.dropdown--date__day.between::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  opacity: 0.25;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.dropdown--date__day.between:hover {
+  border-radius: 4px;
 }
 
 body .main-container {
