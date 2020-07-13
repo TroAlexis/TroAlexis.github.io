@@ -286,6 +286,75 @@
                       <div class="btn-border"><a class="btn-border__link" href="#">войти</a></div>
               </div>
             </div>
+            <div class="sign-in">
+              <h1 class="sign-in__heading">Войти</h1>
+                    <input class="text-field" type="email" id="email" placeholder="Email">
+                    <input class="text-field" type="email" id="password" placeholder="Пароль"><a class="btn btn--arrow sign-in__auth" href="#">войти</a>
+              <div class="sign-in__isntregged">
+                <p class="sign-in__text">Нет аккаунта на Toxin?</p>
+                      <div class="btn-border"><a class="btn-border__link" href="#">создать</a></div>
+              </div>
+            </div>
+            <div class="booking">
+              <div class="booking__header">
+                <p class="booking__room"><span class="booking__num">№ </span><span class="booking__room-number">888</span></p><span class="booking__lux">люкс</span><span class="booking__cost">9990₽ <span class="booking__aday">в сутки</span></span>
+              </div>
+                      <div class="dropdown dropdown--date">
+                        <h3 class="heading-3 dropdown--date__heading">прибытие</h3>
+                        <h3 class="heading-3 dropdown--date__heading">выезд</h3><a class="dropdown__select arrival">
+                          <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
+                          <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
+                        <div class="dropdown__content">
+                          <div class="dropdown--date__calendar">
+                            <div class="dropdown--date__header">
+                              <div class="dropdown--date__arrow"></div>
+                              <div class="dropdown--date__text"><span class="dropdown--date__month"></span><span class="dropdown--date__year"></span></div>
+                              <div class="dropdown--date__arrow dropdown--date__arrow--forward"></div>
+                            </div>
+                            <div class="dropdown--date__weekdays"><span class="dropdown--date__weekday">Пн</span><span class="dropdown--date__weekday">Вт</span><span class="dropdown--date__weekday">Ср</span><span class="dropdown--date__weekday">Чт</span><span class="dropdown--date__weekday">Пт</span><span class="dropdown--date__weekday">Сб</span><span class="dropdown--date__weekday">Вс</span>
+                            </div>
+                            <div class="dropdown--date__days"></div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dropdown dropdown--guests">
+                        <h3 class="heading-3 dropdown--guests__heading">гости</h3><a class="dropdown__select"><span>Сколько гостей</span></a>
+                        <div class="dropdown__content">
+                          <div class="dropdown__item">
+                                    <h3 class="heading-3 dropdown__label">взрослые</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div>
+                          <div class="dropdown__item">
+                                    <h3 class="heading-3 dropdown__label">дети</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div>
+                          <div class="dropdown__item dropdown__item--last">
+                                    <h3 class="heading-3 dropdown__label">младенцы</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
+                        </div>
+                      </div>
+              <div class="booking__sum">
+                <p><span>9990₽ x</span><span class="booking__days"> 1 сутки</span></p><span class="booking__sum-total">9990₽</span>
+              </div>
+              <div class="booking__services">
+                <p>Сбор за услуги: скидка 2 179₽</p>
+                <div class="booking__info"><span>i</span></div><span>0₽</span>
+              </div>
+              <div class="booking__extra">
+                <p>Сбор за дополнительные услуги</p>
+                <div class="booking__info"><span>i</span></div><span>300₽</span>
+              </div>
+              <h2 class="booking__total"><span>Итого</span>
+                <div class="booking__separator"></div><span>10290₽</span>
+              </h2><a class="btn btn--arrow booking__button" href="#">забронировать</a>
+            </div>
       <script src="modules/forms/dropdown/dropdown--date/formatter.js"></script>
       <script src="modules/forms/like-btn/__like-btn.js"></script>
       <script src="modules/expandable/__expandable.js"></script>
@@ -293,6 +362,7 @@
       <script src="modules/forms/dropdown/__dropdown.js"></script>
       <script src="modules/forms/dropdown/dropdown--guests/__dropdown--guests.js"></script>
       <script src="modules/forms/dropdown/dropdown--date/__dropdown--date.js"></script>
+      <script src="modules/cards/__booking/__booking.js"></script>
     </div>
   </body>
 </html>

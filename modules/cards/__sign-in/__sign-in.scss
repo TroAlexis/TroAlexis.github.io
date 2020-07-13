@@ -1,0 +1,24 @@
+.sign-in {
+  @extend .roomsearch;
+  &__heading {
+    @extend .roomsearch__heading;
+  }
+  .text-field {
+    margin-bottom: 10px;
+  }
+  & #password {
+    margin-bottom: 20px;
+  }
+  &__auth {
+    margin-bottom: 30px;
+  }
+  &__isntregged {
+    @extend .registration__isregged;
+  }
+  &__text {
+    @extend .registration__text;
+  }
+  .btn-border__link {
+    padding: 13px 17px;
+  }
+}

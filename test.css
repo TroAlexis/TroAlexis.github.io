@@ -1,4 +1,4 @@
-.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.booking__sum, .booking__services, .booking__extra, .booking__cost, .registration__text, .sign-in__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -44,41 +44,41 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.dropdown--date__header, .roomsearch__heading, .registration__heading {
+.booking__room, .booking__num, .booking__total, .dropdown--date__header, .roomsearch__heading, .sign-in__heading, .registration__heading {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.booking__sum, .booking__services, .booking__extra, .booking__cost, .registration__text, .sign-in__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.booking__info span, .booking__lux, .registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.roomsearch__heading, .registration__heading {
+.roomsearch__heading, .sign-in__heading, .registration__heading {
   font-size: 1.5rem;
   line-height: 1.875rem;
 }
 
-.dropdown--date__header {
+.booking__total, .dropdown--date__header {
   font-size: 1.1875rem;
   line-height: 1.5rem;
 }
 
-.registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.booking__info span, .booking__lux, .registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #1F2041;
 }
 
-.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.booking__sum, .booking__services, .booking__extra, .booking__cost, .registration__text, .sign-in__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -941,22 +941,22 @@ html {
   text-align: center;
 }
 
-.roomsearch, .registration {
+.roomsearch, .booking, .sign-in, .registration {
   width: 380px;
   padding: 40px 30px 30px 30px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
-.roomsearch__heading, .registration__heading {
+.roomsearch__heading, .sign-in__heading, .registration__heading {
   color: #1F2041;
   width: 300px;
   margin-bottom: 20px;
 }
-.roomsearch .dropdown--date, .registration .dropdown--date {
+.roomsearch .dropdown--date, .booking .dropdown--date, .sign-in .dropdown--date, .registration .dropdown--date {
   margin-bottom: 20px;
 }
-.roomsearch .dropdown--guests, .registration .dropdown--guests {
+.roomsearch .dropdown--guests, .booking .dropdown--guests, .sign-in .dropdown--guests, .registration .dropdown--guests {
   margin-bottom: 30px;
 }
 
@@ -981,17 +981,105 @@ html {
 .registration__payment {
   margin-bottom: 30px;
 }
-.registration__isregged {
+.registration__isregged, .sign-in__isntregged {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.registration__text {
+.registration__text, .sign-in__text {
   color: #000000;
   line-height: 18px;
 }
 .registration .btn-border__link, .registration .btn-bdless {
   padding: 13px 25px;
+}
+
+.sign-in .text-field {
+  margin-bottom: 10px;
+}
+.sign-in #password {
+  margin-bottom: 20px;
+}
+.sign-in__auth {
+  margin-bottom: 30px;
+}
+.sign-in .btn-border__link, .sign-in .btn-bdless {
+  padding: 13px 17px;
+}
+
+.booking__header {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: baseline;
+}
+.booking__num {
+  font-size: 10px;
+}
+.booking__room {
+  color: #1F2041;
+}
+.booking__lux {
+  color: #BC9CFF;
+  margin-left: 5px;
+  flex: 1 1 auto;
+}
+.booking__cost {
+  line-height: 18px;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.5);
+}
+.booking__aday {
+  font-weight: normal;
+}
+.booking .dropdown__select {
+  border-radius: 4px;
+}
+.booking__sum, .booking__services, .booking__extra {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+.booking__sum p {
+  flex: 1 1 auto;
+}
+.booking__days {
+  flex: 1 1 auto;
+}
+.booking__info {
+  flex: 1 1 auto;
+}
+.booking__services p, .booking__extra p {
+  flex: 0 1 214px;
+}
+.booking__extra {
+  margin-bottom: 30px;
+}
+.booking__extra p {
+  line-height: 18px;
+}
+.booking__info span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 50%;
+  text-transform: none;
+  color: rgba(31, 32, 65, 0.25);
+}
+.booking__total {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20px;
+  color: #1F2041;
+}
+.booking__separator {
+  flex: 1 1 auto;
+  height: 1px;
+  border-top: 1px dashed rgba(31, 32, 65, 0.25);
+  margin: 0 5px;
 }
 
 body .main-container {
