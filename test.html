@@ -130,7 +130,8 @@
                 <p class="feedback__content">Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.</p>
               </div>
             </div>
-            <div class="dropdown dropdown--guests"><a class="dropdown__select"><span>Сколько гостей</span></a>
+            <div class="dropdown dropdown--guests">
+              <h3 class="heading-3 dropdown--guests__heading">гости</h3><a class="dropdown__select"><span>Сколько гостей</span></a>
               <div class="dropdown__content">
                 <div class="dropdown__item">
                         <h3 class="heading-3 dropdown__label">взрослые</h3>
@@ -174,7 +175,9 @@
                 </div>
               </div>
             </div>
-            <div class="dropdown dropdown--date"><a class="dropdown__select arrival">
+            <div class="dropdown dropdown--date">
+              <h3 class="heading-3 dropdown--date__heading">прибытие</h3>
+              <h3 class="heading-3 dropdown--date__heading">выезд</h3><a class="dropdown__select arrival">
                 <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
                 <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
               <div class="dropdown__content">
@@ -190,7 +193,9 @@
                 </div>
               </div>
             </div>
-            <div class="dropdown dropdown--date"><a class="dropdown__select arrival">
+            <div class="dropdown dropdown--date">
+              <h3 class="heading-3 dropdown--date__heading">прибытие</h3>
+              <h3 class="heading-3 dropdown--date__heading">выезд</h3><a class="dropdown__select arrival">
                 <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
                 <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
               <div class="dropdown__content">
@@ -204,6 +209,81 @@
                   </div>
                   <div class="dropdown--date__days"></div>
                 </div>
+              </div>
+            </div>
+            <div class="pagination">
+              <div class="pagination__buttons"><a class="pagination__button pagination__button--1" href="#">1</a><a class="pagination__button pagination__button--2" href="#">2</a><a class="pagination__button pagination__button--3" href="#">3</a><a class="pagination__button pagination__button--empty">...</a><a class="pagination__button pagination__button--15" href="#">15</a><a class="pagination__button pagination__button--next" href="#"></a></div>
+              <div class="pagination__info">
+                <p class="pagination__paragraph">1 – 12 из 100+ вариантов аренды</p>
+              </div>
+            </div>
+            <div class="roomsearch">
+              <h1 class="roomsearch__heading">Найдём номера под ваши пожелания</h1>
+                      <div class="dropdown dropdown--date">
+                        <h3 class="heading-3 dropdown--date__heading">прибытие</h3>
+                        <h3 class="heading-3 dropdown--date__heading">выезд</h3><a class="dropdown__select arrival">
+                          <input class="dropdown__arrival" type="text" placeholder="ДД.ММ.ГГГГ"></a><a class="dropdown__select depart">
+                          <input class="dropdown__depart" type="text" placeholder="ДД.ММ.ГГГГ"></a>
+                        <div class="dropdown__content">
+                          <div class="dropdown--date__calendar">
+                            <div class="dropdown--date__header">
+                              <div class="dropdown--date__arrow"></div>
+                              <div class="dropdown--date__text"><span class="dropdown--date__month"></span><span class="dropdown--date__year"></span></div>
+                              <div class="dropdown--date__arrow dropdown--date__arrow--forward"></div>
+                            </div>
+                            <div class="dropdown--date__weekdays"><span class="dropdown--date__weekday">Пн</span><span class="dropdown--date__weekday">Вт</span><span class="dropdown--date__weekday">Ср</span><span class="dropdown--date__weekday">Чт</span><span class="dropdown--date__weekday">Пт</span><span class="dropdown--date__weekday">Сб</span><span class="dropdown--date__weekday">Вс</span>
+                            </div>
+                            <div class="dropdown--date__days"></div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dropdown dropdown--guests">
+                        <h3 class="heading-3 dropdown--guests__heading">гости</h3><a class="dropdown__select"><span>Сколько гостей</span></a>
+                        <div class="dropdown__content">
+                          <div class="dropdown__item">
+                                    <h3 class="heading-3 dropdown__label">взрослые</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div>
+                          <div class="dropdown__item">
+                                    <h3 class="heading-3 dropdown__label">дети</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div>
+                          <div class="dropdown__item dropdown__item--last">
+                                    <h3 class="heading-3 dropdown__label">младенцы</h3>
+                            <button class="dropdown__minus dropdown__minus--disabled"></button>
+                                    <h3 class="heading-3 dropdown__count">0</h3>
+                            <button class="dropdown__plus"></button>
+                          </div><a class="btn-bdless dropdown__apply" href="#">применить</a><a class="btn-bdless btn-bdless--disabled dropdown__clear" href="#">очистить</a>
+                        </div>
+                      </div><a class="btn btn--arrow roomsearch__button" href="#">Подобрать номер</a>
+            </div>
+            <div class="registration">
+              <h1 class="registration__heading">Регистрация аккаунта</h1>
+                    <input class="text-field" type="text" id="name" placeholder="Имя">
+                    <input class="text-field" type="text" id="surname" placeholder="Фамилия">
+              <div class="registration__radio">
+                      <label class="radio">
+                        <input class="radio__input" type="radio" name="male" value="male" checked><span class="radio__label">Мужчина</span>
+                      </label>
+                      <label class="radio">
+                        <input class="radio__input" type="radio" name="female" value="female"><span class="radio__label">Женщина</span>
+                      </label>
+              </div>
+              <h3 class="registration__subheading">дата рождения</h3>
+                    <input class="text-field--masked" type="text" id="birthdate" placeholder="ДД.ММ.ГГГГ">
+              <h3 class="registration__subheading">данные для входа в сервис</h3>
+                    <input class="text-field" type="email" id="email" placeholder="Email">
+                    <input class="text-field" type="email" id="password" placeholder="Пароль">
+                    <label class="toggle">
+                      <input class="toggle__box" type="checkbox" id="specials" name="specials" value="yes"><span class="toggle__button"><span class="toggle__dummybg"></span></span><span class="toggle__label">Получать спецпредложения</span>
+                    </label><a class="btn btn--arrow registration__payment" href="#">перейти к оплате</a>
+              <div class="registration__isregged">
+                <p class="registration__text">Уже есть аккаунт на Toxin</p>
+                      <div class="btn-border"><a class="btn-border__link" href="#">войти</a></div>
               </div>
             </div>
       <script src="modules/forms/dropdown/dropdown--date/formatter.js"></script>

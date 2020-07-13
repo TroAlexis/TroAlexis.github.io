@@ -57,6 +57,12 @@ block content
         +dropdown('Сколько спален, кроватей', ['спальни', 'кровати', 'ванные комнаты'], 'dropdown--rooms')
         +dropdown('ДД.ММ.ГГГГ', '', 'dropdown--date', 'buttons')
         +dropdown('ДД.ММ.ГГГГ', '', 'dropdown--date')
+        include modules/pagination/__pagination
+        +pagination(15)
+        include modules/cards/__roomsearch/__roomsearch
+        include modules/cards/__registration/__registration
+        +roomsearch
+        +registration
         script(src='modules/forms/dropdown/dropdown--date/formatter.js')
         script(src='modules/forms/like-btn/__like-btn.js')
         script(src='modules/expandable/__expandable.js')

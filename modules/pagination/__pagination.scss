@@ -1,0 +1,43 @@
+.pagination {
+  width: 241px;
+  &__buttons {
+    display: flex;
+    margin-bottom: 10.5px;
+  }
+  &__button {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    @extend %heading-3;
+    font-weight: normal;
+    color: map_get($colors, 'main-50');
+    &--1 {
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      border-radius: 22px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    &--next {
+      position: relative;
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border-radius: 22px;
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: url("../../img/__arrow_forward--white.svg") center center no-repeat;
+      }
+    }
+    &--empty {
+      user-select: none;
+    }
+  }
+  &__paragraph {
+    text-align: center;
+    @extend %heading-body;
+  }
+}

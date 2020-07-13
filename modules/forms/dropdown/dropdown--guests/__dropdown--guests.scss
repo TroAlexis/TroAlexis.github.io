@@ -1,4 +1,7 @@
 .dropdown--guests {
+  &__heading {
+    margin-bottom: 5px;
+  }
   .dropdown__item {
     &--last {
       margin-bottom: 19px;

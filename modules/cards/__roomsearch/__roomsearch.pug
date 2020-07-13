@@ -1,0 +1,8 @@
+mixin roomsearch
+    .roomsearch
+        h1.roomsearch__heading Найдём номера под ваши пожелания
+        include ../../forms/dropdown/__dropdown
+        +dropdown('ДД.ММ.ГГГГ', '', 'dropdown--date', 'buttons')
+        +dropdown('Сколько гостей', ['взрослые', 'дети', 'младенцы'], 'dropdown--guests', 'buttons')
+        include ../../btn/__btn
+        +btn('Подобрать номер','#', 'btn--arrow roomsearch__button')

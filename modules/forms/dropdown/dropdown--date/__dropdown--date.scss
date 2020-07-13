@@ -1,8 +1,16 @@
 .dropdown--date {
   display: inline-flex;
+  flex-wrap: wrap;
   width: 320px;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  &__heading {
+    flex: 0 0 150px;
+    margin-bottom: 5px;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
   &__calendar {
     display: flex;
     flex-wrap: wrap;
@@ -18,10 +26,9 @@
       order: 0;
     }
     &__select {
-      &:first-child {
+      &.arrival {
         margin-right: 20px;
       }
-
       &.arrival, &.depart {
         flex: 0 1 150px;
         padding: 0;
@@ -50,7 +57,7 @@
       width: 320px;
       min-height: 369px;
       padding: 20px;
-      top: 50px;
+      top: 70px;
       border-top: 1px solid map-get($colors, 'main-25');
       border-radius: 4px;
     }

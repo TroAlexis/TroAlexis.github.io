@@ -20,5 +20,4 @@ for (var i = 0; i < likebtns.length; i++) {
             this.firstChild.lastChild.textContent = counter + 1;
         }
     })
-    console.log(likebtns[i].firstChild.lastChild)
 }

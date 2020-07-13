@@ -1,4 +1,4 @@
-.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -44,22 +44,27 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.dropdown--date__header {
+.dropdown--date__header, .roomsearch__heading, .registration__heading {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
+}
+
+.roomsearch__heading, .registration__heading {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
 }
 
 .dropdown--date__header {
@@ -67,13 +72,13 @@
   line-height: 1.5rem;
 }
 
-.dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
+.registration__subheading, .pagination__button, .dropdown--date__day, .dropdown--date__weekdays, .heading-3, .btn-border__link, .btn-bdless, .btn, .expandable__button {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #1F2041;
 }
 
-.dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
+.registration__text, .pagination__paragraph, .dropdown--date .dropdown__select input, .dropdown__select, .feedback, .bullet-list__item, .advantage__label, .like-btn__count, .toggle__label, .radio__label, .checkbox__label, .text-field--masked, .text-field {
   font-size: 0.875rem;
   line-height: 1.5rem;
 }
@@ -713,6 +718,9 @@ html {
   background: url("../../../img/+.svg") center center no-repeat;
 }
 
+.dropdown--guests__heading {
+  margin-bottom: 5px;
+}
 .dropdown--guests .dropdown__item--last {
   margin-bottom: 19px;
 }
@@ -725,9 +733,17 @@ html {
 
 .dropdown--date {
   display: inline-flex;
+  flex-wrap: wrap;
   width: 320px;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+}
+.dropdown--date__heading {
+  flex: 0 0 150px;
+  margin-bottom: 5px;
+}
+.dropdown--date__heading:first-child {
+  margin-right: 20px;
 }
 .dropdown--date__calendar {
   display: flex;
@@ -742,7 +758,7 @@ html {
   align-self: end;
   order: 0;
 }
-.dropdown--date .dropdown__select:first-child {
+.dropdown--date .dropdown__select.arrival {
   margin-right: 20px;
 }
 .dropdown--date .dropdown__select.arrival, .dropdown--date .dropdown__select.depart {
@@ -769,7 +785,7 @@ html {
   width: 320px;
   min-height: 369px;
   padding: 20px;
-  top: 50px;
+  top: 70px;
   border-top: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 4px;
 }
@@ -881,6 +897,101 @@ html {
 }
 .dropdown--date__day.between:hover {
   border-radius: 4px;
+}
+
+.pagination {
+  width: 241px;
+}
+.pagination__buttons {
+  display: flex;
+  margin-bottom: 10.5px;
+}
+.pagination__button {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: normal;
+  color: rgba(31, 32, 65, 0.5);
+}
+.pagination__button--1 {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  border-radius: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.pagination__button--next {
+  position: relative;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 22px;
+}
+.pagination__button--next::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url("../../img/__arrow_forward--white.svg") center center no-repeat;
+}
+.pagination__button--empty {
+  user-select: none;
+}
+.pagination__paragraph {
+  text-align: center;
+}
+
+.roomsearch, .registration {
+  width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.roomsearch__heading, .registration__heading {
+  color: #1F2041;
+  width: 300px;
+  margin-bottom: 20px;
+}
+.roomsearch .dropdown--date, .registration .dropdown--date {
+  margin-bottom: 20px;
+}
+.roomsearch .dropdown--guests, .registration .dropdown--guests {
+  margin-bottom: 30px;
+}
+
+.registration .text-field {
+  margin-bottom: 10px;
+}
+.registration .text-field--masked {
+  margin-bottom: 20px;
+}
+.registration .radio:first-child {
+  margin-right: 20px;
+}
+.registration__radio {
+  margin-bottom: 20px;
+}
+.registration__subheading {
+  margin-bottom: 5px;
+}
+.registration .toggle {
+  margin-bottom: 20px;
+}
+.registration__payment {
+  margin-bottom: 30px;
+}
+.registration__isregged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.registration__text {
+  color: #000000;
+  line-height: 18px;
+}
+.registration .btn-border__link, .registration .btn-bdless {
+  padding: 13px 25px;
 }
 
 body .main-container {
