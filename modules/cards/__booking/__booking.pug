@@ -1,7 +1,7 @@
 include ../../forms/dropdown/__dropdown
 include ../../btn/__btn
 
-mixin booking(room, cost, lux)
+mixin booking(room, cost, discount, lux)
     - var extra = '300₽'
     .booking
         .booking__header
@@ -20,7 +20,7 @@ mixin booking(room, cost, lux)
                 span.booking__days= ' ' + '1 сутки'
             span.booking__sum-total= cost + '₽'
         .booking__services
-            p Сбор за услуги: скидка 2 179₽
+            p= 'Сбор за услуги: скидка ' + discount + '₽'
             div.booking__info
                 span i
             span 0₽
@@ -32,5 +32,5 @@ mixin booking(room, cost, lux)
         h2.booking__total
             span Итого
             div.booking__separator
-            span= Number(extra.slice(0, -1)) + cost + '₽'
+            span= (Number(extra.slice(0, -1)) + Number(cost.replace(/\s/g, '')) - Number(discount.replace(/\s/g, ''))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '₽'
         +btn('забронировать','#', 'btn--arrow booking__button')

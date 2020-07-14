@@ -1021,12 +1021,12 @@ html {
 .booking__lux {
   color: #BC9CFF;
   margin-left: 5px;
-  flex: 1 1 auto;
 }
 .booking__cost {
   line-height: 18px;
   font-weight: bold;
   color: rgba(31, 32, 65, 0.5);
+  margin-left: auto;
 }
 .booking__aday {
   font-weight: normal;
