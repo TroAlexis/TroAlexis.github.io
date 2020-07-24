@@ -5,29 +5,6 @@
     margin-bottom: 20px;
     align-items: baseline;
   }
-  &__num {
-    @extend %font-main;
-    font-size: 10px;
-  }
-  &__room {
-    @extend %font-main;
-    color: map_get($colors, 'main-100');
-  }
-  &__lux {
-    @extend %heading-3;
-    color: map_get($colors, 'primary');
-    margin-left: 5px;
-  }
-  &__cost {
-    @extend %heading-body;
-    line-height: 18px;
-    font-weight: bold;
-    color: map_get($colors, 'main-50');
-    margin-left: auto;
-  }
-  &__aday {
-    font-weight: normal;
-  }
   .dropdown__select {
     border-radius: 4px;
   }

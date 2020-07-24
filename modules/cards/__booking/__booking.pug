@@ -5,13 +5,13 @@ mixin booking(room, cost, discount, lux)
     - var extra = '300₽'
     .booking
         .booking__header
-            p.booking__room
-                span.booking__num= '№ '
-                span.booking__room-number= room
+            p.booking__room.room
+                span.booking__num.room__num= '№ '
+                span.booking__room-number.room__number= room
             if lux
-                span.booking__lux люкс
-            span.booking__cost= cost + '₽ '
-                span.booking__aday в сутки
+                span.booking__lux.room__lux люкс
+            span.booking__cost.cost= cost + '₽ '
+                span.booking__aday.cost__aday в сутки
         +dropdown('ДД.ММ.ГГГГ', '', 'dropdown--date', 'buttons')
         +dropdown('Сколько гостей', ['взрослые', 'дети', 'младенцы'], 'dropdown--guests', 'buttons')
         .booking__sum

@@ -1,4 +1,4 @@
-.header__item:first-of-type a, .subscription-tf__input, .body-text {
+.header__item:first-of-type a, .subscription-tf__input, .body-text, .cost {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -40,27 +40,54 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.link, .subscription-tf__input, .body-text {
+.room__number, .room__num {
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.link, .subscription-tf__input, .body-text, .cost {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.header__item:first-of-type a, .heading-3, .btn-border__link, .btn {
+.header__item:first-of-type a, .heading-3, .btn-border__link, .btn, .room__lux {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.heading-3, .btn-border__link, .btn {
+.heading-3, .btn-border__link, .btn, .room__lux {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #1F2041;
 }
 
-.subscription-tf__input, .body-text {
+.subscription-tf__input, .body-text, .cost {
   font-size: 0.875rem;
   line-height: 1.5rem;
+}
+
+.room {
+  color: #1F2041;
+}
+.room__num {
+  font-size: 10px;
+}
+.room__lux {
+  color: #BC9CFF;
+  margin-left: 5px;
+}
+
+.cost {
+  line-height: 18px;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.5);
+  margin-left: auto;
+}
+.cost__aday {
+  font-weight: normal;
 }
 
 * {

@@ -2,7 +2,7 @@
   color: #1F2041;
 }
 
-.font-box__title--body {
+.font-box__title--body, .cost {
   color: rgba(31, 32, 65, 0.75);
 }
 
@@ -44,19 +44,19 @@
   src: url("../../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
-.font-box__title--h2, .font-box__title--h1 {
+.room__number, .room__num, .font-box__title--h2, .font-box__title--h1 {
   font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
 }
 
-.font-box__name, .font-box__title--body {
+.font-box__name, .font-box__title--body, .cost {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
 }
 
-.font-box__title--h3 {
+.font-box__title--h3, .room__lux {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -72,15 +72,36 @@
   line-height: 1.5rem;
 }
 
-.font-box__title--h3 {
+.font-box__title--h3, .room__lux {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #1F2041;
 }
 
-.font-box__title--body {
+.font-box__title--body, .cost {
   font-size: 0.875rem;
   line-height: 1.5rem;
+}
+
+.room {
+  color: #1F2041;
+}
+.room__num {
+  font-size: 10px;
+}
+.room__lux {
+  color: #BC9CFF;
+  margin-left: 5px;
+}
+
+.cost {
+  line-height: 18px;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.5);
+  margin-left: auto;
+}
+.cost__aday {
+  font-weight: normal;
 }
 
 * {

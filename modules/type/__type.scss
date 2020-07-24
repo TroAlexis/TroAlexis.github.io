@@ -68,3 +68,29 @@ $f-sizes: ('h1': 1.5rem,
   @extend %main-75;
 }
 
+.room {
+  color: map_get($colors, 'main-100');
+  &__num {
+    @extend %font-main;
+    font-size: 10px;
+  }
+  &__number {
+    @extend %font-main;
+  }
+  &__lux {
+    @extend %heading-3;
+    color: map_get($colors, 'primary');
+    margin-left: 5px;
+  }
+}
+.cost {
+  @extend %heading-body;
+  line-height: 18px;
+  font-weight: bold;
+  color: map_get($colors, 'main-50');
+  margin-left: auto;
+  &__aday {
+    font-weight: normal;
+  }
+}
+
