@@ -1,9 +1,0 @@
-.btn-bdless {
-  @extend .btn-border__link;
-  display: inline-block;
-  background: transparent;
-  padding: 0;
-  &--disabled {
-    color: map-get($colors, 'main-50');
-  }
-}

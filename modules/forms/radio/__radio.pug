@@ -1,7 +1,0 @@
-mixin radio(id, label, value, ischecked)
-    label.radio
-        if ischecked
-            input.radio__input(type='radio' name=id, value=value checked)
-        else
-            input.radio__input(type='radio' name=id, value=value)
-        span.radio__label= label

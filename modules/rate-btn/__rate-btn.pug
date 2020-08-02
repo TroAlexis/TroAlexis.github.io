@@ -1,5 +1,0 @@
-mixin rate-btn(rating)
-    .rate-btn
-        -var i = 1
-        while i < 6
-            a(href='#' class='rate-btn__star rate-btn__star--' + i++)(class = i <= rating+1 ? 'active' : '')
