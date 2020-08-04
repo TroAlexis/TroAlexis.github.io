@@ -1,0 +1,9 @@
+.main-logo {
+  position: absolute;
+  left: 1.875rem;
+  top: 1.875rem;
+  @include media-sm {
+    left: auto;
+    right: 1.875rem;
+  }
+}

@@ -1,0 +1,31 @@
+@import "../link/link";
+@import "../forms/subs-form/subs-form";
+@import "../footer/--copyright/footer--copyright";
+
+.footer-main {
+  //height: 372px;
+  &__container {
+    padding: 100px 140px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1160px;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    .link {
+      margin-top: 20px;
+    }
+    &--big {
+      flex: 0 1 260px;
+      .body-text {
+        margin-top: 20px;
+      }
+      .subscription-tf {
+        margin-top: 20px;
+      }
+    }
+  }
+}

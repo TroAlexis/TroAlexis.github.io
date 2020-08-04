@@ -1,0 +1,18 @@
+.link {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  @extend %font-secondary;
+  color: map-get($colors, 'main-50');
+  text-decoration: none;
+}
+
+.link {
+  &--dropdown {
+    display: flex;
+    padding-top: 2px;
+    .arrow {
+      fill: map_get($colors, 'main-50');
+    }
+  }
+}

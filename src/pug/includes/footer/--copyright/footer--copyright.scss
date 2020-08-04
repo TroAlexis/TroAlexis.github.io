@@ -1,0 +1,10 @@
+@import "../../socials/socials";
+.footer-copyright {
+  border-top: 1px solid map-get($colors, 'main-25');
+  padding: 24px 140px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

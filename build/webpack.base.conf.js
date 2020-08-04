@@ -16,18 +16,21 @@ const PATHS = {
 // Pages const for HtmlWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
-const PAGES_DIR = `${PATHS.src}/pug/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
+const PAGES_DIR = `${PATHS.src}/pug/pages/`;
+const ENTRIES_DIR = `${PATHS.src}`;
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));
+const ENTRIES_LIST = fs.readdirSync(ENTRIES_DIR).filter(fileName => fileName.endsWith('.js'));
+const ENTRIES = {}
+for (const entry of ENTRIES_LIST) {
+  ENTRIES[`${entry.replace(/\.js/, '')}`] = `${PATHS.src}/${entry}`
+}
 
 module.exports = {
   // BASE config
   externals: {
     paths: PATHS
   },
-  entry: {
-    index: PATHS.src,
-    // module: `${PATHS.src}/your-module.js`,
-  },
+  entry: ENTRIES,
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,

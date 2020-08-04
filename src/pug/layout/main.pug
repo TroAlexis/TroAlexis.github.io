@@ -1,3 +1,5 @@
+// YOUR TEMPLATE HERE
+
 include ../utils/mixins
 block variables
 
@@ -9,12 +11,13 @@ html(lang='en')
     meta(name="description", content=description)
     block head
 
+block content
   body(class=pageClass)
     .wrapper
-      #app
-        include ../includes/modules/header
-        .content-wrapper
-          block content
-        include ../includes/modules/footer
+      //#app
+      //  include ../includes/modules/header
+      //  .content-wrapper
+      //    block content
+      //  include ../includes/modules/footer
 
     block script

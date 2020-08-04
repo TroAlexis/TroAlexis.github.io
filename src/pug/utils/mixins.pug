@@ -1,0 +1,21 @@
+// YOUR MIXINS HERE
+
+// COLOR BOX
+mixin color-box(content, color)
+    .color-box
+        .color-box__color(class='color-box__color--' + color)
+        h2.color-box__name=content[0]
+            p.color-box__hex=[content[1]]
+
+// FONT BOX
+mixin font-box(content, type)
+    .font-box(class='font-box--' + type)
+        p(class='font-box__name font-box__name--' + type)=(type === 'body' ? (type.charAt(0).toUpperCase() + type.slice(1)) : type.toUpperCase())
+        if type === 'h1'
+            h1(class='font-box__title font-box__title--' + type)=content
+        else if type === 'h2'
+            h2(class='font-box__title font-box__title--' + type)=content
+        else if type === 'h3'
+            h3(class='font-box__title font-box__title--' + type)=content
+        else if type === 'body'
+            p(class='font-box__title font-box__title--' + type)!=content

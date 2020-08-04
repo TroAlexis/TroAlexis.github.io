@@ -1,3 +1,5 @@
+// WEBPACK ENTRY FILE MAIN
+
 // JS
 import './js'
 

@@ -20,3 +20,11 @@
   src: url("../fonts/Montserrat-Bold.ttf");
   font-weight: bold;
 }
+
+.heading-3 {
+  @extend %heading-3;
+}
+
+.body-text {
+  @extend %heading-body;
+}

@@ -1,0 +1,27 @@
+.btn {
+  @extend %heading-3;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  padding: rem(10px) rem(20px);
+  border-radius: 22px;
+  position: relative;
+  &--disabled {
+    opacity: 0.5;
+  }
+  &--arrow {
+    display: inline-flex;
+    width: 320px;
+    align-items: center;
+    justify-content: center;
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      background: url('/../../../assets/img/ui/__arrow_forward--white.svg') center center no-repeat;
+      width: 44px;
+      height: 44px;
+    }
+  }
+}

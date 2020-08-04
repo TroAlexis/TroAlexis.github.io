@@ -1,0 +1,140 @@
+@import 'shared';
+@import "ui-base";
+
+%color-box__font {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.1875rem;
+    line-height: 1.8125rem;
+    color: map-get($colors, 'main-100');
+}
+.color-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  &__color {
+    width: 4.375rem;
+    height: 4.375rem;
+    margin-right: 2.5rem;
+    @include media-sm {
+      margin-right: 1.25rem;
+    }
+    border-radius: 0.375rem;
+    &--main-100 {
+      background-color: map_get($colors, 'main-100');
+    }
+    &--main-75 {
+      background-color: map_get($colors, 'main-75');
+
+    }
+    &--main-50 {
+      background-color: map_get($colors, 'main-50');
+
+    }
+    &--main-25 {
+      background-color: map_get($colors, 'main-25');
+
+    }
+    &--main-5 {
+      background-color: map_get($colors, 'main-5');
+
+    }
+    &--primary {
+      background-color: map_get($colors, 'primary');
+
+    }
+    &--secondary {
+      background-color: map_get($colors, 'secondary');
+    }
+  }
+  &__name {
+    @extend %color-box__font;
+  }
+  &__hex {
+    font-weight: normal;
+  }
+}
+.font-box {
+  display: flex;
+  margin-bottom: 3.125rem;
+  align-items: baseline;
+  color: map-get($colors, 'main-100');
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  &__name {
+    margin-right: 1.875rem;
+    flex: 0 0 2.3125rem;
+    text-align: right;
+    color: map-get($colors, 'main-25');
+    @extend %font-secondary;
+    &--h1 {
+      font-size: map_get($f-sizes, 'h1');
+    }
+    &--h2 {
+      font-size: map_get($f-sizes, 'h2');
+    }
+    &--h3 {
+      font-size: map_get($f-sizes, 'h3');
+    }
+    &--body {
+      font-size: map_get($f-sizes, 'body');
+    }
+  }
+  &__title {
+    &--h1 {
+      @extend %heading-1;
+    }
+    &--h2 {
+      @extend %heading-2;
+    }
+    &--h3 {
+      @extend %heading-3;
+    }
+    &--body {
+      @extend %heading-body;
+  }
+  }
+}
+body {
+  margin: 0;
+  padding: 9.0625rem 11.9375rem 9.0625rem 9.0625rem;
+  @include media-sm {
+    padding: (9.0625rem/1.5) (9.0625rem/5);
+  }
+  @include media-x-lg {
+    padding: (9.0625rem/1.5) (9.0625rem/6);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1110px;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include media-m {
+    justify-content: center;
+  }
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  @include media-lg {
+    margin-bottom: 5rem;
+  }
+}
+.fonts {
+  max-width: 25.1875rem;
+}

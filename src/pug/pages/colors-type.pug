@@ -1,0 +1,20 @@
+extends ../layout/ui-base
+
+block head
+    -const pageTitle = 'Colors & Type';
+block content
+    main
+        section.colors
+            +color-box(['Dark Shade 100%', '#1F2041'], 'main-100')
+            +color-box(['Dark Shade 75%', '#1F2041'], 'main-75')
+            +color-box(['Dark Shade 50%', '#1F2041'], 'main-50')
+            +color-box(['Dark Shade 25%', '#1F2041'], 'main-25')
+            +color-box(['Dark Shade 5%', '#1F2041'], 'main-5')
+            +color-box(['Purple', '#BC9CFF'], 'primary')
+            +color-box(['Green', '#6FCF97'], 'secondary')
+        section.fonts
+            +font-box('This one is the sub-section or widget title', 'h1')
+            +font-box('Next one is the item title inside widgets', 'h2')
+            +font-box('THIS IS A LABEL OR CTA TEXT', 'h3')
+            +font-box('This is the body text which is used for most<br>of the design, like paragraphs, lists, etc.',
+                'body')

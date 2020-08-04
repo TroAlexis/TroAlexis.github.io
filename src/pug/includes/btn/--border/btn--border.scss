@@ -1,0 +1,20 @@
+.btn-border {
+  padding: 2px;
+  background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
+  border-radius: 22px;
+  display: inline-block;
+  text-align: center;
+  &--disabled {
+    background: linear-gradient(to bottom, rgba(188, 156, 255, 0.5), rgba(139, 164, 249, 0.5));
+  }
+  &__link {
+    background: white;
+    display: block;
+    text-decoration: none;
+    @extend %heading-3;
+    text-transform: uppercase;
+    color: map-get($colors, 'primary');
+    padding: rem(9.5px) rem(17px);
+    border-radius: 20px;
+  }
+}

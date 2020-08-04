@@ -1,0 +1,5 @@
+mixin btn(text,href, additional)
+    if additional
+        a.btn(class=additional href=href)= text
+    else
+        a.btn(class='btn--disabled' href=href)= text
