@@ -1,0 +1,13 @@
+.btn-bdless {
+  text-decoration: none;
+  @extend %heading-3;
+  text-transform: uppercase;
+  color: map-get($colors, 'primary');
+  border-radius: 20px;
+  display: inline-block;
+  background: transparent;
+  padding: 0;
+  &--disabled {
+    color: map-get($colors, 'main-50');
+  }
+}

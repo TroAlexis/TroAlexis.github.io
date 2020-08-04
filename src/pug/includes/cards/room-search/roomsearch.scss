@@ -1,0 +1,27 @@
+@import './src/pug/includes/forms/dropdown/dropdown';
+@import './src/pug/includes/forms/dropdown/--date/dropdown--date';
+@import './src/pug/includes/forms/dropdown/--guests/dropdown--guests';
+@import './src/pug/includes/btn/btn';
+
+.roomsearch {
+  width: 380px;
+  padding: 40px 30px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  &__heading {
+    @extend %heading-1;
+    color: map_get($colors, 'main-100');
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  &__button {
+    padding: rem(15px) rem(20px);
+  }
+  .dropdown--date {
+    margin-bottom: 20px;
+  }
+  .dropdown--guests {
+    margin-bottom: 30px;
+  }
+}

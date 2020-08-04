@@ -1,0 +1,16 @@
+.dropdown--guests {
+  &__heading {
+    margin-bottom: 5px;
+  }
+  .dropdown__item {
+    &--last {
+      margin-bottom: 19px;
+    }
+  }
+  .dropdown__apply {
+    order: 1;
+  }
+  .dropdown__clear {
+    order: 0;
+  }
+}
