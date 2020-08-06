@@ -1,4 +1,8 @@
 include ../../btn/--bdless/btn--bdless
+
+//- DROPDOWN WITH NO BUTTONS (AUTOMATIC CHANGE) - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--rooms', '')
+//- DROPDOWN WITH BUTTONS - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--guests', 'buttons')
+
 mixin dropdown(placeholder, items, exclass, type)
     .dropdown(class=exclass)
         if exclass === 'dropdown--date'
@@ -36,7 +40,7 @@ mixin dropdown(placeholder, items, exclass, type)
                 each item, index in items
                     .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
                         h3.heading-3.dropdown__label= item
-                        button.dropdown__minus.dropdown__minus--disabled
+                        button.dropdown__minus.disabled
                         h3.heading-3.dropdown__count 0
                         button.dropdown__plus
                 if type === 'buttons'
