@@ -1,0 +1,22 @@
+.input-calendar
+        h3.heading-3.input-calendar__heading прибытие
+        h3.heading-3.input-calendar__heading выезд
+        a.input-calendar__select.arrival.dropdown__select
+            input.input-calendar__arrival(type='text' placeholder='ДД.ММ.ГГГГ')
+        a.input-calendar__select.depart.dropdown__select
+            input.input-calendar__depart(type='text' placeholder='ДД.ММ.ГГГГ')
+        .input-calendar__content
+            .input-calendar__calendar
+                .input-calendar__header
+                    .input-calendar__arrow
+                    .input-calendar__text
+                        span.input-calendar__month
+                        span.input-calendar__year
+                    .input-calendar__arrow.input-calendar__arrow--forward
+                .input-calendar__weekdays
+                    - const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+                    each day in weekdays
+                        span.input-calendar__weekday=day
+                .input-calendar__days
+                +btn-bdless('применить', '#', false, 'input-calendar__apply')
+                +btn-bdless('очистить', '#', true, 'input-calendar__clear')
