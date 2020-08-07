@@ -1,91 +1,39 @@
-import Dropdown from '../drop';
-
-const DOM = {
-    input: '.dropdown__select span',
-    label: '.dropdown__label',
-    counter: '.dropdown__count',
-    plusBtn: '.dropdown__plus',
-    minusBtn: '.dropdown__minus'
-};
+import Dropdown from '../dropdown';
 
 export default class DropdownAuto extends Dropdown {
     constructor(dropdownElement) {
         super(dropdownElement);
         // INPUT ELEMENT
-        this.input = {
-            element: dropdownElement.querySelector(DOM.input),
-            _default: dropdownElement.querySelector(DOM.input).textContent
-        };
-        // INIT COUNTERS FOR EVERY LABEL
-        this.counters = {}
-        // GET ALL LABELS
-        Array.from(this.content.querySelectorAll(DOM.label))
-            // GET LABEL NAMES
-            .map((label) => {return label.textContent;})
-            // CREATE COUNTER FOR EACH LABEL NAME
-            .forEach((labelName) => this.counters[labelName] = 0)
         // ADD EVENT LISTENER FOR CONTENT ELEMENTS
         this.content.addEventListener('click', (evt) => {
             // IF A BUTTON IS CLICKED
             if (evt.target.tagName === 'BUTTON') {
                 const button = evt.target;
+                const label = button.parentElement.querySelector(this.domstrings.label);
                 // CHANGE COUNTER
-                this.changeCounter(button);
-                // this.changeInput(labelText);
+                if (this.changeCounter(button)) {
+                    this.changeInput(label.textContent)
+                }
             }
         })
-    }
-    get domstrings() {
-        return {...super.domstrings, ...DOM};
-    }
-    changeCounter(button) {
-        // GET COUNTER
-        const counter = button.parentElement.querySelector(DOM.counter);
-        // GET LABEL
-        const label = button.parentElement.querySelector(DOM.label);
-        // IF BUTTON IS PLUS
-        if (button.className === DOM.plusBtn.replace('.', '')) {
-                    // MAKE MINUS BUTTON ACTIVE IF NOT ACTIVE ALREADY
-            if (counter.previousElementSibling.classList.contains('disabled')) {
-                counter.previousElementSibling.classList.remove('disabled');
-            }
-            //    INCREASE COUNTER OF CLICKED LABEL
-            this.counters[label.textContent] += 1;
-            // CHANGE INPUT ACCORDING TO COUNTER AND BUTTON LABEL
-            this.changeInput(label.textContent);
-        // IF BUTTON IS MINUS
-        } else {
-            // IF COUNTER IS NOT NEGATIVE
-            if (this.counters[label.textContent] > 0) {
-                this.counters[label.textContent] -= 1;
-                // CHANGE INPUT ACCORDING TO COUNTER AND BUTTON LABEL
-                this.changeInput(label.textContent);
-            }
-            // DISABLE BUTTON IF COUNTER IS ZERO
-            if (this.counters[label.textContent] === 0) {
-              button.classList.add('disabled');
-            }
-        }
-        // CHANGE COUNTER VIEW
-        counter.textContent = this.counters[label.textContent].toString();
     }
     changeInput(labelText) {
         // GET COUNTER FOR THE LABEL
         const count = this.counters[labelText];
         if (labelText === 'спальни') {
             const exp = /\d+\sспал[а-яё]+/;
-            this.changeInputText(count, ['спальня', 'спальни', 'спален'], exp);
+            this.changeInputWordForm(count, ['спальня', 'спальни', 'спален'], exp);
         }
         else if (labelText === 'кровати') {
             const exp = /\d+\sкроват[а-яё]+/;
-            this.changeInputText(count, ['кровать', 'кровати', 'кроватей'], exp);
+            this.changeInputWordForm(count, ['кровать', 'кровати', 'кроватей'], exp);
         }
         else {
             const exp = /\d+\sванн[а-яё]{2}\sкомнат[а-яё]?/;
-            this.changeInputText(count, ['ванная комната', 'ванные комнаты', 'ванных комнат'], exp);
+            this.changeInputWordForm(count, ['ванная комната', 'ванные комнаты', 'ванных комнат'], exp);
         }
     }
-    changeInputText(count, forms, exp) {
+    changeInputWordForm(count, forms, exp) {
         // SEE WHETHER TEXT IS DEFAULT
         const defaultText = () => {
             return this.input.element.textContent === this.input._default;

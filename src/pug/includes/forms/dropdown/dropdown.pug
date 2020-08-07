@@ -1,25 +1,25 @@
 include ../../btn/--bdless/btn--bdless
 
-//- DROPDOWN WITH NO BUTTONS (AUTOMATIC CHANGE) - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--rooms', '')
-//- DROPDOWN WITH BUTTONS - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--guests', 'buttons')
+//- DROPDOWN WITH NO BUTTONS (AUTOMATIC CHANGE) - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--auto', '')
+//- DROPDOWN WITH BUTTONS - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--apply', 'buttons')
 
-mixin dropdown(placeholder, items, exclass, type)
-    .dropdown(class=exclass)
-        if exclass === 'dropdown--date'
+mixin dropdown(placeholder, items, exClass, buttons)
+    .dropdown(class=exClass)
+        if exClass === 'dropdown--date'
             h3.heading-3.dropdown--date__heading прибытие
             h3.heading-3.dropdown--date__heading выезд
-        if exclass === 'dropdown--guests'
-            h3.heading-3.dropdown--guests__heading гости
-        a.dropdown__select(class=(exclass === 'dropdown--date') ? 'arrival' : '')
-            if exclass === 'dropdown--date'
+        if exClass === 'dropdown--apply'
+            h3.heading-3.dropdown--apply__heading гости
+        a.dropdown__select(class=(exClass === 'dropdown--date') ? 'arrival' : '')
+            if exClass === 'dropdown--date'
                 input.dropdown__arrival(type ='text' placeholder= placeholder)
             else
                 span= placeholder
-        if exclass === 'dropdown--date'
+        if exClass === 'dropdown--date'
             a.dropdown__select.depart
                 input.dropdown__depart(type ='text' placeholder= placeholder)
         .dropdown__content
-            if (exclass === 'dropdown--date')
+            if (exClass === 'dropdown--date')
                 .dropdown--date__calendar
                     .dropdown--date__header
                         .dropdown--date__arrow
@@ -32,7 +32,7 @@ mixin dropdown(placeholder, items, exclass, type)
                         each day in weekdays
                             span.dropdown--date__weekday=day
                     .dropdown--date__days
-                    if type === 'buttons'
+                    if buttons === 'buttons'
                         +btn-bdless('применить', '#', false, 'dropdown__apply')
                         +btn-bdless('очистить', '#', true, 'dropdown__clear')
             else
@@ -43,7 +43,7 @@ mixin dropdown(placeholder, items, exclass, type)
                         button.dropdown__minus.disabled
                         h3.heading-3.dropdown__count 0
                         button.dropdown__plus
-                if type === 'buttons'
+                if buttons === 'buttons'
                     +btn-bdless('применить', '#', false, 'dropdown__apply')
                     +btn-bdless('очистить', '#', true, 'dropdown__clear')
 

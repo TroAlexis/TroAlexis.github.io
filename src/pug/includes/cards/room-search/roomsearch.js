@@ -1,9 +1,4 @@
-import Dropdown from "../../forms/dropdown/drop";
-import DropdownAuto from "../../forms/dropdown/--auto/dropdown--auto";
+import DropdownApply from "../../forms/dropdown/--apply/dropdown--apply";
 
-const roomSelectElement = document.querySelector('.roomsearch .dropdown--rooms')
-const boomSelectElement = document.querySelector('.roomsearch .dropdown')
-// const RoomSelect = new Dropdown(roomSelectElement);
-const BoomSelect = new DropdownAuto(roomSelectElement)
-
-console.log();
+const guestsSelectElement = document.querySelector('.roomsearch .dropdown--guests')
+const guestsSelect = new DropdownApply(guestsSelectElement, ['гость', 'гостя', 'гостей'])

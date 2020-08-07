@@ -1,4 +1,4 @@
-import {recursiveCounters} from '../dropdown'
+import {recursiveCounters} from '../dropdown--OLD'
 
 var plusBtnsGuests = document.querySelectorAll('.dropdown--guests .dropdown__plus')
 if (plusBtnsGuests) {
