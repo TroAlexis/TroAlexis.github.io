@@ -6,8 +6,6 @@ const guestsSelect = new DropdownApply(guestsSelectElement, ['гость', 'го
 const calendarElement = document.querySelector('.roomsearch .input-calendar')
 const calendar = new Calendar(calendarElement);
 
-console.log(calendar.elements.days)
-
 const date = new Date();
 
 const fdofm = (date) => {

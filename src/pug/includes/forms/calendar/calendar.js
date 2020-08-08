@@ -1,5 +1,3 @@
-import Formatter from "formatter.js-pebble";
-
 const DOM = {
     calendar: '.input-calendar',
     arrival: {select: '.input-calendar__select.arrival',
@@ -26,6 +24,7 @@ const DOM = {
 export default class Calendar {
     constructor(calendarElement) {
         this.element = calendarElement;
+        this.state = 'closed';
         this.elements = {
             arrival: {
                 select: calendarElement.querySelector(DOM.arrival.select),
@@ -36,16 +35,14 @@ export default class Calendar {
                 input: calendarElement.querySelector(DOM.arrival.input)
             },
             content: calendarElement.querySelector(DOM.content),
-            arrows: {
-                back: calendarElement.querySelector(DOM.arrows.back),
-                forward: calendarElement.querySelector(DOM.arrows.forward)
-            },
             month: calendarElement.querySelector(DOM.month),
             year: calendarElement.querySelector(DOM.year),
             days: calendarElement.querySelector(DOM.days),
             buttons: {
                 apply: calendarElement.querySelector(DOM.apply),
-                clear: calendarElement.querySelector(DOM.clear)
+                clear: calendarElement.querySelector(DOM.clear),
+                back: calendarElement.querySelector(DOM.arrows.back),
+                forward: calendarElement.querySelector(DOM.arrows.forward)
             }
         }
         this.data = {
@@ -57,11 +54,42 @@ export default class Calendar {
             },
             monthList: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         }
-        this.currentCalendar = 0;
-        this.calendars = [];
-        this.renderMonthYear();
-        this.renderDaysBefore();
-        this.renderCurrentDays();
+        this.renderAllDays();
+        this.element.addEventListener('click', (evt) => {
+            // SELECT CLICKED
+            if (evt.target.closest('.input-calendar__select')) {
+                // SELECT ELEMENT
+                const select = evt.target.closest('.input-calendar__select');
+                // GET CONTENT ELEMENT
+                const content = this.elements.content;
+                // IF CALENDAR IS NOT OPEN
+                if (!content.classList.contains('open')) {
+                    content.classList.add('open');
+                    // CHANGE STATE TO SELECT CLICKED (ARRIVAL OR DEPART)
+                    this.state = select.className.match(/depart|arrival/)[0];
+                // IF CALENDAR IS OPEN
+                } else {
+                    // IF ARRIVAL CLICKED AND STATE IS ALREADY ARRIVAL, CLOSE CALENDAR
+                    if (select.classList.contains('arrival')) {
+                        this.changeState('arrival');
+                    //    IF DEPART CLICKED AND STATE IS ALREADY DEPART, CLOSE CALENDAR
+                    } else if (select.classList.contains('depart')) {
+                        this.changeState('depart');
+                    }
+                }
+            }
+        })
+        this.elements.content.addEventListener('click', (evt) => {
+            if (evt.target.classList.contains(noDot(DOM.arrows.back))) {
+                this.clearDays();
+                if (evt.target.classList.contains(noDot(DOM.arrows.forward))) {
+                  this.data.dates.current.setMonth(this.data.dates.current.getMonth() + 1)
+                } else {
+                    this.data.dates.current.setMonth(this.data.dates.current.getMonth() - 1)
+                }
+                this.renderAllDays();
+            }
+        });
     }
     // GET DAYS IN MONTH (JANUARY 1 BASED)
     static daysInMonth(year, month) {
@@ -86,6 +114,14 @@ export default class Calendar {
         dayElement.textContent = `${day}`;
         return dayElement;
     }
+    changeState(state) {
+        if (this.state === state) {
+            this.elements.content.classList.remove('open');
+        }
+        else {
+            this.state = state;
+        }
+    }
     // RENDER MONTH AND YEAR
     renderMonthYear() {
         this.elements.month.textContent = this.data.monthList[this.data.dates.current.getMonth()];
@@ -94,29 +130,33 @@ export default class Calendar {
     }
     // RENDER DAYS
     renderAllDays() {
+        this.renderMonthYear();
+        this.renderDaysBefore();
+        this.renderCurrentDays();
+        this.renderDaysAfter();
 
     }
     renderDaysBefore() {
         // GET FIRST DAY OF MONTH
-        const firstDayOfMonth = Calendar.calcFirstDayOfMonth(this.data.dates.current)
+        const firstDayOfMonth = Calendar.calcFirstDayOfMonth(this.data.dates.current);
         // GET DAYS TO RENDER BEFORE THE FIRST DAY OF THE CURRENT MONTH
-        const daysToRender = (firstDayOfMonth > 0) ? firstDayOfMonth - 1 : 7 - 1;
+        this.data.daysToRenderBefore = (firstDayOfMonth > 0) ? firstDayOfMonth - 1 : 7 - 1;
         // GET THE MONTH BEFORE CURRENT MONTH
         const monthBefore = (this.data.dates.current.getMonth() - 1 >= 0) ? this.data.dates.current.getMonth() - 1 : 11;
         // GET NUMBER OF DAYS TO FILL BEFORE CURRENT MONTH
-        const daysInMonthBefore = Calendar.daysInMonth(this.data.dates.current.getFullYear(), monthBefore)
-        let gapBefore = daysInMonthBefore - daysToRender + 1;
+        const daysInMonthBefore = monthBefore === 11 ? Calendar.daysInMonth(this.data.dates.current.getFullYear() - 1, monthBefore) :
+            Calendar.daysInMonth(this.data.dates.current.getFullYear() - 1, monthBefore);
+        let gapBefore = daysInMonthBefore - this.data.daysToRenderBefore + 1;
         // RENDER ALL DAYS BEFORE
         for (gapBefore; gapBefore <= daysInMonthBefore; gapBefore++) {
             this.elements.days.appendChild(Calendar.createDayElement(gapBefore, 'disabled'))
         }
-        return daysToRender;
     }
     renderCurrentDays() {
-        const daysToRender = Calendar.daysInMonth(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth());
+        this.data.daysToRender = Calendar.daysInMonth(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth());
         let addCurrentDay = this.data.dates.current.getMonth() === this.data.dates.initial.getMonth() &&
             this.data.dates.current.getFullYear() === this.data.dates.initial.getFullYear();
-        for (let i = 1; i <= daysToRender; i++) {
+        for (let i = 1; i <= this.data.daysToRender; i++) {
             let type = '';
             if (addCurrentDay && i === this.data.dates.initial.getDate()) {
                 type = 'current';
@@ -124,7 +164,20 @@ export default class Calendar {
             this.elements.days.appendChild(Calendar.createDayElement(i, type, true));
         }
     }
-    renderDaysAfter (daysBefore) {
-        let gapAfter = 35 - daysBefore - Calendar.daysInMonth(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth());
+    renderDaysAfter () {
+        let gapAfter = 42 - this.data.daysToRenderBefore - this.data.daysToRender;
+        if (gapAfter >= 7) {
+          gapAfter -= 7
+        }
+        for (let i = 1; i <= gapAfter; i++) {
+            this.elements.days.appendChild(Calendar.createDayElement(i, 'disabled'));
+        }
     }
+    clearDays() {
+        this.elements.days.querySelectorAll('*').forEach(day => day.remove())
+    }
+}
+
+function noDot(string) {
+    return string.replace('.', '')
 }

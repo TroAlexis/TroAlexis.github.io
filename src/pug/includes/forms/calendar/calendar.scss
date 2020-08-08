@@ -4,6 +4,7 @@
   width: 320px;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  position: relative;
   &__heading {
     flex: 0 0 150px;
     margin-bottom: 5px;
@@ -16,51 +17,53 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .dropdown {
-    &__apply {
-      align-self: end;
-      order: 1;
+  &__apply {
+    align-self: end;
+    order: 1;
+  }
+  &__clear {
+    align-self: end;
+    order: 0;
+  }
+  &__select {
+    &.arrival {
+      margin-right: 20px;
     }
-    &__clear {
-      align-self: end;
-      order: 0;
+    &.arrival, &.depart {
+      flex: 0 1 150px;
+      padding: 0;
+      border: none;
     }
-    &__select {
-      &.arrival {
-        margin-right: 20px;
-      }
-      &.arrival, &.depart {
-        flex: 0 1 150px;
-        padding: 0;
-        border: none;
-      }
-      &.active {
-      }
-      input {
-        position: relative;
-        z-index: 1;
-        background: transparent;
-        outline: none;
-        padding: 0 15px;
-        width: 100%;
-        height: 100%;
-        @extend %heading-body;
-        border: 1px solid map-get($colors, 'main-25');
-        border-radius: 4px;
-        transition: border-color .3s ease-out;
-        &:active, &:focus {
-          border-color: map_get($colors, 'main-75');
-        }
-      }
+    &.active {
     }
-    &__content {
-      width: 320px;
-      min-height: 369px;
-      padding: 20px;
-      top: 70px;
-      border-top: 1px solid map-get($colors, 'main-25');
+    input {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      outline: none;
+      padding: 0 15px;
+      width: 100%;
+      height: 100%;
+      @extend %heading-body;
+      border: 1px solid map-get($colors, 'main-25');
       border-radius: 4px;
+      transition: border-color .3s ease-out;
+      &:active, &:focus {
+        border-color: map_get($colors, 'main-75');
+      }
     }
+  }
+  &__content {
+    position: absolute;
+    width: 320px;
+    min-height: 369px;
+    padding: 20px;
+    top: 70px;
+    background: #ffffff;
+    z-index: 2;
+    border: 1px solid map-get($colors, 'main-25');
+    border-radius: 4px;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   }
   &__header {
     flex: 0 1 100%;
@@ -85,6 +88,7 @@
   &__weekdays {
     flex: 0 1 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
     height: 40px;
