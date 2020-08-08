@@ -1,5 +1,6 @@
 const DOM = {
     calendar: '.input-calendar',
+    select: '.input-calendar__select',
     arrival: {select: '.input-calendar__select.arrival',
                     input: 'input-calendar__select.arrival input'},
     depart: {select: '.input-calendar__select.depart',
@@ -36,7 +37,6 @@ export default class Calendar {
             },
             content: calendarElement.querySelector(DOM.content),
             month: calendarElement.querySelector(DOM.month),
-            year: calendarElement.querySelector(DOM.year),
             days: calendarElement.querySelector(DOM.days),
             buttons: {
                 apply: calendarElement.querySelector(DOM.apply),
@@ -55,11 +55,12 @@ export default class Calendar {
             monthList: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         }
         this.renderAllDays();
+        // LISTENER FOR SELECTS
         this.element.addEventListener('click', (evt) => {
             // SELECT CLICKED
-            if (evt.target.closest('.input-calendar__select')) {
+            if (evt.target.closest(DOM.select)) {
                 // SELECT ELEMENT
-                const select = evt.target.closest('.input-calendar__select');
+                const select = evt.target.closest(DOM.select);
                 // GET CONTENT ELEMENT
                 const content = this.elements.content;
                 // IF CALENDAR IS NOT OPEN
@@ -69,16 +70,11 @@ export default class Calendar {
                     this.state = select.className.match(/depart|arrival/)[0];
                 // IF CALENDAR IS OPEN
                 } else {
-                    // IF ARRIVAL CLICKED AND STATE IS ALREADY ARRIVAL, CLOSE CALENDAR
-                    if (select.classList.contains('arrival')) {
-                        this.changeState('arrival');
-                    //    IF DEPART CLICKED AND STATE IS ALREADY DEPART, CLOSE CALENDAR
-                    } else if (select.classList.contains('depart')) {
-                        this.changeState('depart');
-                    }
+                    this.changeState(select.className.match(/depart|arrival/)[0])
                 }
             }
         })
+        // LISTENER FOR BUTTONS
         this.elements.content.addEventListener('click', (evt) => {
             if (evt.target.classList.contains(noDot(DOM.arrows.back))) {
                 this.clearDays();
@@ -89,7 +85,16 @@ export default class Calendar {
                 }
                 this.renderAllDays();
             }
+            if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
+                const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
+                const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
+                this.changeDate(clickedDate, this.state)
+                this.changeDay(evt.target);
+            }
         });
+    }
+    static dateIsBetween(from, to, date) {
+        return date < to && date > from;
     }
     // GET DAYS IN MONTH (JANUARY 1 BASED)
     static daysInMonth(year, month) {
@@ -102,11 +107,11 @@ export default class Calendar {
         return dateCopy.getDay();
     }
     // CREATE A DAY ELEMENT
-    static createDayElement(day, type = '', addDayData = false) {
+    static createDayElement(day, types = '', addDayData = false) {
         const dayElement = document.createElement('span');
-        dayElement.className = 'input-calendar__day';
-        if (type) {
-            dayElement.classList.add(type);
+        dayElement.className = noDot(DOM.day);
+        if (types) {
+            dayElement.classList.add(...types);
         }
         if (addDayData) {
             dayElement.setAttribute('data-day', `${day}`)
@@ -122,11 +127,42 @@ export default class Calendar {
             this.state = state;
         }
     }
+    changeDate(forDate, type) {
+        const initialDate = new Date(this.data.dates.initial.getFullYear(), this.data.dates.initial.getMonth(), this.data.dates.initial.getDate())
+        // IF INPUT DATE IS NOT AFTER INITIAL DATE
+        if (forDate >= initialDate) {
+          //  IF INPUT TYPE IS ARRIVAL
+          if (type === 'arrival') {
+            //  IF THERE IS A DEPART
+            if (this.data.dates.depart) {
+                // IF INPUT DATE IS NOT AFTER DEPART
+                if (forDate <= this.data.dates.depart) {
+                  this.data.dates.arrival = forDate;
+                }
+            }
+          }
+          else if (type === 'depart') {
+              if (this.data.dates.arrival) {
+                  if (forDate >= this.data.dates.arrival) {
+                    this.data.dates.depart = forDate;
+                  }
+
+              }
+          }
+          this.data.dates[type] = forDate;
+        }
+    }
+    changeDay(dayElement) {
+        // DETECT ANY OTHER ELEMENT WITH SAME TYPE AND REMOVE CLASS
+        const prevButton = this.elements.content.querySelector(`.${this.state}`);
+        if (prevButton) {
+            prevButton.classList.remove(this.state);
+        }
+        dayElement.classList.add(this.state);
+    }
     // RENDER MONTH AND YEAR
     renderMonthYear() {
-        this.elements.month.textContent = this.data.monthList[this.data.dates.current.getMonth()];
-    //     SET THE CURRENT YEAR VIEW
-        this.elements.year.textContent = this.data.dates.current.getFullYear();
+        this.elements.month.textContent = `${this.data.monthList[this.data.dates.current.getMonth()]} ${this.data.dates.current.getFullYear()}`;
     }
     // RENDER DAYS
     renderAllDays() {
@@ -149,7 +185,7 @@ export default class Calendar {
         let gapBefore = daysInMonthBefore - this.data.daysToRenderBefore + 1;
         // RENDER ALL DAYS BEFORE
         for (gapBefore; gapBefore <= daysInMonthBefore; gapBefore++) {
-            this.elements.days.appendChild(Calendar.createDayElement(gapBefore, 'disabled'))
+            this.elements.days.appendChild(Calendar.createDayElement(gapBefore, ['disabled']))
         }
     }
     renderCurrentDays() {
@@ -157,20 +193,36 @@ export default class Calendar {
         let addCurrentDay = this.data.dates.current.getMonth() === this.data.dates.initial.getMonth() &&
             this.data.dates.current.getFullYear() === this.data.dates.initial.getFullYear();
         for (let i = 1; i <= this.data.daysToRender; i++) {
-            let type = '';
+            const renderedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), i);
+            let types = [];
             if (addCurrentDay && i === this.data.dates.initial.getDate()) {
-                type = 'current';
+                types.push('current');
             }
-            this.elements.days.appendChild(Calendar.createDayElement(i, type, true));
+            if (Number(renderedDate) === Number(this.data.dates.arrival)) {
+                types.push('arrival');
+            }
+            if (Number(renderedDate) === Number(this.data.dates.depart)) {
+                types.push('depart');
+            }
+            if (Calendar.dateIsBetween(this.data.dates.arrival,
+                                        this.data.dates.depart,
+                                        renderedDate)) {
+                types.push('between');
+
+            }
+            this.elements.days.appendChild(Calendar.createDayElement(i, types, true));
         }
     }
     renderDaysAfter () {
         let gapAfter = 42 - this.data.daysToRenderBefore - this.data.daysToRender;
         if (gapAfter >= 7) {
-          gapAfter -= 7
+            gapAfter -= 7;
+            if (gapAfter === 7) {
+              gapAfter = 0;
+            }
         }
         for (let i = 1; i <= gapAfter; i++) {
-            this.elements.days.appendChild(Calendar.createDayElement(i, 'disabled'));
+            this.elements.days.appendChild(Calendar.createDayElement(i, ['disabled']));
         }
     }
     clearDays() {

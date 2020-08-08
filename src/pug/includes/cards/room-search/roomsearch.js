@@ -6,7 +6,10 @@ const guestsSelect = new DropdownApply(guestsSelectElement, ['гость', 'го
 const calendarElement = document.querySelector('.roomsearch .input-calendar')
 const calendar = new Calendar(calendarElement);
 
-const date = new Date();
+const date = new Date(2020, 10, 15);
+const bate = new Date(2020, 1, 15);
+
+console.log(Number(date) === Number(bate))
 
 const fdofm = (date) => {
     const dateCopy = date;
