@@ -88,8 +88,11 @@ export default class Calendar {
             if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
                 const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
                 const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
-                this.changeDate(clickedDate, this.state)
-                this.changeDay(evt.target);
+                if (this.changeDate(clickedDate, this.state)) {
+                    this.changeDay(evt.target);
+                    this.clearDaysBetween();
+                    this.setDaysBetween();
+                }
             }
         });
     }
@@ -137,19 +140,22 @@ export default class Calendar {
             if (this.data.dates.depart) {
                 // IF INPUT DATE IS NOT AFTER DEPART
                 if (forDate <= this.data.dates.depart) {
-                  this.data.dates.arrival = forDate;
+                    this.data.dates.arrival = forDate;
+                    return true;
                 }
             }
           }
           else if (type === 'depart') {
               if (this.data.dates.arrival) {
                   if (forDate >= this.data.dates.arrival) {
-                    this.data.dates.depart = forDate;
+                      this.data.dates.depart = forDate;
+                      return true
                   }
 
               }
           }
-          this.data.dates[type] = forDate;
+            this.data.dates[type] = forDate;
+            return true;
         }
     }
     changeDay(dayElement) {
@@ -186,6 +192,25 @@ export default class Calendar {
         // RENDER ALL DAYS BEFORE
         for (gapBefore; gapBefore <= daysInMonthBefore; gapBefore++) {
             this.elements.days.appendChild(Calendar.createDayElement(gapBefore, ['disabled']))
+        }
+    }
+    setDaysBetween() {
+        const arrivalDate = this.data.dates.arrival ? this.data.dates.arrival : 0;
+        const departDate = this.data.dates.depart ? this.data.dates.depart : 0;
+        if (arrivalDate && departDate) {
+            const daysBetween = Array.from(this.elements.days.querySelectorAll(DOM.day)).filter((day) => {
+                if (!day.classList.contains('disabled')) {
+                    const dayDate = new Date(this.data.dates.current.getFullYear(),
+                        this.data.dates.current.getMonth(), day.getAttribute('data-day'))
+
+                    if (Number(dayDate) > Number(arrivalDate) && Number(dayDate) < Number(departDate)) {
+                        return day;
+                    }
+                }
+            });
+            daysBetween.forEach((day) => {
+              day.classList.add('between')
+            });
         }
     }
     renderCurrentDays() {
@@ -227,6 +252,13 @@ export default class Calendar {
     }
     clearDays() {
         this.elements.days.querySelectorAll('*').forEach(day => day.remove())
+    }
+    clearDaysBetween() {
+      this.elements.days.querySelectorAll(DOM.day).forEach((day) => {
+          if (day.classList.contains('between')) {
+              day.classList.remove('between');
+          }
+      });
     }
 }
 
