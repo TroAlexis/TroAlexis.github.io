@@ -1,0 +1,9 @@
+mixin toggle(id, label, ischecked)
+    label.toggle
+        if ischecked
+            input.toggle__box(type='checkbox' id=id name=id value='yes' checked)
+        else
+            input.toggle__box(type='checkbox' id=id name=id value='yes')
+        span.toggle__button
+            span.toggle__dummybg
+        span.toggle__label=label

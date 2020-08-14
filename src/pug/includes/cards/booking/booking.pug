@@ -1,0 +1,36 @@
+include ../../forms/dropdown/dropdown
+include ../../btn/btn
+
+mixin booking(room, cost, discount, lux)
+    - var extra = '300₽'
+    .booking
+        .booking__header
+            p.booking__room.room
+                span.booking__num.room__num= '№ '
+                span.booking__room-number.room__number= room
+            if lux
+                span.booking__lux.room__lux люкс
+            span.booking__cost.cost= cost + '₽ '
+                span.booking__aday.cost__aday в сутки
+        include ../../forms/calendar/calendar
+        +dropdown('Сколько гостей', ['взрослые', 'дети', 'младенцы'], 'dropdown--apply', 'buttons')
+        .booking__sum
+            p
+                span= cost + '₽ x'
+                span.booking__days= ' ' + '1 сутки'
+            span.booking__sum-total= cost + '₽'
+        .booking__services
+            p= 'Сбор за услуги: скидка ' + discount + '₽'
+            div.booking__info
+                span i
+            span 0₽
+        .booking__extra
+            p Сбор за дополнительные услуги
+            div.booking__info
+                span i
+            span= extra
+        h2.booking__total
+            span Итого
+            div.booking__separator
+            span= (Number(extra.slice(0, -1)) + Number(cost.replace(/\s/g, '')) - Number(discount.replace(/\s/g, ''))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '₽'
+        +btn('забронировать','#', 'btn--arrow booking__button')

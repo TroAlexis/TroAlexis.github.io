@@ -2,9 +2,9 @@
         h3.heading-3.input-calendar__heading прибытие
         h3.heading-3.input-calendar__heading выезд
         a.input-calendar__select.arrival.dropdown__select
-            input.input-calendar__arrival(type='text' placeholder='ДД.ММ.ГГГГ')
+            input.input-calendar__arrival(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
         a.input-calendar__select.depart.dropdown__select
-            input.input-calendar__depart(type='text' placeholder='ДД.ММ.ГГГГ')
+            input.input-calendar__depart(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
         .input-calendar__content
             .input-calendar__calendar
                 .input-calendar__header
@@ -13,8 +13,7 @@
                         span.input-calendar__month
                     .input-calendar__arrow.input-calendar__arrow--forward
                 .input-calendar__weekdays
-                    - const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-                    each day in weekdays
+                    each day in ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
                         span.input-calendar__weekday=day
                 .input-calendar__days
                 +btn-bdless('применить', '#', false, 'input-calendar__apply')

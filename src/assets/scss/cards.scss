@@ -1,3 +1,47 @@
 @import "shared";
 @import "ui-base";
 @import "./src/pug/includes/cards/room-search/roomsearch";
+@import "./src/pug/includes/cards/registration/registration";
+@import "./src/pug/includes/cards/booking/booking";
+@import "./src/pug/includes/cards/sign-in/sign-in";
+@import "./src/pug/includes/slideshow/slideshow";
+@import "./src/pug/includes/cards/room/room";
+
+body {
+    background-color: #F4F4F6;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  .roomsearch {
+    margin-bottom: 40px;
+  }
+  width: 33.3333%;
+  margin-right: 40px;
+  &--3 {
+    .input-calendar {
+      height: 406px;
+      margin-bottom: 40px;
+      &__heading, &__select {
+        display: none;
+        user-select: none;
+      }
+      &__content {
+        display: flex;
+        top: 0;
+      }
+    }
+    .roomcard {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+main {
+  display: flex;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-top: 150px;
+  padding-bottom: 140px;
+}

@@ -2,9 +2,9 @@ const DOM = {
     calendar: '.input-calendar',
     select: '.input-calendar__select',
     arrival: {select: '.input-calendar__select.arrival',
-                    input: 'input-calendar__select.arrival input'},
+                    input: '.input-calendar__arrival'},
     depart: {select: '.input-calendar__select.depart',
-                    input: 'input-calendar__select.depart input'},
+                    input: '.input-calendar__depart'},
     content: '.input-calendar__content',
     arrows: {
         back: '.input-calendar__arrow',
@@ -33,7 +33,7 @@ export default class Calendar {
             },
             depart: {
                 select: calendarElement.querySelector(DOM.depart.select),
-                input: calendarElement.querySelector(DOM.arrival.input)
+                input: calendarElement.querySelector(DOM.depart.input)
             },
             content: calendarElement.querySelector(DOM.content),
             month: calendarElement.querySelector(DOM.month),
@@ -89,10 +89,30 @@ export default class Calendar {
                 const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
                 const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
                 if (this.changeDate(clickedDate, this.state)) {
+                    if (this.data.dates.arrival && this.data.dates.depart) {
+                        this.data.daysBetween = daysInMilliSeconds(this.data.dates.depart - this.data.dates.arrival);
+                    }
                     this.changeDay(evt.target);
                     this.clearDaysBetween();
                     this.setDaysBetween();
+                    this.focusToDepart();
                 }
+            }
+            if (evt.target.classList.contains(noDot(DOM.clear))) {
+                evt.preventDefault();
+                this.clearAll();
+            }
+            if (evt.target.classList.contains(noDot(DOM.apply))) {
+                evt.preventDefault();
+                if (this.data.dates.arrival && this.data.dates.depart) {
+                    const arrival = this.data.dates.arrival;
+                    const depart = this.data.dates.depart;
+                    this.elements.arrival.input.value = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
+                    this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                    this.elements.depart.input.value = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
+                    this.element.setAttribute('data-depart', this.elements.depart.input.value)
+                }
+
             }
         });
     }
@@ -154,8 +174,10 @@ export default class Calendar {
 
               }
           }
-            this.data.dates[type] = forDate;
-            return true;
+          if (!this.data.dates.arrival || !this.data.dates.depart) {
+              this.data.dates[type] = forDate;
+              return true;
+          }
         }
     }
     changeDay(dayElement) {
@@ -253,15 +275,44 @@ export default class Calendar {
     clearDays() {
         this.elements.days.querySelectorAll('*').forEach(day => day.remove())
     }
-    clearDaysBetween() {
+    clearDaysBetween(clearAll) {
       this.elements.days.querySelectorAll(DOM.day).forEach((day) => {
           if (day.classList.contains('between')) {
               day.classList.remove('between');
           }
+          if (clearAll) {
+              if (day.classList.contains('arrival') || day.classList.contains('depart')) {
+                  day.classList.remove('arrival', 'depart');
+              }
+          }
       });
+    }
+    clearAll() {
+        this.state = '';
+        this.data.dates.arrival = '';
+        this.data.dates.depart = '';
+        this.data.daysBetween = '';
+        this.elements.arrival.input.value = '';
+        this.elements.depart.input.value = '';
+        this.element.removeAttribute('data-arrival')
+        this.element.removeAttribute('data-depart')
+        this.clearDays();
+        this.data.dates.current = new Date();
+        this.renderAllDays();
+    }
+    focusToDepart() {
+      if (this.state === 'arrival') {
+          this.changeState('depart')
+          this.elements.arrival.input.blur();
+          this.elements.depart.input.focus();
+      }
     }
 }
 
 function noDot(string) {
     return string.replace('.', '')
+}
+
+function daysInMilliSeconds(ms) {
+    return ms/1000/60/60/24
 }

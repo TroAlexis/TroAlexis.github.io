@@ -5,4 +5,16 @@ block head
 
 block content
     main
-        include ../includes/cards/room-search/roomsearch
+        .group.group--1
+            include ../includes/cards/room-search/roomsearch
+            include ../includes/cards/registration/registration
+        .group.group--2
+            include ../includes/cards/booking/booking
+            +booking('888', '9 990', '2 179', true)
+            include ../includes/cards/sign-in/sign-in
+        .group.group--3
+            include ../includes/forms/calendar/calendar
+            include ../includes/cards/room/room
+            +roomcard('888', true, '9 990', 145, 5)
+            +roomcard('840', false, '9 900', 65, 4)
+

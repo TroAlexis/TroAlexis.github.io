@@ -1,0 +1,11 @@
+include ../../btn/btn
+include ../../btn/--border/btn--border
+
+form.sign-in
+    h1.sign-in__heading Войти
+    input.text-field(type='email', name='email', placeholder='Email')
+    input.text-field(type='password', name='password', placeholder='Пароль')
+    +btn('войти', '#', 'btn--arrow sign-in__auth', 'submit')
+    .sign-in__isntregged
+        p.sign-in__text Нет аккаунта на Toxin?
+        +btn-border('создать', '#', false)

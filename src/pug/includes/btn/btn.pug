@@ -1,5 +1,7 @@
-mixin btn(text,href, additional)
-    if additional
-        a.btn(class=additional href=href)= text
+mixin btn(text,href, additional, submit, data_da)
+    if additional && !submit
+        a.btn(class=additional href=href data-da=data_da)= text
+    else if submit
+        button.btn(type=submit class=additional data-da=data_da)= text
     else
-        a.btn(class='btn--disabled' href=href)= text
+        a.btn(class='btn--disabled' href=href data-da=data_da)= text

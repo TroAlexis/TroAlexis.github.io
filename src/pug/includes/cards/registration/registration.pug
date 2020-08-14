@@ -1,0 +1,27 @@
+include ../../forms/radio/radio
+include ../../forms/toggle/toggle
+include ../../btn/btn
+include ../../btn/--border/btn--border
+
+form.registration
+    h1.registration__heading Регистрация аккаунта
+    input.text-field(type='text', name='name', placeholder='Имя')
+    input.text-field(type='text', name='surname', placeholder='Фамилия')
+    .registration__radio
+        +radio('sex', 'Мужчина', 'male', true)
+        +radio('sex', 'Женщина', 'female', false)
+    h3.registration__subheading дата рождения
+    input.text-field.text-field--masked(type='text', name='birthdate', placeholder='ДД.ММ.ГГГГ')
+    h3.registration__subheading данные для входа в сервис
+    input.text-field(type='email', autocomplete='username' name='email', placeholder='Email')
+    input.text-field(type='password', autocomplete='current-password', name='password', placeholder='Пароль')
+    +toggle('specials', 'Получать спецпредложения', false)
+    +btn('перейти к оплате', '#', 'btn--arrow registration__payment', 'submit')
+    .registration__isregged
+        p.registration__text Уже есть аккаунт на Toxin
+        +btn-border('войти', '#', false)
+
+
+
+//+toggle('specials', 'Получать спецпредложения')
+//+radio('man', 'Мужчина', 'man')
