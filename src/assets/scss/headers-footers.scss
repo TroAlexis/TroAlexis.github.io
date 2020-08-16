@@ -15,6 +15,14 @@ body {
     max-width: 1440px;
   }
   .header {
+    &:not(.header-auth) {
+      .header__mob-nav {
+        z-index: 103;
+      }
+      .burger {
+        z-index: 104;
+      }
+    }
     margin-bottom: 40px;
   }
   .footer-main {
