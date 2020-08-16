@@ -2,51 +2,188 @@
 @import "../btn/btn";
 @import "../btn/--border/btn--border";
 
+// BURGER VARIABLES
+$burgerWidth: 35px;
+$burgerHeight: 20px;
+$burgerLineHeight: 2px;
+
+
+// HEADER VARIABLES
+$headerHeight: 70px;
+
+
+// --------------BACKDROP--------------
+.backdrop {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .6s ease-out;
+  width: 100%;
+  height: 100vh;
+  background: rgba(1,1,1,0.5);
+  &.active {
+    z-index: 100;
+    opacity: 1;
+  }
+}
+// --------------BURGER----------------
+.burger {
+  position: relative;
+  z-index: 102;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+  width: $burgerWidth;
+  height: $burgerHeight;
+  // BURGER LINES
+  &__line {
+    position: absolute;
+    left: 0;
+    transition: all .25s ease-out;
+    width: $burgerWidth;
+    height: $burgerLineHeight;
+    background: map-get($colors, 'main-75');
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: $burgerHeight/2 - 1.5;
+    }
+    &:nth-child(3) {
+      top: $burgerHeight - 3;
+    }
+  }
+  // BURGER LINES IN OPEN STATE
+  &.open {
+    .burger__line {
+      &:nth-child(1) {
+        transform: rotate(135deg);
+        top: $burgerHeight/2;
+      }
+      &:nth-child(2) {
+        left: -20px;
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        top: $burgerHeight/2;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+  @include media-x-lg {
+    display: flex;
+    order: 0;
+  }
+}
+
+// ------------HEADER--------------
 .header {
   display: flex;
-  height: 70px;
   justify-content: center;
+  height: $headerHeight;
+  // -----------CONTAINER------------
   &__container {
+    position: relative;
     display: flex;
-    width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 15px 140px;
     @include media-x-lg {
       padding: 15px 35px;
     }
   }
-  &__brand {
+  // -----------MOBILE NAVIGATION BAR------------
+  &__mob-nav {
+    position: absolute;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    transition: all .3s ease-out;
+    transform: translate(-100%);
+    visibility: hidden;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 0 -20px 0;
+    padding-top: 70px;
+    background: #FFFFFF;
+    @include media-sm {
+      width: 70%;
+    }
+    // -----------OPEN MOB-NAVBAR------------
+    &.open {
+      visibility: visible;
+      transform: translate(0%);
+    }
+    // ----------- HIDE LINKS WHEN IN MOB-NAVBAR ------------
+    .link--dropdown {
+      @include media-x-lg {
+        display: none;
+      }
+    }
+    // -----------ITEMS IN MOB-NAVBAR------------
+    .header__item {
+      padding: 20px 0;
+      // -----------HIGHLIGHT THE FIRST LINK------------
+      &:first-of-type .link__title {
+        color: map-get($colors, 'main-75');
+        font-weight: bold;
+      }
+    }
   }
+  // -----------LOGO------------
   &__logo {
     display: flex;
+    justify-content: center;
+    @include media-x-lg {
+      flex: 1 1 auto;
+      order: 1;
+    }
+    @include media-sm {
+      flex: 0 1 auto;
+    }
   }
-
-  &__links {
+  // -----------MAIN NAVIGATION BAR------------
+  &__nav {
     display: flex;
     align-items: center;
-    margin: 0 -8px;
+    transition: height 1s ease-out;
+    margin: 0 -10px;
     padding: 0;
     list-style: none;
     @include media-x-lg {
+      order: 3;
+    }
+    @include media-sm {
+      display: none;
     }
   }
-
+  // -----------NAVIGATION ITEMS------------
   &__item {
-    padding: 0 8px;
-    &:first-of-type a {
-      color: map-get($colors, 'main-75');
-      @extend %font-secondary-bold;
+    padding: 0 10px;
+    @include media-x-lg {
+      //display: none;
     }
-    .btn-border {
-      margin-right: 20px;
+    &:first-of-type .link__title {
+      color: map-get($colors, 'main-75');
+      font-weight: bold;
+      @include media-x-lg {
+        color: map-get($colors, 'main-50');
+        font-weight: normal;
+      }
     }
   }
-
+  // -----------BUTTON------------
+  &__btn {
+    display: flex;
+  }
+  // -----------SEPARATOR------------
   &__vline {
-    height: 30px;
     border-left: 1px solid map-get($colors, 'main-10');
+    height: 30px;
   }
 }

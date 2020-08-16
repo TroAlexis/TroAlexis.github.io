@@ -1,27 +1,31 @@
+// -----------BUTTON------------
 .btn {
+  position: relative;
+  border-radius: 22px;
+  padding: rem(12px) rem(21px);
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   @extend %heading-3;
+  text-decoration: none;
   text-transform: uppercase;
   color: #ffffff;
-  text-decoration: none;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-  padding: rem(10px) rem(20px);
-  border-radius: 22px;
-  position: relative;
+  // -----------BUTTON DISABLED------------
   &--disabled {
     opacity: 0.5;
   }
+  // ----------- ARROW-BUTTON ------------
   &--arrow {
     display: inline-flex;
-    width: 320px;
     align-items: center;
     justify-content: center;
+    width: 320px;
+    // -----------ARROW------------
     &::after {
       content: '';
       position: absolute;
       right: 0;
-      background: url('/../../../assets/img/ui/__arrow_forward--white.svg') center center no-repeat;
       width: 44px;
       height: 44px;
+      background: url('/../../../assets/img/ui/__arrow_forward--white.svg') center center no-repeat;
     }
   }
 }

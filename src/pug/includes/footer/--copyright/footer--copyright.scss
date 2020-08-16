@@ -1,10 +1,22 @@
 @import "../../socials/socials";
+// -----------COPYRIGHT BOX------------
 .footer-copyright {
   border-top: 1px solid map-get($colors, 'main-25');
-  padding: 24px 140px;
+  padding: rem(24px) rem(140px);
+  @include media-m {
+    padding: rem(20px) rem(100px);
+  }
+  @include media-sm {
+    padding: rem(16px) rem(30px);
+  }
+  // -----------COPYRIGHT LIMITING CONTAINER------------
   &__container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 -10px;
+  }
+  &__rights, .socials {
+    padding: 0 10px;
   }
 }

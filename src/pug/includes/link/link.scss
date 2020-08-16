@@ -1,12 +1,13 @@
+// -----------MAIN LINK------------
 .link {
   display: flex;
   align-items: center;
+  text-decoration: none;
   font-size: 14px;
   @extend %font-secondary;
   color: map-get($colors, 'main-50');
-  text-decoration: none;
 }
-
+// -----------LINK DROPDOWN------------
 .link {
   &--dropdown {
     display: flex;

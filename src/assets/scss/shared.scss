@@ -6,18 +6,17 @@
 @import "utils/reset";
 
 html {
-  line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	color: $mainFontColor;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
   height: 100%;
-  @media screen and (max-width: $desktopWidth) {
-		font-size: 16px;
+  @include media-x-lg {
+    font-size: 16px;
   }
-  @media screen and (max-width: $tableWidth) {
-		font-size: 15px;
+  @include media-lg {
+    font-size: 15px;
   }
-  @media screen and (max-width: $phoneWidth) {
-		font-size: 14px;
+  @include media-m {
+    font-size: 14px;
   }
 }
 

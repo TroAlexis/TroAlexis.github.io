@@ -1,26 +1,31 @@
+// -----------SUBSCRIPTION FORM ------------
 .subs-form {
   display: flex;
-  width: 267px;
-  height: 44px;
-  background: #FFFFFF;
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 4px;
+  width: 267px;
+  height: 44px;
   padding: 2px 0 2px 5px;
+  background: #FFFFFF;
+  // -----------INPUT------------
   &__input {
     flex-grow: 2;
     border: none;
     padding: 10px 0 10px 10px;
     @extend %heading-body;
+    // ----------- INPUT FOCUS ------------
     &:focus {
       outline: none;
     }
   }
+  // ----------- SUBMIT BUTTON ------------
   &__submit {
     border: none;
-    background: none;
-    padding: 0;
     width: 44px;
     height: 100%;
+    padding: 0;
+    background: none;
+    // ----------- SUBMIT FOCUS ------------
     &:focus {
       outline: none;
     }

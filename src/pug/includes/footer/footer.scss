@@ -2,27 +2,81 @@
 @import "../forms/subs-form/subs-form";
 @import "../footer/--copyright/footer--copyright";
 
-.footer-main {
-  //height: 372px;
+// HEADER VARIABLES
+$containerPaddingTB: 100px;
+$containerPaddingLR: 140px;
+
+// -----------MAIN FOOTER ------------
+.footer-main{
+  // -----------LIMITING CONTAINER------------
   &__container {
-    padding: 100px 140px;
+    padding: $containerPaddingTB $containerPaddingLR;
+    @include media-x-lg {
+      padding: $containerPaddingTB $containerPaddingLR/2;
+    }
+    @include media-lg {
+      padding: $containerPaddingTB/2 $containerPaddingLR/6;
+    }
+    @include media-sm {
+      padding: $containerPaddingTB/3 $containerPaddingLR/9;
+    }
   }
+  // ----------- ROW WITH THE BOXES------------
   &__row {
     display: flex;
     justify-content: space-between;
+    margin: 0 -5px;
     max-width: 1160px;
+    @include media-lg {
+      flex-wrap: wrap;
+    }
+    @include media-sm {
+      justify-content: center;
+    }
   }
+  // ----------- COLUMNS ------------
   &__column {
     display: flex;
     flex-direction: column;
+    padding: 0 5px;
+    @include media-lg {
+      align-items: center;
+      margin-bottom: 35px;
+      width: 33.3%;
+      text-align: center;
+      &:nth-child(1) {
+          width: 100%;
+          padding: 0 rem(100px);
+      }
+      &:nth-child(5) {
+        width: 100%;
+      }
+    }
+    @include media-sm {
+      width: 50%;
+      &:nth-child(1) {
+          padding: 0 rem(40px);
+      }
+    }
+
+    // ----------- LINKS ------------
     .link {
       margin-top: 20px;
     }
+    // ----------- WIDE COLUMNS ------------
     &--big {
       flex: 0 1 260px;
+      @include media-lg {
+        flex: 0 1 auto;
+        text-align: center;
+      }
+      // ----------- PARAGRAPHS ------------
       .body-text {
         margin-top: 20px;
+        @include media-lg {
+        }
       }
+      // ----------- SUBSCRIPTION ------------
       .subscription-tf {
         margin-top: 20px;
       }

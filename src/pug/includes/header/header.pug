@@ -1,23 +1,31 @@
 mixin header(header_links, is_auth, username)
-    header.header
+    .backdrop
+    header.header(class=(is_auth ? 'header-auth' : ''))
         nav.header__container
             a.header__logo(href='#')
                 include ../../../assets/img/ui/__main-logo-gradient.svg
-            ul.header__links
-                each link in header_links
+            .burger
+                span.burger__line
+                span.burger__line
+                span.burger__line
+            ul.header__mob-nav
+            ul.header__nav
+                each link, index in header_links
                     -const href= link[1]
                     -const text= link[0]
                     -const dropdown= link[2]
-                    li.header__item
+                    li.header__item(data-da=`${is_auth ? 'header__mob-nav' : 'header-auth .header__mob-nav'},${index},
+                    1199.98`)
                         include ../link/link
                         +link(href, text, dropdown)
                 unless is_auth
                     include ../btn/--border/btn--border
-                    li.header__item
-                        +btn-border('Войти', '#', 'header__container,0,1199')
+                    li.header__item.header__btn(data-da='header__mob-nav,5,567.98')
+                        +btn-border('Войти', '#')
+                    li.header__item.header__btn(data-da='header__mob-nav,6,567.98')
                         include ../btn/btn
-                        +btn('Зарегистрироваться', '#', 'header__item-button', '', 'header__container,0,1199')
+                        +btn('Зарегистрироваться', '#', 'header__item-button')
                 else
                     .header__vline
-                    li.header__item
+                    li.header__item(data-da='header-auth .header__mob-nav,5,567.98')
                         +link('#', username || 'Юлий Цезарь')
