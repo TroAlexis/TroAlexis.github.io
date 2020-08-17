@@ -76,7 +76,7 @@
   &__arrow {
     width: 24px;
     height: 24px;
-    background: url("/../../../../../assets/img/ui/__arrow--nograd.svg") center center no-repeat;
+    background: url("/src/assets/img/ui/arrow--nograd.svg") center center no-repeat;
     cursor: pointer;
     &--forward {
       transform: rotateY(180deg);

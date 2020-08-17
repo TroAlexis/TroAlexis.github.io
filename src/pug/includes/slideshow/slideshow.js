@@ -30,7 +30,7 @@ export default class Slideshow {
                 this.changeSlide('', evt.target.getAttribute('data-index'))
             }
         })
-        setTimeout(() => this.changeSlide('show'), 8000);
+        setTimeout(() => this.changeSlide('show'), 18000);
     }
     changeSlide(direction, index) {
         this.slides[this.currentSlide].classList.remove('active')
@@ -40,7 +40,7 @@ export default class Slideshow {
             if (this.currentSlide >= this.slides.length) {
                 this.currentSlide = 0;
             }
-            setTimeout(() => this.changeSlide('show'), 8000)
+            setTimeout(() => this.changeSlide('show'), 18000)
         }
         else {
             if (direction === 'prev') {

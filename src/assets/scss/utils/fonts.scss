@@ -1,23 +1,31 @@
 // Fonts here
 @font-face {
   font-family: 'Quicksand';
-  src: url("../fonts/Quicksand-Bold.ttf");
+  src: url("/assets/fonts/Quicksand-Bold.woff2") format('woff2'),
+  url("/assets/fonts/Quicksand-Bold.woff") format('woff'),
+  url("/assets/fonts/Quicksand-Bold.ttf") format('truetype');
   font-weight: bold;
 }
 @font-face {
   font-family: 'Quicksand';
-  src: url("../fonts/Quicksand-Regular.ttf");
+  src: url("/assets/fonts/Quicksand-Regular.woff2") format('woff2'),
+  url("/assets/fonts/Quicksand-Regular.woff") format('woff'),
+  url("/assets/fonts/Quicksand-Regular.ttf") format('truetype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url("../fonts/Montserrat-Regular.ttf");
+  src: url("/assets/fonts/Montserrat-Regular.woff2") format('woff2'),
+  url("/assets/fonts/Montserrat-Regular.woff") format('woff'),
+  url("/assets/fonts/Montserrat-Regular.ttf") format('truetype');
   font-weight: normal;
 }
 @font-face {
   font-family: 'Montserrat';
-  src: url("../fonts/Montserrat-Bold.ttf");
+  src: url("/assets/fonts/Montserrat-Bold.woff2") format('woff2'),
+  url("/assets/fonts/Montserrat-Bold.woff") format('woff'),
+  url("/assets/fonts/Montserrat-Bold.ttf") format('truetype');
   font-weight: bold;
 }
 

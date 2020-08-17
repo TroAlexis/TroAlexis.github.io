@@ -20,15 +20,11 @@ body {
   align-items: center;
   margin: 0 10px;
   width: 380px;
-  //@include media-sm {
-  //  margin: 0;
-  //}
   .roomsearch {
     margin-bottom: 40px;
   }
   &--3 {
     width: 320px;
-    //margin-right: 0;
     @include media-x-lg {
       flex-direction: row;
       justify-content: space-around;

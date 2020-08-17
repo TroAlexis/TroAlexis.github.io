@@ -4,12 +4,12 @@
   &__star {
     display: inline-block;
     cursor: pointer;
-    background: url("/assets/img/ui/__star-border.svg") no-repeat;
+    background: url("/assets/img/ui/star-border.svg") no-repeat;
     width: 24px;
     height: 24px;
     transition: background-image .2s ease-out;
     &.active {
-      background-image: url("/assets/img/ui/__star.svg");
+      background-image: url("/assets/img/ui/star.svg");
     }
   }
 }

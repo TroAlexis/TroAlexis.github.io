@@ -27,4 +27,12 @@
        align-items: center;
      }
    }
+  .room {
+    &__num {
+      font-size: rem(14px);
+    }
+    &__number {
+      font-size: rem(19px);
+    }
+  }
  }
