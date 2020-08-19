@@ -3,6 +3,8 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const ImageMinPlugin = require('imagemin-webpack-plugin').default;
 const ImageMinMozJpeg = require('imagemin-mozjpeg');
 
+isProd = true;
+
 const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',

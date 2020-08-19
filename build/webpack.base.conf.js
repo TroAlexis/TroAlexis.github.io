@@ -5,6 +5,8 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+let isProd = false;
+
 
 // Main const
 const PATHS = {
@@ -35,7 +37,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    // publicPath: '/dist'
+    publicPath: '/',
   },
   optimization: {
     splitChunks: {
@@ -75,7 +77,13 @@ module.exports = {
       test: /\.scss$/,
       use: [
         'style-loader',
-        MiniCssExtractPlugin.loader,
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: !isProd,
+            reloadAll: !isProd,
+          }
+        },
         {
           loader: 'css-loader',
           options: { sourceMap: true }
@@ -91,7 +99,13 @@ module.exports = {
       test: /\.css$/,
       use: [
         'style-loader',
-        MiniCssExtractPlugin.loader,
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: !isProd,
+            reloadAll: !isProd
+          }
+        },
         {
           loader: 'css-loader',
           options: { sourceMap: true }
@@ -110,7 +124,7 @@ module.exports = {
   plugins: [
     //  Extract css into separate files from html.
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].[hash].css`,
+      filename: `${PATHS.assets}css/[name].${isProd ? '[hash].' : ''}css`,
     }),
     //  Clean dist folder.
     new CleanWebpackPlugin(),
