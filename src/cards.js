@@ -12,6 +12,10 @@ roomCards.forEach((roomcCard) => {
 })
 
 
-require('./assets/scss/cards.scss')
+import './assets/scss/cards.scss'
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 
