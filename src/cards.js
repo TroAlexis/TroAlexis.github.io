@@ -14,8 +14,4 @@ roomCards.forEach((roomcCard) => {
 
 import './assets/scss/cards.scss'
 
-if (module.hot) {
-  module.hot.accept();
-}
-
 

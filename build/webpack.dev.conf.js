@@ -7,7 +7,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
+    // Enables reload when template Pug files are changed.
+    before(app, server) {
+      server._watch('src/pug/pages/**.pug')
+    },
     contentBase: baseWebpackConfig.externals.paths.dist,
+    // Enables hot module replacement
     hot: true,
     port: 8081,
     overlay: {
@@ -18,7 +23,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'
-    })
+    }),
   ]
 })
 

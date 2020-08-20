@@ -7,13 +7,6 @@
 @import "./src/pug/includes/slideshow/slideshow";
 @import "./src/pug/includes/cards/room/room";
 
-body {
-  background-color: #F4F4F6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .group {
   display: flex;
   flex-direction: column;
@@ -61,25 +54,5 @@ body {
         margin-bottom: 40px;
       }
     }
-  }
-}
-
-main {
-  display: flex;
-  justify-content: space-between;
-  flex: 0 1 1160px;
-  flex-wrap: wrap;
-  max-width: 1160px;
-  padding: 150px 0 140px 0;
-  @include media-x-lg {
-    justify-content: space-around;
-    padding: 150px 10px 140px 10px;
-  }
-  @include media-lg {
-    margin: 0 -10px;
-  }
-  @include media-sm {
-    margin: 0;
-    padding: 150px 0 140px 0;
   }
 }

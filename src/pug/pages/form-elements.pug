@@ -1,0 +1,27 @@
+extends ../layout/ui-base
+
+block head
+    - const pageTitle = 'Form Elements';
+
+block content
+    main
+        .row
+            .col-4
+                .element
+                    .element__hgroup
+                        h3.heading-3 text field
+                        h3.heading-3.element__subheading default
+                    input.text-field(type='email', name='email' placeholder='Email')
+                .element
+                    .element__hgroup
+                        h3.heading-3 text field
+                        h3.heading-3.element__subheading hover/focus
+                    input.text-field(type='email', name='email' placeholder='Email')
+            .col-4
+            .col-4
+        .row
+            .col-4
+            .col-8
+                .col-6
+                .col-6
+                .col-12

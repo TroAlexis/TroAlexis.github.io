@@ -5,6 +5,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// Variable to differ production mode from development
 let isProd = false;
 
 
@@ -24,6 +25,7 @@ const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.p
 // All entries to take.
 const ENTRIES_LIST = fs.readdirSync(ENTRIES_DIR).filter(fileName => fileName.endsWith('.js'));
 const ENTRIES = {}
+// Fill ENTRIES object with all entry points
 for (const entry of ENTRIES_LIST) {
   ENTRIES[`${entry.replace(/\.js/, '')}`] = `${PATHS.src}/${entry}`
 }
@@ -79,6 +81,7 @@ module.exports = {
         'style-loader',
         {
           loader: MiniCssExtractPlugin.loader,
+          // Enable HMR only in development mode.
           options: {
             hmr: !isProd,
             reloadAll: !isProd,
@@ -101,6 +104,7 @@ module.exports = {
         'style-loader',
         {
           loader: MiniCssExtractPlugin.loader,
+          // Enable HMR only in development mode.
           options: {
             hmr: !isProd,
             reloadAll: !isProd
@@ -124,6 +128,7 @@ module.exports = {
   plugins: [
     //  Extract css into separate files from html.
     new MiniCssExtractPlugin({
+      // Enable has in production mode only (prevents HMR in development)
       filename: `${PATHS.assets}css/[name].${isProd ? '[hash].' : ''}css`,
     }),
     //  Clean dist folder.
@@ -139,6 +144,6 @@ module.exports = {
       template: `${PAGES_DIR}/${page}`,
       filename: `./pages/${page.replace(/\.pug/,'.html')}`,
       chunks: [`${page.replace(/\.pug/, '')}`, 'vendors']
-    }))
+    })),
   ],
 }
