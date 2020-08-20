@@ -1,5 +1,4 @@
 const DOM = {
-    calendar: '.input-calendar',
     select: '.input-calendar__select',
     arrival: {select: '.input-calendar__select.arrival',
                     input: '.input-calendar__arrival'},
@@ -23,7 +22,7 @@ const DOM = {
 }
 
 export default class Calendar {
-    constructor(calendarElement) {
+    constructor(calendarElement, options) {
         this.element = calendarElement;
         this.state = 'closed';
         this.elements = {
@@ -55,66 +54,68 @@ export default class Calendar {
             monthList: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         }
         this.renderAllDays();
-        // LISTENER FOR SELECTS
-        this.element.addEventListener('click', (evt) => {
-            // SELECT CLICKED
-            if (evt.target.closest(DOM.select)) {
-                // SELECT ELEMENT
-                const select = evt.target.closest(DOM.select);
-                // GET CONTENT ELEMENT
-                const content = this.elements.content;
-                // IF CALENDAR IS NOT OPEN
-                if (!content.classList.contains('open')) {
-                    content.classList.add('open');
-                    // CHANGE STATE TO SELECT CLICKED (ARRIVAL OR DEPART)
-                    this.state = select.className.match(/depart|arrival/)[0];
-                // IF CALENDAR IS OPEN
-                } else {
-                    this.changeState(select.className.match(/depart|arrival/)[0])
-                }
-            }
-        })
-        // LISTENER FOR BUTTONS
-        this.elements.content.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains(noDot(DOM.arrows.back))) {
-                this.clearDays();
-                if (evt.target.classList.contains(noDot(DOM.arrows.forward))) {
-                  this.data.dates.current.setMonth(this.data.dates.current.getMonth() + 1)
-                } else {
-                    this.data.dates.current.setMonth(this.data.dates.current.getMonth() - 1)
-                }
-                this.renderAllDays();
-            }
-            if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
-                const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
-                const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
-                if (this.changeDate(clickedDate, this.state)) {
-                    if (this.data.dates.arrival && this.data.dates.depart) {
-                        this.data.daysBetween = daysInMilliSeconds(this.data.dates.depart - this.data.dates.arrival);
+        if (options.initListeners) {
+            // LISTENER FOR SELECTS
+            this.element.addEventListener('click', (evt) => {
+                // SELECT CLICKED
+                if (evt.target.closest(DOM.select)) {
+                    // SELECT ELEMENT
+                    const select = evt.target.closest(DOM.select);
+                    // GET CONTENT ELEMENT
+                    const content = this.elements.content;
+                    // IF CALENDAR IS NOT OPEN
+                    if (!content.classList.contains('open')) {
+                        content.classList.add('open');
+                        // CHANGE STATE TO SELECT CLICKED (ARRIVAL OR DEPART)
+                        this.state = select.className.match(/depart|arrival/)[0];
+                        // IF CALENDAR IS OPEN
+                    } else {
+                        this.changeState(select.className.match(/depart|arrival/)[0])
                     }
-                    this.changeDay(evt.target);
-                    this.clearDaysBetween();
-                    this.setDaysBetween();
-                    this.changeFocus(this.state);
                 }
-            }
-            if (evt.target.classList.contains(noDot(DOM.clear))) {
-                evt.preventDefault();
-                this.clearAll();
-            }
-            if (evt.target.classList.contains(noDot(DOM.apply))) {
-                evt.preventDefault();
-                if (this.data.dates.arrival && this.data.dates.depart) {
-                    const arrival = this.data.dates.arrival;
-                    const depart = this.data.dates.depart;
-                    this.elements.arrival.input.value = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
-                    this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
-                    this.elements.depart.input.value = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
-                    this.element.setAttribute('data-depart', this.elements.depart.input.value)
+            })
+            // LISTENER FOR BUTTONS
+            this.elements.content.addEventListener('click', (evt) => {
+                if (evt.target.classList.contains(noDot(DOM.arrows.back))) {
+                    this.clearDays();
+                    if (evt.target.classList.contains(noDot(DOM.arrows.forward))) {
+                        this.data.dates.current.setMonth(this.data.dates.current.getMonth() + 1)
+                    } else {
+                        this.data.dates.current.setMonth(this.data.dates.current.getMonth() - 1)
+                    }
+                    this.renderAllDays();
                 }
+                if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
+                    const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
+                    const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
+                    if (this.changeDate(clickedDate, this.state)) {
+                        if (this.data.dates.arrival && this.data.dates.depart) {
+                            this.data.daysBetween = daysInMilliSeconds(this.data.dates.depart - this.data.dates.arrival);
+                        }
+                        this.changeDay(evt.target);
+                        this.clearDaysBetween();
+                        this.setDaysBetween();
+                        this.changeFocus(this.state);
+                    }
+                }
+                if (evt.target.classList.contains(noDot(DOM.clear))) {
+                    evt.preventDefault();
+                    this.clearAll();
+                }
+                if (evt.target.classList.contains(noDot(DOM.apply))) {
+                    evt.preventDefault();
+                    if (this.data.dates.arrival && this.data.dates.depart) {
+                        const arrival = this.data.dates.arrival;
+                        const depart = this.data.dates.depart;
+                        this.elements.arrival.input.value = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
+                        this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                        this.elements.depart.input.value = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
+                        this.element.setAttribute('data-depart', this.elements.depart.input.value)
+                    }
 
-            }
-        });
+                }
+            });
+        }
     }
     static dateIsBetween(from, to, date) {
         return date < to && date > from;
