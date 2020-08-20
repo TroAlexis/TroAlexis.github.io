@@ -1,15 +1,23 @@
 const path = require('path');
 const fs = require('fs');
+// ------------ REQUIRE ALL PLUGINS ------------
+//  https://webpack.js.org/plugins/mini-css-extract-plugin/
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// https://www.npmjs.com/package/clean-webpack-plugin
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+// https://webpack.js.org/plugins/copy-webpack-plugin/
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+// https://webpack.js.org/plugins/html-webpack-plugin/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// Variable to differ production mode from development
+// ---- Variable to differ production mode from development -----
 let isProd = false;
 
 
-// Main const
+// Main const for directory paths
 const PATHS = {
   src: path.resolve(__dirname, '../src'),
   dist: path.resolve(__dirname, '../dist'),

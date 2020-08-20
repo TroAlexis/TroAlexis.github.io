@@ -1,6 +1,10 @@
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+
+// https://www.npmjs.com/package/imagemin-webpack-plugin
 const ImageMinPlugin = require('imagemin-webpack-plugin').default;
+
+// https://www.npmjs.com/package/imagemin-mozjpeg
 const ImageMinMozJpeg = require('imagemin-mozjpeg');
 
 isProd = true;
@@ -20,6 +24,7 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
       plugins: [
           ImageMinMozJpeg({
             quality: 73,
+            // progressive or arithmetic encoding available
             progressive: true
           })
       ]

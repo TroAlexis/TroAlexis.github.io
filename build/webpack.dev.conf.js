@@ -9,7 +9,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     // Enables reload when template Pug files are changed.
     before(app, server) {
-      server._watch('src/pug/pages/**.pug')
+      // watches files in templates directory
+      server._watch('src/pug/**/**.pug')
     },
     contentBase: baseWebpackConfig.externals.paths.dist,
     // Enables hot module replacement

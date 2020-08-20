@@ -49,11 +49,20 @@ ul, li {
   padding: 12px 15px;
   @extend %heading-body;
   transition: border-color .3s ease-out;
-  &:focus, &:active {
+  &:focus, &:active, &:hover {
     border-color: map_get($colors, 'main-50');
     transition: border-color .3s ease-out;
     color: map_get($colors, 'main-75');
     outline: none;
+  }
+  &.focus {
+    border-color: map_get($colors, 'main-50');
+    transition: border-color .3s ease-out;
+    color: map_get($colors, 'main-75');
+    outline: none;
+    &::placeholder {
+      color: map-get($colors, 'main-75');
+    }
   }
 }
 

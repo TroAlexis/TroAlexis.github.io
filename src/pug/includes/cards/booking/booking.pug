@@ -13,6 +13,7 @@ mixin booking(room, cost, discount, lux)
             span.booking__cost.cost= cost + '₽ '
                 span.booking__aday.cost__aday в сутки
         include ../../forms/calendar/calendar
+        +input-calendar
         +dropdown('Сколько гостей', ['взрослые', 'дети', 'младенцы'], 'dropdown--apply', 'buttons')
         .booking__sum
             p

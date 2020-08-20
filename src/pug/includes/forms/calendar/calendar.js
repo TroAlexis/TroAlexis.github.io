@@ -95,7 +95,7 @@ export default class Calendar {
                     this.changeDay(evt.target);
                     this.clearDaysBetween();
                     this.setDaysBetween();
-                    this.focusToDepart();
+                    this.changeFocus(this.state);
                 }
             }
             if (evt.target.classList.contains(noDot(DOM.clear))) {
@@ -300,12 +300,11 @@ export default class Calendar {
         this.data.dates.current = new Date();
         this.renderAllDays();
     }
-    focusToDepart() {
-      if (this.state === 'arrival') {
-          this.changeState('depart')
-          this.elements.arrival.input.blur();
-          this.elements.depart.input.focus();
-      }
+    changeFocus(type) {
+        const changeTo = type === 'arrival' ? 'depart' : 'arrival'
+        this.changeState(type === 'arrival' ? 'depart' : 'arrival')
+        this.elements[type].input.blur();
+        this.elements[changeTo].input.focus();
     }
 }
 

@@ -4,8 +4,11 @@
   @extend %input-common;
     &::placeholder {
       color: map-get($colors, 'main-25');
+      transition: color 0.3s ease-out;
     }
-    &:focus::placeholder {
-      color: transparent;
+    &:focus, &:hover {
+      &::placeholder {
+        color: map-get($colors, 'main-75');
+      }
     }
   }

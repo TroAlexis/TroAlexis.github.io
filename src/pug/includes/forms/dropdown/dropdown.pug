@@ -6,18 +6,11 @@ include ../../btn/--bdless/btn--bdless
 mixin dropdown(placeholder, items, exClass, buttons)
     .dropdown(class=exClass)
         if exClass === 'dropdown--date'
-            h3.heading-3.dropdown--date__heading прибытие
-            h3.heading-3.dropdown--date__heading выезд
+            h3.heading-3.dropdown--date__heading даты пребывания в отеле
         if exClass === 'dropdown--apply'
             h3.heading-3.dropdown--apply__heading гости
-        a.dropdown__select(class=(exClass === 'dropdown--date') ? 'arrival' : '')
-            if exClass === 'dropdown--date'
-                input.dropdown__arrival(type ='text' placeholder= placeholder)
-            else
-                span= placeholder
-        if exClass === 'dropdown--date'
-            a.dropdown__select.depart
-                input.dropdown__depart(type ='text' placeholder= placeholder)
+        a.dropdown__select
+            span=placeholder
         .dropdown__content
             if (exClass === 'dropdown--date')
                 .dropdown--date__calendar
@@ -36,7 +29,7 @@ mixin dropdown(placeholder, items, exClass, buttons)
                         +btn-bdless('применить', '#', false, 'dropdown__apply')
                         +btn-bdless('очистить', '#', true, 'dropdown__clear')
             else
-                -var last = ''
+                -const last = '';
                 each item, index in items
                     .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
                         h3.heading-3.dropdown__label= item

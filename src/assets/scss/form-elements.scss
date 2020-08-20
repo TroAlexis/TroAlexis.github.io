@@ -1,6 +1,9 @@
 @import "shared";
 @import "ui-base";
 @import "modules/text-field";
+@import "~/pug/includes/forms/dropdown/dropdown";
+@import "~/pug/includes/forms/dropdown/--apply/dropdown--apply";
+@import "~/pug/includes/forms/calendar/calendar";
 
 main {
   flex-direction: column;
@@ -40,5 +43,18 @@ main {
   &__subheading {
     font-weight: normal;
     color: map-get($colors, 'main-50');
+  }
+}
+
+.dropdown--apply__heading {
+  display: none;
+}
+.input-calendar__heading {
+  display: none;
+}
+
+.form-calendar {
+  .heading-3 {
+    flex: 0 0 150px;
   }
 }
