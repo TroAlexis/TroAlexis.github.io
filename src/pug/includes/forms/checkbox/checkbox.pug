@@ -1,0 +1,11 @@
+//- INF {id, title, isRich}
+mixin checkbox(options)
+    if options.isRich
+        input.checkbox(type='checkbox' id=options.id name=options.id value='yes')
+        label.checkbox__label.checkbox__label--rich(for=options.id)
+            .checkbox__info
+                .checkbox__title=options.title
+                .checkbox__description= options.description
+    else
+        input.checkbox(type='checkbox' id=options.id name=options.id value='yes')&attributes(attributes)
+        label.checkbox__label(for=options.id)= options.title

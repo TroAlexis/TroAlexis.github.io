@@ -1,6 +1,13 @@
 extends ../layout/ui-base
 include ../includes/forms/dropdown/dropdown
 
+mixin element(headings)
+    .element&attributes(attributes)
+        .element__hgroup
+            each heading in headings
+                h3.heading-3&attributes(heading.attributes)=heading.name
+        block
+
 block head
     - const pageTitle = 'Form Elements';
 
@@ -8,39 +15,44 @@ block content
     main
         .row
             .col-4
-                .element
-                    .element__hgroup
-                        h3.heading-3 text field
-                        h3.heading-3.element__subheading default
+                +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field(type='email', name='email' placeholder='Email')
-                .element
-                    .element__hgroup
-                        h3.heading-3 text field
-                        h3.heading-3.element__subheading hover / focus
+                +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'hover / focus'}])
                     input.text-field.focus(type='email', name='email' placeholder='This is pretty awesome')
-                .element
-                    .element__hgroup
-                        h3.heading-3 dropdown
-                        h3.heading-3.element__subheading default
+                +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     +dropdown('Сколько гостей', ['взрослые','дети','младенцы'], 'dropdown--apply', 'buttons')
-                .element
-                    .element__hgroup
-                        h3.heading-3 masked text field
-                        h3.heading-3.element__subheading default
+                +element([{name: 'masked text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field.text-field--masked(type='text', name='birthdate', placeholder='ДД.ММ.ГГГГ')
-                .element
-                    .element__hgroup.form-calendar
-                        h3.heading-3 date dropdown
-                        h3.heading-3 date dropdown
+                +element([{name: 'date dropdown'}, {name: 'date dropdown'}])(class='form-calendar')
                     include ../includes/forms/calendar/calendar
                     +input-calendar(['прибытие', 'выезд'])
-                .element
-                    .element__hgroup
-                        h3.heading-3 filter date dropdown
+                +element([{name: 'filter date dropdown'}])
                     +input-calendar('даты пребывания в отеле' ,'dropdown--date')
-
-
+                +element([{name: 'subscription text field'}])
+                    include ../includes/forms/subs-form/subs-form
+                    +subs-form
             .col-4
+                +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
+                    include ../includes/forms/checkbox/checkbox
+                    +checkbox({id: 'smoking', title: 'Можно курить'})
+                    +checkbox({id: 'pets', title: 'Можно с питомцами'})(checked='checked')
+                    +checkbox({id: 'guests', title: 'Можно пригласить гостей (до 10 человек)'})(checked='checked')
+                +element([{name: 'radio buttons'}])(class='radio-buttons')
+                    include ../includes/forms/radio/radio
+                    +radio({name: 'sex', value: 'male', title: 'Мужчина'})(checked='checked')
+                    +radio({name: 'sex', value: 'female', title: 'Женщина'})
+                +element([{name: 'toggle'}])(class='toggle-buttons')
+                    include ../includes/forms/toggle/toggle
+                    +toggle({id: 'specials', title: 'Получать спецпредложения'})(checked='checked')
+                    +toggle({id: 'specials', title: 'Получать спецпредложения'})
+                +element([{name: 'like button'}])(class='like-buttons')
+                    include ../includes/forms/like-btn/like-btn
+                    +like-btn({count: 2})
+                    +like-btn({count: 12})(class='active')
+                +element([{name: 'rate button'}])(class='rate-buttons')
+                    include ../includes/rate-btn/rate-btn
+                    +rate-btn({rating: 4})
+                    +rate-btn({rating: 5})
             .col-4
         .row
             .col-4

@@ -1,3 +1,8 @@
 .dropdown--date {
   position: relative;
+  .dropdown {
+    &__select {
+      width: 267px;
+    }
+  }
 }
