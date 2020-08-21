@@ -2,6 +2,7 @@ import Formatter from 'formatter.js-pebble';
 import Calendar from "./pug/includes/forms/calendar/calendar";
 import DropdownApplyTotal from "./pug/includes/forms/dropdown/--apply/dropdown--apply";
 import DropdownDate from "./pug/includes/forms/dropdown/--date/dropdown--date";
+import likeBtn from "./pug/includes/forms/like-btn/like-btn";
 
 // Enabling masked inputs.
 const maskedInputs = document.querySelectorAll('.text-field--masked');
@@ -27,8 +28,15 @@ dateFilters.forEach((dateFilterElement) => {
     const dateFilter = new DropdownDate(dateFilterElement);
 });
 
+const likeBtns = document.querySelectorAll('.like-btn');
+likeBtns.forEach((likeBtnElement) => {
+    const likeButton = new likeBtn(likeBtnElement);
+    console.log(likeBtnElement)
+});
+
 
 import './assets/scss/form-elements.scss'
+
 
 
 if (module.hot) {

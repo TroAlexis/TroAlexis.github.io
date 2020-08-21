@@ -1,5 +1,6 @@
-mixin rate-btn(rating)
+// inf {rating: num}
+mixin rate-btn(options)
     .rate-btn
         -var i = 1
         while i <= 5
-            a(href='#' class='rate-btn__star', data-index=i++)(class = i <= rating ? 'active' : '')
+            a(href='#' class='rate-btn__star', data-index=i++)(class = i <= options.rating ? 'active' : '')
