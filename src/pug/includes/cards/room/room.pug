@@ -15,6 +15,6 @@ mixin roomcard(roomnumber, lux, price, reviews, rating)
                     span.cost__aday в сутки
             hr
             .roomcard__wrap
-                +rate-btn(rating)
+                +rate-btn({rating: rating})
                 p.reviews.cost= reviews + ' '
                     span.cost__aday Отзывов
