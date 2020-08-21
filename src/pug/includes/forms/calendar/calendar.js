@@ -122,10 +122,11 @@ export default class Calendar {
                             this.element.setAttribute('data-depart', this.elements.depart.input.value)
                             this.elements.arrival.input.value = arrivalText;
                             this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                        } else {
+                            arrivalText = `${arrival.getDate().toString().padStart(2, '0')} ${this.data.monthList[arrival.getMonth()].substring(0, 3).toLowerCase()}`
+                            departText = `${depart.getDate().toString().padStart(2, '0')} ${this.data.monthList[depart.getMonth()].substring(0, 3).toLowerCase()}`
+                            this.elements.arrival.input.value += `${arrivalText} - ${departText}`;
                         }
-                        arrivalText = `${arrival.getDate().toString().padStart(2, '0')} ${this.data.monthList[arrival.getMonth()].substring(0, 3).toLowerCase()}`
-                        departText = `${depart.getDate().toString().padStart(2, '0')} ${this.data.monthList[depart.getMonth()].substring(0, 3).toLowerCase()}`
-                        this.elements.arrival.input.value += `${arrivalText} - ${departText}`;
                     }
 
                 }
