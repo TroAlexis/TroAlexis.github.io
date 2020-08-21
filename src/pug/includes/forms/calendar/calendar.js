@@ -113,17 +113,19 @@ export default class Calendar {
                     if (this.data.dates.arrival && this.data.dates.depart) {
                         const arrival = this.data.dates.arrival;
                         const depart = this.data.dates.depart;
-                        const arrivalText = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
-                        const departText = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
+                        let arrivalText, departText;
                         // If there are depart and arrival input elements in the Calendar
-                        try {
-                            this.elements.arrival.input.value = arrivalText;
-                            this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                        if (this.elements.depart.input) {
+                            arrivalText = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
+                            departText = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
                             this.elements.depart.input.value = departText;
                             this.element.setAttribute('data-depart', this.elements.depart.input.value)
-                        } catch {
-                            this.elements.arrival.input.value += ` - ${departText}`;
+                            this.elements.arrival.input.value = arrivalText;
+                            this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
                         }
+                        arrivalText = `${arrival.getDate().toString().padStart(2, '0')} ${this.data.monthList[arrival.getMonth()].substring(0, 3).toLowerCase()}`
+                        departText = `${depart.getDate().toString().padStart(2, '0')} ${this.data.monthList[depart.getMonth()].substring(0, 3).toLowerCase()}`
+                        this.elements.arrival.input.value += `${arrivalText} - ${departText}`;
                     }
 
                 }
