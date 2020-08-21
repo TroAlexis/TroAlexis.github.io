@@ -4,7 +4,7 @@ import Calendar from "./pug/includes/forms/calendar/calendar";
 import Slideshow from "./pug/includes/slideshow/slideshow";
 import RateBtn from "./pug/includes/rate-btn/rate-btn";
 
-const calendarContent = new Calendar(document.querySelector('.group--3 .input-calendar'), { initListeners: true })
+const calendarContent = new Calendar(document.querySelector('.group--3 .input-calendar'))
 calendarContent.state = 'arrival';
 const roomCards = document.querySelectorAll('.group--3 .roomcard');
 roomCards.forEach((roomcCard) => {

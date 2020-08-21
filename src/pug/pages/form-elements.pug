@@ -33,27 +33,11 @@ block content
                         h3.heading-3 date dropdown
                         h3.heading-3 date dropdown
                     include ../includes/forms/calendar/calendar
-                    +input-calendar
+                    +input-calendar(['прибытие', 'выезд'])
                 .element
                     .element__hgroup
                         h3.heading-3 filter date dropdown
-                    .input-calendar
-                        h3.heading-3.input-calendar__heading даты проживания в отеле
-                        a.input-calendar__select.dropdown__select
-                            input.input-calendar__arrival(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
-                        .input-calendar__content
-                            .input-calendar__calendar
-                                .input-calendar__header
-                                    .input-calendar__arrow
-                                    .input-calendar__text
-                                        span.input-calendar__month
-                                    .input-calendar__arrow.input-calendar__arrow--forward
-                                .input-calendar__weekdays
-                                    each day in ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-                                        span.input-calendar__weekday=day
-                                .input-calendar__days
-                                +btn-bdless('применить', '#', false, 'input-calendar__apply')
-                                +btn-bdless('очистить', '#', true, 'input-calendar__clear')
+                    +input-calendar('даты пребывания в отеле' ,'dropdown--date')
 
 
             .col-4

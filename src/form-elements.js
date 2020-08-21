@@ -1,6 +1,7 @@
 import Formatter from 'formatter.js-pebble';
 import Calendar from "./pug/includes/forms/calendar/calendar";
 import DropdownApplyTotal from "./pug/includes/forms/dropdown/--apply/dropdown--apply";
+import DropdownDate from "./pug/includes/forms/dropdown/--date/dropdown--date";
 
 // Enabling masked inputs.
 const maskedInputs = document.querySelectorAll('.text-field--masked');
@@ -18,7 +19,12 @@ dropdownsApply.forEach((dropdownElement) => {
 
 const calendars = document.querySelectorAll('.input-calendar');
 calendars.forEach((calendarElement) => {
-    const calendar = new Calendar(calendarElement, { initListeners: true });
+    const calendar = new Calendar(calendarElement);
+});
+
+const dateFilters = document.querySelectorAll('.dropdown--date');
+dateFilters.forEach((dateFilterElement) => {
+    const dateFilter = new DropdownDate(dateFilterElement);
 });
 
 

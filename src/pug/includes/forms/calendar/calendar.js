@@ -22,7 +22,12 @@ const DOM = {
 }
 
 export default class Calendar {
-    constructor(calendarElement, options) {
+    constructor(calendarElement, options = {
+        listeners: {
+            selects: true,
+            buttons: true
+        }
+    }) {
         this.element = calendarElement;
         this.state = 'closed';
         this.elements = {
@@ -54,7 +59,7 @@ export default class Calendar {
             monthList: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         }
         this.renderAllDays();
-        if (options.initListeners) {
+        if (options.listeners.selects) {
             // LISTENER FOR SELECTS
             this.element.addEventListener('click', (evt) => {
                 // SELECT CLICKED
@@ -74,7 +79,8 @@ export default class Calendar {
                     }
                 }
             })
-            // LISTENER FOR BUTTONS
+        }
+        if (options.listeners.buttons) { // LISTENER FOR BUTTONS
             this.elements.content.addEventListener('click', (evt) => {
                 if (evt.target.classList.contains(noDot(DOM.arrows.back))) {
                     this.clearDays();
@@ -107,10 +113,17 @@ export default class Calendar {
                     if (this.data.dates.arrival && this.data.dates.depart) {
                         const arrival = this.data.dates.arrival;
                         const depart = this.data.dates.depart;
-                        this.elements.arrival.input.value = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
-                        this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
-                        this.elements.depart.input.value = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
-                        this.element.setAttribute('data-depart', this.elements.depart.input.value)
+                        const arrivalText = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
+                        const departText = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
+                        // If there are depart and arrival input elements in the Calendar
+                        try {
+                            this.elements.arrival.input.value = arrivalText;
+                            this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                            this.elements.depart.input.value = departText;
+                            this.element.setAttribute('data-depart', this.elements.depart.input.value)
+                        } catch {
+                            this.elements.arrival.input.value += ` - ${departText}`;
+                        }
                     }
 
                 }
@@ -142,6 +155,9 @@ export default class Calendar {
         }
         dayElement.textContent = `${day}`;
         return dayElement;
+    }
+    get domstrings() {
+        return DOM;
     }
     changeState(state) {
         if (this.state === state) {
@@ -289,12 +305,14 @@ export default class Calendar {
       });
     }
     clearAll() {
-        this.state = '';
+        this.state = 'arrival';
         this.data.dates.arrival = '';
         this.data.dates.depart = '';
         this.data.daysBetween = '';
         this.elements.arrival.input.value = '';
-        this.elements.depart.input.value = '';
+        if (this.elements.depart.input) {
+            this.elements.depart.input.value = '';
+        }
         this.element.removeAttribute('data-arrival')
         this.element.removeAttribute('data-depart')
         this.clearDays();
@@ -304,8 +322,14 @@ export default class Calendar {
     changeFocus(type) {
         const changeTo = type === 'arrival' ? 'depart' : 'arrival'
         this.changeState(type === 'arrival' ? 'depart' : 'arrival')
-        this.elements[type].input.blur();
-        this.elements[changeTo].input.focus();
+        const from = this.elements[type].input
+        if (from) {
+            from.blur();
+        }
+        const to = this.elements[changeTo].input
+        if (to) {
+            to.focus();
+        }
     }
 }
 

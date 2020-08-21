@@ -15,7 +15,7 @@ const DOM = {
     sumOfDays: '.booking__sum-total',
     total: '.booking__total'
 }
-const calendar = new Calendar(document.querySelector(`${DOM.booking} ${DOM.calendar}`), { initListeners: true})
+const calendar = new Calendar(document.querySelector(`${DOM.booking} ${DOM.calendar}`))
 const dropdownGuests = new DropdownApplyTotal(document.querySelector(`${DOM.booking} ${DOM.guestsElement}`), ['гость', 'гостя', 'гостей']);
 
 // CREATE BOOKING OBJECT;

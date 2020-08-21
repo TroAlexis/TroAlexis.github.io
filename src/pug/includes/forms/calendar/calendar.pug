@@ -1,11 +1,15 @@
-mixin input-calendar
-    .input-calendar
-        h3.heading-3.input-calendar__heading прибытие
-        h3.heading-3.input-calendar__heading выезд
+mixin input-calendar(headings, container='input-calendar')
+    div(class=container)
+        if container==='input-calendar'
+            h3.heading-3.input-calendar__heading=headings[0]
+            h3.heading-3.input-calendar__heading=headings[1]
+        else
+            h3.heading-3.input-calendar__heading=headings
         a.input-calendar__select.arrival.dropdown__select
             input.input-calendar__arrival(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
-        a.input-calendar__select.depart.dropdown__select
-            input.input-calendar__depart(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
+        if container==='input-calendar'
+            a.input-calendar__select.depart.dropdown__select
+                input.input-calendar__depart(type='text' placeholder='ДД.ММ.ГГГГ', readonly='readonly')
         .input-calendar__content
             .input-calendar__calendar
                 .input-calendar__header
