@@ -1,0 +1,12 @@
+// inf {pagesVis: number, stopPage: number, text: string}
+mixin pagination(options)
+    .pagination
+        .pagination__buttons
+            - let i = 1;
+            while i <= options.pagesVis
+                a.pagination__button(class=`pagination__button--${i}`, href='#')=i++
+            a.pagination__button(class=`pagination__button--empty`) ...
+            a.pagination__button(class=`pagination__button--${options.stopPage}`, href='#')=options.stopPage
+            a.pagination__button(class=`pagination__button--next`, href='#')
+        .pagination__info
+            p.pagination__paragraph= options.text

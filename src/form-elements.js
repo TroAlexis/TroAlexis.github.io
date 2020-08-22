@@ -13,29 +13,38 @@ maskedInputs.forEach((input) => {
   })
 });
 
+// Initializing dropdowns with buttons
 const dropdownsApply = document.querySelectorAll('.dropdown--apply');
 dropdownsApply.forEach((dropdownElement) => {
   const dropdown = new DropdownApplyTotal(dropdownElement, ['гость', 'гостя', 'гостей'])
 });
-
+// Init calendars
 const calendars = document.querySelectorAll('.input-calendar');
 calendars.forEach((calendarElement) => {
     const calendar = new Calendar(calendarElement);
 });
-
+// Init date filters
 const dateFilters = document.querySelectorAll('.dropdown--date');
 dateFilters.forEach((dateFilterElement) => {
     const dateFilter = new DropdownDate(dateFilterElement);
 });
 
+// Init like buttons
 const likeBtns = document.querySelectorAll('.like-btn');
 likeBtns.forEach((likeBtnElement) => {
     const likeButton = new likeBtn(likeBtnElement);
     console.log(likeBtnElement)
 });
 
+//Init rate-btns
+const rateBtns = document.querySelectorAll('.rate-btn');
+rateBtns.forEach((buttonElement) => {
+    const rateBtn = new RateBtn(buttonElement);
+});
+
 
 import './assets/scss/form-elements.scss'
+import RateBtn from "./pug/includes/rate-btn/rate-btn";
 
 
 

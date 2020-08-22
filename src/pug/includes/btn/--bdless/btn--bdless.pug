@@ -1,5 +1,3 @@
-mixin btn-bdless(content, href, disabled, exclass)
-    if disabled
-        a.btn-bdless.btn-bdless--disabled(class=exclass href=href)= content
-    else
-        a.btn-bdless(class=exclass href=href)= content
+// inf {text, href}
+mixin btn-bdless(options)
+    a.btn-bdless(href=options.href ? options.href : '#')&attributes(attributes)= options.text

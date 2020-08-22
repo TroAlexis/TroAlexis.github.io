@@ -1,5 +1,4 @@
 extends ../layout/ui-base
-include ../includes/forms/dropdown/dropdown
 
 mixin element(headings)
     .element&attributes(attributes)
@@ -14,12 +13,13 @@ block head
 block content
     main
         .row
-            .col-4
+            .col-4.col-6-lg
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field(type='email', name='email' placeholder='Email')
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'hover / focus'}])
                     input.text-field.focus(type='email', name='email' placeholder='This is pretty awesome')
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
+                    include ../includes/forms/dropdown/dropdown
                     +dropdown('Сколько гостей', ['взрослые','дети','младенцы'], 'dropdown--apply', 'buttons')
                 +element([{name: 'masked text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field.text-field--masked(type='text', name='birthdate', placeholder='ДД.ММ.ГГГГ')
@@ -31,7 +31,7 @@ block content
                 +element([{name: 'subscription text field'}])
                     include ../includes/forms/subs-form/subs-form
                     +subs-form
-            .col-4
+            .col-4.col-6-lg
                 +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
                     include ../includes/forms/checkbox/checkbox
                     +checkbox({id: 'smoking', title: 'Можно курить'})
@@ -54,6 +54,26 @@ block content
                     +rate-btn({rating: 4})
                     +rate-btn({rating: 5})
             .col-4
+                +element([{name: 'range slider'}, {name: '5 000₽ - 10 000₽', attributes: {class: 'element__subheading'}}])(class='range-sliders')
+                    include ../includes/forms/range-slider/range-slider
+                    +range-slider
+                +element([{name: 'rate button'}])(class='main-buttons')
+                    include ../includes/btn/btn
+                    include ../includes/btn/--border/btn--border
+                    include ../includes/btn/--bdless/btn--bdless
+                    .row
+                        +btn({text: 'click me'})
+                        +btn({text: 'click me'})(class='btn--disabled')
+                    .row
+                        +btn-border({text: 'click me'})
+                        +btn-border({text: 'click me'})(class='btn--disabled')
+                    .row
+                        +btn-bdless({text: 'click me'})
+                        +btn-bdless({text: 'click me'})(class='btn-bdless--disabled')
+                    +btn({text: 'перейти к оплате'})(class='btn--arrow')
+                +element([{name: 'pagination'}])(class='paginations')
+                    include ../includes/pagination/pagination
+                    +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов аренды'})
         .row
             .col-4
             .col-8

@@ -34,4 +34,4 @@ mixin booking(room, cost, discount, lux)
             span Итого
             div.booking__separator
             span= (Number(extra.slice(0, -1)) + Number(cost.replace(/\s/g, '')) - Number(discount.replace(/\s/g, ''))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '₽'
-        +btn('забронировать','#', 'btn--arrow booking__button')
+        +btn({text: 'забронировать', href: '#'})(class='btn--arrow booking__button')
