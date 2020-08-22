@@ -6,4 +6,4 @@
     h3.roomsearch__label.heading-3 гости
     +dropdown('Сколько гостей', ['взрослые', 'дети', 'младенцы'], 'dropdown--guests', 'buttons')
     include ../../btn/btn
-    +btn('Подобрать номер','#', 'btn--arrow roomsearch__button')
+    +btn({text: 'Подобрать номер', href: '#'})(class='btn--arrow roomsearch__button')

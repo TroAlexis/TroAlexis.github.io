@@ -5,7 +5,7 @@ form.sign-in
     h1.sign-in__heading Войти
     input.text-field(type='email', name='email', placeholder='Email')
     input.text-field(type='password', name='password', placeholder='Пароль')
-    +btn('войти', '#', 'btn--arrow sign-in__auth', 'submit')
+    +btn({text: 'войти', href: '#', submit: true})(class='btn--arrow sign-in__auth')
     .sign-in__isntregged
         p.sign-in__text Нет аккаунта на Toxin?
-        +btn-border('создать', '#', false)
+        +btn-border({text: 'создать', href: '#'})

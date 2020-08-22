@@ -1,7 +1,4 @@
-mixin btn-border(text, href, data_da, disabled, submit)
-    if disabled
-        .btn-border.btn-border--disabled(data-da=data_da)
-            a.btn-border__link(href=href)=text
-    else
-        .btn-border(data-da=data_da)
-            a.btn-border__link(href=href)=text
+// inf {text, href}
+mixin btn-border(options)
+        .btn-border&attributes(attributes)
+            a.btn-border__link(href=options.href ? options.href : '#')=options.text

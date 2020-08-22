@@ -26,8 +26,8 @@ mixin dropdown(placeholder, items, exClass, buttons)
                             span.dropdown--date__weekday=day
                     .dropdown--date__days
                     if buttons === 'buttons'
-                        +btn-bdless('применить', '#', false, 'dropdown__apply')
-                        +btn-bdless('очистить', '#', true, 'dropdown__clear')
+                        +btn-bdless({text: 'применить'})(class='dropdown__apply')
+                        +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled dropdown__clear')
             else
                 -const last = '';
                 each item, index in items
@@ -37,7 +37,7 @@ mixin dropdown(placeholder, items, exClass, buttons)
                         h3.heading-3.dropdown__count 0
                         button.dropdown__plus
                 if buttons === 'buttons'
-                    +btn-bdless('применить', '#', false, 'dropdown__apply')
-                    +btn-bdless('очистить', '#', true, 'dropdown__clear')
+                    +btn-bdless({text: 'применить'})(class='dropdown__apply')
+                    +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled dropdown__clear')
 
 

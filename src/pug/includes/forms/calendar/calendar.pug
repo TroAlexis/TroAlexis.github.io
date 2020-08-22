@@ -21,5 +21,6 @@ mixin input-calendar(headings, container='input-calendar')
                     each day in ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
                         span.input-calendar__weekday=day
                 .input-calendar__days
-                +btn-bdless('применить', '#', false, 'input-calendar__apply')
-                +btn-bdless('очистить', '#', true, 'input-calendar__clear')
+                include ../../btn/--bdless/btn--bdless
+                +btn-bdless({text: 'применить'})(class='input-calendar__apply')
+                +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled input-calendar__clear')

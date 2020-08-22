@@ -16,10 +16,10 @@ form.registration
     input.text-field(type='email', autocomplete='username' name='email', placeholder='Email')
     input.text-field(type='password', autocomplete='current-password', name='password', placeholder='Пароль')
     +toggle('specials', 'Получать спецпредложения', false)
-    +btn('перейти к оплате', '#', 'btn--arrow registration__payment', 'submit')
+    +btn({text: 'перейти к оплате', href: '#', submit: true})(class='btn--arrow registration__payment')
     .registration__isregged
         p.registration__text Уже есть аккаунт на Toxin
-        +btn-border('войти', '#', false)
+        +btn-border({text: 'войти', href: '#'})
 
 
 

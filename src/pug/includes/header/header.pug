@@ -21,10 +21,10 @@ mixin header(header_links, is_auth, username)
                 unless is_auth
                     include ../btn/--border/btn--border
                     li.header__item.header__btn(data-da='header__mob-nav,5,567.98')
-                        +btn-border('Войти', '#')
+                        +btn-border({text: 'Войти'})
                     li.header__item.header__btn(data-da='header__mob-nav,6,567.98')
                         include ../btn/btn
-                        +btn('Зарегистрироваться', '#', 'header__item-button')
+                        +btn({text: 'Зарегистрироваться', href: '#'})(class='header__item-button')
                 else
                     .header__vline
                     li.header__item(data-da='header-auth .header__mob-nav,5,567.98')

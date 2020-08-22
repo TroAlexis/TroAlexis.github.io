@@ -3,7 +3,7 @@ const DOM = {
 }
 
 export default class RateBtn {
-    constructor(btnElement, options) {
+    constructor(btnElement) {
         this.element = btnElement;
         this.stars = btnElement.querySelectorAll(DOM.star)
         this.element.addEventListener('click', (evt) => {
