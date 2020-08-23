@@ -12,15 +12,15 @@ block head
 
 block content
     main
-        .row
-            .col-4.col-6-lg
+        .row.row-1
+            .col.col-4
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field(type='email', name='email' placeholder='Email')
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'hover / focus'}])
                     input.text-field.focus(type='email', name='email' placeholder='This is pretty awesome')
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     include ../includes/forms/dropdown/dropdown
-                    +dropdown('Сколько гостей', ['взрослые','дети','младенцы'], 'dropdown--apply', 'buttons')
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})
                 +element([{name: 'masked text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field.text-field--masked(type='text', name='birthdate', placeholder='ДД.ММ.ГГГГ')
                 +element([{name: 'date dropdown'}, {name: 'date dropdown'}])(class='form-calendar')
@@ -31,7 +31,7 @@ block content
                 +element([{name: 'subscription text field'}])
                     include ../includes/forms/subs-form/subs-form
                     +subs-form
-            .col-4.col-6-lg
+            .col.col-4
                 +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
                     include ../includes/forms/checkbox/checkbox
                     +checkbox({id: 'smoking', title: 'Можно курить'})
@@ -53,7 +53,7 @@ block content
                     include ../includes/rate-btn/rate-btn
                     +rate-btn({rating: 4})
                     +rate-btn({rating: 5})
-            .col-4
+            .col.col-4
                 +element([{name: 'range slider'}, {name: '5 000₽ - 10 000₽', attributes: {class: 'element__subheading'}}])(class='range-sliders')
                     include ../includes/forms/range-slider/range-slider
                     +range-slider
@@ -73,10 +73,42 @@ block content
                     +btn({text: 'перейти к оплате'})(class='btn--arrow')
                 +element([{name: 'pagination'}])(class='paginations')
                     include ../includes/pagination/pagination
-                    +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов аренды'})
+                    +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов арендыы'})
         .row
-            .col-4
-            .col-8
-                .col-6
-                .col-6
-                .col-12
+            .col.col-4
+                +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
+                    +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные комнаты'], type:'dropdown--auto'})
+                +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'expanded'}])(class='dropdown-expanded')
+                    +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные ' +
+                        'комнаты'], type: 'dropdown--auto'})(class='expanded')
+                include ../includes/expandable/expandable
+                +expandable({label: 'expandable checkbox list'})
+                    +checkbox({id: 'breakfast', title: 'Завтрак'})
+                    +checkbox({id: 'desk', title: 'Письменный стол'})(checked='checked')
+                    +checkbox({id: 'baby-table', title: 'Стул для кормления'})(checked='checked')
+                    +checkbox({id: 'baby-bed', title: 'Кроватка'})(checked='checked')
+                    +checkbox({id: 'tv', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo', title: 'Шампунь'})
+                    +checkbox({id: 'tv-1', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo-1', title: 'Шампунь'})
+                +expandable({label: 'expandable checkbox list'})(class='expanded')
+                    +checkbox({id: 'breakfast', title: 'Завтрак'})
+                    +checkbox({id: 'desk', title: 'Письменный стол'})(checked='checked')
+                    +checkbox({id: 'baby-table', title: 'Стул для кормления'})(checked='checked')
+                    +checkbox({id: 'baby-bed', title: 'Кроватка'})(checked='checked')
+                    +checkbox({id: 'tv', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo', title: 'Шампунь'})
+                    +checkbox({id: 'tv-1', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo-1', title: 'Шампунь'})
+                include ../includes/advantage/advantage
+                +advantage({title: 'Комфорт', description: 'Шумопоглощающие стены', icon: 'comfort'})
+                +advantage({title: 'Удобство', description: 'Окно в каждой из спален', icon: 'convenience'})
+            .col.col-8
+                +element([{name: 'dropdown'}])
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded')
+                +element([{name: 'dropdown'}])
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
+                            'dropdown--apply', buttons: true})(class='expanded modified')
+                .col.col-6
+                .col.col-6
+                .col.col-12

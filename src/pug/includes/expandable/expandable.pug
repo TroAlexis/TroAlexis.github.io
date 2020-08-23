@@ -1,0 +1,8 @@
+// inf {label}
+mixin expandable(options)
+    .expandable&attributes(attributes)
+        button.expandable__button= options.label
+        .expandable__content
+            block
+
+// TODO Give &attributes to all parent blocks in mixins

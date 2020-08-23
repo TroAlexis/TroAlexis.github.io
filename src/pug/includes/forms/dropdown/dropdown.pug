@@ -1,43 +1,24 @@
-include ../../btn/--bdless/btn--bdless
+//- DROPDOWN WITH NO BUTTONS (AUTOMATIC CHANGE) - +dropdown({heading, phText, selectOptions, type})
+//- DROPDOWN WITH BUTTONS - +dropdown({heading, phText, selectOptions, type, buttons: true})
+// inf {heading: string,phText: string, selectOptions: list of elements, type: string, buttons: boolean}
 
-//- DROPDOWN WITH NO BUTTONS (AUTOMATIC CHANGE) - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--auto', '')
-//- DROPDOWN WITH BUTTONS - +dropdown('PLACEHOLDER', [OPTIONS], 'dropdown--apply', 'buttons')
-
-mixin dropdown(placeholder, items, exClass, buttons)
-    .dropdown(class=exClass)
-        if exClass === 'dropdown--date'
-            h3.heading-3.dropdown--date__heading даты пребывания в отеле
-        if exClass === 'dropdown--apply'
-            h3.heading-3.dropdown--apply__heading гости
+mixin dropdown(options)
+    .dropdown(class=options.type)&attributes(attributes)
+        if options.heading
+            h3.heading-3.dropdown--apply__heading= options.heading
         a.dropdown__select
-            span=placeholder
+            span=options.phText
         .dropdown__content
-            if (exClass === 'dropdown--date')
-                .dropdown--date__calendar
-                    .dropdown--date__header
-                        .dropdown--date__arrow
-                        .dropdown--date__text
-                            span.dropdown--date__month
-                            span.dropdown--date__year
-                        .dropdown--date__arrow.dropdown--date__arrow--forward
-                    .dropdown--date__weekdays
-                        - const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-                        each day in weekdays
-                            span.dropdown--date__weekday=day
-                    .dropdown--date__days
-                    if buttons === 'buttons'
-                        +btn-bdless({text: 'применить'})(class='dropdown__apply')
-                        +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled dropdown__clear')
-            else
-                -const last = '';
-                each item, index in items
-                    .dropdown__item(class=(index < items.length - 1) ? last : 'dropdown__item--last')
-                        h3.heading-3.dropdown__label= item
-                        button.dropdown__minus.disabled
-                        h3.heading-3.dropdown__count 0
-                        button.dropdown__plus
-                if buttons === 'buttons'
-                    +btn-bdless({text: 'применить'})(class='dropdown__apply')
-                    +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled dropdown__clear')
+            -const notLast = '';
+            each item, index in options.selectOptions
+                .dropdown__item(class=(index < options.selectOptions.length - 1) ? notLast : 'dropdown__item--last')
+                    h3.heading-3.dropdown__label= item
+                    button.dropdown__minus.disabled
+                    h3.heading-3.dropdown__count 0
+                    button.dropdown__plus
+            if options.buttons
+                include ../../btn/--bdless/btn--bdless
+                +btn-bdless({text: 'применить'})(class='dropdown__apply')
+                +btn-bdless({text: 'очистить'})(class='btn-bdless--disabled dropdown__clear')
 
 

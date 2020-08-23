@@ -16,12 +16,22 @@
 @import "~/pug/includes/btn/--bdless/btn--bdless";
 @import "~/pug/includes/btn/--arrow/btn--arrow";
 @import "~/pug/includes/pagination/pagination";
+@import "~/pug/includes/expandable/expandable";
+@import "~/pug/includes/advantage/advantage";
 
 $rowGap: 20px;
 main {
-  & > .row {
-    margin: -1 * $rowGap 0 0 -1 * $rowGap;
-    justify-content: space-around;
+  & > {
+    .row {
+      &-1 {
+        margin: -1 * $rowGap 0 100px -1 * $rowGap;
+        justify-content: space-between;
+        @include media(1039px){
+          justify-content: space-around;
+        }
+      }
+      margin: -1 * $rowGap 0 0 -1 * $rowGap;
+    }
   }
 }
 
@@ -34,10 +44,16 @@ main {
 .col {
   display: flex;
   flex-direction: column;
+  margin: $rowGap 0 0 $rowGap;
+  align-items: flex-start;
   &-12 {
     max-width: 100%;
   }
   &-8 {
+    flex: 0 1 66.66%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     max-width: 66.66%;
   }
   &-6 {
@@ -45,7 +61,6 @@ main {
   }
   &-4 {
     flex: 0 1 320px;
-    margin: $rowGap 0 0 $rowGap;
   }
   &-2 {
     max-width: 16.66%;
@@ -135,4 +150,12 @@ main {
       }
     }
   }
+}
+.dropdown-expanded {
+  height: 189px;
+  margin-bottom: 40px;
+}
+.expandable:not(.expanded) {
+    // 49px margin (-20 because there is a margin in the expandable)
+    margin-bottom: 49px - 20px;
 }

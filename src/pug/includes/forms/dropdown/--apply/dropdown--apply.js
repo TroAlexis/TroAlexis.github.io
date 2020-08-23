@@ -21,12 +21,7 @@ export default class DropdownApplyTotal extends Dropdown {
             // IF APPLY BUTTON CLICKED
             else if (evt.target.classList.contains(DOM.applyBtn.replace('.', ''))) {
                 evt.preventDefault();
-                // GET TOTAL OF ALL COUNTERS
-                this.element.totalCounters = Object.values(this.counters).reduce((a, b) => {
-                  return a+b;
-                });
-                // CHANGE INPUT ELEMENT TEXT
-                this.input.element.textContent = `${this.element.totalCounters} ${Dropdown.getWordForm(this.element.totalCounters, this.forms)}`
+                this.updateAll();
             }
             // IF CLEAR BUTTON CLICKED
             else if (evt.target.classList.contains(DOM.clearBtn.replace('.', ''))) {
@@ -48,5 +43,13 @@ export default class DropdownApplyTotal extends Dropdown {
         })
         this.element.counters = this.counters;
         this.input.element.textContent = this.input._default;
+    }
+    updateAll() {
+        // GET TOTAL OF ALL COUNTERS
+        this.element.totalCounters = Object.values(this.counters).reduce((a, b) => {
+            return a+b;
+        });
+        // CHANGE INPUT ELEMENT TEXT
+        this.input.element.textContent = `${this.element.totalCounters} ${Dropdown.getWordForm(this.element.totalCounters, this.forms)}`
     }
 };

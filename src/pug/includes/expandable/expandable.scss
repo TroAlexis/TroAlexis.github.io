@@ -1,0 +1,55 @@
+// -----------PARENT------------
+.expandable {
+  // -----------BUTTON------------
+  &__button {
+    @extend %heading-3;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 20px;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 15.2px;
+      margin-left: 46px;
+      transition: transform 0.5s ease-out;
+      background: {
+      image: url("/assets/img/ui/expand-more--grey.svg");
+      repeat: no-repeat;
+      position: 100% 45%;
+      }
+    }
+  }
+// -----------CONTENT------------
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    .checkbox {
+      position: absolute;
+      &__label {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  // -----------ACTIVE STYLES------------
+  &.active {
+    .expandable {
+      // -----------button------------
+      &__button {
+        &::after {
+          transform: rotateZ(180deg);
+        }
+      }
+      // -----------content------------
+      &__content {
+      }
+    }
+  }
+}
