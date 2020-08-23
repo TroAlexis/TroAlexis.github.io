@@ -22,6 +22,12 @@
 }
 
 // MEDIA QUERIES MIXINS
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content
+  }
+}
+
 @mixin media-sm {
   @media (max-width: 567.98px) {
     @content
