@@ -18,7 +18,7 @@
   }
   // ON FOCUS BEHAVIOUR
   &:focus+.checkbox__label::before, &:focus:not(:checked)+.checkbox__label::before {
-      box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.20);
+      box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.20);
   }
   // HOVERING THE BOX
   &:not(:checked):not(:disabled):not(:focus)+.checkbox__label:hover::before {
@@ -28,7 +28,7 @@
   &__label {
     @extend %heading-body;
     line-height: 1.125rem;
-    max-width: 230px;
+    max-width: rem(230px);
     display: inline-flex;
     user-select: none;
     color: map-get($colors, 'main-50');
@@ -38,12 +38,12 @@
       display: inline-block;
       box-sizing: border-box;
       cursor: pointer;
-      width: 20px;
-      height: 20px;
+      width: rem(20px);
+      height: rem(20px);
       flex: 0 0 auto;
       border: 1px solid map_get($colors, 'main-25');
       border-radius: 0.25rem;
-      margin-right: 10px;
+      margin-right: rem(10px);
       transition: border-color .4s;
     }
   }

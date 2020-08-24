@@ -14,9 +14,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 -10px;
+    margin: 0 -1 * rem(10px);
   }
   &__rights, .socials {
-    padding: 0 10px;
+    padding: 0 rem(10px);
   }
 }

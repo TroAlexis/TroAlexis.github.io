@@ -1,11 +1,11 @@
 .advantage {
   display: inline-flex;
-  padding: 20px 0;
+  padding: rem(20px) 0;
   &__label {
     @extend %heading-body;
-    margin-left: 10px;
-    padding-right: 36px;
-    max-width: 280px;
+    margin-left: rem(20px);
+    padding-right: rem(36px);
+    max-width: rem(280px);
   }
   &__title {
     font-weight: bold;
@@ -13,13 +13,13 @@
   }
   &__icon {
     display: flex;
-    @include size(48px);
+    @include size(rem(48px));
     align-items: center;
     justify-content: center;
   }
   &__hr {
-    width: 280px;
-    height: 1px;
+    width: rem(280px);
+    height: rem(1px);
     margin: 0;
     border: none;
     background-color: map-get($colors, 'main-10');

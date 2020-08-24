@@ -1,17 +1,17 @@
 .range-slider {
   position: relative;
-  width: 266px;
-  height: 6px;
+  width: rem(266px);
+  height: rem(6px);
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 3px;
   background: #FFFFFF;
   &__range {
     position: absolute;
     top: 0;
-    left: 82px;
+    left: rem(82px);
     transform: translateY(-1px);
-    width: 84px;
-    height: 6px;
+    width: rem(84px);
+    height: rem(6px);
     border-radius: 3px;
     background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
     &:after, &:before {

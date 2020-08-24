@@ -3,13 +3,13 @@
 @import "../btn/--border/btn--border";
 
 // BURGER VARIABLES
-$burgerWidth: 35px;
-$burgerHeight: 20px;
-$burgerLineHeight: 2px;
+$burgerWidth: rem(35px);
+$burgerHeight: rem(20px);
+$burgerLineHeight: rem(2px);
 
 
 // HEADER VARIABLES
-$headerHeight: 70px;
+$headerHeight: rem(70px);
 
 
 // --------------BACKDROP--------------
@@ -62,7 +62,7 @@ $headerHeight: 70px;
         top: $burgerHeight/2;
       }
       &:nth-child(2) {
-        left: -20px;
+        left: -1 * rem(20px);
         opacity: 0;
       }
       &:nth-child(3) {
@@ -89,9 +89,9 @@ $headerHeight: 70px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 15px 140px;
+    padding: rem(15px) rem(140px);
     @include media-x-lg {
-      padding: 15px 35px;
+      padding: rem(15px) rem(35px);
     }
   }
   // -----------MOBILE NAVIGATION BAR------------
@@ -108,8 +108,8 @@ $headerHeight: 70px;
     align-items: center;
     justify-content: center;
     width: 50%;
-    margin: 0 0 -20px 0;
-    padding-top: 70px;
+    margin: 0 0 -1 * rem(20px) 0;
+    padding-top: rem(70px);
     background: #FFFFFF;
     @include media-sm {
       width: 70%;
@@ -127,7 +127,7 @@ $headerHeight: 70px;
     }
     // -----------ITEMS IN MOB-NAVBAR------------
     .header__item {
-      padding: 20px 0;
+      padding: rem(20px) 0;
       // -----------HIGHLIGHT THE FIRST LINK------------
       &:first-of-type .link__title {
         color: map-get($colors, 'main-75');
@@ -152,7 +152,7 @@ $headerHeight: 70px;
     display: flex;
     align-items: center;
     transition: height 1s ease-out;
-    margin: 0 -10px;
+    margin: 0 -1 * rem(10px);
     padding: 0;
     list-style: none;
     @include media-x-lg {
@@ -164,7 +164,7 @@ $headerHeight: 70px;
   }
   // -----------NAVIGATION ITEMS------------
   &__item {
-    padding: 0 10px;
+    padding: 0 rem(10px);
     @include media-x-lg {
       //display: none;
     }
@@ -184,6 +184,6 @@ $headerHeight: 70px;
   // -----------SEPARATOR------------
   &__vline {
     border-left: 1px solid map-get($colors, 'main-10');
-    height: 30px;
+    height: rem(30px);
   }
 }

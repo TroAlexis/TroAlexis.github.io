@@ -4,14 +4,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 320px;
+    width: rem(320px);
     // -----------ARROW------------
     &::after {
       content: '';
       position: absolute;
       right: 0;
-      width: 44px;
-      height: 44px;
+      @include size(rem(44px));
       background: url('/assets/img/ui/arrow_forward--white.svg') center center no-repeat;
     }
   }

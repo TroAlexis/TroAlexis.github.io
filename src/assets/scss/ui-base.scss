@@ -17,19 +17,19 @@ body {
 main {
   display: flex;
   justify-content: space-between;
-  flex: 0 1 1160px;
+  flex: 0 1 rem(1160px);
   flex-wrap: wrap;
-  max-width: 1160px;
-  padding: 150px 0 140px 0;
+  max-width: rem(1160px);
+  padding: rem(150px) 0 rem(140px) 0;
   @include media-x-lg {
     justify-content: space-around;
-    padding: 150px 10px 140px 10px;
+    padding: rem(150px) rem(10px) rem(140px) rem(10px);
   }
   @include media-lg {
-    margin: 0 -10px;
+    margin: 0 -1 * rem(10px);
   }
   @include media-sm {
     margin: 0;
-    padding: 150px 0 140px 0;
+    padding: rem(150px) 0 rem(140px) 0;
   }
 }

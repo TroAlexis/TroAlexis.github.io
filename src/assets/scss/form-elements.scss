@@ -22,7 +22,7 @@
 @import "~/pug/includes/bullet-list/bullet-list";
 @import "~/pug/includes/comment/comment";
 
-$rowGap: 20px;
+$rowGap: rem(20px);
 main {
   & > {
     .row {
@@ -34,10 +34,10 @@ main {
         }
       }
       &-1 {
-        margin: -1 * $rowGap 0 100px -1 * $rowGap;
+        margin: -1 * $rowGap 0 rem(100px) -1 * $rowGap;
       }
       &-2 {
-        margin: -1 * $rowGap 0 20px -1 * $rowGap;
+        margin: -1 * $rowGap 0 rem(20px) -1 * $rowGap;
       }
       &-3 {
         @include media(1099px) {
@@ -78,15 +78,15 @@ main {
       flex: 0 1 50%;
     }
     @include media(719px) {
-      flex: 0 1 320px;
-      max-width: 320px;
+      flex: 0 1 rem(320px);
+      max-width: rem(320px);
     }
   }
   &-6 {
     max-width: 50%;
   }
   &-4 {
-    flex: 0 1 320px;
+    flex: 0 1 rem(320px);
   }
   &-2 {
     max-width: 16.66%;
@@ -94,11 +94,11 @@ main {
 }
 
 .element {
-  margin-bottom: 20px;
+  margin-bottom: rem(20px);
   &__hgroup {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: rem(5px);
   }
   &__subheading {
     font-weight: normal;
@@ -115,14 +115,14 @@ main {
 
 .form-calendar {
   .heading-3 {
-    flex: 0 0 150px;
+    flex: 0 0 rem(150px);
   }
 }
 
 .checkbox-buttons, .radio-buttons, .toggle-buttons,
 .like-buttons, .paginations, .rich-checkboxes, .bullet-lists {
   .element__hgroup {
-    margin-bottom: 16px;
+    margin-bottom: rem(16px);
   }
 }
 
@@ -130,25 +130,25 @@ main {
   display: flex;
   flex-direction: column;
   .checkbox__label:not(:last-of-type) {
-    margin-bottom: 12px;
+    margin-bottom: rem(12px);
   }
 }
 .radio-buttons {
   .radio {
-    margin-right: 20px;
+    margin-right: rem(20px);
   }
 }
 .toggle-buttons {
   display: flex;
   flex-direction: column;
   .toggle:first-of-type {
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
   }
 }
 
 .like-buttons {
   .like-btn {
-    margin-right: 10px;
+    margin-right: rem(10px);
   }
 }
 .rate-buttons {
@@ -158,41 +158,41 @@ main {
     width: 100%;
   }
   .rate-btn:not(:last-of-type) {
-    margin-right: 20px;
+    margin-right: rem(20px);
   }
 }
 .range-sliders {
-  margin-bottom: 40px;
+  margin-bottom: rem(40px);
   .element__hgroup {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
   }
 }
 .main-buttons {
   .row {
-    margin-bottom: 30px;
+    margin-bottom: rem(30px);
     .btn, .btn-border, .btn-bdless {
       &:not(:nth-of-type(2)) {
-        margin-right: 20px;
+        margin-right: rem(20px);
       }
     }
   }
 }
 .dropdown-expanded, .dropdown--apply-expanded {
-  margin-bottom: 40px;
+  margin-bottom: rem(40px);
 }
 .dropdown-expanded {
-  height: 189px;
+  height: rem(189px);
 }
 .dropdown--apply-expanded {
-  height: 223px;
+  height: rem(223px);
 }
 .expandable:not(.expanded) {
     // 49px margin (-20 because there is a margin in the expandable)
-    margin-bottom: 49px - 20px;
+    margin-bottom: rem(49px) - rem(20px);
 }
 
 .rich-checkboxes {
   .checkbox__label {
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
   }
 }

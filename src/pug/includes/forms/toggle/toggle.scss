@@ -13,19 +13,19 @@
     // STYLING THE CHECKED BUTTON
     &:checked+.toggle__button {
       &::before {
-        transform: translateX(22px);
+        transform: translateX(rem(22px));
       }
       border-color: map_get($colors, 'primary');
       .toggle__dummybg {
         &::before {
           opacity: 0;
-          transform: translateX(22px);
+          transform: translateX(rem(22px));
         }
       }
     }
     // FOCUS ON THE BUTTON
     &:focus+.toggle__button, &:focus:not(:checked)+.toggle__button {
-      box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.20);
+      box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.20);
     }
     // HOVERING THE TOGGLE BUTTON
     &:not(:disabled):not(:checked)+.toggle__button:hover {
@@ -37,38 +37,38 @@
 
   //  CLICKING THE TOGGLE
     &:active+.toggle__button {
-      box-shadow: 0 0 1px map_get($colors, 'primary');
+      box-shadow: 0 0 rem(1px) map_get($colors, 'primary');
     }
   }
   // THE TOGGLE BUTTON
   &__button {
     position: relative;
     cursor: pointer;
-    width: 40px;
-    height: 20px;
+    width: rem(40px);
+    height: rem(20px);
     flex: 0 0 auto;
     border: 1px solid map-get($colors, 'main-25');
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: rem(10px);
     transition: .4s;
     //  COMMON PROPERTIES FOR SLIDERS
     &::before, .toggle__dummybg::before {
       content: '';
       position: absolute;
       cursor: pointer;
-      left: 2px;
-      bottom: 3px;
+      left: rem(2px);
+      bottom: rem(3px);
       box-sizing: border-box;
-      width: 12px;
-      height: 12px;
+      width: rem(12px);
+      height: rem(12px);
       border-radius: 10px;
       transition: .4s;
     }
   //  DUMMY BACKGROUND BOX
     .toggle__dummybg {
       display: inline-block;
-      width: 38px;
-      height: 18px;
+      width: rem(38px);
+      height: rem(18px);
       // DUMMY SLIDER
       &::before {
         background: rgb(191, 189, 201);

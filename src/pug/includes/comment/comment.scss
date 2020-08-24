@@ -4,28 +4,27 @@
     display: flex;
   }
   &__info {
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
   }
   &__image {
-    width: 48px;
-    height: 48px;
+    @include size(rem(48px));
     border: 2px solid #FFFFFF;
-    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
+    box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.1);
     border-radius: 32px;
-    margin-right: 10px;
+    margin-right: rem(10px);
   }
   &__name {
     font-weight: bold;
   }
   &__button {
     text-align: center;
-    margin-right: 10px;
-    flex: 0 0 48px;
+    margin-right: rem(10px);
+    flex: 0 0 rem(48px);
     .like-btn {
       margin: 0 auto;
     }
   }
   &__content {
-    flex: 0 1 655px;
+    flex: 0 1 rem(655px);
   }
 }

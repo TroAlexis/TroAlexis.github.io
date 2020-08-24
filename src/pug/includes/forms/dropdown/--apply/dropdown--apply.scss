@@ -1,10 +1,10 @@
 .dropdown--apply {
   &__heading {
-    margin-bottom: 5px;
+    margin-bottom: rem(5px);
   }
   .dropdown__item {
     &--last {
-      margin-bottom: 19px;
+      margin-bottom: rem(19px);
     }
   }
   .dropdown__apply {

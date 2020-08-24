@@ -120,7 +120,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1110px;
+  max-width: rem(1110px);
   justify-content: space-between;
   align-items: flex-start;
   @include media-m {

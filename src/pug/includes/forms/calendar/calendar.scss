@@ -1,15 +1,15 @@
 .input-calendar {
   display: inline-flex;
   flex-wrap: wrap;
-  width: 320px;
+  width: rem(320px);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   position: relative;
   &__heading {
-    flex: 0 0 150px;
-    margin-bottom: 5px;
+    flex: 0 0 rem(150px);
+    margin-bottom: rem(5px);
     &:first-child {
-      margin-right: 20px;
+      margin-right: rem(20px);
     }
   }
   &__calendar {
@@ -27,10 +27,10 @@
   }
   &__select {
     &.arrival {
-      margin-right: 20px;
+      margin-right: rem(20px);
     }
     &.arrival, &.depart {
-      flex: 0 1 150px;
+      flex: 0 1 rem(150px);
       padding: 0;
       border: none;
     }
@@ -41,7 +41,7 @@
       z-index: 1;
       background: transparent;
       outline: none;
-      padding: 0 15px;
+      padding: 0 rem(15px);
       width: 100%;
       height: 100%;
       @extend %heading-body;
@@ -56,15 +56,15 @@
   &__content {
     display: none;
     position: absolute;
-    width: 320px;
-    min-height: 369px;
-    padding: 20px;
-    top: 70px;
+    width: rem(320px);
+    min-height: rem(369px);
+    padding: rem(20px);
+    top: rem(70px);
     background: #ffffff;
     z-index: 2;
     border: 1px solid map-get($colors, 'main-25');
     border-radius: 4px;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
     &.open {
       display: flex;
     }
@@ -74,15 +74,15 @@
     display: flex;
     @extend %heading-2;
     color: map_get($colors, 'main-100');
-    margin-bottom: 30px;
+    margin-bottom: rem(30px);
   }
   &__text {
     flex: 1 0 auto;
     text-align: center;
   }
   &__arrow {
-    width: 24px;
-    height: 24px;
+    width: rem(24px);
+    height: rem(24px);
     background: url("/assets/img/ui/arrow--nograd.svg") center center no-repeat;
     cursor: pointer;
     &--forward {
@@ -95,14 +95,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 40px;
+    height: rem(40px);
     @extend %heading-3;
     text-transform: none;
     color: map_get($colors, 'primary');
   }
   &__weekday {
-    flex: 0 1 39.71px;
-    height: 40px;
+    flex: 0 1 rem(39.71px);
+    height: rem(40px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,12 +112,12 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
   }
   &__day {
-    flex: 0 1 39.71px;
+    flex: 0 1 rem(39.71px);
     cursor: pointer;
-    height: 40px;
+    height: rem(40px);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -27,8 +27,8 @@
   // BORDER STYLES
   display: inline-flex;
   //background: rgba(31, 32, 65, 0.25);
-  height: 20px;
-  padding: 1px;
+  height: rem(20px);
+  padding: rem(1px);
   //border-radius: 10px;
   position: relative;
   &::before {
@@ -53,7 +53,7 @@
   }
   // ICON STYLES
   &__icon {
-    width: 19px;
+    width: rem(19px);
     height: 100%;
     background: {
       image: url("/assets/img/ui/like-icon--border.svg");
@@ -65,9 +65,9 @@
   &__count {
     @extend %heading-body;
     line-height: normal;
-    font-size: 10px;
-    padding: 0 7px 0 2px;
-    min-width: 19px;
+    font-size: rem(10px);
+    padding: 0 rem(7px) 0 rem(2px);
+    min-width: rem(19px);
     color: map-get($colors, 'main-25');
     transition: .2s;
   }

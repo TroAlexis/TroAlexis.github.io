@@ -5,29 +5,29 @@
 @import './src/pug/includes/btn/--arrow/btn--arrow';
 
 .roomsearch {
-  width: 380px;
-  padding: 40px 30px 30px 30px;
+  width: rem(380px);
+  padding: rem(40px) rem(30px) rem(30px) rem(30px);
   border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 rem(25px) rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   background: #FFFFFF;
   &__heading {
     @extend %heading-1;
     color: map_get($colors, 'main-100');
-    width: 300px;
-    margin-bottom: 20px;
+    width: rem(300px);
+    margin-bottom: rem(20px);
   }
   &__label {
-    margin-top: 20px;
-    margin-bottom: 5px;
+    margin-top: rem(20px);
+    margin-bottom: rem(5px);
   }
   .btn {
     padding: rem(15px) rem(20px);
   }
   .dropdown--date {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
   }
   .dropdown--guests {
-    margin-bottom: 30px;
+    margin-bottom: rem(30px);
   }
 }

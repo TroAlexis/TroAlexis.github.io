@@ -1,13 +1,13 @@
 .pagination {
-  width: 241px;
+  width: rem(241px);
   &__buttons {
     display: flex;
-    margin-bottom: 10.5px;
+    margin-bottom: rem(10.5px);
   }
   &__button {
     display: inline-flex;
-    width: 40px;
-    height: 40px;
+    width: rem(40px);
+    height: rem(40px);
     justify-content: center;
     align-items: center;
     text-decoration: none;

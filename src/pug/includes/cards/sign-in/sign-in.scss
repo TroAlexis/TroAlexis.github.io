@@ -7,13 +7,13 @@
     @extend .roomsearch__heading;
   }
   .text-field {
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
   }
   & #password {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
   }
   &__auth {
-    margin-bottom: 30px;
+    margin-bottom: rem(30px);
   }
   &__isntregged {
     @extend .registration__isregged;
@@ -22,6 +22,6 @@
     @extend .registration__text;
   }
   .btn-border__link {
-    padding: 13px 17px;
+    padding: rem(13px) rem(17px);
   }
 }

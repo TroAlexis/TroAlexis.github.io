@@ -11,30 +11,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10px;
-  width: 380px;
+  margin: 0 rem(10px);
+  width: rem(380px);
   .roomsearch {
-    margin-bottom: 40px;
+    margin-bottom: rem(40px);
   }
   &--3 {
-    width: 320px;
+    width: rem(320px);
     @include media-x-lg {
       flex-direction: row;
       justify-content: space-around;
       width: 100%;
-      margin-top: 40px;
+      margin-top: rem(40px);
     }
     @include media-lg {
       flex-direction: column;
     }
     .input-calendar {
-      height: 406px;
-      margin-bottom: 40px;
+      height: rem(406px);
+      margin-bottom: rem(40px);
       @include media-x-lg {
         margin-bottom: 0;
       }
       @include media-lg {
-        margin-bottom: 40px;
+        margin-bottom: rem(40px);
       }
       &__heading, &__select {
         display: none;
@@ -46,12 +46,12 @@
       }
     }
     .roomcard {
-      margin-bottom: 40px;
+      margin-bottom: rem(40px);
       @include media-x-lg {
         margin-bottom: 0;
       }
       @include media-lg {
-        margin-bottom: 40px;
+        margin-bottom: rem(40px);
       }
     }
   }

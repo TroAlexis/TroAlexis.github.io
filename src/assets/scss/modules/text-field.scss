@@ -1,6 +1,6 @@
 .text-field {
-  width: 320px;
-  height: 44px;
+  width: rem(320px);
+  height: rem(44px);
   @extend %input-common;
     &::placeholder {
       color: map-get($colors, 'main-25');

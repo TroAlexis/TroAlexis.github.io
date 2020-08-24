@@ -1,9 +1,9 @@
 // -----------SOCIALS BOX------------
 .socials {
   display: flex;
-  margin: 0 -10px;
+  margin: 0 -1 * rem(10px);
   // ----------- ICONS ------------
   &__icon {
-    padding: 0 10px;
+    padding: 0 rem(10px);
   }
 }
