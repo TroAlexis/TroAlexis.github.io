@@ -59,6 +59,9 @@
     width: rem(320px);
     min-height: rem(369px);
     padding: rem(20px);
+    @include media-lg {
+      padding: rem(20px)/1.15;
+    }
     top: rem(70px);
     background: #ffffff;
     z-index: 2;
@@ -112,6 +115,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
     margin-bottom: rem(20px);
   }
   &__day {

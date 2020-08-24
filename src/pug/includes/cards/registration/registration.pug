@@ -8,8 +8,8 @@ form.registration
     input.text-field(type='text', name='name', placeholder='Имя')
     input.text-field(type='text', name='surname', placeholder='Фамилия')
     .registration__radio
-        +radio('sex', 'Мужчина', 'male', true)
-        +radio('sex', 'Женщина', 'female', false)
+        +radio({name:'sex', title: 'Мужчина', value: 'male'})
+        +radio({name: 'sex', title: 'Женщина', value: 'female'})
     h3.registration__subheading дата рождения
     input.text-field.text-field--masked(type='text', name='birthdate', placeholder='ДД.ММ.ГГГГ')
     h3.registration__subheading данные для входа в сервис
