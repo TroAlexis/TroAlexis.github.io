@@ -39,7 +39,6 @@ dropdownsAuto.forEach((dropdownElement) => {
         dropdownAuto.toggleSelectContent();
     }
 });
-
 // Init calendars
 const calendars = document.querySelectorAll('.input-calendar');
 calendars.forEach((calendarElement) => {

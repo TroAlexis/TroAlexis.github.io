@@ -1,0 +1,14 @@
+// inf {photo: {src, alt}, name, date, likes, content}
+include ../forms/like-btn/like-btn
+mixin comment(options)
+    .comment
+        .comment__info
+            img.comment__image(src=options.photo.src, alt=options.photo.alt)
+            .comment__title
+                p.comment__name= options.name
+                p.comment__date= options.date
+        .comment__description
+            .comment__button
+                +like-btn({count: options.likebtn.count})&attributes(options.likebtn.attributes)
+            p.comment__content= options.content
+

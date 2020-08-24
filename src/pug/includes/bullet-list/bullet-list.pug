@@ -1,0 +1,6 @@
+// inf {items}
+mixin bullet-list(options)
+    ul.bullet-list&attributes(attributes)
+        each item in options.items
+            li.bullet-list__item
+                span.bullet-list__content= item

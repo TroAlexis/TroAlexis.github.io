@@ -74,7 +74,7 @@ block content
                 +element([{name: 'pagination'}])(class='paginations')
                     include ../includes/pagination/pagination
                     +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов арендыы'})
-        .row
+        .row.row-2
             .col.col-4
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные комнаты'], type:'dropdown--auto'})
@@ -92,23 +92,38 @@ block content
                     +checkbox({id: 'tv-1', title: 'Телевизор'})
                     +checkbox({id: 'shampoo-1', title: 'Шампунь'})
                 +expandable({label: 'expandable checkbox list'})(class='expanded')
-                    +checkbox({id: 'breakfast', title: 'Завтрак'})
-                    +checkbox({id: 'desk', title: 'Письменный стол'})(checked='checked')
-                    +checkbox({id: 'baby-table', title: 'Стул для кормления'})(checked='checked')
-                    +checkbox({id: 'baby-bed', title: 'Кроватка'})(checked='checked')
-                    +checkbox({id: 'tv', title: 'Телевизор'})
-                    +checkbox({id: 'shampoo', title: 'Шампунь'})
-                    +checkbox({id: 'tv-1', title: 'Телевизор'})
-                    +checkbox({id: 'shampoo-1', title: 'Шампунь'})
+                    +checkbox({id: 'breakfast-d', title: 'Завтрак'})
+                    +checkbox({id: 'desk-d', title: 'Письменный стол'})(checked='checked')
+                    +checkbox({id: 'baby-table-d', title: 'Стул для кормления'})(checked='checked')
+                    +checkbox({id: 'baby-bed-d', title: 'Кроватка'})(checked='checked')
+                    +checkbox({id: 'tv-d', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo-d', title: 'Шампунь'})
+                    +checkbox({id: 'tv-1-d', title: 'Телевизор'})
+                    +checkbox({id: 'shampoo-1-d', title: 'Шампунь'})
+            .col.col-4
+                +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded')
+                +element([{name: 'rich checkbox buttons'}])(class='rich-checkboxes')
+                    +checkbox({isRich: true,id: 'wide-hall',title: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
+                    +checkbox({isRich: true,id: 'disabled-helper',title: 'Помощник для инвалидов', description:'На 1 этаже вас встретит специалист и проводит до номера.'})
+            .col.col-4
+                +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded modified')
+                +element([{name: 'bullet list'}])(class='bullet-lists')
+                    include ../includes/bullet-list/bullet-list
+                    +bullet-list({items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']})
+        .row.row-3
+            .col.col-4
                 include ../includes/advantage/advantage
                 +advantage({title: 'Комфорт', description: 'Шумопоглощающие стены', icon: 'comfort'})
                 +advantage({title: 'Удобство', description: 'Окно в каждой из спален', icon: 'convenience'})
             .col.col-8
-                +element([{name: 'dropdown'}])
-                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded')
-                +element([{name: 'dropdown'}])
-                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
-                            'dropdown--apply', buttons: true})(class='expanded modified')
-                .col.col-6
-                .col.col-6
-                .col.col-12
+                include ../includes/comment/comment
+                +comment({name: 'Мурад Сарафанов',
+                    date: '5 дней назад',
+                    likebtn: {count: 12,
+                              attributes: {class: 'active'}},
+                    content: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                    photo: {src:
+                            'https://sun1.43222.userapi.com/impf/c845124/v845124363/ac657/Jetzk36_mMQ.jpg?size=50x0&quality=88&crop=44,1,809,809&sign=fb3adbbee44c02b5178aa5a30666ce87&ava=1',
+                            alt: 'photo'}})

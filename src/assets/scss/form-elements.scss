@@ -6,6 +6,7 @@
 @import "~/pug/includes/forms/calendar/calendar";
 @import "~/pug/includes/forms/subs-form/subs-form";
 @import "~/pug/includes/forms/checkbox/checkbox";
+@import "~/pug/includes/forms/checkbox/--rich/checkbox--rich";
 @import "~/pug/includes/forms/radio/radio";
 @import "~/pug/includes/forms/toggle/toggle";
 @import "~/pug/includes/forms/like-btn/like-btn";
@@ -18,19 +19,31 @@
 @import "~/pug/includes/pagination/pagination";
 @import "~/pug/includes/expandable/expandable";
 @import "~/pug/includes/advantage/advantage";
+@import "~/pug/includes/bullet-list/bullet-list";
+@import "~/pug/includes/comment/comment";
 
 $rowGap: 20px;
 main {
   & > {
     .row {
-      &-1 {
-        margin: -1 * $rowGap 0 100px -1 * $rowGap;
+      margin: -1 * $rowGap 0 0 -1 * $rowGap;
+      &-1, &-2, &-3 {
         justify-content: space-between;
         @include media(1039px){
           justify-content: space-around;
         }
       }
-      margin: -1 * $rowGap 0 0 -1 * $rowGap;
+      &-1 {
+        margin: -1 * $rowGap 0 100px -1 * $rowGap;
+      }
+      &-2 {
+        margin: -1 * $rowGap 0 20px -1 * $rowGap;
+      }
+      &-3 {
+        @include media(1099px) {
+          justify-content: center;
+        }
+      }
     }
   }
 }
@@ -47,6 +60,12 @@ main {
   margin: $rowGap 0 0 $rowGap;
   align-items: flex-start;
   &-12 {
+    &-m {
+      @include media-m {
+        flex: 0 1 100%;
+        max-width: 100%;
+      }
+    }
     max-width: 100%;
   }
   &-8 {
@@ -55,6 +74,13 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 66.66%;
+    @include media(1099px) {
+      flex: 0 1 50%;
+    }
+    @include media(719px) {
+      flex: 0 1 320px;
+      max-width: 320px;
+    }
   }
   &-6 {
     max-width: 50%;
@@ -94,7 +120,7 @@ main {
 }
 
 .checkbox-buttons, .radio-buttons, .toggle-buttons,
-.like-buttons, .paginations {
+.like-buttons, .paginations, .rich-checkboxes, .bullet-lists {
   .element__hgroup {
     margin-bottom: 16px;
   }
@@ -151,11 +177,22 @@ main {
     }
   }
 }
+.dropdown-expanded, .dropdown--apply-expanded {
+  margin-bottom: 40px;
+}
 .dropdown-expanded {
   height: 189px;
-  margin-bottom: 40px;
+}
+.dropdown--apply-expanded {
+  height: 223px;
 }
 .expandable:not(.expanded) {
     // 49px margin (-20 because there is a margin in the expandable)
     margin-bottom: 49px - 20px;
+}
+
+.rich-checkboxes {
+  .checkbox__label {
+    margin-bottom: 10px;
+  }
 }
