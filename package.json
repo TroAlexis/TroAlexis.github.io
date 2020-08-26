@@ -4,7 +4,7 @@
   "description": "Fsd Task.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.conf.js",
     "build": "webpack --config ./build/webpack.build.conf.js"
   },
   "browserslist": [
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@funboxteam/webpack-dev-server-firewall": "^2.0.0",
     "autoprefixer": "^9.7.0",
     "babel-loader": "^8.0.6",
     "bem-tools-core": "0.0.3",

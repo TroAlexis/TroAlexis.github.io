@@ -6,35 +6,37 @@
     cursor: pointer;
     border: none;
     outline: none;
-    padding: 0;
+    padding: 0 0 20px 0;
     background-color: transparent;
-    margin-bottom: rem(20px);
+    //margin-bottom: rem(20px);
     &::after {
       content: '';
       position: absolute;
       width: rem(12px);
       height: rem(15.2px);
       margin-left: rem(46px);
-      transition: transform 0.5s ease-out;
+      transition: transform 0.5s linear;
       background: {
-      image: url("/assets/img/ui/expand-more--grey.svg");
-      repeat: no-repeat;
-      position: 100% 45%;
+        image: url("/assets/img/ui/expand-more--grey.svg");
+        size: contain;
+        repeat: no-repeat;
+        position: 100% 45%;
       }
     }
   }
 // -----------CONTENT------------
   &__content {
     position: relative;
-    display: flex;
-    flex-direction: column;
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s ease-out;
     .checkbox {
       position: absolute;
       &__label:not(:last-of-type) {
-        margin-bottom: rem(10px);
+        padding-bottom: rem(10px);
+      }
+      &__label:last-of-type {
+        padding-bottom: 5px;
       }
     }
   }

@@ -16,6 +16,7 @@ export default class Expandable {
     expandContent() {
         this.element.classList.toggle('active');
         if (this.element.classList.contains('active')) {
+            console.log(this.content.scrollHeight);
             this.content.style.maxHeight = this.content.scrollHeight + 'px';
         } else {
             this.content.style.maxHeight = null;

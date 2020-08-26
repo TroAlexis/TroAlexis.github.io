@@ -1,9 +1,12 @@
 .radio {
+  cursor: pointer;
   // HIDING THE DEFAULT RADIO BUTTON
   &__input {
     position: absolute;
     z-index: -1;
     opacity: 0;
+    width: 0;
+    height: 0;
     // HOVERING THE RADIO BUTTON
     &:not(:disabled):not(:checked) {
       +.radio__label:hover::before {
@@ -24,20 +27,19 @@
     // CHECKED RADIO BUTTON
     &:checked {
       +.radio__label {
-        position: relative;
         &::before {
         border-color: map_get($colors, 'primary');
         }
         &::after {
           content: '';
           position: absolute;
-          width: rem(20px);
-          height: rem(20px);
-          background: {
-          image: url("/assets/img/ui/radio.svg");
-          repeat: no-repeat;
-          position: center center;
-          }
+          bottom: rem(6px);
+          left: rem(4px);
+          //transform: translate(50%,-50%);
+          width: rem(12px);
+          height: rem(12px);
+          border-radius: 50%;
+          background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
         }
         color: map-get($colors, 'main-75');
       }
@@ -45,16 +47,16 @@
   }
   //STYLING THE LABEL
   &__label {
+    position: relative;
     display: inline-flex;
     align-items: center;
     user-select: none;
-    @extend %heading-body;
     color: map-get($colors, 'main-50');
     transition: .2s;
+    @extend %heading-body;
     //STYLING THE CUSTOM RADIO
     &:before {
       content: '';
-      cursor: pointer;
       display: inline-block;
       box-sizing: border-box;
       width: rem(20px);

@@ -77,10 +77,11 @@ block content
         .row.row-2
             .col.col-4
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
-                    +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные комнаты'], type:'dropdown--auto'})
+                    +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные ' +
+                        'комнаты'], type:'dropdown--auto'})(class='dropdown--rough-btm')
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'expanded'}])(class='dropdown-expanded')
                     +dropdown({phText: '2 спальни, 2 кровати...', selectOptions: ['спальни', 'кровати', 'ванные ' +
-                        'комнаты'], type: 'dropdown--auto'})(class='expanded')
+                        'комнаты'], type: 'dropdown--auto'})(class='dropdown--rough-btm expanded')
                 include ../includes/expandable/expandable
                 +expandable({label: 'expandable checkbox list'})
                     +checkbox({id: 'breakfast', title: 'Завтрак'})
@@ -102,13 +103,15 @@ block content
                     +checkbox({id: 'shampoo-1-d', title: 'Шампунь'})
             .col.col-4
                 +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
-                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded')
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
+                            'dropdown--apply', buttons: true})(class='dropdown--rough-btm expanded')
                 +element([{name: 'rich checkbox buttons'}])(class='rich-checkboxes')
                     +checkbox({isRich: true,id: 'wide-hall',title: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
                     +checkbox({isRich: true,id: 'disabled-helper',title: 'Помощник для инвалидов', description:'На 1 этаже вас встретит специалист и проводит до номера.'})
             .col.col-4
                 +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
-                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})(class='expanded modified')
+                    +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
+                            'dropdown--apply', buttons: true})(class='dropdown--rough-btm expanded modified')
                 +element([{name: 'bullet list'}])(class='bullet-lists')
                     include ../includes/bullet-list/bullet-list
                     +bullet-list({items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']})

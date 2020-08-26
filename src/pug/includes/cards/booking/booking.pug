@@ -14,7 +14,8 @@ mixin booking(room, cost, discount, lux)
                 span.booking__aday.cost__aday в сутки
         include ../../forms/calendar/calendar
         +input-calendar(['прибытие', 'выезд'])
-        +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})
+        +dropdown({heading: 'гости', phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
+                'dropdown--apply', buttons: true})
         .booking__sum
             p
                 span= cost + '₽ x'

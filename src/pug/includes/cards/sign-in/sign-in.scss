@@ -21,6 +21,9 @@
   &__text {
     @extend .registration__text;
   }
+  .btn {
+    margin-top: rem(15px);
+  }
   .btn-border__link {
     padding: rem(13px) rem(17px);
   }

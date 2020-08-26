@@ -3,6 +3,7 @@
 @import "modules/text-field";
 @import "~/pug/includes/forms/dropdown/dropdown";
 @import "~/pug/includes/forms/dropdown/--apply/dropdown--apply";
+@import "~/pug/includes/forms/dropdown/--date/dropdown--date";
 @import "~/pug/includes/forms/calendar/calendar";
 @import "~/pug/includes/forms/subs-form/subs-form";
 @import "~/pug/includes/forms/checkbox/checkbox";
@@ -186,9 +187,15 @@ main {
 .dropdown--apply-expanded {
   height: rem(223px);
 }
-.expandable:not(.expanded) {
+.expandable {
+  &:not(.expanded) {
     // 49px margin (-20 because there is a margin in the expandable)
     margin-bottom: rem(49px) - rem(20px);
+  }
+  .checkbox__label {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .rich-checkboxes {

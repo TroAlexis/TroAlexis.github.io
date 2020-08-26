@@ -1,5 +1,4 @@
 import Calendar from "../../calendar/calendar";
-import './dropdown--date.scss'
 
 export default class DropdownDate extends Calendar {
     constructor(dropdownElement) {

@@ -6,7 +6,8 @@
 @import "./src/pug/includes/cards/sign-in/sign-in";
 @import "./src/pug/includes/slideshow/slideshow";
 @import "./src/pug/includes/cards/room/room";
-//TODO Fix issue with margins in cards.
+
+
 .group {
   display: flex;
   flex-direction: column;

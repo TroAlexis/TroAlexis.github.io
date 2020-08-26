@@ -9,6 +9,8 @@
     &::after {
       content: '';
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       right: 0;
       @include size(rem(44px));
       background: url('/assets/img/ui/arrow_forward--white.svg') center center no-repeat;

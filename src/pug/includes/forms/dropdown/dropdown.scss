@@ -40,7 +40,7 @@
     padding: rem(7px) rem(7px) rem(13px) rem(15px);
     border: 1px solid map-get($colors, 'main-25');
     border-top: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0  0 4px 4px;
     box-shadow: 0px rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
     transition: 1s ease;
     &.open {
@@ -102,6 +102,13 @@
       height: rem(8px);
       margin: -1 * rem(4px) 0 0 -1 * rem(4px);
       background: url("/assets/img/ui/+.svg") center center no-repeat;
+    }
+  }
+  &--rough-btm {
+    .dropdown {
+      &__select {
+        border-radius: 4px 4px 0 0;
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
 // BURGER VARIABLES
 $burgerWidth: rem(35px);
 $burgerHeight: rem(20px);
-$burgerLineHeight: rem(2px);
+$burgerLineHeight: 2px;
 
 
 // HEADER VARIABLES
@@ -48,10 +48,11 @@ $headerHeight: rem(70px);
       top: 0;
     }
     &:nth-child(2) {
-      top: $burgerHeight/2 - 1.5;
+      top: $burgerHeight/2;
+      transform: translateY(-50%);
     }
     &:nth-child(3) {
-      top: $burgerHeight - 3;
+      bottom: 0;
     }
   }
   // BURGER LINES IN OPEN STATE
