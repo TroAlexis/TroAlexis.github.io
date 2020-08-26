@@ -181,6 +181,14 @@ $headerHeight: rem(70px);
   // -----------BUTTON------------
   &__btn {
     display: flex;
+    .btn {
+      padding: rem(10px) rem(20px);
+    }
+    .btn-border {
+      &__link {
+        padding: rem(8px) rem(20px);
+      }
+    }
   }
   // -----------SEPARATOR------------
   &__vline {
