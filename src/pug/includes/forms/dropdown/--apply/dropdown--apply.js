@@ -12,6 +12,7 @@ export default class DropdownApplyTotal extends Dropdown {
         this.element.totalCounters = 0;
         this.element.addEventListener('click', (evt) => {
             // IF A BUTTON IS CLICKED
+            // TODO Fix clicking select triggering this!!!
             if (evt.target.tagName === 'BUTTON') {
                 const button = evt.target;
                 const label = button.parentElement.querySelector(this.domstrings.label);

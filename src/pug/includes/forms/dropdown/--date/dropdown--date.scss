@@ -1,8 +1,18 @@
 .dropdown--date {
   position: relative;
+  width: rem(267px);
   .dropdown {
     &__select {
       width: rem(267px);
+    }
+  }
+  .input-calendar {
+    &__arrival {
+      flex: 0 1 auto;
+    }
+    &__content {
+      left: 50%;
+      transform: translate(-50%);
     }
   }
 }

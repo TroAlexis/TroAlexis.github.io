@@ -22,6 +22,10 @@
 @import "~/pug/includes/advantage/advantage";
 @import "~/pug/includes/bullet-list/bullet-list";
 @import "~/pug/includes/comment/comment";
+// TODO Make interactive elements keyboard-focusable, add active, focus, hover state styles
+// TODO Zoom metatag
+// TODO Dropdown collapses on apply
+
 
 $rowGap: rem(20px);
 main {

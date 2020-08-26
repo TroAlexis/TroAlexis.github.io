@@ -33,11 +33,13 @@ export default class Calendar {
         this.elements = {
             arrival: {
                 select: calendarElement.querySelector(DOM.arrival.select),
-                input: calendarElement.querySelector(DOM.arrival.input)
+                input: calendarElement.querySelector(DOM.arrival.input),
+                defaultText: calendarElement.querySelector(DOM.arrival.input) ? calendarElement.querySelector(DOM.arrival.input).textContent : undefined,
             },
             depart: {
                 select: calendarElement.querySelector(DOM.depart.select),
-                input: calendarElement.querySelector(DOM.depart.input)
+                input: calendarElement.querySelector(DOM.depart.input),
+                defaultText: calendarElement.querySelector(DOM.depart.input) ? calendarElement.querySelector(DOM.depart.input).textContent : undefined,
             },
             content: calendarElement.querySelector(DOM.content),
             month: calendarElement.querySelector(DOM.month),
@@ -73,6 +75,7 @@ export default class Calendar {
                         content.classList.add('open');
                         // CHANGE STATE TO SELECT CLICKED (ARRIVAL OR DEPART)
                         this.state = select.className.match(/depart|arrival/)[0];
+                        select.classList.add('active');
                         // IF CALENDAR IS OPEN
                     } else {
                         this.changeState(select.className.match(/depart|arrival/)[0])
@@ -118,15 +121,16 @@ export default class Calendar {
                         if (this.elements.depart.input) {
                             arrivalText = `${arrival.getDate().toString().padStart(2, '0')}.${arrival.getMonth().toString().padStart(2, '0')}.${arrival.getFullYear()}`;
                             departText = `${depart.getDate().toString().padStart(2, '0')}.${depart.getMonth().toString().padStart(2, '0')}.${depart.getFullYear()}`;
-                            this.elements.depart.input.value = departText;
-                            this.element.setAttribute('data-depart', this.elements.depart.input.value)
-                            this.elements.arrival.input.value = arrivalText;
-                            this.element.setAttribute('data-arrival', this.elements.arrival.input.value)
+                            this.elements.depart.input.textContent = departText;
+                            this.element.setAttribute('data-depart', this.elements.depart.input.textContent)
+                            this.elements.arrival.input.textContent = arrivalText;
+                            this.element.setAttribute('data-arrival', this.elements.arrival.input.textContent)
                         } else {
                             arrivalText = `${arrival.getDate().toString().padStart(2, '0')} ${this.data.monthList[arrival.getMonth()].substring(0, 3).toLowerCase()}`
                             departText = `${depart.getDate().toString().padStart(2, '0')} ${this.data.monthList[depart.getMonth()].substring(0, 3).toLowerCase()}`
-                            this.elements.arrival.input.value += `${arrivalText} - ${departText}`;
+                            this.elements.arrival.input.textContent = `${arrivalText} - ${departText}`;
                         }
+                        this.changeState(this.state);
                     }
 
                 }
@@ -165,9 +169,12 @@ export default class Calendar {
     changeState(state) {
         if (this.state === state) {
             this.elements.content.classList.remove('open');
+            this.elements[state].select.classList.remove('active');
         }
         else {
+            this.elements[this.state].select.classList.remove('active');
             this.state = state;
+            this.elements[state].select.classList.add('active');
         }
     }
     changeDate(forDate, type) {
@@ -312,9 +319,9 @@ export default class Calendar {
         this.data.dates.arrival = '';
         this.data.dates.depart = '';
         this.data.daysBetween = '';
-        this.elements.arrival.input.value = '';
+        this.elements.arrival.input.textContent = this.elements.arrival.defaultText;
         if (this.elements.depart.input) {
-            this.elements.depart.input.value = '';
+            this.elements.depart.input.textContent = this.elements.depart.defaultText;
         }
         this.element.removeAttribute('data-arrival')
         this.element.removeAttribute('data-depart')
@@ -327,11 +334,11 @@ export default class Calendar {
         this.changeState(type === 'arrival' ? 'depart' : 'arrival')
         const from = this.elements[type].input
         if (from) {
-            from.blur();
+            from.classList.remove('active');
         }
         const to = this.elements[changeTo].input
         if (to) {
-            to.focus();
+            to.classList.add('active');
         }
     }
 }

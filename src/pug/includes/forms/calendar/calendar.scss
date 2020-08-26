@@ -34,11 +34,16 @@
       padding: 0;
       border: none;
     }
-    &.active {
+    &.active, &:focus, &:active, &:hover {
+      span {
+        border-color: map_get($colors, 'main-75');
+      }
     }
-    input {
+    span {
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
       background: transparent;
       outline: none;
       padding: 0 rem(15px);
@@ -48,9 +53,6 @@
       border: 1px solid map-get($colors, 'main-25');
       border-radius: 4px;
       transition: border-color .3s ease-out;
-      &:active, &:focus {
-        border-color: map_get($colors, 'main-75');
-      }
     }
   }
   &__content {

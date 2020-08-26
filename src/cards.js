@@ -1,4 +1,5 @@
 import './pug/includes/cards/room-search/roomsearch';
+import './pug/includes/cards/registration/registration';
 import './pug/includes/cards/booking/booking';
 import Calendar from "./pug/includes/forms/calendar/calendar";
 import Slideshow from "./pug/includes/slideshow/slideshow";

@@ -6,7 +6,7 @@ mixin dropdown(options)
     .dropdown(class=options.type)&attributes(attributes)
         if options.heading
             h3.heading-3.dropdown--apply__heading= options.heading
-        a.dropdown__select
+        button.dropdown__select
             span=options.phText
         .dropdown__content
             -const notLast = '';
