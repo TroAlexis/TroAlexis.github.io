@@ -90,8 +90,12 @@
     height: rem(24px);
     background: url("/assets/img/ui/arrow--nograd.svg") center center no-repeat;
     cursor: pointer;
+    @extend %btn-bdless--focus;
     &--forward {
       transform: rotateY(180deg);
+      &:active {
+        transform: rotateY(180deg)+translateY(rem(0.5px));
+      }
     }
   }
   &__weekdays {

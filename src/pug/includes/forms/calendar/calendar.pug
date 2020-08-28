@@ -13,10 +13,10 @@ mixin input-calendar(headings, container='input-calendar')
         .input-calendar__content
             .input-calendar__calendar
                 .input-calendar__header
-                    .input-calendar__arrow
+                    button.input-calendar__arrow
                     .input-calendar__text
                         span.input-calendar__month
-                    .input-calendar__arrow.input-calendar__arrow--forward
+                    button.input-calendar__arrow.input-calendar__arrow--forward
                 .input-calendar__weekdays
                     each day in ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
                         span.input-calendar__weekday=day

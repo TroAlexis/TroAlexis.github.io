@@ -11,9 +11,8 @@ export default class DropdownApplyTotal extends Dropdown {
         this.forms = forms;
         this.element.totalCounters = 0;
         this.element.addEventListener('click', (evt) => {
-            // IF A BUTTON IS CLICKED
-            // TODO Fix clicking select triggering this!!!
-            if (evt.target.tagName === 'BUTTON') {
+            // IF A BUTTON IS CLICKED (EITHER PLUS OR MINUS)
+            if (evt.target.classList.contains('dropdown__plus') || evt.target.classList.contains('dropdown__minus')) {
                 const button = evt.target;
                 const label = button.parentElement.querySelector(this.domstrings.label);
                 // CHANGE COUNTER
@@ -23,6 +22,7 @@ export default class DropdownApplyTotal extends Dropdown {
             else if (evt.target.classList.contains(DOM.applyBtn.replace('.', ''))) {
                 evt.preventDefault();
                 this.updateAll();
+                this.closeSelectContent();
             }
             // IF CLEAR BUTTON CLICKED
             else if (evt.target.classList.contains(DOM.clearBtn.replace('.', ''))) {

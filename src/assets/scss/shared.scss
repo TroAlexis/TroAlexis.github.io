@@ -42,29 +42,5 @@ ul, li {
   list-style-type: none;
 }
 
-%input-common {
-  background: #FFFFFF;
-  border: 1px solid map_get($colors, 'main-25');
-  border-radius: 4px;
-  padding: rem(12px) rem(15px);
-  @extend %heading-body;
-  transition: border-color .3s ease-out;
-  &:focus, &:active, &:hover {
-    border-color: map_get($colors, 'main-50');
-    transition: border-color .3s ease-out;
-    color: map_get($colors, 'main-75');
-    outline: none;
-  }
-  &.focus {
-    border-color: map_get($colors, 'main-50');
-    transition: border-color .3s ease-out;
-    color: map_get($colors, 'main-75');
-    outline: none;
-    &::placeholder {
-      color: map-get($colors, 'main-75');
-    }
-  }
-}
-
 // Modules
 // @import "modules/my-module.scss";

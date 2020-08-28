@@ -46,6 +46,46 @@ $f-sizes: ('h1': 1.5rem,
   color: map-get($colors, 'main-75');
 }
 
+%input-common {
+  background: #FFFFFF;
+  border: 1px solid map_get($colors, 'main-25');
+  border-radius: 4px;
+  padding: rem(12px) rem(15px);
+  @extend %heading-body;
+  transition: border-color .3s ease-out;
+  &:focus, &:active, &:hover {
+    border-color: map_get($colors, 'main-50');
+    transition: border-color .3s ease-out;
+    color: map_get($colors, 'main-75');
+    outline: none;
+  }
+  &.focus {
+    border-color: map_get($colors, 'main-50');
+    transition: border-color .3s ease-out;
+    color: map_get($colors, 'main-75');
+    outline: none;
+    &::placeholder {
+      color: map-get($colors, 'main-75');
+    }
+  }
+}
+
+%btn--focus {
+  transition: border 0.2s ease-out, transform 0.1s ease-out;
+  &:focus {
+    border: 1px solid map-get($colors, 'main-75');
+  }
+  &:active {
+    transform: translateY(rem(0.5px));
+  }
+}
+%btn-bdless--focus {
+  @extend %btn--focus;
+  &:focus {
+    border: none;
+  }
+}
+
 .room {
   color: map_get($colors, 'main-100');
   &__num {

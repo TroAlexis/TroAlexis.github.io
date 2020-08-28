@@ -97,7 +97,18 @@ export default class Calendar {
                 if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
                     const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
                     const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
-                    if (this.changeDate(clickedDate, this.state)) {
+                    console.log(this.data.dates);
+                    if (this.data.dates.arrival && this.data.dates.depart) {
+                        this.clearData();
+                        this.clearDaysBetween();
+                        this.changeDay(0, 'depart');
+                        this.changeDay(0, 'arrival');
+                        if (this.changeDate(clickedDate, this.state)) {
+                            this.changeDay(evt.target);
+                            this.changeFocus(this.state);
+                        }
+                    }
+                    else if (this.changeDate(clickedDate, this.state)) {
                         if (this.data.dates.arrival && this.data.dates.depart) {
                             this.data.daysBetween = daysInMilliSeconds(this.data.dates.depart - this.data.dates.arrival);
                         }
@@ -194,26 +205,32 @@ export default class Calendar {
           }
           else if (type === 'depart') {
               if (this.data.dates.arrival) {
+                  console.log('Ppc', this.data.dates.arrival);
                   if (forDate >= this.data.dates.arrival) {
+                      console.log(forDate >= this.data.dates.arrival);
                       this.data.dates.depart = forDate;
                       return true
                   }
 
               }
           }
-          if (!this.data.dates.arrival || !this.data.dates.depart) {
+          if (!this.data.dates.arrival && !this.data.dates.depart) {
+              console.log('WTF')
               this.data.dates[type] = forDate;
               return true;
           }
         }
+        return false;
     }
-    changeDay(dayElement) {
+    changeDay(dayElement, state= this.state) {
         // DETECT ANY OTHER ELEMENT WITH SAME TYPE AND REMOVE CLASS
-        const prevButton = this.elements.content.querySelector(`.${this.state}`);
+        const prevButton = this.elements.content.querySelector(`.${state}`);
         if (prevButton) {
-            prevButton.classList.remove(this.state);
+            prevButton.classList.remove(state);
         }
-        dayElement.classList.add(this.state);
+        if (dayElement) {
+            dayElement.classList.add(state);
+        }
     }
     // RENDER MONTH AND YEAR
     renderMonthYear() {
@@ -314,11 +331,14 @@ export default class Calendar {
           }
       });
     }
-    clearAll() {
+    clearData() {
         this.state = 'arrival';
         this.data.dates.arrival = '';
         this.data.dates.depart = '';
         this.data.daysBetween = '';
+    }
+    clearAll() {
+        this.clearData();
         this.elements.arrival.input.textContent = this.elements.arrival.defaultText;
         if (this.elements.depart.input) {
             this.elements.depart.input.textContent = this.elements.depart.defaultText;
