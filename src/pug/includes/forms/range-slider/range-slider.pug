@@ -1,3 +1,6 @@
 mixin range-slider(options)
-    .range-slider
+    .range-slider&attributes(attributes)
         .range-slider__range
+    if options
+        if options.description
+            p.range-slider__description= options.description

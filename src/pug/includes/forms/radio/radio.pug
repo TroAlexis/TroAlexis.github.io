@@ -1,5 +1,5 @@
 //- INF {name, title, value}
 mixin radio(options)
-    label.radio
+    label.radio&attributes(attributes)
         input.radio__input(type='radio' name=options.name, value=options.value)&attributes(attributes)
         span.radio__label= options.title

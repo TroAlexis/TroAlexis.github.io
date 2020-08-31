@@ -8,4 +8,3 @@ headers.forEach((headerElement) => {
 
 
 import './assets/scss/headers-footers.scss'
-import header from "./pug/includes/header/header";

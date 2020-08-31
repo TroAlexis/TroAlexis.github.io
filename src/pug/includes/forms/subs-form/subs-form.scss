@@ -5,6 +5,7 @@
   border-radius: 4px;
   width: rem(267px);
   height: rem(44px);
+  @extend %input-common;
   padding: rem(2px) 0 rem(2px) rem(5px);
   background: #FFFFFF;
   // -----------INPUT------------

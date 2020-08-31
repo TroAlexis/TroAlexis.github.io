@@ -1,6 +1,6 @@
 // inf {pagesVis: number, stopPage: number, text: string}
 mixin pagination(options)
-    .pagination
+    .pagination&attributes(attributes)
         .pagination__buttons
             - let i = 1;
             while i <= options.pagesVis

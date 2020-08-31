@@ -1,4 +1,10 @@
-// YOUR MIXINS HERE
+// Element with heading
+mixin element(headings)
+    .element&attributes(attributes)
+        .element__hgroup
+            each heading in headings
+                h3.heading-3&attributes(heading.attributes)=heading.name
+        block
 
 // COLOR BOX
 mixin color-box(content, color)

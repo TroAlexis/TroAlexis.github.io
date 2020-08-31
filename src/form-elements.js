@@ -25,9 +25,12 @@ dropdownsApply.forEach((dropdownElement) => {
         dropdown.toggleSelectContent();
     }
     if (dropdownElement.classList.contains('modified')) {
-        dropdown.changeCounter(dropdown.content.firstElementChild.querySelector('.dropdown__plus'));
-        dropdown.changeCounter(dropdown.content.firstElementChild.querySelector('.dropdown__plus'));
-        dropdown.changeCounter(dropdown.content.firstElementChild.nextElementSibling.querySelector('.dropdown__plus'));
+        const plusBtns = [dropdown.content.firstElementChild.querySelector('.dropdown__plus'),
+            dropdown.content.firstElementChild.querySelector('.dropdown__plus'),
+        dropdown.content.firstElementChild.nextElementSibling.querySelector('.dropdown__plus')]
+        for (const button of plusBtns) {
+            dropdown.changeCounter(button);
+        }
         dropdown.updateAll();
     }
 });
@@ -37,6 +40,21 @@ dropdownsAuto.forEach((dropdownElement) => {
     const dropdownAuto = new DropdownAuto(dropdownElement);
     if (dropdownElement.classList.contains('expanded')) {
         dropdownAuto.toggleSelectContent();
+    }
+    if (dropdownElement.classList.contains('modified')) {
+        const plusBtns = [{
+            btn: dropdownAuto.content.firstElementChild.querySelector('.dropdown__plus'),
+            labelText: dropdownAuto.content.firstElementChild.querySelector('.dropdown__label').textContent
+        }, {
+            btn: dropdownAuto.content.firstElementChild.nextElementSibling.querySelector('.dropdown__plus'),
+            labelText: dropdownAuto.content.firstElementChild.nextElementSibling.querySelector('.dropdown__label').textContent
+        }]
+        for (const plusBtn of plusBtns) {
+            for (let i = 0; i < 2; i++) {
+                dropdownAuto.changeCounter(plusBtn.btn)
+                dropdownAuto.changeInput(plusBtn.labelText)
+            }
+        }
     }
 });
 // Init calendars
@@ -72,10 +90,3 @@ expandables.forEach((expElement) => {
 
 
 import './assets/scss/form-elements.scss'
-import Dropdown from "./pug/includes/forms/dropdown/dropdown";
-
-
-
-if (module.hot) {
-    module.hot.accept();
-}

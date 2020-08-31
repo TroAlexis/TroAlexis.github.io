@@ -1,7 +1,7 @@
 // inf {photo: {src, alt}, name, date, likes, content}
 include ../forms/like-btn/like-btn
 mixin comment(options)
-    .comment
+    .comment&attributes(attributes)
         .comment__info
             img.comment__image(src=options.photo.src, alt=options.photo.alt)
             .comment__title

@@ -22,4 +22,7 @@ export default class Expandable {
             this.content.style.maxHeight = null;
         }
     }
+    static get domstrings() {
+        return DOM;
+    }
 }

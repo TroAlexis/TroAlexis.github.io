@@ -18,6 +18,9 @@ html {
   @include media-m {
     font-size: 14px;
   }
+  @include media-sm {
+    font-size: 13px;
+  }
 }
 
 body {

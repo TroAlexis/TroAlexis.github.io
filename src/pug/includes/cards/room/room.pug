@@ -1,20 +1,20 @@
 include ../../slideshow/slideshow
 include ../../rate-btn/rate-btn
-mixin roomcard(roomnumber, lux, price, reviews, rating)
+// inf {roomnumber, lux, price, reviews, rating, urls}
+mixin roomcard(options)
     .roomcard
-        +slideshow(['/assets/img/rooms/1.jpeg', '/assets/img/rooms/2.jpeg', '/assets/img/rooms/3' +
-        '.jpg', '/assets/img/rooms/4.jpg'])
+        +slideshow(options.urls)
         .roomcard__container
             .roomcard__wrap
                 p.room
                     span.room__num= '№ '
-                    span.room__number= roomnumber
+                    span.room__number= options.roomnum
                 if lux
                     span.room__lux люкс
-                p.cost= price + '₽ '
+                p.cost= options.price + '₽ '
                     span.cost__aday в сутки
             hr
             .roomcard__wrap
-                +rate-btn({rating: rating})
-                p.reviews.cost= reviews + ' '
+                +rate-btn({rating: options.rating})
+                p.reviews.cost= options.reviews + ' '
                     span.cost__aday Отзывов

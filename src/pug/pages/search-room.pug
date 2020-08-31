@@ -1,0 +1,66 @@
+extends ../layout/header-footer
+
+block head
+    - let pageTitle = 'Search room/ Filter'
+
+block content
+    main.main
+        aside.sidebar
+            include ../includes/forms/calendar/calendar
+            +input-calendar('даты пребывания в отеле', 'dropdown--date')
+            include ../includes/forms/dropdown/dropdown
+            +dropdown({heading: 'гости', phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'],
+                buttons: true })(class='dropdown--apply')
+            include ../includes/forms/range-slider/range-slider
+            +element([{name: 'диапазон цены'}, {name: '5 000₽ - 10 000₽', attributes: {class:
+                        'element__subheading'}}])(class='_range-slider')
+                +range-slider({description: 'Стоимость за сутки пребывания в номере'})
+            +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
+                include ../includes/forms/checkbox/checkbox
+                +checkbox({id: 'smoking', title: 'Можно курить'})
+                +checkbox({id: 'pets', title: 'Можно с питомцами'})(checked='checked')
+                +checkbox({id: 'guests', title: 'Можно пригласить гостей (до 10 человек)'})(checked='checked')
+            +element([{name: 'доступность'}])(class='rich-checkboxes')
+                +checkbox({
+                    isRich: true,
+                    id: 'wide-hall',
+                    title: 'Широкий коридор',
+                    description: 'Ширина коридоров в номере не менее 91 см.'
+                })
+                +checkbox({
+                    isRich: true,
+                    id: 'disabled-helper',
+                    title: 'Помощник для инвалидов',
+                    description: 'На 1 этаже вас встретит специалист и проводит до номера.'
+                })
+            +element([{name: 'удобства номера'}])(class='_dropdown')
+                +dropdown({
+                    phText: 'Сколько спален, кроватей', selectOptions: ['спальни', 'кровати', 'ванные ' +
+                    'комнаты'], type: 'dropdown--auto'
+                })(class='dropdown--rough-btm')
+            include ../includes/expandable/expandable
+            +expandable({label: 'дополнительные удобства'})
+                +checkbox({id: 'breakfast', title: 'Завтрак'})
+                +checkbox({id: 'desk', title: 'Письменный стол'})(checked='checked')
+                +checkbox({id: 'baby-table', title: 'Стул для кормления'})(checked='checked')
+                +checkbox({id: 'baby-bed', title: 'Кроватка'})(checked='checked')
+                +checkbox({id: 'tv', title: 'Телевизор'})
+                +checkbox({id: 'shampoo', title: 'Шампунь'})
+                +checkbox({id: 'tv-1', title: 'Телевизор'})
+                +checkbox({id: 'shampoo-1', title: 'Шампунь'})
+        section.search-results
+            h1.search-results__heading Номера, которые мы для вас подобрали
+            .search-results__rooms
+                include ../includes/cards/room/room
+                +roomcard({roomnum: 888, lux: true, price: '9 990', reviews: 145, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 840, lux: false, price: '9 900', reviews: 65, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 980, lux: true, price: '8 500', reviews: 35, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 856, lux: false, price: '7 300', reviews: 19, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 740, lux: false, price: '6 000', reviews: 44, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 982, lux: false, price: '5 800', reviews: 56, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 678, lux: false, price: '5 500', reviews: 45, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 450, lux: false, price: '5 300', reviews: 39, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 350, lux: false, price: '5 000', reviews: 77, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 666, lux: false, price: '5 000', reviews: 25, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 444, lux: false, price: '5 000', reviews: 15, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                +roomcard({roomnum: 352, lux: false, price: '5 000', reviews: 55, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})

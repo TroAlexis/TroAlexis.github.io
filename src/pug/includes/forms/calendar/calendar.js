@@ -97,7 +97,6 @@ export default class Calendar {
                 if (evt.target.classList.contains(noDot(DOM.day)) && !evt.target.classList.contains('disabled')) {
                     const clickedDay = parseInt(evt.target.getAttribute('data-day'), 10);
                     const clickedDate = new Date(this.data.dates.current.getFullYear(), this.data.dates.current.getMonth(), clickedDay);
-                    console.log(this.data.dates);
                     if (this.data.dates.arrival && this.data.dates.depart) {
                         this.clearData();
                         this.clearDaysBetween();
@@ -180,12 +179,18 @@ export default class Calendar {
     changeState(state) {
         if (this.state === state) {
             this.elements.content.classList.remove('open');
-            this.elements[state].select.classList.remove('active');
+            if (this.elements[state].select) {
+              this.elements[state].select.classList.remove('active');
+            }
         }
         else {
-            this.elements[this.state].select.classList.remove('active');
+            if (this.elements[this.state].select) {
+                this.elements[this.state].select.classList.remove('active');
+            }
             this.state = state;
-            this.elements[state].select.classList.add('active');
+            if (this.elements[state].select) {
+                this.elements[state].select.classList.add('active');
+            }
         }
     }
     changeDate(forDate, type) {
@@ -205,9 +210,7 @@ export default class Calendar {
           }
           else if (type === 'depart') {
               if (this.data.dates.arrival) {
-                  console.log('Ppc', this.data.dates.arrival);
                   if (forDate >= this.data.dates.arrival) {
-                      console.log(forDate >= this.data.dates.arrival);
                       this.data.dates.depart = forDate;
                       return true
                   }
@@ -215,7 +218,6 @@ export default class Calendar {
               }
           }
           if (!this.data.dates.arrival && !this.data.dates.depart) {
-              console.log('WTF')
               this.data.dates[type] = forDate;
               return true;
           }

@@ -14,7 +14,7 @@ mixin header(header_links, is_auth, username)
                     -const href= link[1]
                     -const text= link[0]
                     -const dropdown= link[2]
-                    li.header__item(data-da=`${is_auth ? 'header__mob-nav' : 'header-auth .header__mob-nav'},${index},
+                    li.header__item(data-da=`${is_auth ? 'header-auth .header__mob-nav' : 'header__mob-nav'},${index},
                     1199.98`)
                         include ../link/link
                         +link(href, text, dropdown)

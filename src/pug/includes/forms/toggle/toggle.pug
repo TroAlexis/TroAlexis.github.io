@@ -1,6 +1,6 @@
 // INF {id, title}
 mixin toggle(options)
-    label.toggle(for=options.id)
+    label.toggle(for=options.id)&attributes(attributes)
         input.toggle__box(type='checkbox' id=options.id name=options.id value='yes')&attributes(attributes)
         span.toggle__button
             span.toggle__dummybg

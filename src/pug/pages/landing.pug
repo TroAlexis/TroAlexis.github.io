@@ -1,0 +1,12 @@
+extends ../layout/header-footer
+
+block head
+    - let pageTitle = 'Landing page'
+
+block content
+    main.main
+        .main__card
+            include ../includes/cards/room-search/roomsearch
+        .main__heading
+            h4.body-text Лучшие номера для вашей работы, отдыха и просто вдохновения
+

@@ -1,0 +1,25 @@
+@import '~/assets/scss/shared';
+
+@import '~/pug/includes/header/header';
+@import '~/pug/includes/footer/footer';
+
+body {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  grid-template: {
+    rows: rem(70px) auto auto;
+    areas: 'header'
+            'main'
+            'footer';
+  }
+  .header {
+    grid-area: header;
+  }
+  .main {
+    grid-area: main;
+  }
+  .footer-main {
+    grid-area: footer;
+  }
+}

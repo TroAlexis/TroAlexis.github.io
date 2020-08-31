@@ -1,0 +1,12 @@
+@import 'header-footer';
+
+.main {
+  padding: rem(15px) rem(140px);
+  @include media-x-lg {
+    padding: rem(15px) rem(35px);
+  }
+}
+
+.gallery {
+  height: 40vh;
+}

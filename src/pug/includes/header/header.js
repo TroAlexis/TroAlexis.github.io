@@ -17,9 +17,12 @@ export default class Header {
         this.burger.addEventListener('click', (evt) => {
             this.toggleMenu();
         })
-        this.backDrop.addEventListener('click', (evt) => {
-            this.closeMenu();
-        })
+        const backdropEvents = ['click', 'touchmove']
+        backdropEvents.forEach((event) => {
+          this.backDrop.addEventListener(event, (evt) => {
+              this.closeMenu();
+          })
+        });
     }
     toggleMenu() {
         this.burger.classList.toggle('open');

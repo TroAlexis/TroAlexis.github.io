@@ -1,0 +1,44 @@
+@import "header-footer";
+@import "~/pug/includes/cards/room-search/roomsearch";
+
+.main {
+  display: grid;
+  grid-template: {
+    rows: auto auto;
+  }
+  grid-row-gap: rem(320px);
+  $ratio: 1;
+  padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
+  @include media-x-lg {
+      $ratio: 1.5;
+    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
+  }
+  @include media-lg {
+      $ratio: 1.75;
+    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
+  }
+  @include media-m {
+    $ratio: 2;
+    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
+  }
+  @include media-sm {
+    $ratio: 5;
+    padding: rem(70px/($ratio - 2)) rem(10px) rem(20px/($ratio - 2)) rem(10px);
+    .roomsearch {
+      margin: 0 auto;
+    }
+  }
+  background: {
+    image: url("/assets/img/main-background.jpg");
+    position: center 70%;
+    repeat: no-repeat;
+    size: cover;
+  };
+  &__card {
+  }
+  &__heading {
+    width: rem(300px);
+    justify-self: right;
+    text-align: right;
+  }
+}

@@ -112,3 +112,15 @@ $f-sizes: ('h1': 1.5rem,
   }
 }
 
+.element {
+  margin-bottom: rem(20px);
+  &__hgroup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(5px);
+  }
+  &__subheading {
+    font-weight: normal;
+    color: map-get($colors, 'main-50');
+  }
+}

@@ -1,5 +1,5 @@
 mixin link(href, title, dropdown)
-    a.link(href=href)
+    a.link(href=href)&attributes(attributes)
         span.link__title=title
         if dropdown
             span.link--dropdown

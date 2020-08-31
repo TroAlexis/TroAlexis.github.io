@@ -22,9 +22,6 @@
 @import "~/pug/includes/advantage/advantage";
 @import "~/pug/includes/bullet-list/bullet-list";
 @import "~/pug/includes/comment/comment";
-// TODO Make interactive elements keyboard-focusable, add active, focus, hover state styles
-// TODO Zoom metatag
-// TODO Dropdown collapses on apply
 
 
 $rowGap: rem(20px);
@@ -98,18 +95,6 @@ main {
   }
 }
 
-.element {
-  margin-bottom: rem(20px);
-  &__hgroup {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: rem(5px);
-  }
-  &__subheading {
-    font-weight: normal;
-    color: map-get($colors, 'main-50');
-  }
-}
 
 .dropdown--apply__heading {
   display: none;
