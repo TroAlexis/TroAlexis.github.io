@@ -1,8 +1,15 @@
-@import "~/pug/includes/forms/dropdown/--apply/dropdown--apply";
+@import '~/pug/includes/forms/calendar/calendar';
+@import '~/pug/includes/forms/dropdown/dropdown';
+@import '~/pug/includes/forms/dropdown/--apply/dropdown--apply';
 @import '~/pug/includes/btn/--arrow/btn--arrow';
 
 .booking {
-  @extend .roomsearch;
+  width: rem(380px);
+  padding: rem(40px) rem(30px) rem(30px) rem(30px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 rem(25px) rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: #FFFFFF;
   &__header {
     display: flex;
     margin-bottom: rem(20px);
