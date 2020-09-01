@@ -1,9 +1,12 @@
-// Webpack
+//Webpack
 const webpack = require('webpack');
 // Merge tool to merge configs
 const merge = require('webpack-merge');
 // Base webpack config
 const baseWebpackConfig = require('./webpack.base.conf');
+// Webpack bundle analyzer
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 // Firewall for undesired connections when developing
 // as host is set to 0.0.0.0, everyone in the network can access the project.
 // inf 'ip addr show' to see the ip of the server.
@@ -38,6 +41,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new BundleAnalyzerPlugin(),
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'
     }),

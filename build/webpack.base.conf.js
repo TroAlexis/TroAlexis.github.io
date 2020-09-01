@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+
 // ------------ REQUIRE ALL PLUGINS ------------
 //  https://webpack.js.org/plugins/mini-css-extract-plugin/
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -14,7 +15,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // ---- Variable to differ production mode from development -----
-let isProd = false;
 
 
 // Main const for directory paths
@@ -41,11 +41,11 @@ for (const entry of ENTRIES_LIST) {
 module.exports = {
   // BASE config
   externals: {
-    paths: PATHS
+    paths: PATHS,
   },
   entry: ENTRIES,
   output: {
-    filename: `${PATHS.assets}js/[name].[hash].js`,
+    filename: `${PATHS.assets}js/[name].${(process.env.NODE_ENV === 'production') ? '[contenthash].' : ''}js`,
     path: PATHS.dist,
     publicPath: '/',
   },
@@ -54,7 +54,13 @@ module.exports = {
       cacheGroups: {
         vendor: {
           name: 'vendors',
-          test: /node_modules/,
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          enforce: true
+        },
+        common: {
+          name: 'common',
+          test: /[\\/](pug|js)[\\/]/,
           chunks: 'all',
           enforce: true
         }
@@ -86,13 +92,12 @@ module.exports = {
     }, {
       test: /\.scss$/,
       use: [
-        'style-loader',
         {
           loader: MiniCssExtractPlugin.loader,
           // Enable HMR only in development mode.
           options: {
-            hmr: !isProd,
-            reloadAll: !isProd,
+            hmr: process.env.NODE_ENV === 'development',
+            reloadAll: process.env.NODE_ENV === 'development',
           }
         },
         {
@@ -109,13 +114,12 @@ module.exports = {
     }, {
       test: /\.css$/,
       use: [
-        'style-loader',
         {
           loader: MiniCssExtractPlugin.loader,
           // Enable HMR only in development mode.
           options: {
-            hmr: !isProd,
-            reloadAll: !isProd
+            hmr: process.env.NODE_ENV === 'development',
+            reloadAll: process.env.NODE_ENV === 'development',
           }
         },
         {
@@ -137,7 +141,7 @@ module.exports = {
     //  Extract css into separate files from html.
     new MiniCssExtractPlugin({
       // Enable has in production mode only (prevents HMR in development)
-      filename: `${PATHS.assets}css/[name].${isProd ? '[hash].' : ''}css`,
+      filename: `${PATHS.assets}css/[name].${(process.env.NODE_ENV === 'production') ? '[contenthash].' : ''}css`,
     }),
     //  Clean dist folder.
     new CleanWebpackPlugin(),
@@ -151,7 +155,7 @@ module.exports = {
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./pages/${page.replace(/\.pug/,'.html')}`,
-      chunks: [`${page.replace(/\.pug/, '')}`, 'vendors']
+      chunks: [`${page.replace(/\.pug/, '')}`, 'vendors', 'common']
     })),
   ],
 }

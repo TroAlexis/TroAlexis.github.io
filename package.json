@@ -4,8 +4,8 @@
   "description": "Fsd Task.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./build/webpack.dev.conf.js",
-    "build": "webpack --config ./build/webpack.build.conf.js"
+    "dev": "NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.conf.js",
+    "build": "NODE_ENV=production webpack --config ./build/webpack.build.conf.js"
   },
   "browserslist": [
     "> 1%",
@@ -41,6 +41,7 @@
     "css-loader": "^3.2.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
+    "extract-css-chunks-webpack-plugin": "^4.7.5",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "imagemin-mozjpeg": "^9.0.0",
@@ -55,6 +56,7 @@
     "style-loader": "^1.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"

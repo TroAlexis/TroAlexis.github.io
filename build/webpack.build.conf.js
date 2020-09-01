@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 
@@ -7,12 +8,13 @@ const ImageMinPlugin = require('imagemin-webpack-plugin').default;
 // https://www.npmjs.com/package/imagemin-mozjpeg
 const ImageMinMozJpeg = require('imagemin-mozjpeg');
 
-isProd = true;
 
 const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
   plugins: [
+    //  Make environment variables usable
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
           // Optimize images
     new ImageMinPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
