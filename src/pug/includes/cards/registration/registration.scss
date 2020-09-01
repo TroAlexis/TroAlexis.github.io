@@ -1,9 +1,9 @@
-@import "./src/pug/includes/forms/radio/radio";
-@import "./src/pug/includes/forms/toggle/toggle";
-@import "./src/pug/includes/btn/btn";
-@import "./src/pug/includes/btn/--border/btn--border";
-@import '~/pug/includes/btn/--arrow/btn--arrow';
-@import "./src/assets/scss/modules/text-field";
+@import "~Includes/forms/radio/radio";
+@import "~Includes/forms/toggle/toggle";
+@import "~Includes/btn/btn";
+@import "~Includes/btn/--border/btn--border";
+@import '~Includes/btn/--arrow/btn--arrow';
+@import "~Scss/modules/text-field";
 
 .registration {
   @extend .roomsearch;

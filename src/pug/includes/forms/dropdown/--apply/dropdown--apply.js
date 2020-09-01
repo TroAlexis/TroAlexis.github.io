@@ -1,4 +1,4 @@
-import Dropdown from "../dropdown";
+import Dropdown from 'Includes/forms/dropdown/dropdown';
 
 const DOM = {
     applyBtn: '.dropdown__apply',

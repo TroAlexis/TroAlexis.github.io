@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 
@@ -13,8 +12,6 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
   plugins: [
-    //  Make environment variables usable
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
           // Optimize images
     new ImageMinPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,

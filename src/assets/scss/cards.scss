@@ -1,11 +1,11 @@
-@import "shared";
-@import "ui-base";
-@import "./src/pug/includes/cards/room-search/roomsearch";
-@import "./src/pug/includes/cards/registration/registration";
-@import "./src/pug/includes/cards/booking/booking";
-@import "./src/pug/includes/cards/sign-in/sign-in";
-@import "./src/pug/includes/slideshow/slideshow";
-@import "./src/pug/includes/cards/room/room";
+@import "~Scss/shared";
+@import "~Scss/ui-base";
+@import "~Includes/cards/room-search/roomsearch";
+@import "~Includes/cards/registration/registration";
+@import "~Includes/cards/booking/booking";
+@import "~Includes/cards/sign-in/sign-in";
+@import "~Includes/slideshow/slideshow";
+@import "~Includes/cards/room/room";
 
 
 .group {

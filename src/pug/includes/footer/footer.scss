@@ -1,6 +1,6 @@
-@import "../link/link";
-@import "../forms/subs-form/subs-form";
-@import "../footer/--copyright/footer--copyright";
+@import "~Includes/link/link";
+@import "~Includes/forms/subs-form/subs-form";
+@import "~Includes/footer/--copyright/footer--copyright";
 
 // HEADER VARIABLES
 $containerPaddingTB: rem(100px);

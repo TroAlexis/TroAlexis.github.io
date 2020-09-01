@@ -1,4 +1,4 @@
-@import "../../btn/--bdless/btn--bdless";
+@import "~Includes/btn/--bdless/btn--bdless";
 .dropdown {
     width: rem(320px);
     position: relative;
@@ -28,7 +28,7 @@
       content: '';
       position: absolute;
       right: 0;
-      background: url("/assets/img/ui/expand-more--grey.svg") center center no-repeat;
+      background: url("~Images/ui/expand-more--grey.svg") center center no-repeat;
       width: rem(44px);
       height: rem(44px);
     }
@@ -86,7 +86,7 @@
       margin: -1 * rem(0.5px) 0 0 -1 * rem(2.5px);
       width: rem(5px);
       height: rem(1px);
-      background: url("/../../../../assets/img/ui/-.svg") center center no-repeat;
+      background: url("~Images/ui/-.svg") center center no-repeat;
     }
   }
   &__minus {
@@ -104,7 +104,7 @@
       width: rem(8px);
       height: rem(8px);
       margin: -1 * rem(4px) 0 0 -1 * rem(4px);
-      background: url("/assets/img/ui/+.svg") center center no-repeat;
+      background: url("~Images/ui/+.svg") center center no-repeat;
     }
   }
   &--rough-btm {

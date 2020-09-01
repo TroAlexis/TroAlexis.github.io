@@ -1,5 +1,5 @@
-import './pug/includes/header/header'
-import Header from "./pug/includes/header/header";
+import 'Includes/header/header'
+import Header from 'Includes/header/header';
 
 const header = new Header(document.querySelector('.header'));
 

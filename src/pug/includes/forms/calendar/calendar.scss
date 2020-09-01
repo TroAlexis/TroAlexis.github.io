@@ -88,7 +88,7 @@
   &__arrow {
     width: rem(24px);
     height: rem(24px);
-    background: url("/assets/img/ui/arrow--nograd.svg") center center no-repeat;
+    background: url("~Images/ui/arrow--nograd.svg") center center no-repeat;
     cursor: pointer;
     @extend %btn-bdless--focus;
     &--forward {

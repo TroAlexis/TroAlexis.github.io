@@ -1,5 +1,5 @@
-import './pug/includes/header/header'
-import Header from "./pug/includes/header/header";
+import 'Includes/header/header'
+import Header from 'Includes/header/header';
 
 const headers = document.querySelectorAll('.header');
 headers.forEach((headerElement) => {
@@ -7,4 +7,4 @@ headers.forEach((headerElement) => {
 });
 
 
-import './assets/scss/headers-footers.scss'
+import 'Scss/headers-footers.scss'

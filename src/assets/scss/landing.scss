@@ -1,5 +1,5 @@
-@import "header-footer";
-@import "~/pug/includes/cards/room-search/roomsearch";
+@import "~Scss/header-footer";
+@import "~Includes/cards/room-search/roomsearch";
 
 .main {
   display: grid;
@@ -29,7 +29,7 @@
     }
   }
   background: {
-    image: url("/assets/img/main-background.jpg");
+    image: url("~Images/main-background.jpg");
     position: center 70%;
     repeat: no-repeat;
     size: cover;

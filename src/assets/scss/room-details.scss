@@ -1,9 +1,9 @@
-@import './header-footer';
+@import '~Scss/header-footer';
 
-@import '~/pug/includes/advantage/advantage';
-@import '~/pug/includes/cards/booking/booking';
-@import '~/pug/includes/comment/comment';
-@import '~/pug/includes/bullet-list/bullet-list';
+@import '~Includes/advantage/advantage';
+@import '~Includes/cards/booking/booking';
+@import '~Includes/comment/comment';
+@import '~Includes/bullet-list/bullet-list';
 
 .main {
 }

@@ -1,15 +1,15 @@
-@import "header-footer";
+@import "~Scss/header-footer";
 
 
-@import '~/pug/includes/forms/dropdown/dropdown';
-@import '~/pug/includes/forms/dropdown/--apply/dropdown--apply';
-@import '~/pug/includes/forms/dropdown/--date/dropdown--date';
-@import '~/pug/includes/forms/calendar/calendar';
-@import '~/pug/includes/forms/range-slider/range-slider';
-@import '~/pug/includes/forms/checkbox/checkbox';
-@import '~/pug/includes/forms/checkbox/--rich/checkbox--rich';
-@import '~/pug/includes/expandable/expandable';
-@import '~/pug/includes/cards/room/room';
+@import '~Includes/forms/dropdown/dropdown';
+@import '~Includes/forms/dropdown/--apply/dropdown--apply';
+@import '~Includes/forms/dropdown/--date/dropdown--date';
+@import '~Includes/forms/calendar/calendar';
+@import '~Includes/forms/range-slider/range-slider';
+@import '~Includes/forms/checkbox/checkbox';
+@import '~Includes/forms/checkbox/--rich/checkbox--rich';
+@import '~Includes/expandable/expandable';
+@import '~Includes/cards/room/room';
 
 .main {
   display: grid;

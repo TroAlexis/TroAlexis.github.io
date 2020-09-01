@@ -9,7 +9,7 @@
       &::before {
         border-color: map-get($colors, 'primary');
         background:  {
-          image: url("/assets/img/ui/tick.svg");
+          image: url("~Images/ui/tick.svg");
           repeat: no-repeat;
           position: 50% 40%;
         };

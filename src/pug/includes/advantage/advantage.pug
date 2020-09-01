@@ -3,7 +3,7 @@
 mixin advantage(options)
     .advantage&attributes(attributes)
         .advantage__icon
-            img.advantage__img(src=`${pathToIcons}/${options.icon}.svg`, alt=options.icon)
+            img.advantage__img(src=require(`Images/adv-icons/${options.icon}.svg`), alt=options.icon)
         .advantage__label
             .advantage__title= options.title
             .advantage__description=options.description

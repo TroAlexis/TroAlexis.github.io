@@ -3,4 +3,4 @@
 
 
 // SCSS
-import './assets/scss/room-details.scss'
+import 'Scss/room-details.scss'

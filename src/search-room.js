@@ -1,9 +1,9 @@
-import './header-footer'
-import Expandable from "./pug/includes/expandable/expandable";
-import Slideshow from "./pug/includes/slideshow/slideshow";
-import Calendar from "./pug/includes/forms/calendar/calendar";
-import DropdownAuto from "./pug/includes/forms/dropdown/--auto/dropdown--auto";
-import DropdownApplyTotal from "./pug/includes/forms/dropdown/--apply/dropdown--apply";
+import '~/header-footer'
+import Expandable from 'Includes/expandable/expandable';
+import Slideshow from 'Includes/slideshow/slideshow';
+import Calendar from 'Includes/forms/calendar/calendar';
+import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
+import DropdownApplyTotal from 'Includes/forms/dropdown/--apply/dropdown--apply';
 
 
 const calendars = document.querySelectorAll('.dropdown--date');
@@ -41,4 +41,4 @@ rateBtns.forEach((rateBtnEl) => {
 });
 
 // SCSS
-import './assets/scss/search-room.scss'
+import 'Scss/search-room.scss'

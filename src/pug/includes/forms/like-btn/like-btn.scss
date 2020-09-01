@@ -46,7 +46,7 @@
     width: rem(19px);
     height: 100%;
     background: {
-      image: url("/assets/img/ui/like-icon--border.svg");
+      image: url("~Images/ui/like-icon--border.svg");
       repeat: no-repeat;
       position: center center;
     }
@@ -71,7 +71,7 @@
     &__container {
       .like-btn__icon {
         animation: like .3s ease-out;
-        background-image: url("/assets/img/ui/like-icon.svg");
+        background-image: url("~Images/ui/like-icon.svg");
       }
       .like-btn__count {
         color: map_get($colors, 'primary');

@@ -1,1 +1,3 @@
-import './assets/scss/colors-type.scss'
+
+
+import 'Scss/colors-type.scss'

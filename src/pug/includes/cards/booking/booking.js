@@ -1,5 +1,5 @@
-import Calendar from "../../forms/calendar/calendar";
-import DropdownApplyTotal from "../../forms/dropdown/--apply/dropdown--apply";
+import Calendar from 'Includes/forms/calendar/calendar';
+import DropdownApplyTotal from 'Includes/forms/dropdown/--apply/dropdown--apply';
 // CREATE DOMSTRINGS
 const DOM = {
     booking: '.booking',

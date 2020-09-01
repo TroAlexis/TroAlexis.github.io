@@ -1,11 +1,11 @@
 import Formatter from 'formatter.js-pebble';
-import Calendar from "./pug/includes/forms/calendar/calendar";
-import DropdownApplyTotal from "./pug/includes/forms/dropdown/--apply/dropdown--apply";
-import DropdownDate from "./pug/includes/forms/dropdown/--date/dropdown--date";
-import likeBtn from "./pug/includes/forms/like-btn/like-btn";
-import RateBtn from "./pug/includes/rate-btn/rate-btn";
-import DropdownAuto from "./pug/includes/forms/dropdown/--auto/dropdown--auto";
-import Expandable from "./pug/includes/expandable/expandable";
+import Calendar from 'Includes/forms/calendar/calendar';
+import DropdownApplyTotal from 'Includes/forms/dropdown/--apply/dropdown--apply';
+import DropdownDate from 'Includes/forms/dropdown/--date/dropdown--date';
+import likeBtn from 'Includes/forms/like-btn/like-btn';
+import RateBtn from 'Includes/rate-btn/rate-btn';
+import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
+import Expandable from 'Includes/expandable/expandable';
 
 
 // Enabling masked inputs.
@@ -88,4 +88,4 @@ expandables.forEach((expElement) => {
     }
 });
 
-import './assets/scss/form-elements.scss'
+import 'Scss/form-elements.scss'

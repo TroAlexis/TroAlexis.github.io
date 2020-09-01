@@ -6,6 +6,8 @@ const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 // Webpack bundle analyzer
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// https://github.com/FormidableLabs/webpack-dashboard
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
 // Firewall for undesired connections when developing
 // as host is set to 0.0.0.0, everyone in the network can access the project.
@@ -30,6 +32,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     contentBase: baseWebpackConfig.externals.paths.dist,
     // Enables hot module replacement
     hot: true,
+    quiet: true,
     // Let mobile device connection
     host: '0.0.0.0',
     port: 8081,
@@ -41,7 +44,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
-    new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new DashboardPlugin(),
     new BundleAnalyzerPlugin(),
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'

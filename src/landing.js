@@ -1,6 +1,6 @@
 // JS
-import './header-footer'
-import './pug/includes/cards/room-search/roomsearch'
+import '~/header-footer'
+import 'Includes/cards/room-search/roomsearch'
 
 // SCSS
-import './assets/scss/landing.scss'
+import 'Scss/landing.scss'

@@ -2,7 +2,7 @@ mixin slideshow(slidesUrls)
     .slideshow&attributes(attributes)
         each val in slidesUrls
             .slideshow__slide
-                img(src=`/assets/img/rooms/${val}.jpg`)
+                img(src=require(`Images/rooms/${val}.jpg`))
         a.slideshow__prev
         a.slideshow__next
         div.slideshow__dots

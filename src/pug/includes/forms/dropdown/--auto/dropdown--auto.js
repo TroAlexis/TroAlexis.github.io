@@ -1,4 +1,4 @@
-import Dropdown from '../dropdown';
+import Dropdown from 'Includes/forms/dropdown/dropdown';
 
 export default class DropdownAuto extends Dropdown {
     constructor(dropdownElement) {

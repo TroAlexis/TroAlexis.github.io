@@ -1,9 +1,9 @@
-@import "shared";
-@import "ui-base";
-@import "../../pug/includes/link/link";
-@import "../../pug/includes/header/header";
-@import "../../pug/includes/footer/footer";
-@import "../../pug/includes/footer/--creative/footer-creative";
+@import "~Scss/shared";
+@import "~Scss/ui-base";
+@import "~Includes/link/link";
+@import "~Includes/header/header";
+@import "~Includes/footer/footer";
+@import "~Includes/footer/--creative/footer-creative";
 // TODO Change all background svgs to img
 
 body {

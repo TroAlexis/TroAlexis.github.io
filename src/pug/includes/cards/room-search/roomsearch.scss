@@ -1,8 +1,8 @@
-@import './src/pug/includes/forms/dropdown/dropdown';
-@import './src/pug/includes/forms/calendar/calendar';
-@import './src/pug/includes/forms/dropdown/--apply/dropdown--apply';
-@import './src/pug/includes/btn/btn';
-@import './src/pug/includes/btn/--arrow/btn--arrow';
+@import '~Includes/forms/dropdown/dropdown';
+@import '~Includes/forms/calendar/calendar';
+@import '~Includes/forms/dropdown/--apply/dropdown--apply';
+@import '~Includes/btn/btn';
+@import '~Includes/btn/--arrow/btn--arrow';
 
 .roomsearch {
   width: rem(380px);

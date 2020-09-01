@@ -6,9 +6,9 @@ block head
 block content
     main.main
         section.gallery
-            img(src='/assets/img/rooms/3.jpg')
-            img(src='/assets/img/rooms/4.jpg')
-            img(src='/assets/img/rooms/4.jpg')
+            img(src=require(`Images/rooms/3.jpg`))
+            img(src=require(`Images/rooms/4.jpg`))
+            img(src=require(`Images/rooms/4.jpg`))
         section.room-details
             .room-details__info
                 h2.heading-2 Сведения о номере

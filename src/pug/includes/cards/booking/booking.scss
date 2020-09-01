@@ -1,7 +1,7 @@
-@import '~/pug/includes/forms/calendar/calendar';
-@import '~/pug/includes/forms/dropdown/dropdown';
-@import '~/pug/includes/forms/dropdown/--apply/dropdown--apply';
-@import '~/pug/includes/btn/--arrow/btn--arrow';
+@import '~Includes/forms/calendar/calendar';
+@import '~Includes/forms/dropdown/dropdown';
+@import '~Includes/forms/dropdown/--apply/dropdown--apply';
+@import '~Includes/btn/--arrow/btn--arrow';
 
 .booking {
   width: rem(380px);

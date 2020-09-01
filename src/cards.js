@@ -1,10 +1,12 @@
-import './pug/includes/cards/room-search/roomsearch';
-import './pug/includes/cards/registration/registration';
-import './pug/includes/cards/booking/booking';
-import Calendar from "./pug/includes/forms/calendar/calendar";
-import Slideshow from "./pug/includes/slideshow/slideshow";
-import RateBtn from "./pug/includes/rate-btn/rate-btn";
+// JS
+import 'Includes/cards/room-search/roomsearch';
+import 'Includes/cards/registration/registration';
+import 'Includes/cards/booking/booking';
+import Calendar from 'Includes/forms/calendar/calendar';
+import Slideshow from 'Includes/slideshow/slideshow';
+import RateBtn from 'Includes/rate-btn/rate-btn';
 
+// Content
 const calendarContent = new Calendar(document.querySelector('.group--3 .input-calendar'))
 calendarContent.state = 'arrival';
 const roomCards = document.querySelectorAll('.group--3 .roomcard');
@@ -14,6 +16,7 @@ roomCards.forEach((roomcCard) => {
 })
 
 
-import './assets/scss/cards.scss'
+//SCSS
+import 'Scss/cards.scss'
 
 

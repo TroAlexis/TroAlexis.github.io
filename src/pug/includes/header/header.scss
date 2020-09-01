@@ -1,6 +1,6 @@
-@import "../link/link";
-@import "../btn/btn";
-@import "../btn/--border/btn--border";
+@import "~Includes/link/link";
+@import "~Includes/btn/btn";
+@import "~Includes/btn/--border/btn--border";
 
 // BURGER VARIABLES
 $burgerWidth: rem(35px);

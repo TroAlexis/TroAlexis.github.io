@@ -1,7 +1,7 @@
-@import '~/assets/scss/shared';
+@import '~Scss/shared';
 
-@import '~/pug/includes/header/header';
-@import '~/pug/includes/footer/footer';
+@import '~Includes/header/header';
+@import '~Includes/footer/footer';
 
 body {
   display: grid;

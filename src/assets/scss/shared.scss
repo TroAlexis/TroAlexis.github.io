@@ -1,9 +1,9 @@
-@import "utils/libs";
-@import "utils/vars";
-@import "utils/mixins";
-@import "utils/fonts";
-@import "utils/placeholders";
-@import "utils/reset";
+@import "~Scss/utils/libs";
+@import "~Scss/utils/vars";
+@import "~Scss/utils/mixins";
+@import "~Scss/utils/fonts";
+@import "~Scss/utils/placeholders";
+@import "~Scss/utils/reset";
 
 html {
   font-size: $mainFontSize;
@@ -46,4 +46,4 @@ ul, li {
 }
 
 // Modules
-// @import "modules/my-module.scss";
+// @import "~Scss/modules/my-module.scss";

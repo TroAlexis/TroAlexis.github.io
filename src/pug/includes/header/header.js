@@ -1,4 +1,4 @@
-import '../../../js/dAdapt';
+import '~/js/dAdapt';
 
 const DOM = {
     burger: '.burger',
