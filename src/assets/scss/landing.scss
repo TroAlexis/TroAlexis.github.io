@@ -23,7 +23,7 @@
   }
   @include media-sm {
     $ratio: 5;
-    padding: rem(70px/($ratio - 2)) rem(10px) rem(20px/($ratio - 2)) rem(10px);
+    padding: rem(70px/($ratio - 2)) 0 rem(20px/($ratio - 2)) 0;
     .roomsearch {
       margin: 0 auto;
     }

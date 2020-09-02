@@ -8,6 +8,10 @@
 .main {
 }
 
+.header {
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+}
+
 .gallery {
   display: grid;
   grid-template: {
@@ -35,7 +39,8 @@
   }
 }
 .room-details {
-  padding: rem(15px) rem(140px);
+  max-width: 1160px;
+  margin: 0 auto;
   @include media-x-lg {
     padding: rem(15px) rem(35px);
   }

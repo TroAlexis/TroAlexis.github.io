@@ -64,3 +64,6 @@ block content
                 +roomcard({roomnum: 666, lux: false, price: '5 000', reviews: 25, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
                 +roomcard({roomnum: 444, lux: false, price: '5 000', reviews: 15, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
                 +roomcard({roomnum: 352, lux: false, price: '5 000', reviews: 55, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+            .search-results__pagination
+                include ../includes/pagination/pagination
+                +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов аренды'})

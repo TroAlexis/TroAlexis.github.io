@@ -91,15 +91,15 @@ module.exports = {
       exclude: [/img/],
       loader: 'file-loader',
       options: {
-        name: 'assets/fonts/[name].[ext]',
-        // publicPath: '../../'
+        outputPath: `${PATHS.assets}/fonts`,
+        name: `[name]${process.env.NODE_ENV === 'production' ? '-[contenthash]' : ''}.[ext]`,
       }
     }, {
       test: /\.(png|jpe?g|gif|svg)$/i,
       loader: 'file-loader',
       options: {
-        name: 'assets/img/[name].[ext]',
-        // publicPath: '../../'
+        outputPath: `${PATHS.assets}/images`,
+        name: `[name]${process.env.NODE_ENV === 'production' ? '-[contenthash]' : ''}.[ext]`,
       }
     }, {
       test: /\.scss$/,

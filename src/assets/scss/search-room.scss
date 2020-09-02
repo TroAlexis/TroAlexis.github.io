@@ -10,6 +10,7 @@
 @import '~Includes/forms/checkbox/--rich/checkbox--rich';
 @import '~Includes/expandable/expandable';
 @import '~Includes/cards/room/room';
+@import '~Includes/pagination/pagination';
 
 .main {
   display: grid;
@@ -68,6 +69,12 @@
       grid-column-gap: rem(12px);
       justify-items: center;
     }
+    &__pagination {
+      margin-top: rem(40px);
+      .pagination {
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -124,6 +131,9 @@
 }
 .rich-checkboxes {
   margin-bottom: rem(30px);
+  .checkbox__label--rich {
+    margin-bottom: 10px;
+  }
 }
 .expandable {
   &:not(.expanded) {
@@ -133,5 +143,11 @@
   .checkbox__label {
     display: flex;
     align-items: center;
+  }
+}
+
+.footer-main {
+  &__container {
+    border-top: 1px solid map-get($colors, 'main-25');
   }
 }
