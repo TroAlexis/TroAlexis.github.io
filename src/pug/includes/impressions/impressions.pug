@@ -1,0 +1,10 @@
+// inf {num: number, legItems}
+
+mixin impressions(options)
+    .impressions
+        .impressions__chart
+            span.impressions__num=options.num
+            span.impressions__votes голосов
+        .impressions__legend
+            each item in options.legItems
+                span.impressions__legitem&attributes(item.attributes)= item.text

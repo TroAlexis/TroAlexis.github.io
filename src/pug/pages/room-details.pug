@@ -19,12 +19,12 @@ block content
             .room-details__impressions
                 h2.heading-2 Впечатления от номера
                 include ../includes/impressions/impressions
-                //+impressions({num: 260, legItems: [
-                //    {text: 'Великолепно', attributes: {class: 'imp--wonderful'}},
-                //    {text: 'Хорошо', attributes: {class: 'imp--good'}},
-                //    {text: 'Удовлетворительно', attributes: {class: 'imp--satisfactory'}},
-                //    {text: 'Разочарован', attributes: {class: 'imp--disappointed'}}
-                //    ]})
+                +impressions({num: 260, legItems: [
+                    {text: 'Великолепно', attributes: {class: 'imp--wonderful'}},
+                    {text: 'Хорошо', attributes: {class: 'imp--good'}},
+                    {text: 'Удовлетворительно', attributes: {class: 'imp--satisfactory'}},
+                    {text: 'Разочарован', attributes: {class: 'imp--disappointed'}}
+                    ]})
             .room-details__booking
                 include ../includes/cards/booking/booking
                 +booking('888', '9 990', '2 179', true)

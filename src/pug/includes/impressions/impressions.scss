@@ -1,0 +1,26 @@
+.impressions {
+  display: flex;
+  flex-wrap: wrap;
+  &__chart {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include size(rem(120px))
+  }
+  &__num {
+
+  }
+  &__votes {
+
+  }
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__legitem {
+
+  }
+}
