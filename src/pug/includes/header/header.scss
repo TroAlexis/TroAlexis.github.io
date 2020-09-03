@@ -23,6 +23,7 @@ $headerHeight: rem(70px);
   width: 100%;
   height: 100vh;
   background: rgba(1,1,1,0.5);
+  overflow: hidden;
   &.active {
     z-index: 100;
     opacity: 1;
@@ -73,7 +74,7 @@ $headerHeight: rem(70px);
       }
     }
   }
-  @include media-x-lg {
+  @include media-lg {
     display: flex;
     order: 0;
   }
@@ -91,10 +92,6 @@ $headerHeight: rem(70px);
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: rem(15px) rem(140px);
-    @include media-x-lg {
-      padding: rem(15px) rem(35px);
-    }
   }
   // -----------MOBILE NAVIGATION BAR------------
   &__mob-nav {
@@ -143,11 +140,11 @@ $headerHeight: rem(70px);
   &__logo {
     display: flex;
     justify-content: center;
-    @include media-x-lg {
+    @include media-lg {
       flex: 1 1 auto;
       order: 1;
     }
-    @include media-sm {
+    @include media-m {
       flex: 0 1 auto;
     }
   }
@@ -169,13 +166,10 @@ $headerHeight: rem(70px);
   // -----------NAVIGATION ITEMS------------
   &__item {
     padding: 0 rem(10px);
-    @include media-x-lg {
-      //display: none;
-    }
     &:first-of-type .link__title {
       color: map-get($colors, 'main-75');
       font-weight: bold;
-      @include media-x-lg {
+      @include media-lg {
         color: map-get($colors, 'main-50');
         font-weight: normal;
       }

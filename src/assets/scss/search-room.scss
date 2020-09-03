@@ -13,66 +13,72 @@
 @import '~Includes/pagination/pagination';
 
 .main {
-  display: grid;
-  grid-template: {
-    columns: rem(325px) 1fr;
-    rows: 1fr;
-  };
-  @include media-m {
+  &__container {
+    display: grid;
     grid-template: {
-      columns: 1fr;
-      rows: auto auto;
+      columns: rem(325px) 1fr;
+      rows: 1fr;
     };
-  }
-  margin: 0 auto;
-  padding: rem(30px) rem(140px) rem(70px) rem(140px);
-  @include media-x-lg {
-    padding: rem(15px) rem(35px);
-  }
-  width: 100%;
-  max-width: 1440px;
-  .sidebar {
-    @include media-m {
-      display: grid;
+    @include media(615.98px) {
       grid-template: {
-        columns: repeat(2, rem(270px));
+        columns: 1fr;
+        rows: auto auto;
       };
-      grid-column-gap: 10px;
-      margin: 0 auto;
-      ._dropdown {
-        grid-column-start: 2;
-        grid-row-start: 2;
-      }
     }
-    @include media-sm {
-      grid-template: {
-        columns: rem(270px);
-      };
-      ._dropdown {
-        grid-column-start: auto;
-        grid-row-start: auto;
-      }
+    padding: {
+      top: rem(30px);
+      bottom: rem(70px);
+    };
+    @include media-x-lg {
+      padding: rem(15px) rem(35px);
     }
-  }
-  .search-results {
-    &__heading {
-      margin-bottom: rem(20px);
-      @extend %heading-1;
-      color: map-get($colors, 'main-100');
-    }
-    &__rooms {
-      display: grid;
-      grid-template: {
-        columns: repeat(auto-fill, minmax(270px, 1fr));
-      };
-      grid-row-gap: rem(20px);
-      grid-column-gap: rem(12px);
-      justify-items: center;
-    }
-    &__pagination {
-      margin-top: rem(40px);
-      .pagination {
+    .sidebar {
+      @include media(615.98px) {
+        display: grid;
+        grid-template: {
+          columns: repeat(2, rem(270px));
+        };
+        grid-column-gap: 10px;
         margin: 0 auto;
+        ._dropdown {
+          grid-column-start: 2;
+          grid-row-start: 2;
+        }
+      }
+      @include media(482px) {
+        grid-template: {
+          columns: rem(270px);
+        };
+        ._dropdown {
+          grid-column-start: auto;
+          grid-row-start: auto;
+        }
+      }
+    }
+
+    .search-results {
+      &__heading {
+        margin-bottom: rem(20px);
+        @extend %heading-1;
+        color: map-get($colors, 'main-100');
+      }
+
+      &__rooms {
+        display: grid;
+        grid-template: {
+          columns: repeat(auto-fill, minmax(rem(270px), 1fr));
+        };
+        grid-row-gap: rem(20px);
+        grid-column-gap: rem(12px);
+        justify-items: center;
+      }
+
+      &__pagination {
+        margin-top: rem(40px);
+
+        .pagination {
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -132,7 +138,7 @@
 .rich-checkboxes {
   margin-bottom: rem(30px);
   .checkbox__label--rich {
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
   }
 }
 .expandable {
@@ -147,7 +153,5 @@
 }
 
 .footer-main {
-  &__container {
     border-top: 1px solid map-get($colors, 'main-25');
-  }
 }

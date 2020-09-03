@@ -21,6 +21,9 @@ html {
   @include media-sm {
     font-size: 13px;
   }
+  @include media(359.98px) {
+    font-size: 12.5px;
+  }
 }
 
 body {
@@ -47,3 +50,4 @@ ul, li {
 
 // Modules
 // @import "~Scss/modules/my-module.scss";
+@import "~Scss/utils/_ui";

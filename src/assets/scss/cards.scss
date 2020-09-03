@@ -7,15 +7,19 @@
 @import "~Includes/slideshow/slideshow";
 @import "~Includes/cards/room/room";
 
-
 .group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 rem(10px);
   width: rem(380px);
+  margin: rem(10px) 0 0 rem(10px);
   .roomsearch {
     margin-bottom: rem(40px);
+  }
+  &--2 {
+    .booking {
+      margin-bottom: rem(40px);
+    }
   }
   &--3 {
     width: rem(320px);

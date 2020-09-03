@@ -4,21 +4,20 @@
 
 // HEADER VARIABLES
 $containerPaddingTB: rem(100px);
-$containerPaddingLR: rem(140px);
 
 // -----------MAIN FOOTER ------------
 .footer-main{
   // -----------LIMITING CONTAINER------------
   &__container {
-    padding: $containerPaddingTB $containerPaddingLR;
+    padding: {
+      top: $containerPaddingTB;
+      bottom: $containerPaddingTB;
+    };
     @include media-x-lg {
-      padding: $containerPaddingTB $containerPaddingLR/2;
-    }
-    @include media-lg {
-      padding: $containerPaddingTB/2 $containerPaddingLR/6;
-    }
-    @include media-sm {
-      padding: $containerPaddingTB/3 $containerPaddingLR/9;
+      padding: {
+        top: $containerPaddingTB/2;
+        bottom: $containerPaddingTB/2;
+      };
     }
   }
   // ----------- ROW WITH THE BOXES------------

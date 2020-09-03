@@ -2,21 +2,17 @@
 // -----------COPYRIGHT BOX------------
 .footer-copyright {
   border-top: 1px solid map-get($colors, 'main-25');
-  padding: rem(24px) rem(140px);
-  @include media-m {
-    padding: rem(20px) rem(100px);
-  }
-  @include media-sm {
-    padding: rem(16px) rem(30px);
-  }
   // -----------COPYRIGHT LIMITING CONTAINER------------
   &__container {
+    padding: {
+      top: rem(24px);
+      bottom: rem(24px);
+    };
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 -1 * rem(10px);
   }
-  &__rights, .socials {
-    padding: 0 rem(10px);
+  &__rights {
+    padding: 0 rem(10px) 0 0;
   }
 }

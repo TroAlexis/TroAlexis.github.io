@@ -25,7 +25,7 @@
 
 
 $rowGap: rem(20px);
-main {
+.main {
   & > {
     .row {
       margin: -1 * $rowGap 0 0 -1 * $rowGap;

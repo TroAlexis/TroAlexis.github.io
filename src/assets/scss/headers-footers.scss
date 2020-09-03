@@ -11,10 +11,6 @@ body {
   .main {
     display: flex;
     flex-direction: column;
-    flex: 0 1 auto;
-    margin: 0 auto;
-    padding: rem(140px) 0;
-    max-width: rem(1440px);
   }
   .header {
     &:not(.header-auth) {

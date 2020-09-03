@@ -1,7 +1,7 @@
 mixin header(header_links, is_auth, username)
     .backdrop
     header.header(class=(is_auth ? 'header-auth' : ''))
-        nav.header__container
+        nav.header__container._container
             a.header__logo(href='#')
                 include ../../../assets/img/ui/main-logo-gradient.svg
             .burger
@@ -15,7 +15,7 @@ mixin header(header_links, is_auth, username)
                     -const text= link[0]
                     -const dropdown= link[2]
                     li.header__item(data-da=`${is_auth ? 'header-auth .header__mob-nav' : 'header__mob-nav'},${index},
-                    1199.98`)
+                    991.98`)
                         include ../link/link
                         +link(href, text, dropdown)
                 unless is_auth

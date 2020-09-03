@@ -40,31 +40,28 @@
   }
 }
 .room-details {
-  max-width: 1160px;
-  margin: 0 auto;
-  @include media-x-lg {
-    padding: 0 rem(10px);
-  }
-  display: grid;
-  grid-template: {
-    columns: repeat(3, 1fr);
-    //rows: repeat(3, auto);
-    areas: 'info impressions booking'
-            'reviews reviews booking'
-            'rules cancellation cancellation';
-  };
-  @include media-lg {
+  &__container {
+    display: grid;
     grid-template: {
-      columns: repeat(2, 1fr);
-      areas: 'info impressions'
-              'reviews reviews'
-              'booking booking'
-              'rules cancellation';
+      columns: repeat(3, 1fr);
+      //rows: repeat(3, auto);
+      areas: 'info impressions booking'
+      'reviews reviews booking'
+      'rules cancellation cancellation';
+    };
+    @include media-lg {
+      grid-template: {
+        columns: repeat(2, 1fr);
+        areas: 'info impressions'
+        'reviews reviews'
+        'booking booking'
+        'rules cancellation';
+      }
+      //justify-items: center;
     }
-    //justify-items: center;
+    grid-row-gap: rem(30px);
+    grid-column-gap: rem(70px);
   }
-  grid-row-gap: rem(30px);
-  grid-column-gap: rem(70px);
   .heading-2 {
     //text-align: center;
   }

@@ -2,9 +2,15 @@
 
 mixin impressions(options)
     .impressions
-        .impressions__chart
-            span.impressions__num=options.num
-            span.impressions__votes голосов
+        .impressions__chart.chart
+            .chart__circle
+                .chart__gradient-1
+                .chart__gradient-2
+                    .chart__gradient-2-1
+                    .chart__gradient-2-2
+            .chart__info
+                span.impressions__num=options.num
+                span.impressions__votes голосов
         .impressions__legend
             each item in options.legItems
                 span.impressions__legitem&attributes(item.attributes)= item.text

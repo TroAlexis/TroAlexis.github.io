@@ -10,34 +10,35 @@ block content
             img(src=require(`Images/rooms/4.jpg`))
             img(src=require(`Images/rooms/4.jpg`))
         section.room-details
-            .room-details__info
-                h2.heading-2 Сведения о номере
-                include ../includes/advantage/advantage
-                +advantage({title: 'Комфорт', description: 'Шумопоглощающие стены', icon: 'comfort'})
-                +advantage({title: 'Удобство', description: 'Окно в каждой спальне', icon: 'convenience'})
-                +advantage({title: 'Уют', description: 'Номер оснащен камином', icon: 'coziness'})
-            .room-details__impressions
-                h2.heading-2 Впечатления от номера
-                include ../includes/impressions/impressions
-                +impressions({num: 260, legItems: [
-                    {text: 'Великолепно', attributes: {class: 'imp--wonderful'}},
-                    {text: 'Хорошо', attributes: {class: 'imp--good'}},
-                    {text: 'Удовлетворительно', attributes: {class: 'imp--satisfactory'}},
-                    {text: 'Разочарован', attributes: {class: 'imp--disappointed'}}
-                    ]})
-            .room-details__booking
-                include ../includes/cards/booking/booking
-                +booking('888', '9 990', '2 179', true)
-            .room-details__reviews
-                h2.heading-2 Отзывы посетителей номера
-                include ../includes/comment/comment
-                +comment({photo: {src: '#', alt: 'Avatar'}, name: 'Мурад Сарафанов', date: '5 дней назад', likebtn: {count: 12, attributes: {class: 'active'}}, content:'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
-                +comment({photo: {src: '#', alt: 'Avatar'}, name: 'Патрисия Стеклышкова', date: 'Неделю назад', likebtn: {count: 2}, content:'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
-            .room-details__rules
-                h2.heading-2 Правила
-                include ../includes/bullet-list/bullet-list
-                +bullet-list({items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после ' +
-                    '13:00, а выезд до 12:00']})
-            .room-details__cancellation
-                h2.heading-2 Отмена
-                    p.body-text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+            .room-details__container._container
+                .room-details__info
+                    h2.heading-2 Сведения о номере
+                    include ../includes/advantage/advantage
+                    +advantage({title: 'Комфорт', description: 'Шумопоглощающие стены', icon: 'comfort'})
+                    +advantage({title: 'Удобство', description: 'Окно в каждой спальне', icon: 'convenience'})
+                    +advantage({title: 'Уют', description: 'Номер оснащен камином', icon: 'coziness'})
+                .room-details__impressions
+                    h2.heading-2 Впечатления от номера
+                    include ../includes/impressions/impressions
+                    +impressions({num: 260, legItems: [
+                        {text: 'Великолепно', attributes: {class: 'imp--wonderful'}},
+                        {text: 'Хорошо', attributes: {class: 'imp--good'}},
+                        {text: 'Удовлетворительно', attributes: {class: 'imp--satisfactory'}},
+                        {text: 'Разочарован', attributes: {class: 'imp--disappointed'}}
+                        ]})
+                .room-details__booking
+                    include ../includes/cards/booking/booking
+                    +booking('888', '9 990', '2 179', true)
+                .room-details__reviews
+                    h2.heading-2 Отзывы посетителей номера
+                    include ../includes/comment/comment
+                    +comment({photo: {src: '#', alt: 'Avatar'}, name: 'Мурад Сарафанов', date: '5 дней назад', likebtn: {count: 12, attributes: {class: 'active'}}, content:'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'})
+                    +comment({photo: {src: '#', alt: 'Avatar'}, name: 'Патрисия Стеклышкова', date: 'Неделю назад', likebtn: {count: 2}, content:'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'})
+                .room-details__rules
+                    h2.heading-2 Правила
+                    include ../includes/bullet-list/bullet-list
+                    +bullet-list({items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после ' +
+                        '13:00, а выезд до 12:00']})
+                .room-details__cancellation
+                    h2.heading-2 Отмена
+                        p.body-text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.

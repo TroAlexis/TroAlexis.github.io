@@ -2,30 +2,15 @@
 @import "~Includes/cards/room-search/roomsearch";
 
 .main {
-  display: grid;
-  grid-template: {
-    rows: auto auto;
-  }
-  grid-row-gap: rem(320px);
-  $ratio: 1;
-  padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
-  @include media-x-lg {
-      $ratio: 1.5;
-    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
-  }
-  @include media-lg {
-      $ratio: 1.75;
-    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
-  }
-  @include media-m {
-    $ratio: 2;
-    padding: rem(70px/$ratio) rem(140px/$ratio) rem(20px/$ratio) rem(140px/$ratio);
-  }
-  @include media-sm {
-    $ratio: 5;
-    padding: rem(70px/($ratio - 2)) 0 rem(20px/($ratio - 2)) 0;
-    .roomsearch {
-      margin: 0 auto;
+  padding: rem(70px) 0 rem(20px) 0;
+  &__container {
+    display: grid;
+    grid-template: {
+      rows: auto auto;
+    }
+    grid-row-gap: rem(320px);
+    @include media-m {
+      grid-row-gap: rem(200px);
     }
   }
   background: {
@@ -35,10 +20,17 @@
     size: cover;
   };
   &__card {
+    .roomsearch {
+      @include media-sm {
+        margin: 0 auto;
+      }
+    }
   }
   &__heading {
-    width: rem(300px);
     justify-self: right;
     text-align: right;
+    .body-text {
+      width: rem(300px);
+    }
   }
 }
