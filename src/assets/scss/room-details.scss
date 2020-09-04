@@ -1,40 +1,46 @@
-@import '~Scss/header-footer';
+@import '~Scss/header-footer.scss';
 
-@import '~Includes/advantage/advantage';
-@import '~Includes/cards/booking/booking';
-@import '~Includes/comment/comment';
-@import '~Includes/bullet-list/bullet-list';
-@import '~Includes/impressions/impressions';
-
-.main {
-}
+@import '~Includes/advantage/advantage.scss';
+@import '~Includes/cards/booking/booking.scss';
+@import '~Includes/comment/comment.scss';
+@import '~Includes/bullet-list/bullet-list.scss';
+@import '~Includes/impressions/impressions.scss';
 
 .header {
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 }
 .heading-2 {
   color: map-get($colors, 'main-100');
+  margin-bottom: rem(20px);
 }
 
 .gallery {
   display: grid;
   grid-template: {
     columns: 2fr 1fr;
-    rows: auto auto;
+    areas: 'main sec1'
+            'main sec2';
   };
   height: rem(485px);
+  @include media-m {
+    height: rem(485px)/1.25;
+  }
+  @include media-sm {
+    height: rem(485px)/1.75;
+  }
+  @include media(400px) {
+    height: rem(485px)/2;
+  }
   img {
     &:nth-of-type(1) {
-      grid-column-start: 1;
-      grid-row-start: span 2;
+      grid-area: main;
     }
     &:nth-of-type(2) {
-      grid-column-start: 2;
+      grid-area: sec1;
     }
     &:nth-of-type(3) {
-      grid-column-start: 2;
+      grid-area: sec2;
     }
-
     width: 100%;
     height: 100%;
     max-height: 100%;
@@ -43,18 +49,21 @@
 }
 .room-details {
   padding: rem(70px) 0;
+  @include media-lg {
+    padding: rem(70px)/1.25 0;
+  }
+  @include media-m {
+    padding: rem(70px)/1.5 0;
+  }
   display: flex;
   &__container {
     display: grid;
     grid-template: {
       columns: repeat(3, auto);
-      //rows: repeat(3, auto);
       areas: 'info impressions booking'
       'reviews reviews booking'
       'rules cancellation cancellation';
     };
-    grid-row-gap: rem(30px);
-    grid-column-gap: rem(15px);
     @include media(1092px) {
       grid-template: {
         columns: repeat(2, 1fr);
@@ -63,20 +72,50 @@
         'rules cancellation'
         'reviews reviews';
       }
-      grid-column-gap: rem(70px);
     }
-
-  }
-  .heading-2 {
-    //text-align: center;
+    @include media(700.98px) {
+      grid-template: {
+        columns: repeat(2, 1fr);
+        areas: 'info impressions'
+        'booking booking'
+        'reviews reviews'
+        'rules cancellation';
+      }
+      grid-column-gap: rem(20px);
+    }
+    @include media(416px) {
+      grid-template: {
+        columns: rem(380px);
+        areas: 'info'
+                'impressions'
+                'booking'
+                'reviews'
+                'rules'
+                'cancellation';
+      };
+      justify-items: center;
+      .heading-2 {
+        text-align: center;
+      }
+      padding: {
+        left: rem(10px);
+        right: rem(10px);
+      };
+    }
+    grid-row-gap: rem(30px);
+    grid-column-gap: rem(70px);
   }
   &__info {
     grid-area: info;
   }
   &__impressions {
     grid-area: impressions;
-    .heading-2 {
-      margin-bottom: 20px;
+    .impressions {
+      @include media(1202px) {
+        flex-wrap: wrap;
+      }
+      @include media(633px) {
+      }
     }
   }
   &__booking {
@@ -87,6 +126,15 @@
   }
   &__reviews {
     grid-area: reviews;
+    .reviews__headings {
+      display: flex;
+      .heading-2 {
+        flex: 1 1 auto;
+      }
+    }
+    .comment {
+      margin-bottom: 20px;
+    }
   }
   &__rules {
     grid-area: rules;

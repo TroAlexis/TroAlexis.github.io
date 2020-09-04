@@ -1,21 +1,21 @@
 .advantage {
   display: inline-flex;
   padding: rem(20px) 0;
+  margin: -1 * rem(20px) 0 0 -1 * rem(20px);
   &__label {
     @extend %heading-body;
-    margin-left: rem(20px);
-    padding-right: rem(36px);
     max-width: rem(280px);
+    margin: rem(20px) 0 0 rem(20px);
   }
   &__title {
     font-weight: bold;
-    overflow-wrap: break-spaces;
   }
   &__icon {
     display: flex;
     @include size(rem(48px));
     align-items: center;
     justify-content: center;
+    margin: rem(20px) 0 0 rem(20px);
   }
   &__hr {
     width: rem(280px);

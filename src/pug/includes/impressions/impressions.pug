@@ -13,4 +13,4 @@ mixin impressions(options)
                 span.impressions__votes голосов
         .impressions__legend
             each item in options.legItems
-                span.impressions__legitem&attributes(item.attributes)= item.text
+                span.impressions__legitem.body-text&attributes(item.attributes)= item.text
