@@ -14,7 +14,7 @@
     padding: 0 rem(15px);
     transition: border 0.2s ease-out;
     &:focus, &:active, &:hover {
-      border: 1px solid map-get($colors, 'main-75');
+      border-color: map-get($colors, 'main-75');
     }
     & span {
       flex: 0 1 rem(160px);

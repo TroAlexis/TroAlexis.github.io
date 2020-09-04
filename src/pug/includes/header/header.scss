@@ -138,14 +138,15 @@ $headerHeight: rem(70px);
   }
   // -----------LOGO------------
   &__logo {
-    display: flex;
-    justify-content: center;
     @include media-lg {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
       order: 1;
     }
     @include media-m {
       flex: 0 1 auto;
+    }
+    img {
+      @include size(rem(106px), rem(41px));
     }
   }
   // -----------MAIN NAVIGATION BAR------------

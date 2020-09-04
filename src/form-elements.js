@@ -2,7 +2,7 @@ import Formatter from 'formatter.js-pebble';
 import Calendar from 'Includes/forms/calendar/calendar';
 import DropdownApplyTotal from 'Includes/forms/dropdown/--apply/dropdown--apply';
 import DropdownDate from 'Includes/forms/dropdown/--date/dropdown--date';
-import likeBtn from 'Includes/forms/like-btn/like-btn';
+import LikeBtn from 'Includes/forms/like-btn/like-btn';
 import RateBtn from 'Includes/rate-btn/rate-btn';
 import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
 import Expandable from 'Includes/expandable/expandable';
@@ -71,7 +71,7 @@ dateFilters.forEach((dateFilterElement) => {
 // Init like buttons
 const likeBtns = document.querySelectorAll('.like-btn');
 likeBtns.forEach((likeBtnElement) => {
-    const likeButton = new likeBtn(likeBtnElement);
+    const likeButton = new LikeBtn(likeBtnElement);
 });
 
 //Init rate-btns

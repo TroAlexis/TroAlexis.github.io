@@ -1,10 +1,11 @@
 @import "~Includes/btn/btn";
 @import "~Includes/btn/--border/btn--border";
+@import "~Scss/modules/text-field.scss";
 
 .sign-in {
-  @extend .roomsearch;
+  @extend %card-common;
   &__heading {
-    @extend .roomsearch__heading;
+    @extend %card-common__heading;
   }
   .text-field {
     margin-bottom: rem(10px);
@@ -16,10 +17,14 @@
     margin-bottom: rem(30px);
   }
   &__isntregged {
-    @extend .registration__isregged;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &__text {
-    @extend .registration__text;
+    @extend %heading-body;
+    color: #000000;
+    line-height: rem(18px);
   }
   .btn {
     margin-top: rem(15px);

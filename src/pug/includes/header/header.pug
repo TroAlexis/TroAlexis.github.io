@@ -3,7 +3,7 @@ mixin header(header_links, is_auth, username)
     header.header(class=(is_auth ? 'header-auth' : ''))
         nav.header__container._container
             a.header__logo(href='#')
-                include ../../../assets/img/ui/main-logo-gradient.svg
+                img(src=require('Images/ui/main-logo-gradient.svg'))
             .burger
                 span.burger__line
                 span.burger__line

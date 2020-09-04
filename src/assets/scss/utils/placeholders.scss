@@ -70,6 +70,26 @@ $f-sizes: ('h1': 1.5rem,
   }
 }
 
+%card-common {
+  display: flex;
+  flex-direction: column;
+  width: rem(380px);
+  @include media-sm {
+    width: rem(360px);
+  }
+  padding: rem(40px) rem(30px) rem(30px) rem(30px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 rem(25px) rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+%card-common__heading {
+  @extend %heading-1;
+  color: map_get($colors, 'main-100');
+  width: rem(300px);
+  margin-bottom: rem(20px);
+}
+
 %btn--focus {
   transition: border 0.2s ease-out, transform 0.1s ease-out;
   &:focus {

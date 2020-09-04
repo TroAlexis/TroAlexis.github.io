@@ -3,12 +3,11 @@ const DOM = {
     count: '.like-btn__count'
 }
 
-export default class likeBtn {
+export default class LikeBtn {
     //inf ----Btn element and options whether to set listeners or not---
     constructor(btnElement, options = {
         listeners: true
-    })
-    {
+    }) {
         // Button element
         this.element = btnElement
         this.elements = {
@@ -22,16 +21,16 @@ export default class likeBtn {
         }
         // Init listeners if stated in opts
         if (options.listeners) {
-          this.element.addEventListener('click', (evt) => {
-              evt.preventDefault();
-              if (evt.target.closest(DOM.likeBtn)) {
-                  // if click in the button
-                  // change counter
-                  this.changeCount(this.state.active)
-                  // toggle active class on element
-                  this.state.active = this.element.classList.toggle('active');
-              }
-          })
+            this.element.addEventListener('click', (evt) => {
+                evt.preventDefault();
+                if (evt.target.closest(DOM.likeBtn)) {
+                    // if click in the button
+                    // change counter
+                    this.changeCount(this.state.active)
+                    // toggle active class on element
+                    this.state.active = this.element.classList.toggle('active');
+                }
+            })
         }
     }
     // Changes counter both in code and UI

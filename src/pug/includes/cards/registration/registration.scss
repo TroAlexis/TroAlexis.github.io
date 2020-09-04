@@ -6,9 +6,9 @@
 @import "~Scss/modules/text-field";
 
 .registration {
-  @extend .roomsearch;
+  @extend %card-common;
   &__heading {
-    @extend .roomsearch__heading;
+    @extend %card-common__heading;
   }
   .text-field {
     margin-bottom: rem(10px);

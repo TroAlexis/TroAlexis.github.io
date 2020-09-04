@@ -44,8 +44,11 @@ $containerPaddingTB: rem(100px);
       width: 33.3%;
       text-align: center;
       &:nth-child(1) {
-          width: 100%;
-          padding: 0 rem(100px);
+        width: 100%;
+        padding: 0 rem(100px);
+        @include media-sm {
+          padding: 0 rem(50px);
+        }
       }
       &:nth-child(5) {
         width: 100%;
@@ -70,15 +73,16 @@ $containerPaddingTB: rem(100px);
         text-align: center;
       }
       // ----------- PARAGRAPHS ------------
-      .body-text {
-        margin-top: rem(20px);
-        @include media-lg {
-        }
-      }
       // ----------- SUBSCRIPTION ------------
       .subs-form {
         margin-top: rem(20px);
       }
+    }
+  }
+  &__logo {
+    margin-bottom: rem(20px);
+    img {
+      @include size(rem(106px), rem(41px));
     }
   }
 }

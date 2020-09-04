@@ -1,0 +1,18 @@
+@import "~Scss/header-footer";
+@import "~Includes/cards/registration/registration.scss";
+
+.main {
+  padding: rem(20px);
+  background: {
+    image: url("~Images/background-2.jpg");
+    position: center 70%;
+    repeat: no-repeat;
+    size: cover;
+  };
+  .registration {
+    margin: 0 auto;
+    .text-field, &__payment {
+      width: 100%;
+    }
+  }
+}

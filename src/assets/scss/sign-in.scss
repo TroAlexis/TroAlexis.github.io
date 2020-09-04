@@ -1,0 +1,21 @@
+@import "~Scss/header-footer";
+@import "~Includes/cards/sign-in/sign-in.scss";
+
+.main {
+  padding: rem(160px) 0;
+  background: {
+    image: url("~Images/background-2.jpg");
+    position: center 70%;
+    repeat: no-repeat;
+    size: cover;
+  };
+  .sign-in {
+    margin: 0 auto;
+    .text-field {
+      width: 100%;
+    }
+    &__auth {
+      width: 100%;
+    }
+  }
+}
