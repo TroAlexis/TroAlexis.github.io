@@ -2,15 +2,15 @@
   &__heading {
     margin-bottom: rem(5px);
   }
-  .dropdown__item {
-    &--last {
+  .dropdown {
+    &__item--last {
       margin-bottom: rem(19px);
     }
-  }
-  .dropdown__apply {
-    order: 1;
-  }
-  .dropdown__clear {
-    order: 0;
+    &__apply {
+      order: 1;
+    }
+    &__clear {
+      order: 0;
+    }
   }
 }

@@ -5,6 +5,8 @@
   ],
   "rules": {
     "indentation": "tab",
+    "max-nesting-depth": 2,
+    "scss/dollar-variable-pattern": "^[_]?[a-z]+([A-z0-9-]+[a-z0-9]+)?$",
     "order/properties-alphabetical-order": null,
     "plugin/rational-order": [true, {
       "empty-line-between-groups": true
