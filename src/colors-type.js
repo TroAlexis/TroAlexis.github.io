@@ -1,3 +1,1 @@
-
-
-import 'Scss/colors-type.scss'
+import 'Scss/colors-type.scss';

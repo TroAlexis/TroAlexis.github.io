@@ -1,17 +1,20 @@
-//Webpack
+// Webpack
 const webpack = require('webpack');
 // Merge tool to merge configs
 const merge = require('webpack-merge');
-// Base webpack config
-const baseWebpackConfig = require('./webpack.base.conf');
-// Webpack bundle analyzer
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // Firewall for undesired connections when developing
 // as host is set to 0.0.0.0, everyone in the network can access the project.
 // inf 'ip addr show' to see the ip of the server.
 // https://github.com/funbox/webpack-dev-server-firewall
 const firewall = require('@funboxteam/webpack-dev-server-firewall');
+
+// Webpack bundle analyzer
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+// Base webpack config
+const baseWebpackConfig = require('./webpack.base.conf');
+
 // Forget known hosts to prevent intruders from already known IP.
 firewall.forgetKnownHosts();
 
@@ -25,7 +28,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       // Launches firewall
       firewall(app);
       // watches files in templates directory
-      server._watch('src/pug/**/**.pug')
+      server._watch('src/pug/**/**.pug');
     },
     contentBase: baseWebpackConfig.externals.paths.dist,
     // Enables hot module replacement
@@ -38,17 +41,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     openPage: 'http://localhost:8081',
     overlay: {
       warnings: true,
-      errors: true
-    }
+      errors: true,
+    },
   },
   plugins: [
     new BundleAnalyzerPlugin(),
     new webpack.SourceMapDevToolPlugin({
-      filename: '[file].map'
+      filename: '[file].map',
     }),
-  ]
-})
+  ],
+});
 
-module.exports = new Promise((resolve, reject) => {
-  resolve(devWebpackConfig)
-})
+module.exports = new Promise((resolve) => {
+  resolve(devWebpackConfig);
+});

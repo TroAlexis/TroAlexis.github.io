@@ -62,7 +62,7 @@ $containerPaddingTB: rem(100px);
     }
 
     // ----------- LINKS ------------
-    .link {
+    .link, .body-text {
       margin-top: rem(20px);
     }
     // ----------- WIDE COLUMNS ------------
@@ -80,7 +80,6 @@ $containerPaddingTB: rem(100px);
     }
   }
   &__logo {
-    margin-bottom: rem(20px);
     img {
       @include size(rem(106px), rem(41px));
     }

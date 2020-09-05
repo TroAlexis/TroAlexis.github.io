@@ -1,6 +1,5 @@
 // JS
-import '~/header-footer'
-
+import '~/header-footer';
 
 // SCSS
 

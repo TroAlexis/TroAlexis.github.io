@@ -35,13 +35,7 @@
   &__sum {
     margin-top: rem(20px);
   }
-  &__sum p {
-    flex: 1 1 auto;
-  }
-  &__days {
-    flex: 1 1 auto;
-  }
-  &__info {
+  &__sum p, &__days, &__info {
     flex: 1 1 auto;
   }
   &__services, &__extra {

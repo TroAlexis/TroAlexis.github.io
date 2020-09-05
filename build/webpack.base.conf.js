@@ -7,13 +7,16 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // https://www.npmjs.com/package/clean-webpack-plugin
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // https://webpack.js.org/plugins/copy-webpack-plugin/
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // https://webpack.js.org/plugins/html-webpack-plugin/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// https://github.com/webpack-contrib/eslint-webpack-plugin
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // https://github.com/geowarin/friendly-errors-webpack-plugin
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
@@ -23,8 +26,8 @@ const PATHS = {
   src: path.resolve(__dirname, '../src'),
   dist: path.resolve(__dirname, '../dist'),
   assets: 'assets',
-  pug: 'pug'
-}
+  pug: 'pug',
+};
 
 const ALIASES = {
   '~': PATHS.src,
@@ -33,21 +36,21 @@ const ALIASES = {
   Fonts: path.resolve(__dirname, `../src/${PATHS.assets}/fonts`),
   Pug: path.resolve(__dirname, `../src/${PATHS.pug}`),
   Includes: path.resolve(__dirname, `../src/${PATHS.pug}/includes`),
-}
+};
 
 // Pages const for HtmlWebpackPlugin
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 // Entries const for entry option
 const ENTRIES_DIR = `${PATHS.src}`;
 // All pages to build
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));
+const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
 // All entries to take.
-const ENTRIES_LIST = fs.readdirSync(ENTRIES_DIR).filter(fileName => fileName.endsWith('.js'));
-const ENTRIES = {}
+const ENTRIES_LIST = fs.readdirSync(ENTRIES_DIR).filter((fileName) => fileName.endsWith('.js'));
+const ENTRIES = {};
 // Fill ENTRIES object with all entry points
-for (const entry of ENTRIES_LIST) {
-  ENTRIES[`${entry.replace(/\.js/, '')}`] = `${PATHS.src}/${entry}`
-}
+ENTRIES_LIST.forEach((entry) => {
+  ENTRIES[`${entry.replace(/\.js/, '')}`] = `${PATHS.src}/${entry}`;
+});
 
 module.exports = {
   // BASE config
@@ -58,7 +61,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}/js/[name].${(process.env.NODE_ENV === 'production') ? '[contenthash].' : ''}js`,
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: '/',
   },
   optimization: {
     splitChunks: {
@@ -67,25 +70,25 @@ module.exports = {
           name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
-          enforce: true
+          enforce: true,
         },
         common: {
           name: 'common',
           test: /[\\/](pug|js)[\\/]/,
           chunks: 'all',
-          enforce: true
-        }
-      }
-    }
+          enforce: true,
+        },
+      },
+    },
   },
   module: {
     rules: [{
       test: /\.pug$/,
-      loader: ['pug-loader']
+      loader: ['pug-loader'],
     }, {
       test: /\.js$/,
       loader: 'babel-loader',
-      exclude: '/node_modules/'
+      exclude: '/node_modules/',
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       exclude: [/img/],
@@ -93,14 +96,14 @@ module.exports = {
       options: {
         outputPath: `${PATHS.assets}/fonts`,
         name: `[name]${process.env.NODE_ENV === 'production' ? '-[contenthash]' : ''}.[ext]`,
-      }
+      },
     }, {
       test: /\.(png|jpe?g|gif|svg)$/i,
       loader: 'file-loader',
       options: {
         outputPath: `${PATHS.assets}/images`,
         name: `[name]${process.env.NODE_ENV === 'production' ? '-[contenthash]' : ''}.[ext]`,
-      }
+      },
     }, {
       test: /\.scss$/,
       use: [
@@ -110,22 +113,25 @@ module.exports = {
           options: {
             hmr: process.env.NODE_ENV === 'development',
             reloadAll: process.env.NODE_ENV === 'development',
-          }
+          },
         },
         {
           loader: 'css-loader',
-          options: { sourceMap: true }
+          options: {
+            sourceMap: true,
+            importLoaders: 1,
+          },
         }, {
           loader: 'postcss-loader',
-          options: { sourceMap: true, config: { path: `./postcss.config.js` } }
+          options: { sourceMap: true, config: { path: './postcss.config.js' } },
         },
         {
-          loader: 'resolve-url-loader'
+          loader: 'resolve-url-loader',
         }, {
           loader: 'sass-loader',
-          options: { sourceMap: true }
-        }
-      ]
+          options: { sourceMap: true },
+        },
+      ],
     }, {
       test: /\.css$/,
       use: [
@@ -135,23 +141,29 @@ module.exports = {
           options: {
             hmr: process.env.NODE_ENV === 'development',
             reloadAll: process.env.NODE_ENV === 'development',
-          }
+          },
         },
         {
           loader: 'css-loader',
-          options: { sourceMap: true }
+          options: {
+            sourceMap: true,
+            importLoaders: 1,
+          },
         }, {
           loader: 'postcss-loader',
-          options: { sourceMap: true, config: { path: `./postcss.config.js` } }
-        }
-      ]
-    }]
+          options: { sourceMap: true, config: { path: './postcss.config.js' } },
+        },
+      ],
+    }],
   },
   resolve: {
     alias: ALIASES,
   },
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new ESLintPlugin({
+      fix: true,
+    }),
     new FriendlyErrorsWebpackPlugin(),
     //  Extract css into separate files from html.
     new MiniCssExtractPlugin({
@@ -161,14 +173,16 @@ module.exports = {
     //  Clean dist folder.
     new CleanWebpackPlugin(),
     //  Copy images, fonts, static files to dist folder.
-    new CopyWebpackPlugin({ patterns: [
-      { from: `${PATHS.src}/static`, to: '' },
-    ]}),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: `${PATHS.src}/static`, to: '' },
+      ],
+    }),
     // Automatic creation of any html pages
-    ...PAGES.map(page => new HtmlWebpackPlugin({
+    ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
-      filename: `./pages/${page.replace(/\.pug/,'.html')}`,
-      chunks: [`${page.replace(/\.pug/, '')}`, 'vendors', 'common']
+      filename: `./pages/${page.replace(/\.pug/, '.html')}`,
+      chunks: [`${page.replace(/\.pug/, '')}`, 'vendors', 'common'],
     })),
   ],
-}
+};
