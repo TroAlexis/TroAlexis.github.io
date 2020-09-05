@@ -1,50 +1,61 @@
-@import "~Includes/forms/radio/radio";
-@import "~Includes/forms/toggle/toggle";
-@import "~Includes/btn/btn";
-@import "~Includes/btn/--border/btn--border";
+@import '~Includes/forms/radio/radio';
+@import '~Includes/forms/toggle/toggle';
+@import '~Includes/btn/btn';
+@import '~Includes/btn/--border/btn--border';
 @import '~Includes/btn/--arrow/btn--arrow';
-@import "~Scss/modules/text-field";
+@import '~Scss/modules/text-field';
 
 .registration {
-  @extend %card-common;
-  &__heading {
-    @extend %card-common__heading;
-  }
-  .text-field {
-    margin-bottom: rem(10px);
-    &--masked {
-      margin-bottom: rem(20px);
-    }
-  }
-  .radio {
-    &:first-child {
-      margin-right: rem(20px);
-    }
-  }
-  &__radio {
-    margin-bottom: rem(20px);
-  }
-  &__subheading {
-    @extend %heading-3;
-    margin-bottom: rem(5px);
-  }
-  .toggle {
-    margin-bottom: rem(20px);
-  }
-  &__payment {
-    margin-bottom: rem(30px);
-  }
-  &__isregged {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__text {
-    @extend %heading-body;
-    color: #000000;
-    line-height: rem(18px);
-  }
-  .btn-border__link {
-    padding: rem(13px) rem(25px);
-  }
+	@extend %card-common;
+
+	&__heading {
+		@extend %card-common__heading;
+	}
+
+	.text-field {
+		margin-bottom: rem(10px);
+
+		&--masked {
+			margin-bottom: rem(20px);
+		}
+	}
+
+	.radio {
+		&:first-child {
+			margin-right: rem(20px);
+		}
+	}
+
+	&__radio {
+		margin-bottom: rem(20px);
+	}
+
+	&__subheading {
+		@extend %heading-3;
+		margin-bottom: rem(5px);
+	}
+
+	.toggle {
+		margin-bottom: rem(20px);
+	}
+
+	&__payment {
+		margin-bottom: rem(30px);
+	}
+
+	&__isregged {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__text {
+		@extend %heading-body;
+		color: #000;
+		line-height: rem(18px);
+	}
+
+	.btn-border__link {
+		padding: rem(13px) rem(25px);
+	}
 }

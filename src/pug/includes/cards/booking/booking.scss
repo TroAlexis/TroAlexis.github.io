@@ -4,75 +4,99 @@
 @import '~Includes/btn/--arrow/btn--arrow';
 
 .booking {
-  @extend %card-common;
-  &__header {
-    display: flex;
-    margin-bottom: rem(20px);
-    align-items: baseline;
-  }
-  .dropdown__select {
-    border-radius: 4px;
-  }
-  .dropdown--apply__heading {
-    margin-top: rem(20px);
-    margin-bottom: rem(5px);
-  }
-  &__room {
-    line-height: rem(17px);
-  }
-  &__num {
-    font-size: rem(14px);
-  }
-  &__room-number {
-    font-size: rem(20px);
-  }
-  &__sum, &__services, &__extra {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: rem(10px);
-    @extend %heading-body;
-  }
-  &__sum {
-    margin-top: rem(20px);
-  }
-  &__sum p, &__days, &__info {
-    flex: 1 1 auto;
-  }
-  &__services, &__extra {
-    & p {
-      flex: 0 1 rem(214px);
-    }
-  }
-  &__extra {
-    margin-bottom: rem(30px);
-    & p {
-      line-height: rem(18px);
-    }
-  }
-  &__info span {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: rem(20px);
-    height: rem(20px);
-    margin-left: rem(5px);
-    border: 1px solid map_get($colors, 'main-25');
-    border-radius: 50%;
-    @extend %heading-3;
-    text-transform: none;
-    color: map_get($colors, 'main-25');
-  }
-  &__total {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: rem(20px);
-    @extend %heading-2;
-    color: map_get($colors, 'main-100');
-  }
-  &__separator {
-    flex: 1 1 auto;
-    height: rem(1px);
-    border-top: 1px dashed rgba(31, 32, 65, 0.25);
-    margin: 0 rem(5px);
-  }
+	@extend %card-common;
+
+	&__header {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: rem(20px);
+	}
+
+	.dropdown__select {
+		border-radius: 4px;
+	}
+
+	.dropdown--apply__heading {
+		margin-top: rem(20px);
+		margin-bottom: rem(5px);
+	}
+
+	&__room {
+		line-height: rem(17px);
+	}
+
+	&__num {
+		font-size: rem(14px);
+	}
+
+	&__room-number {
+		font-size: rem(20px);
+	}
+
+	&__sum,
+	&__services,
+	&__extra {
+		@extend %heading-body;
+		display: flex;
+		align-items: baseline;
+		margin-bottom: rem(10px);
+	}
+
+	&__sum {
+		margin-top: rem(20px);
+	}
+
+	&__sum p,
+	&__days,
+	&__info {
+		flex: 1 1 auto;
+	}
+
+	&__services,
+	&__extra {
+		& p {
+			flex: 0 1 rem(214px);
+		}
+	}
+
+	&__extra {
+		margin-bottom: rem(30px);
+
+		& p {
+			line-height: rem(18px);
+		}
+	}
+
+	&__info span {
+		@extend %heading-3;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(20px);
+		height: rem(20px);
+		margin-left: rem(5px);
+
+		color: map_get($colors, 'main-25');
+		text-transform: none;
+
+		border: 1px solid map_get($colors, 'main-25');
+		border-radius: 50%;
+	}
+
+	&__total {
+		@extend %heading-2;
+		display: flex;
+		align-items: baseline;
+		margin-bottom: rem(20px);
+
+		color: map_get($colors, 'main-100');
+	}
+
+	&__separator {
+		flex: 1 1 auto;
+		height: rem(1px);
+		margin: 0 rem(5px);
+
+		border-top: 1px dashed rgba(31, 32, 65, 0.25);
+	}
 }

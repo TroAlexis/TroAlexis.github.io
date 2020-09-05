@@ -1,19 +1,21 @@
 .btn {
-  // ----------- ARROW-BUTTON ------------
-  &.btn--arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: rem(320px);
-    // -----------ARROW------------
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      @include size(rem(44px));
-      background: url('~Images/ui/arrow_forward--white.svg') center center no-repeat;
-    }
-  }
+	// ----------- ARROW-BUTTON ------------
+	&.btn--arrow {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(320px);
+		// -----------ARROW------------
+		&::after {
+			@include size(rem(44px));
+			position: absolute;
+			top: 50%;
+			right: 0;
+
+			background: url('~Images/ui/arrow_forward--white.svg') center center no-repeat;
+			transform: translateY(-50%);
+
+			content: '';
+		}
+	}
 }

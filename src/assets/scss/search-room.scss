@@ -1,4 +1,4 @@
-@import "~Scss/header-footer";
+@import '~Scss/header-footer';
 
 
 @import '~Includes/forms/dropdown/dropdown';
@@ -13,145 +13,159 @@
 @import '~Includes/pagination/pagination';
 
 .main {
-  &__container {
-    display: grid;
-    grid-template: {
-      columns: rem(325px) 1fr;
-      rows: 1fr;
-    };
-    @include media(615.98px) {
-      grid-template: {
-        columns: 1fr;
-        rows: auto auto;
-      };
-    }
-    padding: {
-      top: rem(30px);
-      bottom: rem(70px);
-    };
-    @include media-x-lg {
-      padding: rem(15px) rem(35px);
-    }
-    .sidebar {
-      @include media(615.98px) {
-        display: grid;
-        grid-template: {
-          columns: repeat(2, rem(270px));
-        };
-        grid-column-gap: 10px;
-        margin: 0 auto;
-        ._dropdown {
-          grid-column-start: 2;
-          grid-row-start: 2;
-        }
-      }
-      @include media(482px) {
-        grid-template: {
-          columns: rem(270px);
-        };
-        ._dropdown {
-          grid-column-start: auto;
-          grid-row-start: auto;
-        }
-      }
-    }
+	&__container {
+		display: grid;
+		@include media(615.98px) {
+			grid-template: {
+				columns: 1fr;
+				rows: auto auto;
+			};
+		}
+		@include media-x-lg {
+			padding: rem(15px) rem(35px);
+		}
+		grid-template: {
+			columns: rem(325px) 1fr;
+			rows: 1fr;
+		};
+		padding: {
+			top: rem(30px);
+			bottom: rem(70px);
+		};
 
-    .search-results {
-      &__heading {
-        margin-bottom: rem(20px);
-        @extend %heading-1;
-        color: map-get($colors, 'main-100');
-      }
+		.sidebar {
+			@include media(615.98px) {
+				display: grid;
+				grid-column-gap: 10px;
+				margin: 0 auto;
+				grid-template: {
+					columns: repeat(2, rem(270px));
+				};
 
-      &__rooms {
-        display: grid;
-        grid-template: {
-          columns: repeat(auto-fill, minmax(rem(270px), 1fr));
-        };
-        grid-row-gap: rem(20px);
-        grid-column-gap: rem(12px);
-        justify-items: center;
-      }
+				._dropdown {
+					grid-row-start: 2;
+					grid-column-start: 2;
+				}
+			}
+			@include media(482px) {
+				grid-template: {
+					columns: rem(270px);
+				};
 
-      &__pagination {
-        margin-top: rem(40px);
+				._dropdown {
+					grid-row-start: auto;
+					grid-column-start: auto;
+				}
+			}
+		}
 
-        .pagination {
-          margin: 0 auto;
-        }
-      }
-    }
-  }
+		.search-results {
+			&__heading {
+				@extend %heading-1;
+				margin-bottom: rem(20px);
+
+				color: map-get($colors, 'main-100');
+			}
+
+			&__rooms {
+				display: grid;
+				grid-row-gap: rem(20px);
+				grid-column-gap: rem(12px);
+				justify-items: center;
+				grid-template: {
+					columns: repeat(auto-fill, minmax(rem(270px), 1fr));
+				};
+			}
+
+			&__pagination {
+				margin-top: rem(40px);
+
+				.pagination {
+					margin: 0 auto;
+				}
+			}
+		}
+	}
 }
 
 .header {
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+	box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 }
 
 .element {
-  &__hgroup {
-    margin-bottom: rem(20px);
-  }
-  &._range-slider {
-    width: rem(267px);
-  }
-  &._dropdown {
-    .element__hgroup {
-      margin-bottom: rem(5px);
-    }
-  }
+	&__hgroup {
+		margin-bottom: rem(20px);
+	}
+
+	&._range-slider {
+		width: rem(267px);
+	}
+
+	&._dropdown {
+		.element__hgroup {
+			margin-bottom: rem(5px);
+		}
+	}
 }
 
 .dropdown--date {
-  margin-bottom: rem(20px);
+	margin-bottom: rem(20px);
 }
 
 .dropdown {
-  width: rem(267px);
-  margin-bottom: rem(30px);
-  &--apply {
-    &__heading {
-      margin-bottom: rem(5px);
-    }
-  }
+	width: rem(267px);
+	margin-bottom: rem(30px);
+
+	&--apply {
+		&__heading {
+			margin-bottom: rem(5px);
+		}
+	}
 }
 
 .range-slider {
-  margin-bottom: rem(14px);
-  &__range {
-    margin-bottom: rem(10px);
-  }
-  &__description {
-    @extend %heading-body;
-    font-size: 12px;
-    color: map-get($colors, 'main-50');
-  }
+	margin-bottom: rem(14px);
+
+	&__range {
+		margin-bottom: rem(10px);
+	}
+
+	&__description {
+		@extend %heading-body;
+		color: map-get($colors, 'main-50');
+		font-size: 12px;
+	}
 }
 
 .checkbox-buttons {
-  display: flex;
-  flex-direction: column;
-  .checkbox__label:not(:last-of-type) {
-    margin-bottom: rem(12px);
-  }
+	display: flex;
+	flex-direction: column;
+
+	.checkbox__label:not(:last-of-type) {
+		margin-bottom: rem(12px);
+	}
 }
+
 .rich-checkboxes {
-  margin-bottom: rem(30px);
-  .checkbox__label--rich {
-    margin-bottom: rem(10px);
-  }
+	margin-bottom: rem(30px);
+
+	.checkbox__label--rich {
+		margin-bottom: rem(10px);
+	}
 }
+
 .expandable {
-  &:not(.expanded) {
-    // 49px margin (-20 because there is a margin in the expandable)
-    margin-bottom: rem(49px) - rem(20px);
-  }
-  .checkbox__label {
-    display: flex;
-    align-items: center;
-  }
+	&:not(.expanded) {
+		// 49px margin (-20 because there is a margin in the expandable)
+		margin-bottom: rem(49px) - rem(20px);
+	}
+
+	.checkbox__label {
+		display: flex;
+		align-items: center;
+	}
 }
 
 .footer-main {
-    border-top: 1px solid map-get($colors, 'main-25');
+	border-top: 1px solid map-get($colors, 'main-25');
 }

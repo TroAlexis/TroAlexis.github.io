@@ -4,20 +4,23 @@
 @import '~Includes/footer/footer';
 
 body {
-  display: grid;
-  grid-template: {
-    rows: rem(70px) auto auto;
-    areas: 'header'
-            'main'
-            'footer';
-  }
-  .header {
-    grid-area: header;
-  }
-  .main {
-    grid-area: main;
-  }
-  .footer-main {
-    grid-area: footer;
-  }
+	display: grid;
+	grid-template: {
+		rows: rem(70px) auto auto;
+		areas: 'header'
+			'main'
+			'footer';
+	}
+
+	.header {
+		grid-area: header;
+	}
+
+	.main {
+		grid-area: main;
+	}
+
+	.footer-main {
+		grid-area: footer;
+	}
 }

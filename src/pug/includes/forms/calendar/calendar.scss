@@ -1,201 +1,260 @@
 .input-calendar {
-  display: inline-flex;
-  flex-wrap: wrap;
-  width: rem(320px);
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  position: relative;
-  &__heading {
-    flex: 0 0 rem(150px);
-    margin-bottom: rem(5px);
-    &:first-child {
-      margin-right: rem(20px);
-    }
-  }
-  &__calendar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  &__apply {
-    align-self: end;
-    order: 1;
-  }
-  &__clear {
-    align-self: end;
-    order: 0;
-  }
-  &__select {
-    &.arrival {
-      margin-right: rem(20px);
-    }
-    &.arrival, &.depart {
-      flex: 0 1 rem(150px);
-      padding: 0;
-      border: none;
-    }
-    &.active, &:focus, &:active, &:hover {
-      span {
-        border-color: map_get($colors, 'main-75');
-      }
-    }
-    span {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      outline: none;
-      padding: 0 rem(15px);
-      width: 100%;
-      height: rem(44px);
-      @extend %heading-body;
-      border: 1px solid map-get($colors, 'main-25');
-      border-radius: 4px;
-      transition: border-color .3s ease-out;
-    }
-  }
-  &__content {
-    display: none;
-    position: absolute;
-    width: rem(320px);
-    min-height: rem(369px);
-    padding: rem(20px);
-    @include media-lg {
-      padding: rem(20px)/1.15;
-    }
-    top: rem(70px);
-    background: #ffffff;
-    z-index: 3;
-    border: 1px solid map-get($colors, 'main-25');
-    border-radius: 4px;
-    box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
-    &.open {
-      display: flex;
-    }
-  }
-  &__header {
-    flex: 0 1 100%;
-    display: flex;
-    @extend %heading-2;
-    color: map_get($colors, 'main-100');
-    margin-bottom: rem(30px);
-  }
-  &__text {
-    flex: 1 0 auto;
-    text-align: center;
-  }
-  &__arrow {
-    width: rem(24px);
-    height: rem(24px);
-    background: url("~Images/ui/arrow--nograd.svg") center center no-repeat;
-    cursor: pointer;
-    @extend %btn-bdless--focus;
-    &--forward {
-      transform: rotateY(180deg);
-      &:active {
-        transform: rotateY(180deg)+translateY(rem(0.5px));
-      }
-    }
-  }
-  &__weekdays {
-    flex: 0 1 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: rem(40px);
-    @extend %heading-3;
-    text-transform: none;
-    color: map_get($colors, 'primary');
-  }
-  &__weekday {
-    flex: 0 1 rem(39.71px);
-    height: rem(40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__days {
-    flex: 1 1 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    margin-bottom: rem(20px);
-  }
-  &__day {
-    flex: 0 1 rem(39.71px);
-    cursor: pointer;
-    height: rem(40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @extend %heading-3;
-    font-weight: normal;
-    color: map_get($colors, 'main-50');
-    &:not(.disabled):hover {
-      border: 1px solid map-get($colors, 'primary');
-      border-radius: 22px;
-    }
-    &.current {
-      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-      border-radius: 22px;
-      font-weight: bold;
-      color: #FFFFFF;
-    }
-    &.disabled {
-      color: map_get($colors, 'main-25');
-    }
-    &.arrival, &.depart {
-      position: relative;
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-      border-radius: 22px;
-      &:hover {
-        border: none;
-      }
-    }
-    &.arrival {
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        left: 50%;
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        opacity: 0.25;
-      }
-    }
-    &.depart {
-      &::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        right: 50%;
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        opacity: 0.25;
-      }
-    }
-    &.between {
-      position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        opacity: 0.25;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      &:hover {
-        border-radius: 4px;
-      }
-    }
-  }
+	position: relative;
+
+	display: inline-flex;
+	flex-wrap: wrap;
+	width: rem(320px);
+
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+
+	&__heading {
+		flex: 0 0 rem(150px);
+		margin-bottom: rem(5px);
+
+		&:first-child {
+			margin-right: rem(20px);
+		}
+	}
+
+	&__calendar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__apply {
+		align-self: end;
+		order: 1;
+	}
+
+	&__clear {
+		align-self: end;
+		order: 0;
+	}
+
+	&__select {
+		&.arrival {
+			margin-right: rem(20px);
+		}
+
+		&.arrival,
+		&.depart {
+			flex: 0 1 rem(150px);
+			padding: 0;
+
+			border: 0;
+		}
+
+		&.active,
+		&:focus,
+		&:active,
+		&:hover {
+			span {
+				border-color: map_get($colors, 'main-75');
+			}
+		}
+
+		span {
+			@extend %heading-body;
+			position: relative;
+			z-index: 1;
+
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: rem(44px);
+			padding: 0 rem(15px);
+
+			background: transparent;
+			border: 1px solid map-get($colors, 'main-25');
+			border-radius: 4px;
+			outline: none;
+
+			transition: border-color 0.3s ease-out;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		top: rem(70px);
+		z-index: 3;
+
+		display: none;
+		width: rem(320px);
+		min-height: rem(369px);
+		padding: rem(20px);
+
+		background: #fff;
+		border: 1px solid map-get($colors, 'main-25');
+		border-radius: 4px;
+		box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
+		@include media-lg {
+			padding: rem(20px)/1.15;
+		}
+
+		&.open {
+			display: flex;
+		}
+	}
+
+	&__header {
+		@extend %heading-2;
+		display: flex;
+		flex: 0 1 100%;
+		margin-bottom: rem(30px);
+
+		color: map_get($colors, 'main-100');
+	}
+
+	&__text {
+		flex: 1 0 auto;
+
+		text-align: center;
+	}
+
+	&__arrow {
+		@extend %btn-bdless--focus;
+		width: rem(24px);
+		height: rem(24px);
+
+		background: url('~Images/ui/arrow--nograd.svg') center center no-repeat;
+		cursor: pointer;
+
+		&--forward {
+			transform: rotateY(180deg);
+
+			&:active {
+				transform: rotateY(180deg)+translateY(rem(0.5px));
+			}
+		}
+	}
+
+	&__weekdays {
+		@extend %heading-3;
+		display: flex;
+		flex: 0 1 100%;
+		align-items: center;
+		justify-content: center;
+		height: rem(40px);
+
+		color: map_get($colors, 'primary');
+		text-align: center;
+		text-transform: none;
+	}
+
+	&__weekday {
+		display: flex;
+		flex: 0 1 rem(39.71px);
+		align-items: center;
+		justify-content: center;
+		height: rem(40px);
+	}
+
+	&__days {
+		display: flex;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		justify-content: center;
+		margin-bottom: rem(20px);
+	}
+
+	&__day {
+		@extend %heading-3;
+		display: flex;
+		flex: 0 1 rem(39.71px);
+		align-items: center;
+		justify-content: center;
+		height: rem(40px);
+
+		color: map_get($colors, 'main-50');
+		font-weight: normal;
+
+		cursor: pointer;
+
+		&:not(.disabled):hover {
+			border: 1px solid map-get($colors, 'primary');
+			border-radius: 22px;
+		}
+
+		&.current {
+			color: #fff;
+			font-weight: bold;
+
+			background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+			border-radius: 22px;
+		}
+
+		&.disabled {
+			color: map_get($colors, 'main-25');
+		}
+
+		&.arrival,
+		&.depart {
+			position: relative;
+
+			background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+			border-radius: 22px;
+
+			&:hover {
+				border: 0;
+			}
+		}
+
+		&.arrival {
+			&::after {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				z-index: -1;
+
+				width: 50%;
+				height: 100%;
+
+				background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+				opacity: 0.25;
+
+				content: '';
+			}
+		}
+
+		&.depart {
+			&::before {
+				position: absolute;
+				top: 0;
+				right: 50%;
+				z-index: -1;
+
+				width: 50%;
+				height: 100%;
+
+				background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+				opacity: 0.25;
+
+				content: '';
+			}
+		}
+
+		&.between {
+			position: relative;
+
+			&::after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+
+				background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+				opacity: 0.25;
+
+				content: '';
+			}
+
+			&:hover {
+				border-radius: 4px;
+			}
+		}
+	}
 }

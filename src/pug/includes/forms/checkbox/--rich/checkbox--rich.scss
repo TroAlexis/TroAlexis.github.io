@@ -1,12 +1,14 @@
-@import "~Includes/forms/checkbox/checkbox";
+@import '~Includes/forms/checkbox/checkbox';
 
 .checkbox__label--rich {
-  max-width: rem(266px);
-  .checkbox__info {
-    .checkbox__title {
-      font-weight: bold;
-      color: map-get($colors, 'main-75');
-      margin-bottom: rem(5px);
-    }
-  }
+	max-width: rem(266px);
+
+	.checkbox__info {
+		.checkbox__title {
+			margin-bottom: rem(5px);
+
+			color: map-get($colors, 'main-75');
+			font-weight: bold;
+		}
+	}
 }

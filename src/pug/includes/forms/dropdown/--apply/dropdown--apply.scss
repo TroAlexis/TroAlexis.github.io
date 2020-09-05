@@ -1,16 +1,19 @@
 .dropdown--apply {
-  &__heading {
-    margin-bottom: rem(5px);
-  }
-  .dropdown {
-    &__item--last {
-      margin-bottom: rem(19px);
-    }
-    &__apply {
-      order: 1;
-    }
-    &__clear {
-      order: 0;
-    }
-  }
+	&__heading {
+		margin-bottom: rem(5px);
+	}
+
+	.dropdown {
+		&__item--last {
+			margin-bottom: rem(19px);
+		}
+
+		&__apply {
+			order: 1;
+		}
+
+		&__clear {
+			order: 0;
+		}
+	}
 }

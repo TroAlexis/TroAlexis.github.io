@@ -1,21 +1,24 @@
-@import "~Includes/socials/socials";
+@import '~Includes/socials/socials';
 
 .footer-creative {
-  width: 90%;
-  max-width: rem(768px);
-  margin: 0 auto;
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: rem(120px) rem(104px);
-    text-align: center;
-    @include media-sm {
-      padding: rem(60px) rem(52px);
-    }
-    .body-text {
-      margin: rem(20px) 0 rem(25px) 0;
-    }
-  }
+	width: 90%;
+	max-width: rem(768px);
+	margin: 0 auto;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: rem(120px) rem(104px);
+
+		text-align: center;
+		@include media-sm {
+			padding: rem(60px) rem(52px);
+		}
+
+		.body-text {
+			margin: rem(20px) 0 rem(25px) 0;
+		}
+	}
 }

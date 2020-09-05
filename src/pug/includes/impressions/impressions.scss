@@ -2,95 +2,119 @@
 $chartGap: rem(2px);
 
 // Legend variables
-$legColors: ('wonderful': linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%),
-              'good': linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%),
-              'satisfactory': linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%),
-              'disappointed': linear-gradient(180deg, #919191 0%, #3D4975 100%));
+$legColors: ('wonderful': linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%),
+'good': linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%),
+'satisfactory': linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%),
+'disappointed': linear-gradient(180deg, #919191 0%, #3d4975 100%));
 
 .impressions {
-  display: flex;
-  //flex-wrap: wrap;
-  margin: -1 * rem(30px) 0 0 -1 * rem(30px);
-  .chart {
-    position: relative;
-    overflow: hidden;
-    @include size(rem(120px));
-    background: #FFFFFF;
-    border-radius: 50%;
-    margin: rem(30px) 0 0 rem(30px);
-    &__circle {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      width: 100%;
-      height: 100%;
-    }
-    &__gradient {
-      width: 50%;
-      height: 100%;
-      &--1 {
-        background-image: map-get($legColors, 'wonderful')
-      }
-      &--2 {
-        &-1 {
-          background-image: map-get($legColors, 'satisfactory');
-          padding: 0 0 $chartGap $chartGap;
-        }
-        &-2 {
-          background-image: map-get($legColors, 'good');
-          padding: 0 0 0 $chartGap;
-        }
-      }
-    }
-    &__subgradient {
-      height: 50%;
-      background-clip: content-box;
-    }
-    &__info {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      height: 100%;
-      background: #FFFFFF;
-      background-clip: content-box;
-      border-radius: 50%;
-      padding: rem(4px);
-      color: map-get($colors, 'primary');
-    }
-  }
-  &__num {
-    @extend %heading-1;
-  }
-  &__votes {
-    @extend %heading-3;
-    color: map-get($colors, 'primary');
-  }
-  &__legend {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin: rem(30px) 0 0 rem(30px);
-  }
-  &__legitem {
-    display: flex;
-    align-items: center;
-    &:before {
-      content: '';
-      display: inline-flex;
-      @include size(rem(10px));
-      border-radius: 50%;
-      margin-right: 5px;
-    }
-    @each $name, $color in $legColors {
-      &.imp--#{$name} {
-        &:before {
-          background-image: $color;
-        }
-      }
-    }
-  }
+	display: flex;
+	//flex-wrap: wrap;
+	margin: -1 * rem(30px) 0 0 -1 * rem(30px);
+
+	.chart {
+		@include size(rem(120px));
+		position: relative;
+
+		margin: rem(30px) 0 0 rem(30px);
+		overflow: hidden;
+
+		background: #fff;
+		border-radius: 50%;
+
+		&__circle {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: flex;
+			width: 100%;
+			height: 100%;
+		}
+
+		&__gradient {
+			width: 50%;
+			height: 100%;
+
+			&--1 {
+				background-image: map-get($legColors, 'wonderful');
+			}
+
+			&--2 {
+				&-1 {
+					padding: 0 0 $chartGap $chartGap;
+
+					background-image: map-get($legColors, 'satisfactory');
+				}
+
+				&-2 {
+					padding: 0 0 0 $chartGap;
+
+					background-image: map-get($legColors, 'good');
+				}
+			}
+		}
+
+		&__subgradient {
+			height: 50%;
+
+			background-clip: content-box;
+		}
+
+		&__info {
+			position: relative;
+			z-index: 1;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100%;
+			padding: rem(4px);
+
+			color: map-get($colors, 'primary');
+			text-align: center;
+
+			background: #fff;
+			background-clip: content-box;
+			border-radius: 50%;
+		}
+	}
+
+	&__num {
+		@extend %heading-1;
+	}
+
+	&__votes {
+		@extend %heading-3;
+		color: map-get($colors, 'primary');
+	}
+
+	&__legend {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin: rem(30px) 0 0 rem(30px);
+	}
+
+	&__legitem {
+		display: flex;
+		align-items: center;
+
+		&::before {
+			@include size(rem(10px));
+			display: inline-flex;
+			margin-right: 5px;
+
+			border-radius: 50%;
+
+			content: '';
+		}
+		@each $name, $color in $legColors {
+			&.imp--#{$name} {
+				&::before {
+					background-image: $color;
+				}
+			}
+		}
+	}
 }

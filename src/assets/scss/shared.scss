@@ -1,53 +1,64 @@
-@import "~Scss/utils/libs";
-@import "~Scss/utils/vars";
-@import "~Scss/utils/mixins";
-@import "~Scss/utils/fonts";
-@import "~Scss/utils/placeholders";
-@import "~Scss/utils/reset";
+@import '~Scss/utils/libs';
+@import '~Scss/utils/vars';
+@import '~Scss/utils/mixins';
+@import '~Scss/utils/fonts';
+@import '~Scss/utils/placeholders';
+@import '~Scss/utils/reset';
 
 html {
-  font-size: $mainFontSize;
-  color: $mainFontColor;
-  height: 100%;
-  @include media-x-lg {
-    font-size: 16px;
-  }
-  @include media-lg {
-    font-size: 15px;
-  }
-  @include media-m {
-    font-size: 14px;
-  }
-  @include media-sm {
-    font-size: 13px;
-  }
-  @include media(359.98px) {
-    font-size: 12.5px;
-  }
+	height: 100%;
+
+	color: $mainFontColor;
+	font-size: $mainFontSize;
+	@include media-x-lg {
+		font-size: 16px;
+	}
+	@include media-lg {
+		font-size: 15px;
+	}
+	@include media-m {
+		font-size: 14px;
+	}
+	@include media-sm {
+		font-size: 13px;
+	}
+	@include media(359.98px) {
+		font-size: 12.5px;
+	}
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: $mainFont;
+	margin: 0;
+	padding: 0;
+
+	font-weight: $mainFontWeight;
 	font-size: $mainFontSize;
-  font-weight: $mainFontWeight;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: $mainFont;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-*, *:before, *:after { box-sizing: border-box; }
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { margin: 0; }
 
 a { text-decoration: none; }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+ul,
+li {
+	margin: 0;
+	padding: 0;
+
+	list-style-type: none;
 }
 
 // Modules
 // @import "~Scss/modules/my-module.scss";
-@import "~Scss/utils/_ui";
+@import '~Scss/utils/ui';

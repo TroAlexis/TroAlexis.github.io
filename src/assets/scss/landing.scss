@@ -1,36 +1,42 @@
-@import "~Scss/header-footer";
-@import "~Includes/cards/room-search/roomsearch";
+@import '~Scss/header-footer';
+@import '~Includes/cards/room-search/roomsearch';
 
 .main {
-  padding: rem(70px) 0 rem(20px) 0;
-  &__container {
-    display: grid;
-    grid-template: {
-      rows: auto auto;
-    }
-    grid-row-gap: rem(320px);
-    @include media-m {
-      grid-row-gap: rem(200px);
-    }
-  }
-  background: {
-    image: url("~Images/background-1.jpg");
-    position: center 70%;
-    repeat: no-repeat;
-    size: cover;
-  };
-  &__card {
-    .roomsearch {
-      @include media-sm {
-        margin: 0 auto;
-      }
-    }
-  }
-  &__heading {
-    justify-self: right;
-    text-align: right;
-    .body-text {
-      width: rem(300px);
-    }
-  }
+	padding: rem(70px) 0 rem(20px) 0;
+
+	&__container {
+		display: grid;
+		grid-row-gap: rem(320px);
+		@include media-m {
+			grid-row-gap: rem(200px);
+		}
+		grid-template: {
+			rows: auto auto;
+		}
+	}
+	background: {
+		image: url('~Images/background-1.jpg');
+
+		position: center 70%;
+		repeat: no-repeat;
+		size: cover;
+	};
+
+	&__card {
+		.roomsearch {
+			@include media-sm {
+				margin: 0 auto;
+			}
+		}
+	}
+
+	&__heading {
+		justify-self: right;
+
+		text-align: right;
+
+		.body-text {
+			width: rem(300px);
+		}
+	}
 }

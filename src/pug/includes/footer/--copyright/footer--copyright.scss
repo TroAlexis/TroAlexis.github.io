@@ -1,18 +1,19 @@
-@import "~Includes/socials/socials";
+@import '~Includes/socials/socials';
 // -----------COPYRIGHT BOX------------
 .footer-copyright {
-  border-top: 1px solid map-get($colors, 'main-25');
-  // -----------COPYRIGHT LIMITING CONTAINER------------
-  &__container {
-    padding: {
-      top: rem(24px);
-      bottom: rem(24px);
-    };
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  &__rights {
-    padding: 0 rem(10px) 0 0;
-  }
+	border-top: 1px solid map-get($colors, 'main-25');
+	// -----------COPYRIGHT LIMITING CONTAINER------------
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: {
+			top: rem(24px);
+			bottom: rem(24px);
+		};
+	}
+
+	&__rights {
+		padding: 0 rem(10px) 0 0;
+	}
 }

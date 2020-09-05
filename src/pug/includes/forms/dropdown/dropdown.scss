@@ -1,117 +1,157 @@
-@import "~Includes/btn/--bdless/btn--bdless";
+@import '~Includes/btn/--bdless/btn--bdless';
+
 .dropdown {
-    width: rem(320px);
-    position: relative;
-  &__select {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: rem(44px);
-    background-color: #FFFFFF;
-    border: 1px solid map_get($colors, 'main-25');
-    border-radius: 4px;
-    padding: 0 rem(15px);
-    transition: border 0.2s ease-out;
-    &:focus, &:active, &:hover {
-      border-color: map-get($colors, 'main-75');
-    }
-    & span {
-      flex: 0 1 rem(160px);
-      text-align: left;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    @extend %heading-body;
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      background: url("~Images/ui/expand-more--grey.svg") center center no-repeat;
-      width: rem(44px);
-      height: rem(44px);
-    }
-  }
-  &__content {
-    background: #ffffff;
-    display: none;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-    padding: rem(7px) rem(7px) rem(13px) rem(15px);
-    border: 1px solid map-get($colors, 'main-25');
-    border-top: none;
-    border-radius: 0  0 4px 4px;
-    box-shadow: 0px rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
-    transition: 1s ease;
-    &.open {
-      display: flex;
-    }
-  }
-  &__item {
-    display: flex;
-    margin-bottom: rem(7px);
-    flex: 1 1 100%;
-    align-items: center;
-    &--last {
-      margin-bottom: 0;
-    }
-  }
-  &__label {
-    flex: 1 1 auto;
-  }
-  &__count {
-    flex: 0 1 rem(32px);
-    text-align: center;
-  }
-  &__minus, &__plus {
-    position: relative;
-    height: rem(30px);
-    width: rem(30px);
-    padding: 0;
-    border-radius: 50%;
-    outline: none;
-    border: 1px solid map-get($colors, 'main-25');
-    background: #ffffff;
-    @extend %btn--focus;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -1 * rem(0.5px) 0 0 -1 * rem(2.5px);
-      width: rem(5px);
-      height: rem(1px);
-      background: url("~Images/ui/-.svg") center center no-repeat;
-    }
-  }
-  &__minus {
-    opacity: 1;
-    &.disabled {
-      opacity: 0.38;
-      &:active {
-        transform: none;
-      }
-    }
-  }
-  &__plus {
-    border-color: map_get($colors, 'main-25');
-    &::before {
-      width: rem(8px);
-      height: rem(8px);
-      margin: -1 * rem(4px) 0 0 -1 * rem(4px);
-      background: url("~Images/ui/+.svg") center center no-repeat;
-    }
-  }
-  &--rough-btm {
-    .dropdown {
-      &__select {
-        border-radius: 4px 4px 0 0;
-      }
-    }
-  }
+	position: relative;
+
+	width: rem(320px);
+
+	&__select {
+		@extend %heading-body;
+		position: relative;
+
+		display: inline-flex;
+		align-items: center;
+		width: 100%;
+		height: rem(44px);
+		padding: 0 rem(15px);
+
+		background-color: #fff;
+		border: 1px solid map_get($colors, 'main-25');
+		border-radius: 4px;
+
+		transition: border 0.2s ease-out;
+
+		&:focus,
+		&:active,
+		&:hover {
+			border-color: map-get($colors, 'main-75');
+		}
+
+		& span {
+			flex: 0 1 rem(160px);
+			overflow: hidden;
+
+			white-space: nowrap;
+			text-align: left;
+			text-overflow: ellipsis;
+		}
+
+		&::after {
+			position: absolute;
+			right: 0;
+
+			width: rem(44px);
+			height: rem(44px);
+
+			background: url('~Images/ui/expand-more--grey.svg') center center no-repeat;
+
+			content: '';
+		}
+	}
+
+	&__content {
+		position: absolute;
+		z-index: 2;
+
+		display: none;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 100%;
+		padding: rem(7px) rem(7px) rem(13px) rem(15px);
+
+		background: #fff;
+		border: 1px solid map-get($colors, 'main-25');
+		border-top: none;
+		border-radius: 0  0 4px 4px;
+		box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
+
+		transition: 1s ease;
+
+		&.open {
+			display: flex;
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex: 1 1 100%;
+		align-items: center;
+		margin-bottom: rem(7px);
+
+		&--last {
+			margin-bottom: 0;
+		}
+	}
+
+	&__label {
+		flex: 1 1 auto;
+	}
+
+	&__count {
+		flex: 0 1 rem(32px);
+
+		text-align: center;
+	}
+
+	&__minus,
+	&__plus {
+		@extend %btn--focus;
+		position: relative;
+
+		width: rem(30px);
+		height: rem(30px);
+		padding: 0;
+
+		background: #fff;
+		border: 1px solid map-get($colors, 'main-25');
+		border-radius: 50%;
+		outline: none;
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+
+			width: rem(5px);
+			height: rem(1px);
+			margin: -1 * rem(0.5px) 0 0 -1 * rem(2.5px);
+
+			background: url('~Images/ui/-.svg') center center no-repeat;
+
+			content: '';
+		}
+	}
+
+	&__minus {
+		opacity: 1;
+
+		&.disabled {
+			opacity: 0.38;
+
+			&:active {
+				transform: none;
+			}
+		}
+	}
+
+	&__plus {
+		border-color: map_get($colors, 'main-25');
+
+		&::before {
+			width: rem(8px);
+			height: rem(8px);
+			margin: -1 * rem(4px) 0 0 -1 * rem(4px);
+
+			background: url('~Images/ui/+.svg') center center no-repeat;
+		}
+	}
+
+	&--rough-btm {
+		.dropdown {
+			&__select {
+				border-radius: 4px 4px 0 0;
+			}
+		}
+	}
 }

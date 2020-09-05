@@ -1,57 +1,63 @@
 // -----------PARENT------------
 .expandable {
-  // -----------BUTTON------------
-  &__button {
-    @extend %heading-3;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    padding: 0 0 20px 0;
-    background-color: transparent;
-    //margin-bottom: rem(20px);
-    &::after {
-      content: '';
-      position: absolute;
-      width: rem(12px);
-      height: rem(15.2px);
-      margin-left: rem(46px);
-      transition: transform 0.5s linear;
-      background: {
-        image: url("~Images/ui/expand-more--grey.svg");
-        size: contain;
-        repeat: no-repeat;
-        position: 100% 45%;
-      }
-    }
-  }
-// -----------CONTENT------------
-  &__content {
-    position: relative;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease-out;
-    .checkbox {
-      position: absolute;
-      &__label:not(:last-of-type) {
-        padding-bottom: rem(10px);
-      }
-      &__label:last-of-type {
-        padding-bottom: 5px;
-      }
-    }
-  }
-  // -----------ACTIVE STYLES------------
-  &.active {
-    .expandable {
-      // -----------button------------
-      &__button {
-        &::after {
-          transform: rotateZ(180deg);
-        }
-      }
-      // -----------content------------
-      &__content {
-      }
-    }
-  }
+	// -----------BUTTON------------
+	&__button {
+		@extend %heading-3;
+		padding: 0 0 20px;
+
+		background-color: transparent;
+		border: 0;
+		outline: none;
+		cursor: pointer;
+		//margin-bottom: rem(20px);
+		&::after {
+			position: absolute;
+
+			width: rem(12px);
+			height: rem(15.2px);
+			margin-left: rem(46px);
+
+			transition: transform 0.5s linear;
+
+			content: '';
+			background: {
+				position: 100% 45%;
+				image: url('~Images/ui/expand-more--grey.svg');
+				size: contain;
+				repeat: no-repeat;
+			}
+		}
+	}
+	// -----------CONTENT------------
+	&__content {
+		position: relative;
+
+		max-height: 0;
+		overflow: hidden;
+
+		transition: all 0.5s ease-out;
+
+		.checkbox {
+			position: absolute;
+
+			&__label:not(:last-of-type) {
+				padding-bottom: rem(10px);
+			}
+
+			&__label:last-of-type {
+				padding-bottom: 5px;
+			}
+		}
+	}
+	// -----------ACTIVE STYLES------------
+	&.active {
+		.expandable {
+			// -----------button------------
+			&__button {
+				&::after {
+					transform: rotateZ(180deg);
+				}
+			}
+		}
+	}
 }

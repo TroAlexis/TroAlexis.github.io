@@ -1,15 +1,19 @@
 .rate-btn {
-  width: rem(120px);
-  height: rem(24px);
-  &__star {
-    display: inline-block;
-    cursor: pointer;
-    background: url("~Images/ui/star-border.svg") no-repeat;
-    width: rem(24px);
-    height: rem(24px);
-    transition: background-image .2s ease-out;
-    &.active {
-      background-image: url("~Images/ui/star.svg");
-    }
-  }
+	width: rem(120px);
+	height: rem(24px);
+
+	&__star {
+		display: inline-block;
+		width: rem(24px);
+		height: rem(24px);
+
+		background: url('~Images/ui/star-border.svg') no-repeat;
+		cursor: pointer;
+
+		transition: background-image 0.2s ease-out;
+
+		&.active {
+			background-image: url('~Images/ui/star.svg');
+		}
+	}
 }

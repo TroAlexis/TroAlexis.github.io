@@ -1,148 +1,173 @@
 %font-main {
-  font-family: 'Quicksand', sans-serif;
-  font-style: normal;
-  font-weight: bold;
+	font-weight: bold;
+	font-family: 'Quicksand', sans-serif;
+	font-style: normal;
 }
 
 %font-secondary {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
+	font-weight: normal;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
 }
 %font-secondary-bold {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: bold;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
 }
 
 $f-sizes: ('h1': 1.5rem,
-        'h2': 1.1875rem,
-        'h3': 0.75rem,
-        'body': 0.875rem);
+'h2': 1.1875rem,
+'h3': 0.75rem,
+'body': 0.875rem);
 
 %heading-1 {
-  @extend %font-main;
-  font-size: map_get($f-sizes, 'h1');
-  line-height: 1.875rem;
+	@extend %font-main;
+	font-size: map_get($f-sizes, 'h1');
+	line-height: 1.875rem;
 }
 
 %heading-2 {
-  @extend %font-main;
-  font-size: map_get($f-sizes, 'h2');
-  line-height: 1.5rem;
+	@extend %font-main;
+	font-size: map_get($f-sizes, 'h2');
+	line-height: 1.5rem;
 }
 
 %heading-3 {
-  @extend %font-secondary-bold;
-  font-size: map_get($f-sizes, 'h3');
-  text-transform: uppercase;
-  color: map_get($colors, 'main-100');
+	@extend %font-secondary-bold;
+	color: map_get($colors, 'main-100');
+	font-size: map_get($f-sizes, 'h3');
+	text-transform: uppercase;
 }
 
 %heading-body {
-  @extend %font-secondary;
-  font-size: map_get($f-sizes, 'body');
-  line-height: 1.5rem;
-  color: map-get($colors, 'main-75');
+	@extend %font-secondary;
+	color: map-get($colors, 'main-75');
+	font-size: map_get($f-sizes, 'body');
+	line-height: 1.5rem;
 }
 
 %input-common {
-  background: #FFFFFF;
-  border: 1px solid map_get($colors, 'main-25');
-  border-radius: 4px;
-  padding: rem(12px) rem(15px);
-  @extend %heading-body;
-  transition: border-color .3s ease-out;
-  &:focus, &:active, &:hover {
-    border-color: map_get($colors, 'main-50');
-    transition: border-color .3s ease-out;
-    color: map_get($colors, 'main-75');
-    outline: none;
-  }
-  &.focus {
-    border-color: map_get($colors, 'main-50');
-    transition: border-color .3s ease-out;
-    color: map_get($colors, 'main-75');
-    outline: none;
-    &::placeholder {
-      color: map-get($colors, 'main-75');
-    }
-  }
+	@extend %heading-body;
+	padding: rem(12px) rem(15px);
+
+	background: #fff;
+	border: 1px solid map_get($colors, 'main-25');
+	border-radius: 4px;
+
+	transition: border-color 0.3s ease-out;
+
+	&:focus,
+	&:active,
+	&:hover {
+		color: map_get($colors, 'main-75');
+
+		border-color: map_get($colors, 'main-50');
+		outline: none;
+
+		transition: border-color 0.3s ease-out;
+	}
+
+	&.focus {
+		color: map_get($colors, 'main-75');
+
+		border-color: map_get($colors, 'main-50');
+		outline: none;
+
+		transition: border-color 0.3s ease-out;
+
+		&::placeholder {
+			color: map-get($colors, 'main-75');
+		}
+	}
 }
 
 %card-common {
-  display: flex;
-  flex-direction: column;
-  width: rem(380px);
-  @include media-sm {
-    width: rem(360px);
-  }
-  padding: rem(40px) rem(30px) rem(30px) rem(30px);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 rem(25px) rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  background: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	width: rem(380px);
+	padding: rem(40px) rem(30px) rem(30px) rem(30px);
+
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 4px;
+	box-shadow: 0 0 rem(25px) rgba(0, 0, 0, 0.2);
+	@include media-sm {
+		width: rem(360px);
+	}
 }
 %card-common__heading {
-  @extend %heading-1;
-  color: map_get($colors, 'main-100');
-  width: rem(300px);
-  margin-bottom: rem(20px);
+	@extend %heading-1;
+	width: rem(300px);
+	margin-bottom: rem(20px);
+
+	color: map_get($colors, 'main-100');
 }
 
 %btn--focus {
-  transition: border 0.2s ease-out, transform 0.1s ease-out;
-  &:focus {
-    border: 1px solid map-get($colors, 'main-75');
-  }
-  &:active {
-    transform: translateY(rem(0.5px));
-  }
+	transition: border 0.2s ease-out, transform 0.1s ease-out;
+
+	&:focus {
+		border: 1px solid map-get($colors, 'main-75');
+	}
+
+	&:active {
+		transform: translateY(rem(0.5px));
+	}
 }
 %btn-bdless--focus {
-  @extend %btn--focus;
-  &:focus {
-    border: none;
-  }
+	@extend %btn--focus;
+
+	&:focus {
+		border: 0;
+	}
 }
 
 .room {
-  color: map_get($colors, 'main-100');
-  &__num {
-    @extend %font-main;
-    font-size: rem(10px);
-  }
-  &__number {
-    @extend %font-main;
-  }
-  &__lux {
-    @extend %heading-3;
-    color: map_get($colors, 'primary');
-    margin-left: rem(5px);
-  }
+	color: map_get($colors, 'main-100');
+
+	&__num {
+		@extend %font-main;
+		font-size: rem(10px);
+	}
+
+	&__number {
+		@extend %font-main;
+	}
+
+	&__lux {
+		@extend %heading-3;
+		margin-left: rem(5px);
+
+		color: map_get($colors, 'primary');
+	}
 }
+
 .cost {
-  @extend %heading-body;
-  line-height: rem(18px);
-  font-weight: bold;
-  color: map_get($colors, 'main-50');
-  margin-left: auto;
-  &__aday {
-    font-weight: normal;
-  }
+	@extend %heading-body;
+	margin-left: auto;
+
+	color: map_get($colors, 'main-50');
+	font-weight: bold;
+	line-height: rem(18px);
+
+	&__aday {
+		font-weight: normal;
+	}
 }
 
 .element {
-  margin-bottom: rem(20px);
-  &__hgroup {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: rem(5px);
-  }
-  &__subheading {
-    font-weight: normal;
-    color: map-get($colors, 'main-50');
-  }
+	margin-bottom: rem(20px);
+
+	&__hgroup {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: rem(5px);
+	}
+
+	&__subheading {
+		color: map-get($colors, 'main-50');
+		font-weight: normal;
+	}
 }
 
 // TODO Rework cards, make inputs and buttons 100% width.

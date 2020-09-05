@@ -1,50 +1,58 @@
 .checkbox {
-  // HIDING THE CHECKBOX
-  width: 0;
-  height: 0;
-  opacity: 0;
-  //CHECKED STATE FOR CUSTOM CHECKBOX
-  &:checked {
-    +.checkbox__label {
-      &::before {
-        border-color: map-get($colors, 'primary');
-        background:  {
-          image: url("~Images/ui/tick.svg");
-          repeat: no-repeat;
-          position: 50% 40%;
-        };
-      }
-    }
-  }
-  // ON FOCUS BEHAVIOUR
-  &:focus+.checkbox__label::before, &:focus:not(:checked)+.checkbox__label::before {
-      box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.20);
-  }
-  // HOVERING THE BOX
-  &:not(:checked):not(:disabled):not(:focus)+.checkbox__label:hover::before {
-      border-color: map_get($colors, 'main-35');
-  }
-  //STYLING THE LABEL
-  &__label {
-    @extend %heading-body;
-    line-height: 1.125rem;
-    max-width: rem(230px);
-    display: inline-flex;
-    user-select: none;
-    color: map-get($colors, 'main-50');
-    // STYLING THE CUSTOM CHECKBOX
-    &:before {
-      content: '';
-      display: inline-block;
-      box-sizing: border-box;
-      cursor: pointer;
-      width: rem(20px);
-      height: rem(20px);
-      flex: 0 0 auto;
-      border: 1px solid map_get($colors, 'main-25');
-      border-radius: 0.25rem;
-      margin-right: rem(10px);
-      transition: border-color .4s;
-    }
-  }
+	// HIDING THE CHECKBOX
+	width: 0;
+	height: 0;
+
+	opacity: 0;
+	//CHECKED STATE FOR CUSTOM CHECKBOX
+	&:checked {
+		+.checkbox__label {
+			&::before {
+				border-color: map-get($colors, 'primary');
+				background: {
+					image: url('~Images/ui/tick.svg');
+					repeat: no-repeat;
+
+					position: 50% 40%;
+				};
+			}
+		}
+	}
+	// ON FOCUS BEHAVIOUR
+	&:focus+.checkbox__label::before,
+	&:focus:not(:checked)+.checkbox__label::before {
+		box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.2);
+	}
+	// HOVERING THE BOX
+	&:not(:checked):not(:disabled):not(:focus)+.checkbox__label:hover::before {
+		border-color: map_get($colors, 'main-35');
+	}
+	//STYLING THE LABEL
+	&__label {
+		@extend %heading-body;
+		display: inline-flex;
+		max-width: rem(230px);
+
+		color: map-get($colors, 'main-50');
+		line-height: 1.125rem;
+
+		user-select: none;
+		// STYLING THE CUSTOM CHECKBOX
+		&::before {
+			display: inline-block;
+			flex: 0 0 auto;
+			box-sizing: border-box;
+			width: rem(20px);
+			height: rem(20px);
+			margin-right: rem(10px);
+
+			border: 1px solid map_get($colors, 'main-25');
+			border-radius: 0.25rem;
+			cursor: pointer;
+
+			transition: border-color 0.4s;
+
+			content: '';
+		}
+	}
 }

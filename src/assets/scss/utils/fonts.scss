@@ -1,42 +1,42 @@
 // Fonts here
 @font-face {
-  font-family: 'Quicksand';
-  src: url("~Fonts/Quicksand-Bold.woff2") format('woff2'),
-  url("~Fonts/Quicksand-Bold.woff") format('woff'),
-  url("~Fonts/Quicksand-Bold.ttf") format('truetype');
-  font-weight: bold;
+	font-weight: bold;
+	font-family: 'Quicksand';
+	src: url('~Fonts/Quicksand-Bold.woff2') format('woff2'),
+		url('~Fonts/Quicksand-Bold.woff') format('woff'),
+		url('~Fonts/Quicksand-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Quicksand';
-  src: url("~Fonts/Quicksand-Regular.woff2") format('woff2'),
-  url("~Fonts/Quicksand-Regular.woff") format('woff'),
-  url("~Fonts/Quicksand-Regular.ttf") format('truetype');
-  font-weight: normal;
+	font-weight: normal;
+	font-family: 'Quicksand';
+	src: url('~Fonts/Quicksand-Regular.woff2') format('woff2'),
+		url('~Fonts/Quicksand-Regular.woff') format('woff'),
+		url('~Fonts/Quicksand-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url("~Fonts/Montserrat-Regular.woff2") format('woff2'),
-  url("~Fonts/Montserrat-Regular.woff") format('woff'),
-  url("~Fonts/Montserrat-Regular.ttf") format('truetype');
-  font-weight: normal;
+	font-weight: normal;
+	font-family: 'Montserrat';
+	src: url('~Fonts/Montserrat-Regular.woff2') format('woff2'),
+		url('~Fonts/Montserrat-Regular.woff') format('woff'),
+		url('~Fonts/Montserrat-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Montserrat';
-  src: url("~Fonts/Montserrat-Bold.woff2") format('woff2'),
-  url("~Fonts/Montserrat-Bold.woff") format('woff'),
-  url("~Fonts/Montserrat-Bold.ttf") format('truetype');
-  font-weight: bold;
+	font-weight: bold;
+	font-family: 'Montserrat';
+	src: url('~Fonts/Montserrat-Bold.woff2') format('woff2'),
+		url('~Fonts/Montserrat-Bold.woff') format('woff'),
+		url('~Fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
 .heading-2 {
-  @extend %heading-2;
+	@extend %heading-2;
 }
 
 .heading-3 {
-  @extend %heading-3;
+	@extend %heading-3;
 }
 
 .body-text {
-  @extend %heading-body;
+	@extend %heading-body;
 }

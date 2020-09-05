@@ -1,154 +1,177 @@
-@import '~Scss/header-footer.scss';
+@import '~Scss/header-footer';
 
-@import '~Includes/advantage/advantage.scss';
-@import '~Includes/cards/booking/booking.scss';
-@import '~Includes/comment/comment.scss';
-@import '~Includes/bullet-list/bullet-list.scss';
-@import '~Includes/impressions/impressions.scss';
+@import '~Includes/advantage/advantage';
+@import '~Includes/cards/booking/booking';
+@import '~Includes/comment/comment';
+@import '~Includes/bullet-list/bullet-list';
+@import '~Includes/impressions/impressions';
 
 .header {
-  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+	box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 }
+
 .heading-2 {
-  color: map-get($colors, 'main-100');
-  margin-bottom: rem(20px);
+	margin-bottom: rem(20px);
+
+	color: map-get($colors, 'main-100');
 }
 
 .gallery {
-  display: grid;
-  grid-template: {
-    columns: 2fr 1fr;
-    areas: 'main sec1'
-            'main sec2';
-  };
-  height: rem(485px);
-  @include media-m {
-    height: rem(485px)/1.25;
-  }
-  @include media-sm {
-    height: rem(485px)/1.75;
-  }
-  @include media(400px) {
-    height: rem(485px)/2;
-  }
-  img {
-    &:nth-of-type(1) {
-      grid-area: main;
-    }
-    &:nth-of-type(2) {
-      grid-area: sec1;
-    }
-    &:nth-of-type(3) {
-      grid-area: sec2;
-    }
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    max-width: 100%;
-  }
+	display: grid;
+	height: rem(485px);
+	@include media-m {
+		height: rem(485px)/1.25;
+	}
+	@include media-sm {
+		height: rem(485px)/1.75;
+	}
+	@include media(400px) {
+		height: rem(485px)/2;
+	}
+	grid-template: {
+		columns: 2fr 1fr;
+		areas: 'main sec1'
+			'main sec2';
+	};
+
+	img {
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		max-height: 100%;
+
+		&:nth-of-type(1) {
+			grid-area: main;
+		}
+
+		&:nth-of-type(2) {
+			grid-area: sec1;
+		}
+
+		&:nth-of-type(3) {
+			grid-area: sec2;
+		}
+	}
 }
+
 .room-details {
-  padding: rem(70px) 0;
-  @include media-lg {
-    padding: rem(70px)/1.25 0;
-  }
-  @include media-m {
-    padding: rem(70px)/1.5 0;
-  }
-  display: flex;
-  &__container {
-    display: grid;
-    grid-template: {
-      columns: repeat(3, auto);
-      areas: 'info impressions booking'
-      'reviews reviews booking'
-      'rules cancellation cancellation';
-    };
-    @include media(1092px) {
-      grid-template: {
-        columns: repeat(2, 1fr);
-        areas: 'info booking'
-        'impressions booking'
-        'rules cancellation'
-        'reviews reviews';
-      }
-    }
-    @include media(700.98px) {
-      grid-template: {
-        columns: repeat(2, 1fr);
-        areas: 'info impressions'
-        'booking booking'
-        'reviews reviews'
-        'rules cancellation';
-      }
-      grid-column-gap: rem(20px);
-    }
-    @include media(416px) {
-      grid-template: {
-        columns: rem(380px);
-        areas: 'info'
-                'impressions'
-                'booking'
-                'reviews'
-                'rules'
-                'cancellation';
-      };
-      justify-items: center;
-      .heading-2 {
-        text-align: center;
-      }
-      padding: {
-        left: rem(10px);
-        right: rem(10px);
-      };
-    }
-    grid-row-gap: rem(30px);
-    grid-column-gap: rem(70px);
-  }
-  &__info {
-    grid-area: info;
-  }
-  &__impressions {
-    grid-area: impressions;
-    .impressions {
-      @include media(1202px) {
-        flex-wrap: wrap;
-      }
-      @include media(633px) {
-      }
-    }
-  }
-  &__booking {
-    grid-area: booking;
-    @include media(1092px) {
-      justify-self: center;
-    }
-  }
-  &__reviews {
-    grid-area: reviews;
-    .reviews__headings {
-      display: flex;
-      .heading-2 {
-        flex: 1 1 auto;
-      }
-    }
-    .comment {
-      margin-bottom: 20px;
-    }
-  }
-  &__rules {
-    grid-area: rules;
-  }
-  &__cancellation {
-    grid-area: cancellation;
-    @include media(1092px) {
-      justify-self: center;
-    }
-    .body-text {
-      max-width: rem(341px);
-    }
-  }
+	display: flex;
+	padding: rem(70px) 0;
+	@include media-lg {
+		padding: rem(70px)/1.25 0;
+	}
+	@include media-m {
+		padding: rem(70px)/1.5 0;
+	}
+
+	&__container {
+		display: grid;
+		grid-row-gap: rem(30px);
+		grid-column-gap: rem(70px);
+		@include media(1092px) {
+			grid-template: {
+				columns: repeat(2, 1fr);
+				areas: 'info booking'
+					'impressions booking'
+					'rules cancellation'
+					'reviews reviews';
+			}
+		}
+		@include media(700.98px) {
+			grid-column-gap: rem(20px);
+			grid-template: {
+				columns: repeat(2, 1fr);
+				areas: 'info impressions'
+					'booking booking'
+					'reviews reviews'
+					'rules cancellation';
+			}
+		}
+		@include media(416px) {
+			justify-items: center;
+			grid-template: {
+				columns: rem(380px);
+				areas: 'info'
+					'impressions'
+					'booking'
+					'reviews'
+					'rules'
+					'cancellation';
+			};
+
+			.heading-2 {
+				text-align: center;
+			}
+			padding: {
+				right: rem(10px);
+				left: rem(10px);
+			};
+		}
+		grid-template: {
+			columns: repeat(3, auto);
+			areas: 'info impressions booking'
+				'reviews reviews booking'
+				'rules cancellation cancellation';
+		};
+	}
+
+	&__info {
+		grid-area: info;
+	}
+
+	&__impressions {
+		grid-area: impressions;
+
+		.impressions {
+			@include media(1202px) {
+				flex-wrap: wrap;
+			}
+		}
+	}
+
+	&__booking {
+		grid-area: booking;
+		@include media(1092px) {
+			justify-self: center;
+		}
+	}
+
+	&__reviews {
+		grid-area: reviews;
+
+
+		.comment {
+			margin-bottom: 20px;
+		}
+	}
+
+	.reviews {
+		&__headings {
+			display: flex;
+
+		}
+
+		.heading-2 {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__rules {
+		grid-area: rules;
+	}
+
+	&__cancellation {
+		grid-area: cancellation;
+		@include media(1092px) {
+			justify-self: center;
+		}
+
+		.body-text {
+			max-width: rem(341px);
+		}
+	}
 }
+
 .footer-main {
-  border-top: 1px solid map-get($colors, 'main-25');
+	border-top: 1px solid map-get($colors, 'main-25');
 }

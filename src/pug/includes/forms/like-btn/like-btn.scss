@@ -1,84 +1,98 @@
 @keyframes like {
-  0% {
-    transform: scale(1);
-  }
-  50% {
+	0% {
+		transform: scale(1);
+	}
 
-  }
-  100% {
-    transform: scale(1);
-  }
+	50% {
+
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 @keyframes like-border {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.03);
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.03);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 .like-btn {
-  position: relative;
-  // BORDER STYLES
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-  border-radius: rem(10px);
-  background: rgba(31, 32, 65, 0.25);
-  -webkit-tap-highlight-color: transparent;
-  // CONTAINER STYLES
-  &__container {
-    display: inline-flex;
-    align-items: center;
-    height: rem(18px);
-    border-radius: rem(9px);
-    text-decoration: none;
-    background: #FFFFFF;
-  }
-  // ICON STYLES
-  &__icon {
-    width: rem(19px);
-    height: 100%;
-    background: {
-      image: url("~Images/ui/like-icon--border.svg");
-      repeat: no-repeat;
-      position: center center;
-    }
-  }
-  // COUNTER STYLES
-  &__count {
-    @extend %heading-body;
-    line-height: normal;
-    font-size: rem(10px);
-    min-width: rem(19px);
-    padding: 0 rem(7px) 0 rem(2px);
-    color: map-get($colors, 'main-25');
-    transition: .2s;
-  }
+	position: relative;
+	// BORDER STYLES
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1px;
+
+	background: rgba(31, 32, 65, 0.25);
+	border-radius: rem(10px);
+	-webkit-tap-highlight-color: transparent;
+	// CONTAINER STYLES
+	&__container {
+		display: inline-flex;
+		align-items: center;
+		height: rem(18px);
+
+		text-decoration: none;
+
+		background: #fff;
+		border-radius: rem(9px);
+	}
+	// ICON STYLES
+	&__icon {
+		width: rem(19px);
+		height: 100%;
+		background: {
+			position: center center;
+			image: url('~Images/ui/like-icon--border.svg');
+			repeat: no-repeat;
+		}
+	}
+	// COUNTER STYLES
+	&__count {
+		@extend %heading-body;
+		min-width: rem(19px);
+		padding: 0 rem(7px) 0 rem(2px);
+
+		color: map-get($colors, 'main-25');
+		font-size: rem(10px);
+		line-height: normal;
+
+		transition: 0.2s;
+	}
 }
 // ACTIVE STYLES
 .like-btn.active {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-  animation: like-border .3s ease-out;
-  border-radius: 10px;
-  .like-btn {
-    &__container {
-      .like-btn__icon {
-        animation: like .3s ease-out;
-        background-image: url("~Images/ui/like-icon.svg");
-      }
-      .like-btn__count {
-        color: map_get($colors, 'primary');
-        transition: none;
-        animation: like-border .3s ease-out;
-      }
-    }
+	background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+	border-radius: 10px;
 
-  }
+	animation: like-border 0.3s ease-out;
+
+	.like-btn {
+		&__container {
+			.like-btn__icon {
+				background-image: url('~Images/ui/like-icon.svg');
+
+				animation: like 0.3s ease-out;
+			}
+
+			.like-btn__count {
+				color: map_get($colors, 'primary');
+
+				transition: none;
+				animation: like-border 0.3s ease-out;
+			}
+		}
+
+	}
 }

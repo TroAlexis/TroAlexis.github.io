@@ -1,34 +1,37 @@
 // -----------SUBSCRIPTION FORM ------------
 .subs-form {
-  display: flex;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  border-radius: 4px;
-  width: rem(267px);
-  height: rem(44px);
-  @extend %input-common;
-  padding: rem(2px) 0 rem(2px) rem(5px);
-  background: #FFFFFF;
-  // -----------INPUT------------
-  &__input {
-    flex-grow: 2;
-    border: none;
-    padding: rem(10px) 0 rem(10px) rem(10px);
-    @extend %heading-body;
-    // ----------- INPUT FOCUS ------------
-    &:focus {
-      outline: none;
-    }
-  }
-  // ----------- SUBMIT BUTTON ------------
-  &__submit {
-    border: none;
-    width: rem(44px);
-    height: 100%;
-    padding: 0;
-    background: none;
-    // ----------- SUBMIT FOCUS ------------
-    &:focus {
-      outline: none;
-    }
-  }
+	@extend %input-common;
+	display: flex;
+	width: rem(267px);
+	height: rem(44px);
+	padding: rem(2px) 0 rem(2px) rem(5px);
+
+	background: #fff;
+	border: 1px solid rgba(31, 32, 65, 0.25);
+	border-radius: 4px;
+	// -----------INPUT------------
+	&__input {
+		@extend %heading-body;
+		flex-grow: 2;
+		padding: rem(10px) 0 rem(10px) rem(10px);
+
+		border: 0;
+		// ----------- INPUT FOCUS ------------
+		&:focus {
+			outline: none;
+		}
+	}
+	// ----------- SUBMIT BUTTON ------------
+	&__submit {
+		width: rem(44px);
+		height: 100%;
+		padding: 0;
+
+		background: none;
+		border: 0;
+		// ----------- SUBMIT FOCUS ------------
+		&:focus {
+			outline: none;
+		}
+	}
 }

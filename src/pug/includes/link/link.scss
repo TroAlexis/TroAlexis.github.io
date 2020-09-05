@@ -1,19 +1,21 @@
 // -----------MAIN LINK------------
 .link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-size: rem(14px);
-  @extend %font-secondary;
-  color: map-get($colors, 'main-50');
+	@extend %font-secondary;
+	display: flex;
+	align-items: center;
+
+	color: map-get($colors, 'main-50');
+	font-size: rem(14px);
+	text-decoration: none;
 }
 // -----------LINK DROPDOWN------------
 .link {
-  &--dropdown {
-    display: flex;
-    padding-top: rem(2px);
-    .arrow {
-      fill: map_get($colors, 'main-50');
-    }
-  }
+	&--dropdown {
+		display: flex;
+		padding-top: rem(2px);
+
+		.arrow {
+			fill: map_get($colors, 'main-50');
+		}
+	}
 }

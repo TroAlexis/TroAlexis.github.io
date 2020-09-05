@@ -5,21 +5,26 @@
 @import '~Includes/btn/--arrow/btn--arrow';
 
 .roomsearch {
-  @extend %card-common;
-  &__heading {
-    @extend %card-common__heading;
-  }
-  &__label {
-    margin-top: rem(20px);
-    margin-bottom: rem(5px);
-  }
-  .btn {
-    padding: rem(15px) rem(20px);
-  }
-  .dropdown--date {
-    margin-bottom: rem(20px);
-  }
-  .dropdown--apply {
-    margin-bottom: rem(30px);
-  }
+	@extend %card-common;
+
+	&__heading {
+		@extend %card-common__heading;
+	}
+
+	&__label {
+		margin-top: rem(20px);
+		margin-bottom: rem(5px);
+	}
+
+	.btn {
+		padding: rem(15px) rem(20px);
+	}
+
+	.dropdown--date {
+		margin-bottom: rem(20px);
+	}
+
+	.dropdown--apply {
+		margin-bottom: rem(30px);
+	}
 }

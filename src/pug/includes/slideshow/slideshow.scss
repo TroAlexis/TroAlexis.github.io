@@ -1,66 +1,86 @@
 @keyframes fade {
-  from {
-    opacity: .4;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0.4;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .slideshow {
-  width: rem(270px);
-  height: rem(150px);
-  position: relative;
-  &__slide {
-    & img {
-      vertical-align: middle;
-    }
-    display: none;
-    width: 100%;
-    height: 100%;
-    animation: fade .7s ease-out;
-    &.active {
-      display: block;
-    }
-  }
-  &__slide img  {
-    width: 100%;
-    max-height: 100%;
-  }
-  &__prev, &__next {
-    position: absolute;
-    cursor: pointer;
-    display: inline-block;
-    width: rem(44px);
-    height: rem(44px);
-    background: url("~Images/ui/expand-more--white.svg") center center no-repeat;
-  }
-  &__prev {
-    left: 0;
-    top: 50%;
-    transform: translate(0, -50%) rotate(90deg);
-  }
-  &__next {
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%) rotate(-90deg);
-  }
-  &__dots {
-    position: absolute;
-    bottom: rem(15px);
-    right: rem(15px);
-    display: flex;
-    margin: 0 -1 * rem(1.875px);
-  }
-  &__dot {
-    width: rem(7.5px);
-    height: rem(7.5px);
-    border: 1px solid #FFFFFF;
-    border-radius: 50%;
-    margin: 0 rem(1.875px);
-    box-shadow: 0 rem(5px) rem(5px) rgba(31, 32, 65, 0.3);
-    &.active {
-      background: #ffffff;
-    }
-  }
+	position: relative;
+
+	width: rem(270px);
+	height: rem(150px);
+
+	&__slide {
+		display: none;
+		width: 100%;
+		height: 100%;
+
+		animation: fade 0.7s ease-out;
+
+		& img {
+			vertical-align: middle;
+		}
+
+		&.active {
+			display: block;
+		}
+	}
+
+	&__slide img {
+		width: 100%;
+		max-height: 100%;
+	}
+
+	&__prev,
+	&__next {
+		position: absolute;
+
+		display: inline-block;
+		width: rem(44px);
+		height: rem(44px);
+
+		background: url('~Images/ui/expand-more--white.svg') center center no-repeat;
+		cursor: pointer;
+	}
+
+	&__prev {
+		top: 50%;
+		left: 0;
+
+		transform: translate(0, -50%) rotate(90deg);
+	}
+
+	&__next {
+		top: 50%;
+		right: 0;
+
+		transform: translate(0, -50%) rotate(-90deg);
+	}
+
+	&__dots {
+		position: absolute;
+		right: rem(15px);
+		bottom: rem(15px);
+
+		display: flex;
+		margin: 0 -1 * rem(1.875px);
+	}
+
+	&__dot {
+		width: rem(7.5px);
+		height: rem(7.5px);
+		margin: 0 rem(1.875px);
+
+		border: 1px solid #fff;
+		border-radius: 50%;
+		box-shadow: 0 rem(5px) rem(5px) rgba(31, 32, 65, 0.3);
+
+		&.active {
+			background: #fff;
+		}
+	}
 }

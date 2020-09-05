@@ -1,71 +1,85 @@
 .radio {
-  cursor: pointer;
-  // HIDING THE DEFAULT RADIO BUTTON
-  &__input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    // HOVERING THE RADIO BUTTON
-    &:not(:disabled):not(:checked) {
-      +.radio__label:hover::before {
-          border-color: map_get($colors, 'primary');
-      }
-    }
-    // FOCUS ON THE BUTTON
-    &:focus+.radio__label::before, &:focus:not(:checked)+.radio__label::before {
-      box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.20);
-    }
-    // CLICKING THE RADIO BUTTON (ACTIVE STATE)
-    &:not(:disabled):active {
-      +.radio__label::before {
-        border-color: map_get($colors, 'primary');
-        background-color: rgba(188, 156, 255, 0.1);
-      }
-    }
-    // CHECKED RADIO BUTTON
-    &:checked {
-      +.radio__label {
-        &::before {
-        border-color: map_get($colors, 'primary');
-        }
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: rem(6px);
-          left: rem(4px);
-          //transform: translate(50%,-50%);
-          width: rem(12px);
-          height: rem(12px);
-          border-radius: 50%;
-          background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-        }
-        color: map-get($colors, 'main-75');
-      }
-    }
-  }
-  //STYLING THE LABEL
-  &__label {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
-    color: map-get($colors, 'main-50');
-    transition: .2s;
-    @extend %heading-body;
-    //STYLING THE CUSTOM RADIO
-    &:before {
-      content: '';
-      display: inline-block;
-      box-sizing: border-box;
-      width: rem(20px);
-      height: rem(20px);
-      margin-right: rem(10px);
-      flex: 0 0 auto;
-      border: 1px solid map_get($colors, 'main-25');
-      border-radius: 50%;
-      transition: border-color .2s;
-    }
-  }
+	cursor: pointer;
+	// HIDING THE DEFAULT RADIO BUTTON
+	&__input {
+		position: absolute;
+		z-index: -1;
+
+		width: 0;
+		height: 0;
+
+		opacity: 0;
+		// HOVERING THE RADIO BUTTON
+		&:not(:disabled):not(:checked) {
+			+.radio__label:hover::before {
+				border-color: map_get($colors, 'primary');
+			}
+		}
+		// FOCUS ON THE BUTTON
+		&:focus+.radio__label::before,
+		&:focus:not(:checked)+.radio__label::before {
+			box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.2);
+		}
+		// CLICKING THE RADIO BUTTON (ACTIVE STATE)
+		&:not(:disabled):active {
+			+.radio__label::before {
+				background-color: rgba(188, 156, 255, 0.1);
+				border-color: map_get($colors, 'primary');
+			}
+		}
+		// CHECKED RADIO BUTTON
+		&:checked {
+			+.radio__label {
+				color: map-get($colors, 'main-75');
+
+				&::before {
+					border-color: map_get($colors, 'primary');
+				}
+
+				&::after {
+					position: absolute;
+					bottom: rem(6px);
+					left: rem(4px);
+					//transform: translate(50%,-50%);
+					width: rem(12px);
+					height: rem(12px);
+
+					background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+					border-radius: 50%;
+
+					content: '';
+				}
+			}
+		}
+	}
+	//STYLING THE LABEL
+	&__label {
+		@extend %heading-body;
+		position: relative;
+
+		display: inline-flex;
+		align-items: center;
+
+		color: map-get($colors, 'main-50');
+
+		transition: 0.2s;
+
+		user-select: none;
+		//STYLING THE CUSTOM RADIO
+		&::before {
+			display: inline-block;
+			flex: 0 0 auto;
+			box-sizing: border-box;
+			width: rem(20px);
+			height: rem(20px);
+			margin-right: rem(10px);
+
+			border: 1px solid map_get($colors, 'main-25');
+			border-radius: 50%;
+
+			transition: border-color 0.2s;
+
+			content: '';
+		}
+	}
 }

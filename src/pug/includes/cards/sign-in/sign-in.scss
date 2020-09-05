@@ -1,35 +1,43 @@
-@import "~Includes/btn/btn";
-@import "~Includes/btn/--border/btn--border";
-@import "~Scss/modules/text-field.scss";
+@import '~Includes/btn/btn';
+@import '~Includes/btn/--border/btn--border';
+@import '~Scss/modules/text-field.scss';
 
 .sign-in {
-  @extend %card-common;
-  &__heading {
-    @extend %card-common__heading;
-  }
-  .text-field {
-    margin-bottom: rem(10px);
-  }
-  & #password {
-    margin-bottom: rem(20px);
-  }
-  &__auth {
-    margin-bottom: rem(30px);
-  }
-  &__isntregged {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__text {
-    @extend %heading-body;
-    color: #000000;
-    line-height: rem(18px);
-  }
-  .btn {
-    margin-top: rem(15px);
-  }
-  .btn-border__link {
-    padding: rem(13px) rem(17px);
-  }
+	@extend %card-common;
+
+	&__heading {
+		@extend %card-common__heading;
+	}
+
+	.text-field {
+		margin-bottom: rem(10px);
+	}
+
+	& #password {
+		margin-bottom: rem(20px);
+	}
+
+	&__auth {
+		margin-bottom: rem(30px);
+	}
+
+	&__isntregged {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__text {
+		@extend %heading-body;
+		color: #000;
+		line-height: rem(18px);
+	}
+
+	.btn {
+		margin-top: rem(15px);
+	}
+
+	.btn-border__link {
+		padding: rem(13px) rem(17px);
+	}
 }

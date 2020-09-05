@@ -1,87 +1,93 @@
-@import "~Includes/link/link";
-@import "~Includes/forms/subs-form/subs-form";
-@import "~Includes/footer/--copyright/footer--copyright";
+@import '~Includes/link/link';
+@import '~Includes/forms/subs-form/subs-form';
+@import '~Includes/footer/--copyright/footer--copyright';
 
 // HEADER VARIABLES
 $containerPaddingTB: rem(100px);
 
 // -----------MAIN FOOTER ------------
-.footer-main{
-  // -----------LIMITING CONTAINER------------
-  &__container {
-    padding: {
-      top: $containerPaddingTB;
-      bottom: $containerPaddingTB;
-    };
-    @include media-x-lg {
-      padding: {
-        top: $containerPaddingTB/2;
-        bottom: $containerPaddingTB/2;
-      };
-    }
-  }
-  // ----------- ROW WITH THE BOXES------------
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 -1 * rem(5px);
-    max-width: rem(1160px);
-    @include media-lg {
-      flex-wrap: wrap;
-    }
-    @include media-sm {
-      justify-content: center;
-    }
-  }
-  // ----------- COLUMNS ------------
-  &__column {
-    display: flex;
-    flex-direction: column;
-    padding: 0 rem(5px);
-    @include media-lg {
-      align-items: center;
-      margin-bottom: rem(35px);
-      width: 33.3%;
-      text-align: center;
-      &:nth-child(1) {
-        width: 100%;
-        padding: 0 rem(100px);
-        @include media-sm {
-          padding: 0 rem(50px);
-        }
-      }
-      &:nth-child(5) {
-        width: 100%;
-      }
-    }
-    @include media-sm {
-      width: 50%;
-      &:nth-child(1) {
-          padding: 0 rem(40px);
-      }
-    }
+.footer-main {
+	// -----------LIMITING CONTAINER------------
+	&__container {
+		@include media-x-lg {
+			padding: {
+				top: $containerPaddingTB/2;
+				bottom: $containerPaddingTB/2;
+			};
+		}
+		padding: {
+			top: $containerPaddingTB;
+			bottom: $containerPaddingTB;
+		};
+	}
+	// ----------- ROW WITH THE BOXES------------
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		max-width: rem(1160px);
+		margin: 0 -1 * rem(5px);
+		@include media-lg {
+			flex-wrap: wrap;
+		}
+		@include media-sm {
+			justify-content: center;
+		}
+	}
+	// ----------- COLUMNS ------------
+	&__column {
+		display: flex;
+		flex-direction: column;
+		padding: 0 rem(5px);
+		@include media-lg {
+			align-items: center;
+			width: 33.3%;
+			margin-bottom: rem(35px);
 
-    // ----------- LINKS ------------
-    .link, .body-text {
-      margin-top: rem(20px);
-    }
-    // ----------- WIDE COLUMNS ------------
-    &--big {
-      flex: 0 1 rem(260px);
-      @include media-lg {
-        flex: 0 1 auto;
-        text-align: center;
-      }
-      // ----------- PARAGRAPHS ------------
-      // ----------- SUBSCRIPTION ------------
-      .subs-form {
-        margin-top: rem(20px);
-      }
-    }
-  }
-  &__logo {
-    img {
-      @include size(rem(106px), rem(41px));
-    }
-  }
+			text-align: center;
+
+			&:nth-child(1) {
+				width: 100%;
+				padding: 0 rem(100px);
+				@include media-sm {
+					padding: 0 rem(50px);
+				}
+			}
+
+			&:nth-child(5) {
+				width: 100%;
+			}
+		}
+		@include media-sm {
+			width: 50%;
+
+			&:nth-child(1) {
+				padding: 0 rem(40px);
+			}
+		}
+
+		// ----------- LINKS ------------
+		.link,
+		.body-text {
+			margin-top: rem(20px);
+		}
+		// ----------- WIDE COLUMNS ------------
+		&--big {
+			flex: 0 1 rem(260px);
+			@include media-lg {
+				flex: 0 1 auto;
+
+				text-align: center;
+			}
+			// ----------- SUBSCRIPTION ------------
+			.subs-form {
+				margin-top: rem(20px);
+			}
+		}
+	}
+
+	&__logo {
+		img {
+			@include size(rem(106px), rem(41px));
+		}
+	}
 }

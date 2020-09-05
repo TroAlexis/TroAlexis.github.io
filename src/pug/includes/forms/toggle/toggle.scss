@@ -1,88 +1,102 @@
 .toggle {
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  user-select: none;
-  // HIDING THE DEFAULT CHECKBOX
-  &__box {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    // STYLING THE CHECKED BUTTON
-    &:checked+.toggle__button {
-      &::before {
-        transform: translateX(rem(20px));
-      }
-      border-color: map_get($colors, 'primary');
-      .toggle__dummybg {
-        &::before {
-          opacity: 0;
-          transform: translateX(rem(20px));
-        }
-      }
-    }
-    // FOCUS ON THE BUTTON
-    &:focus+.toggle__button, &:focus:not(:checked)+.toggle__button {
-      box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.20);
-    }
-    // HOVERING THE TOGGLE BUTTON
-    &:not(:disabled):not(:checked)+.toggle__button:hover {
-      border-color: map_get($colors, 'main-35');
-      .toggle__dummybg::before {
-        background: rgb(170, 167, 182);
-      }
-    }
+	position: relative;
+	-webkit-tap-highlight-color: transparent;
 
-  //  CLICKING THE TOGGLE
-    &:active+.toggle__button {
-      box-shadow: 0 0 rem(1px) map_get($colors, 'primary');
-    }
-  }
-  // THE TOGGLE BUTTON
-  &__button {
-    cursor: pointer;
-    width: rem(40px);
-    height: rem(20px);
-    flex: 0 0 auto;
-    border: 1px solid map-get($colors, 'main-25');
-    border-radius: 10px;
-    margin-right: rem(10px);
-    transition: .4s;
-    //  COMMON PROPERTIES FOR SLIDERS
-    &::before, .toggle__dummybg::before {
-      content: '';
-      position: absolute;
-      cursor: pointer;
-      left: rem(4px);
-      bottom: rem(4px);
-      box-sizing: border-box;
-      width: rem(12px);
-      height: rem(12px);
-      border-radius: 50%;
-      transition: .4s;
-    }
-  //  DUMMY BACKGROUND BOX
-    .toggle__dummybg {
-      display: inline-block;
-      width: rem(38px);
-      height: rem(18px);
-      // DUMMY SLIDER
-      &::before {
-        background: rgb(191, 189, 201);
-        opacity: 1;
-      }
-    }
-  // THE TOGGLE SLIDER
-    &::before {
-      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    }
-  }
-  // STYLING THE LABEL
-  &__label {
-    @extend %heading-body;
-    line-height: normal;
-    color: map_get($colors, 'main-75');
-  }
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	user-select: none;
+	// HIDING THE DEFAULT CHECKBOX
+	&__box {
+		width: 0;
+		height: 0;
+
+		opacity: 0;
+		// STYLING THE CHECKED BUTTON
+		&:checked+.toggle__button {
+			border-color: map_get($colors, 'primary');
+
+			&::before {
+				transform: translateX(rem(20px));
+			}
+
+			.toggle__dummybg {
+				&::before {
+					transform: translateX(rem(20px));
+					opacity: 0;
+				}
+			}
+		}
+		// FOCUS ON THE BUTTON
+		&:focus+.toggle__button,
+		&:focus:not(:checked)+.toggle__button {
+			box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.2);
+		}
+		// HOVERING THE TOGGLE BUTTON
+		&:not(:disabled):not(:checked)+.toggle__button:hover {
+			border-color: map_get($colors, 'main-35');
+
+			.toggle__dummybg::before {
+				background: rgb(170, 167, 182);
+			}
+		}
+
+		//  CLICKING THE TOGGLE
+		&:active+.toggle__button {
+			box-shadow: 0 0 rem(1px) map_get($colors, 'primary');
+		}
+	}
+	// THE TOGGLE BUTTON
+	&__button {
+		flex: 0 0 auto;
+		width: rem(40px);
+		height: rem(20px);
+		margin-right: rem(10px);
+
+		border: 1px solid map-get($colors, 'main-25');
+		border-radius: 10px;
+		cursor: pointer;
+
+		transition: 0.4s;
+		//  COMMON PROPERTIES FOR SLIDERS
+		&::before,
+		.toggle__dummybg::before {
+			position: absolute;
+			bottom: rem(4px);
+			left: rem(4px);
+
+			box-sizing: border-box;
+			width: rem(12px);
+			height: rem(12px);
+
+			border-radius: 50%;
+			cursor: pointer;
+
+			transition: 0.4s;
+
+			content: '';
+		}
+		//  DUMMY BACKGROUND BOX
+		.toggle__dummybg {
+			display: inline-block;
+			width: rem(38px);
+			height: rem(18px);
+			// DUMMY SLIDER
+			&::before {
+				background: rgb(191, 189, 201);
+				opacity: 1;
+			}
+		}
+		// THE TOGGLE SLIDER
+		&::before {
+			background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+		}
+	}
+	// STYLING THE LABEL
+	&__label {
+		@extend %heading-body;
+		color: map_get($colors, 'main-75');
+		line-height: normal;
+	}
 }

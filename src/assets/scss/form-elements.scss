@@ -1,194 +1,245 @@
-@import "~Scss/shared";
-@import "~Scss/ui-base";
-@import "~Scss/modules/text-field";
-@import "~Includes/forms/dropdown/dropdown";
-@import "~Includes/forms/dropdown/--apply/dropdown--apply";
-@import "~Includes/forms/dropdown/--date/dropdown--date";
-@import "~Includes/forms/calendar/calendar";
-@import "~Includes/forms/subs-form/subs-form";
-@import "~Includes/forms/checkbox/checkbox";
-@import "~Includes/forms/checkbox/--rich/checkbox--rich";
-@import "~Includes/forms/radio/radio";
-@import "~Includes/forms/toggle/toggle";
-@import "~Includes/forms/like-btn/like-btn";
-@import "~Includes/rate-btn/rate-btn";
-@import "~Includes/forms/range-slider/range-slider";
-@import "~Includes/btn/btn";
-@import "~Includes/btn/--border/btn--border";
-@import "~Includes/btn/--bdless/btn--bdless";
-@import "~Includes/btn/--arrow/btn--arrow";
-@import "~Includes/pagination/pagination";
-@import "~Includes/expandable/expandable";
-@import "~Includes/advantage/advantage";
-@import "~Includes/bullet-list/bullet-list";
-@import "~Includes/comment/comment";
+@import '~Scss/shared';
+@import '~Scss/ui-base';
+@import '~Scss/modules/text-field';
+@import '~Includes/forms/dropdown/dropdown';
+@import '~Includes/forms/dropdown/--apply/dropdown--apply';
+@import '~Includes/forms/dropdown/--date/dropdown--date';
+@import '~Includes/forms/calendar/calendar';
+@import '~Includes/forms/subs-form/subs-form';
+@import '~Includes/forms/checkbox/checkbox';
+@import '~Includes/forms/checkbox/--rich/checkbox--rich';
+@import '~Includes/forms/radio/radio';
+@import '~Includes/forms/toggle/toggle';
+@import '~Includes/forms/like-btn/like-btn';
+@import '~Includes/rate-btn/rate-btn';
+@import '~Includes/forms/range-slider/range-slider';
+@import '~Includes/btn/btn';
+@import '~Includes/btn/--border/btn--border';
+@import '~Includes/btn/--bdless/btn--bdless';
+@import '~Includes/btn/--arrow/btn--arrow';
+@import '~Includes/pagination/pagination';
+@import '~Includes/expandable/expandable';
+@import '~Includes/advantage/advantage';
+@import '~Includes/bullet-list/bullet-list';
+@import '~Includes/comment/comment';
 
 
-$rowGap: rem(20px);
-.main {
-  & > {
-    .row {
-      margin: -1 * $rowGap 0 0 -1 * $rowGap;
-      &-1, &-2, &-3 {
-        justify-content: space-between;
-        @include media(1039px){
-          justify-content: space-around;
-        }
-      }
-      &-1 {
-        margin: -1 * $rowGap 0 rem(100px) -1 * $rowGap;
-      }
-      &-2 {
-        margin: -1 * $rowGap 0 rem(20px) -1 * $rowGap;
-      }
-      &-3 {
-        @include media(1099px) {
-          justify-content: center;
-        }
-      }
-    }
-  }
+$row-gap: rem(20px);
+
+.main > .row {
+	margin: -1 * $row-gap 0 0 -1 * $row-gap;
+
+	&-1,
+	&-2,
+	&-3 {
+		justify-content: space-between;
+		@include media(1039px) {
+			justify-content: space-around;
+		}
+	}
+
+	&-1 {
+		margin: -1 * $row-gap 0 rem(100px) -1 * $row-gap;
+	}
+
+	&-2 {
+		margin: -1 * $row-gap 0 rem(20px) -1 * $row-gap;
+	}
+
+	&-3 {
+		@include media(1099px) {
+			justify-content: center;
+		}
+	}
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 100%;
 }
+
 .col {
-  display: flex;
-  flex-direction: column;
-  margin: $rowGap 0 0 $rowGap;
-  align-items: flex-start;
-  &-12 {
-    &-m {
-      @include media-m {
-        flex: 0 1 100%;
-        max-width: 100%;
-      }
-    }
-    max-width: 100%;
-  }
-  &-8 {
-    flex: 0 1 66.66%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 66.66%;
-    @include media(1099px) {
-      flex: 0 1 50%;
-    }
-    @include media(719px) {
-      flex: 0 1 rem(320px);
-      max-width: rem(320px);
-    }
-  }
-  &-6 {
-    max-width: 50%;
-  }
-  &-4 {
-    flex: 0 1 rem(320px);
-  }
-  &-2 {
-    max-width: 16.66%;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: $row-gap 0 0 $row-gap;
+
+	&-12 {
+		max-width: 100%;
+
+		&-m {
+			@include media-m {
+				flex: 0 1 100%;
+				max-width: 100%;
+			}
+		}
+	}
+
+	&-8 {
+		flex: 0 1 66.66%;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		max-width: 66.66%;
+		@include media(1099px) {
+			flex: 0 1 50%;
+		}
+		@include media(719px) {
+			flex: 0 1 rem(320px);
+			max-width: rem(320px);
+		}
+	}
+
+	&-6 {
+		max-width: 50%;
+	}
+
+	&-4 {
+		flex: 0 1 rem(320px);
+	}
+
+	&-2 {
+		max-width: 16.66%;
+	}
 }
 
 
-.dropdown--apply__heading {
-  display: none;
+.dropdown--apply {
+	&__heading {
+		display: none;
+	}
 }
-.input-calendar__heading {
-  display: none;
+
+.input-calendar {
+	&__heading {
+		display: none;
+	}
 }
 
 .form-calendar {
-  .heading-3 {
-    flex: 0 0 rem(150px);
-  }
+	.heading-3 {
+		flex: 0 0 rem(150px);
+	}
 }
 
-.checkbox-buttons, .radio-buttons, .toggle-buttons,
-.like-buttons, .paginations, .rich-checkboxes, .bullet-lists {
-  .element__hgroup {
-    margin-bottom: rem(16px);
-  }
+.checkbox-buttons,
+.radio-buttons,
+.toggle-buttons,
+.like-buttons,
+.paginations,
+.rich-checkboxes,
+.bullet-lists {
+	.element {
+		&__hgroup {
+			margin-bottom: rem(16px);
+		}
+	}
 }
 
 .checkbox-buttons {
-  display: flex;
-  flex-direction: column;
-  .checkbox__label:not(:last-of-type) {
-    margin-bottom: rem(12px);
-  }
+	display: flex;
+	flex-direction: column;
+
+	.checkbox {
+		&__label:not(:last-of-type) {
+			margin-bottom: rem(12px);
+		}
+	}
 }
+
 .radio-buttons {
-  .radio {
-    margin-right: rem(20px);
-  }
+	.radio {
+		margin-right: rem(20px);
+	}
 }
+
 .toggle-buttons {
-  display: flex;
-  flex-direction: column;
-  .toggle:first-of-type {
-    margin-bottom: rem(10px);
-  }
+	display: flex;
+	flex-direction: column;
+
+	.toggle:first-of-type {
+		margin-bottom: rem(10px);
+	}
 }
 
 .like-buttons {
-  .like-btn {
-    margin-right: rem(10px);
-  }
+	.like-btn {
+		margin-right: rem(10px);
+	}
 }
+
 .rate-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  .element__hgroup {
-    width: 100%;
-  }
-  .rate-btn:not(:last-of-type) {
-    margin-right: rem(20px);
-  }
+	display: flex;
+	flex-wrap: wrap;
+
+	.element {
+		&__hgroup {
+			width: 100%;
+		}
+	}
+
+	.rate-btn:not(:last-of-type) {
+		margin-right: rem(20px);
+	}
 }
+
 .range-sliders {
-  margin-bottom: rem(40px);
-  .element__hgroup {
-    margin-bottom: rem(20px);
-  }
+	margin-bottom: rem(40px);
+
+	.element {
+		&__hgroup {
+			margin-bottom: rem(20px);
+		}
+	}
 }
+
 .main-buttons {
-  .row {
-    margin-bottom: rem(30px);
-    .btn, .btn-border, .btn-bdless {
-      &:not(:nth-of-type(2)) {
-        margin-right: rem(20px);
-      }
-    }
-  }
+	.row {
+		margin-bottom: rem(30px);
+	}
+
+	.btn,
+	.btn-border,
+	.btn-bdless {
+		&:not(:nth-of-type(2)) {
+			margin-right: rem(20px);
+		}
+	}
 }
-.dropdown-expanded, .dropdown--apply-expanded {
-  margin-bottom: rem(40px);
-}
-.dropdown-expanded {
-  height: rem(189px);
-}
+
+.dropdown-expanded,
 .dropdown--apply-expanded {
-  height: rem(223px);
+	margin-bottom: rem(40px);
 }
+
+.dropdown-expanded {
+	height: rem(189px);
+}
+
+.dropdown--apply-expanded {
+	height: rem(223px);
+}
+
 .expandable {
-  &:not(.expanded) {
-    // 49px margin (-20 because there is a margin in the expandable)
-    margin-bottom: rem(49px) - rem(20px);
-  }
-  .checkbox__label {
-    display: flex;
-    align-items: center;
-  }
+	&:not(.expanded) {
+		// 49px margin (-20 because there is a margin in the expandable)
+		margin-bottom: rem(49px) - rem(20px);
+	}
+
+	.checkbox {
+		&__label {
+			display: flex;
+			align-items: center;
+		}
+	}
 }
 
 .rich-checkboxes {
-  .checkbox__label {
-    margin-bottom: rem(10px);
-  }
+	.checkbox {
+		&__label {
+			margin-bottom: rem(10px);
+		}
+	}
 }

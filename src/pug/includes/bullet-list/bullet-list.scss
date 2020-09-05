@@ -1,26 +1,34 @@
 .bullet-list {
-  list-style: none;
-  padding: 0;
-  &__item {
-    @extend %heading-body;
-    color: map-get($colors, 'main-75');
-    display: flex;
-    align-items: baseline;
-    margin: -1 * rem(10px) rem(8px) 0 -1 * rem(10px);
-    &:last-child {
-      margin-bottom: 0;
-    }
-    &::before {
-      content: '';
-      @include size(rem(10px));
-      display: inline-block;
-      border-radius: 50%;
-      margin: rem(10px) 0 0 rem(10px);
-      background-color: map-get($colors, 'main-25');
-    }
-  }
-  &__content {
-    margin: rem(10px) 0 0 rem(10px);
-    flex: 0 1 rem(240px);
-  }
+	padding: 0;
+
+	list-style: none;
+
+	&__item {
+		@extend %heading-body;
+		display: flex;
+		align-items: baseline;
+		margin: -1 * rem(10px) rem(8px) 0 -1 * rem(10px);
+
+		color: map-get($colors, 'main-75');
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			@include size(rem(10px));
+			display: inline-block;
+			margin: rem(10px) 0 0 rem(10px);
+
+			background-color: map-get($colors, 'main-25');
+			border-radius: 50%;
+
+			content: '';
+		}
+	}
+
+	&__content {
+		flex: 0 1 rem(240px);
+		margin: rem(10px) 0 0 rem(10px);
+	}
 }

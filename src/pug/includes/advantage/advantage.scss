@@ -1,27 +1,32 @@
 .advantage {
-  display: inline-flex;
-  padding: rem(20px) 0;
-  margin: -1 * rem(20px) 0 0 -1 * rem(20px);
-  &__label {
-    @extend %heading-body;
-    max-width: rem(280px);
-    margin: rem(20px) 0 0 rem(20px);
-  }
-  &__title {
-    font-weight: bold;
-  }
-  &__icon {
-    display: flex;
-    @include size(rem(48px));
-    align-items: center;
-    justify-content: center;
-    margin: rem(20px) 0 0 rem(20px);
-  }
-  &__hr {
-    width: rem(280px);
-    height: rem(1px);
-    margin: 0;
-    border: none;
-    background-color: map-get($colors, 'main-10');
-  }
+	display: inline-flex;
+	margin: -1 * rem(20px) 0 0 -1 * rem(20px);
+	padding: rem(20px) 0;
+
+	&__label {
+		@extend %heading-body;
+		max-width: rem(280px);
+		margin: rem(20px) 0 0 rem(20px);
+	}
+
+	&__title {
+		font-weight: bold;
+	}
+
+	&__icon {
+		@include size(rem(48px));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: rem(20px) 0 0 rem(20px);
+	}
+
+	&__hr {
+		width: rem(280px);
+		height: rem(1px);
+		margin: 0;
+
+		background-color: map-get($colors, 'main-10');
+		border: 0;
+	}
 }
