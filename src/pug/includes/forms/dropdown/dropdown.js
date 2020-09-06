@@ -19,13 +19,13 @@ export default class Dropdown {
     this.content = dropdownElement.querySelector(DOM.content);
     // INPUT ELEMENT AND DEFAULT TEXT
     this.input = {
-      element: dropdownElement.querySelector(this.domstrings.input),
-      default: dropdownElement.querySelector(this.domstrings.input).textContent,
+      element: dropdownElement.querySelector(Dropdown.domstrings.input),
+      default: dropdownElement.querySelector(Dropdown.domstrings.input).textContent,
     };
     // INIT COUNTERS FOR EVERY LABEL
     this.counters = {};
     // GET ALL LABELS
-    Array.from(this.content.querySelectorAll(this.domstrings.label))
+    Array.from(this.content.querySelectorAll(Dropdown.domstrings.label))
     // GET LABEL NAMES
       .map((label) => label.textContent)
     // CREATE COUNTER FOR EACH LABEL NAME

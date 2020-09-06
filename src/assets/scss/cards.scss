@@ -35,6 +35,18 @@
 		margin-bottom: rem(40px);
 	}
 
+	.roomcard {
+		margin-bottom: rem(40px);
+		@include media-x-lg {
+			margin-bottom: 0;
+		}
+		@include media-lg {
+			margin-bottom: rem(40px);
+		}
+	}
+}
+
+.group--3 {
 	.input-calendar {
 		height: rem(406px);
 		margin-bottom: rem(40px);
@@ -56,16 +68,6 @@
 			top: 0;
 
 			display: flex;
-		}
-	}
-
-	.roomcard {
-		margin-bottom: rem(40px);
-		@include media-x-lg {
-			margin-bottom: 0;
-		}
-		@include media-lg {
-			margin-bottom: rem(40px);
 		}
 	}
 }

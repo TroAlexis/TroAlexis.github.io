@@ -4,7 +4,7 @@ block head
     - const pageTitle = 'Form Elements';
 
 block content
-    main.main._container
+    main.main.u-container
         .row.row-1
             .col.col-4
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
@@ -20,7 +20,7 @@ block content
                     include ../includes/forms/calendar/calendar
                     +input-calendar(['прибытие', 'выезд'])
                 +element([{name: 'filter date dropdown'}])
-                    +input-calendar('даты пребывания в отеле' ,'dropdown--date')
+                    +input-calendar(['даты пребывания в отеле'] ,'dropdown--date')
                 +element([{name: 'subscription text field'}])
                     include ../includes/forms/subs-form/subs-form
                     +subs-form

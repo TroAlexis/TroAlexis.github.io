@@ -5,7 +5,7 @@
 	height: rem(6px);
 
 	background: #fff;
-	border: 1px solid rgba(31, 32, 65, 0.25);
+	border: rem(1px) solid rgba(31, 32, 65, 0.25);
 	border-radius: 3px;
 
 	&__range {
@@ -22,13 +22,13 @@
 
 		&::after,
 		&::before {
-			@include size(12px);
+			@include size(rem(12px));
 			position: absolute;
 
 			display: block;
 
 			background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
-			border: 2px solid #fff;
+			border: rem(2px) solid #fff;
 			border-radius: 10px;
 
 			content: '';

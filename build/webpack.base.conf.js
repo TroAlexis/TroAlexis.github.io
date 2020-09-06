@@ -15,12 +15,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 // https://webpack.js.org/plugins/html-webpack-plugin/
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// https://github.com/webpack-contrib/eslint-webpack-plugin
-const ESLintPlugin = require('eslint-webpack-plugin');
-
-// https://webpack.js.org/plugins/stylelint-webpack-plugin/
-const StylelintPlugin = require('stylelint-webpack-plugin');
-
 // https://github.com/geowarin/friendly-errors-webpack-plugin
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
@@ -164,11 +158,6 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new ESLintPlugin({
-      fix: true,
-    }),
-    new StylelintPlugin({
-    }),
     new FriendlyErrorsWebpackPlugin(),
     //  Extract css into separate files from html.
     new MiniCssExtractPlugin({

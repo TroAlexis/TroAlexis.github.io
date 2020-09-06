@@ -21,11 +21,9 @@
 				transform: translateX(rem(20px));
 			}
 
-			.toggle__dummybg {
-				&::before {
-					transform: translateX(rem(20px));
-					opacity: 0;
-				}
+			.toggle__dummybg::before {
+				transform: translateX(rem(20px));
+				opacity: 0;
 			}
 		}
 		// FOCUS ON THE BUTTON
@@ -82,11 +80,11 @@
 			display: inline-block;
 			width: rem(38px);
 			height: rem(18px);
-			// DUMMY SLIDER
-			&::before {
-				background: rgb(191, 189, 201);
-				opacity: 1;
-			}
+		}
+		// DUMMY SLIDER
+		.toggle__dummybg::before {
+			background: rgb(191, 189, 201);
+			opacity: 1;
 		}
 		// THE TOGGLE SLIDER
 		&::before {

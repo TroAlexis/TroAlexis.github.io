@@ -5,16 +5,16 @@ block head
 
 block content
     main.main
-        .main__container._container
+        .main__container.u-container
             aside.sidebar
                 include ../includes/forms/calendar/calendar
-                +input-calendar('даты пребывания в отеле', 'dropdown--date')
+                +input-calendar(['даты пребывания в отеле'], 'dropdown--date')
                 include ../includes/forms/dropdown/dropdown
                 +dropdown({heading: 'гости', phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'],
                     buttons: true })(class='dropdown--apply')
                 include ../includes/forms/range-slider/range-slider
                 +element([{name: 'диапазон цены'}, {name: '5 000₽ - 10 000₽', attributes: {class:
-                            'element__subheading'}}])(class='_range-slider')
+                            'element__subheading'}}])(class='has-range-slider')
                     +range-slider({description: 'Стоимость за сутки пребывания в номере'})
                 +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
                     include ../includes/forms/checkbox/checkbox
@@ -34,7 +34,7 @@ block content
                         title: 'Помощник для инвалидов',
                         description: 'На 1 этаже вас встретит специалист и проводит до номера.'
                     })
-                +element([{name: 'удобства номера'}])(class='_dropdown')
+                +element([{name: 'удобства номера'}])(class='has-dropdown')
                     +dropdown({
                         phText: 'Сколько спален, кроватей', selectOptions: ['спальни', 'кровати', 'ванные ' +
                         'комнаты'], type: 'dropdown--auto'

@@ -8,8 +8,8 @@
 html {
 	height: 100%;
 
-	color: $mainFontColor;
-	font-size: $mainFontSize;
+	color: $color-font--main;
+	font-size: $font-size--main;
 	@include media-x-lg {
 		font-size: 16px;
 	}
@@ -31,9 +31,9 @@ body {
 	margin: 0;
 	padding: 0;
 
-	font-weight: $mainFontWeight;
-	font-size: $mainFontSize;
-	font-family: $mainFont;
+	font-weight: $font-weight--main;
+	font-size: $font-size--main;
+	font-family: $font--main;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

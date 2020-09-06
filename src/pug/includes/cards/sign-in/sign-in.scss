@@ -1,20 +1,16 @@
 @import '~Includes/btn/btn';
 @import '~Includes/btn/--border/btn--border';
-@import '~Scss/modules/text-field.scss';
+@import '~Scss/modules/text-field';
 
 .sign-in {
 	@extend %card-common;
 
 	&__heading {
-		@extend %card-common__heading;
+		@extend %card-common-heading;
 	}
 
 	.text-field {
 		margin-bottom: rem(10px);
-	}
-
-	& #password {
-		margin-bottom: rem(20px);
 	}
 
 	&__auth {

@@ -6,16 +6,14 @@
 	opacity: 0;
 	//CHECKED STATE FOR CUSTOM CHECKBOX
 	&:checked {
-		+.checkbox__label {
-			&::before {
-				border-color: map-get($colors, 'primary');
-				background: {
-					image: url('~Images/ui/tick.svg');
-					repeat: no-repeat;
+		+.checkbox__label::before {
+			border-color: map-get($colors, 'primary');
+			background: {
+				image: url('~Images/ui/tick.svg');
+				repeat: no-repeat;
 
-					position: 50% 40%;
-				};
-			}
+				position: 50% 40%;
+			};
 		}
 	}
 	// ON FOCUS BEHAVIOUR

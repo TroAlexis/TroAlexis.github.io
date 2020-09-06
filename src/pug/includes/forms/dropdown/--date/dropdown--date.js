@@ -8,7 +8,7 @@ export default class DropdownDate extends Calendar {
       },
     });
     this.element.addEventListener('click', (evt) => {
-      if (evt.target.closest(this.domstrings.select)) {
+      if (evt.target.closest(Calendar.domstrings.select)) {
         if (this.elements.content.classList.contains('open')) {
           this.state = 'closed';
         } else {

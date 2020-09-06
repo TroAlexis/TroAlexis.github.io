@@ -16,9 +16,11 @@
 		border-radius: 4px;
 	}
 
-	.dropdown--apply__heading {
-		margin-top: rem(20px);
-		margin-bottom: rem(5px);
+	.dropdown--apply {
+		&__heading {
+			margin-top: rem(20px);
+			margin-bottom: rem(5px);
+		}
 	}
 
 	&__room {
@@ -54,7 +56,7 @@
 
 	&__services,
 	&__extra {
-		& p {
+		p {
 			flex: 0 1 rem(214px);
 		}
 	}
@@ -62,7 +64,7 @@
 	&__extra {
 		margin-bottom: rem(30px);
 
-		& p {
+		p {
 			line-height: rem(18px);
 		}
 	}

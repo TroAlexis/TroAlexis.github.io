@@ -3,13 +3,13 @@
 @import '~Includes/btn/--border/btn--border';
 
 // BURGER VARIABLES
-$burgerWidth: rem(35px);
-$burgerHeight: rem(20px);
-$burgerLineHeight: 2px;
+$burger-width: rem(35px);
+$burger-height: rem(20px);
+$burger-line-height: 2px;
 
 
 // HEADER VARIABLES
-$headerHeight: rem(70px);
+$header-height: rem(70px);
 
 
 // --------------BACKDROP--------------
@@ -42,8 +42,8 @@ $headerHeight: rem(70px);
 	display: none;
 	flex-direction: column;
 	justify-content: space-between;
-	width: $burgerWidth;
-	height: $burgerHeight;
+	width: $burger-width;
+	height: $burger-height;
 	@include media-lg {
 		display: flex;
 		order: 0;
@@ -53,8 +53,8 @@ $headerHeight: rem(70px);
 		position: absolute;
 		left: 0;
 
-		width: $burgerWidth;
-		height: $burgerLineHeight;
+		width: $burger-width;
+		height: $burger-line-height;
 
 		background: map-get($colors, 'main-75');
 
@@ -65,7 +65,7 @@ $headerHeight: rem(70px);
 		}
 
 		&:nth-child(2) {
-			top: $burgerHeight/2;
+			top: $burger-height/2;
 
 			transform: translateY(-50%);
 		}
@@ -74,26 +74,27 @@ $headerHeight: rem(70px);
 			bottom: 0;
 		}
 	}
-	// BURGER LINES IN OPEN STATE
-	&.open {
-		.burger__line {
-			&:nth-child(1) {
-				top: $burgerHeight/2;
+}
 
-				transform: rotate(135deg);
-			}
+// BURGER LINES IN OPEN STATE
+.burger.open {
+	.burger__line {
+		&:nth-child(1) {
+			top: $burger-height/2;
 
-			&:nth-child(2) {
-				left: -1 * rem(20px);
+			transform: rotate(135deg);
+		}
 
-				opacity: 0;
-			}
+		&:nth-child(2) {
+			left: -1 * rem(20px);
 
-			&:nth-child(3) {
-				top: $burgerHeight/2;
+			opacity: 0;
+		}
 
-				transform: rotate(-135deg);
-			}
+		&:nth-child(3) {
+			top: $burger-height/2;
+
+			transform: rotate(-135deg);
 		}
 	}
 }
@@ -102,7 +103,7 @@ $headerHeight: rem(70px);
 .header {
 	display: flex;
 	justify-content: center;
-	height: $headerHeight;
+	height: $header-height;
 	// -----------CONTAINER------------
 	&__container {
 		position: relative;
@@ -152,11 +153,11 @@ $headerHeight: rem(70px);
 		// -----------ITEMS IN MOB-NAVBAR------------
 		.header__item {
 			padding: rem(20px) 0;
-			// -----------HIGHLIGHT THE FIRST LINK------------
-			&:first-of-type .link__title {
-				color: map-get($colors, 'main-75');
-				font-weight: bold;
-			}
+		}
+		// -----------HIGHLIGHT THE FIRST LINK------------
+		.header__item:first-of-type .link__title {
+			color: map-get($colors, 'main-75');
+			font-weight: bold;
 		}
 	}
 	// -----------LOGO------------
@@ -211,10 +212,8 @@ $headerHeight: rem(70px);
 			padding: rem(10px) rem(20px);
 		}
 
-		.btn-border {
-			&__link {
-				padding: rem(8px) rem(20px);
-			}
+		.btn-border__link {
+			padding: rem(8px) rem(20px);
 		}
 	}
 	// -----------SEPARATOR------------

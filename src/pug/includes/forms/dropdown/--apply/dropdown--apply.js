@@ -14,7 +14,7 @@ export default class DropdownApplyTotal extends Dropdown {
       // IF A BUTTON IS CLICKED (EITHER PLUS OR MINUS)
       if (evt.target.classList.contains('dropdown__plus') || evt.target.classList.contains('dropdown__minus')) {
         const button = evt.target;
-        const label = button.parentElement.querySelector(this.domstrings.label);
+        const label = button.parentElement.querySelector(Dropdown.domstrings.label);
         // CHANGE COUNTER
         this.changeCounter(button);
       // IF APPLY BUTTON CLICKED
@@ -35,7 +35,7 @@ export default class DropdownApplyTotal extends Dropdown {
     Object.keys(this.counters).forEach((key) => {
       this.counters[key] = 0;
     });
-    this.element.querySelectorAll(this.domstrings.counter).forEach((counter) => {
+    this.element.querySelectorAll(Dropdown.domstrings.counter).forEach((counter) => {
       counter.textContent = '0';
       if (!counter.previousElementSibling.classList.contains('disabled')) {
         counter.previousElementSibling.classList.add('disabled');

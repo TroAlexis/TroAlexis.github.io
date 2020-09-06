@@ -4,7 +4,7 @@
 	}
 
 	50% {
-
+		transform: scale(1.01);
 	}
 
 	100% {
@@ -78,21 +78,18 @@
 
 	animation: like-border 0.3s ease-out;
 
-	.like-btn {
-		&__container {
-			.like-btn__icon {
-				background-image: url('~Images/ui/like-icon.svg');
+	.like-btn__container {
+		.like-btn__icon {
+			background-image: url('~Images/ui/like-icon.svg');
 
-				animation: like 0.3s ease-out;
-			}
-
-			.like-btn__count {
-				color: map_get($colors, 'primary');
-
-				transition: none;
-				animation: like-border 0.3s ease-out;
-			}
+			animation: like 0.3s ease-out;
 		}
 
+		.like-btn__count {
+			color: map_get($colors, 'primary');
+
+			transition: none;
+			animation: like-border 0.3s ease-out;
+		}
 	}
 }

@@ -39,25 +39,21 @@
 
 		.checkbox {
 			position: absolute;
+		}
 
-			&__label:not(:last-of-type) {
-				padding-bottom: rem(10px);
-			}
+		.checkbox__label:not(:last-of-type) {
+			padding-bottom: rem(10px);
+		}
 
-			&__label:last-of-type {
-				padding-bottom: 5px;
-			}
+		.checkbox__label:last-of-type {
+			padding-bottom: 5px;
 		}
 	}
 	// -----------ACTIVE STYLES------------
 	&.active {
-		.expandable {
+		.expandable__button::after {
 			// -----------button------------
-			&__button {
-				&::after {
-					transform: rotateZ(180deg);
-				}
-			}
+			transform: rotateZ(180deg);
 		}
 	}
 }

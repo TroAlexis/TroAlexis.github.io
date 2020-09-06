@@ -1,6 +1,14 @@
 const merge = require('webpack-merge');
+
+// https://github.com/webpack-contrib/eslint-webpack-plugin
+const ESLintPlugin = require('eslint-webpack-plugin');
+
+// https://webpack.js.org/plugins/stylelint-webpack-plugin/
+const StylelintPlugin = require('stylelint-webpack-plugin');
+
 // https://www.npmjs.com/package/imagemin-webpack-plugin
 const ImageMinPlugin = require('imagemin-webpack-plugin').default;
+
 // https://www.npmjs.com/package/imagemin-mozjpeg
 const ImageMinMozJpeg = require('imagemin-mozjpeg');
 
@@ -10,6 +18,12 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
   plugins: [
+    new ESLintPlugin({
+      fix: true,
+    }),
+    new StylelintPlugin({
+      fix: true,
+    }),
     // Optimize images
     new ImageMinPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,

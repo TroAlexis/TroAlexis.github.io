@@ -1,8 +1,8 @@
 // Chart variables
-$chartGap: rem(2px);
+$chart-gap: rem(2px);
 
 // Legend variables
-$legColors: ('wonderful': linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%),
+$legend-colors: ('wonderful': linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%),
 'good': linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%),
 'satisfactory': linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%),
 'disappointed': linear-gradient(180deg, #919191 0%, #3d4975 100%));
@@ -35,24 +35,22 @@ $legColors: ('wonderful': linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%),
 		&__gradient {
 			width: 50%;
 			height: 100%;
+		}
 
-			&--1 {
-				background-image: map-get($legColors, 'wonderful');
-			}
+		&__gradient--1 {
+			background-image: map-get($legend-colors, 'wonderful');
+		}
 
-			&--2 {
-				&-1 {
-					padding: 0 0 $chartGap $chartGap;
+		&__gradient--2-1 {
+			padding: 0 0 $chart-gap $chart-gap;
 
-					background-image: map-get($legColors, 'satisfactory');
-				}
+			background-image: map-get($legend-colors, 'satisfactory');
+		}
 
-				&-2 {
-					padding: 0 0 0 $chartGap;
+		&__gradient--2-2 {
+			padding: 0 0 0 $chart-gap;
 
-					background-image: map-get($legColors, 'good');
-				}
-			}
+			background-image: map-get($legend-colors, 'good');
 		}
 
 		&__subgradient {
@@ -109,7 +107,7 @@ $legColors: ('wonderful': linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%),
 
 			content: '';
 		}
-		@each $name, $color in $legColors {
+		@each $name, $color in $legend-colors {
 			&.imp--#{$name} {
 				&::before {
 					background-image: $color;

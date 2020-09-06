@@ -1,15 +1,14 @@
 mixin input-calendar(headings, container='input-calendar')
     div(class=container)
-        if container==='input-calendar'
+        .input-calendar__dropdown
             h3.heading-3.input-calendar__heading=headings[0]
-            h3.heading-3.input-calendar__heading=headings[1]
-        else
-            h3.heading-3.input-calendar__heading=headings
-        button.input-calendar__select.arrival.dropdown__select
-            span.input-calendar__arrival ДД.ММ.ГГГГ
+            button.input-calendar__select.arrival.dropdown__select
+                span.input-calendar__arrival ДД.ММ.ГГГГ
         if container==='input-calendar'
-            button.input-calendar__select.depart.dropdown__select
-                span.input-calendar__depart ДД.ММ.ГГГГ
+            .input-calendar__dropdown
+                h3.heading-3.input-calendar__heading=headings[1]
+                button.input-calendar__select.depart.dropdown__select
+                    span.input-calendar__depart ДД.ММ.ГГГГ
         .input-calendar__content
             .input-calendar__calendar
                 .input-calendar__header

@@ -1,7 +1,7 @@
 mixin header(header_links, is_auth, username)
     .backdrop
     header.header(class=(is_auth ? 'header-auth' : ''))
-        nav.header__container._container
+        nav.header__container.u-container
             a.header__logo(href='#')
                 img(src=require('Images/ui/main-logo-gradient.svg'))
             .burger

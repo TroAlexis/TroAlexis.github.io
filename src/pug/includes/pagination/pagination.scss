@@ -31,17 +31,17 @@
 
 			background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
 			border-radius: 22px;
+		}
 
-			&::before {
-				position: absolute;
+		&--next::before {
+			position: absolute;
 
-				width: 100%;
-				height: 100%;
+			width: 100%;
+			height: 100%;
 
-				background: url('~Images/ui/arrow_forward--white.svg') center center no-repeat;
+			background: url('~Images/ui/arrow_forward--white.svg') center center no-repeat;
 
-				content: '';
-			}
+			content: '';
 		}
 
 		&--empty {

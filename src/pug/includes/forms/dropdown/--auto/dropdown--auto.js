@@ -9,7 +9,7 @@ export default class DropdownAuto extends Dropdown {
       // IF A BUTTON IS CLICKED
       if (evt.target.tagName === 'BUTTON') {
         const button = evt.target;
-        const label = button.parentElement.querySelector(this.domstrings.label);
+        const label = button.parentElement.querySelector(Dropdown.domstrings.label);
         // CHANGE COUNTER
         if (this.changeCounter(button)) {
           this.changeInput(label.textContent);

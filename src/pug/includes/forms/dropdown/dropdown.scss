@@ -27,7 +27,7 @@
 			border-color: map-get($colors, 'main-75');
 		}
 
-		& span {
+		span {
 			flex: 0 1 rem(160px);
 			overflow: hidden;
 
@@ -62,7 +62,7 @@
 
 		background: #fff;
 		border: 1px solid map-get($colors, 'main-25');
-		border-top: none;
+		border-top: 0;
 		border-radius: 0  0 4px 4px;
 		box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
 
@@ -128,10 +128,10 @@
 
 		&.disabled {
 			opacity: 0.38;
+		}
 
-			&:active {
-				transform: none;
-			}
+		&.disabled:active {
+			transform: none;
 		}
 	}
 
@@ -148,10 +148,8 @@
 	}
 
 	&--rough-btm {
-		.dropdown {
-			&__select {
-				border-radius: 4px 4px 0 0;
-			}
+		.dropdown__select {
+			border-radius: 4px 4px 0 0;
 		}
 	}
 }

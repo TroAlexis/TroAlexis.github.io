@@ -9,7 +9,7 @@
 	@extend %card-common;
 
 	&__heading {
-		@extend %card-common__heading;
+		@extend %card-common-heading;
 	}
 
 	.text-field {

@@ -3,7 +3,7 @@
 @import '~Includes/footer/--copyright/footer--copyright';
 
 // HEADER VARIABLES
-$containerPaddingTB: rem(100px);
+$padding-container--tb: rem(100px);
 
 // -----------MAIN FOOTER ------------
 .footer-main {
@@ -11,13 +11,13 @@ $containerPaddingTB: rem(100px);
 	&__container {
 		@include media-x-lg {
 			padding: {
-				top: $containerPaddingTB/2;
-				bottom: $containerPaddingTB/2;
+				top: $padding-container--tb/2;
+				bottom: $padding-container--tb/2;
 			};
 		}
 		padding: {
-			top: $containerPaddingTB;
-			bottom: $containerPaddingTB;
+			top: $padding-container--tb;
+			bottom: $padding-container--tb;
 		};
 	}
 	// ----------- ROW WITH THE BOXES------------
@@ -70,18 +70,19 @@ $containerPaddingTB: rem(100px);
 		.body-text {
 			margin-top: rem(20px);
 		}
-		// ----------- WIDE COLUMNS ------------
-		&--big {
-			flex: 0 1 rem(260px);
-			@include media-lg {
-				flex: 0 1 auto;
+	}
 
-				text-align: center;
-			}
-			// ----------- SUBSCRIPTION ------------
-			.subs-form {
-				margin-top: rem(20px);
-			}
+	&__column--big {
+		// ----------- WIDE COLUMNS ------------
+		flex: 0 1 rem(270px);
+		@include media-lg {
+			flex: 0 1 auto;
+
+			text-align: center;
+		}
+		// ----------- SUBSCRIPTION ------------
+		.subs-form {
+			margin-top: rem(20px);
 		}
 	}
 

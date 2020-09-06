@@ -10,10 +10,8 @@
 
 		opacity: 0;
 		// HOVERING THE RADIO BUTTON
-		&:not(:disabled):not(:checked) {
-			+.radio__label:hover::before {
-				border-color: map_get($colors, 'primary');
-			}
+		&:not(:disabled):not(:checked)+.radio__label:hover::before {
+			border-color: map_get($colors, 'primary');
 		}
 		// FOCUS ON THE BUTTON
 		&:focus+.radio__label::before,
@@ -21,35 +19,31 @@
 			box-shadow: 0 0 0 rem(1px) rgba(0, 123, 255, 0.2);
 		}
 		// CLICKING THE RADIO BUTTON (ACTIVE STATE)
-		&:not(:disabled):active {
-			+.radio__label::before {
-				background-color: rgba(188, 156, 255, 0.1);
-				border-color: map_get($colors, 'primary');
-			}
+		&:not(:disabled):active+.radio__label::before {
+			background-color: rgba(188, 156, 255, 0.1);
+			border-color: map_get($colors, 'primary');
 		}
 		// CHECKED RADIO BUTTON
-		&:checked {
-			+.radio__label {
-				color: map-get($colors, 'main-75');
+		&:checked+.radio__label {
+			color: map-get($colors, 'main-75');
+		}
 
-				&::before {
-					border-color: map_get($colors, 'primary');
-				}
+		&:checked+.radio__label::before {
+			border-color: map_get($colors, 'primary');
+		}
 
-				&::after {
-					position: absolute;
-					bottom: rem(6px);
-					left: rem(4px);
-					//transform: translate(50%,-50%);
-					width: rem(12px);
-					height: rem(12px);
+		&:checked+.radio__label::after {
+			position: absolute;
+			bottom: rem(6px);
+			left: rem(4px);
+			//transform: translate(50%,-50%);
+			width: rem(12px);
+			height: rem(12px);
 
-					background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-					border-radius: 50%;
+			background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+			border-radius: 50%;
 
-					content: '';
-				}
-			}
+			content: '';
 		}
 	}
 	//STYLING THE LABEL

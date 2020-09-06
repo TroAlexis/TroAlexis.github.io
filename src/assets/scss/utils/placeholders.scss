@@ -95,7 +95,7 @@ $f-sizes: ('h1': 1.5rem,
 		width: rem(360px);
 	}
 }
-%card-common__heading {
+%card-common-heading {
 	@extend %heading-1;
 	width: rem(300px);
 	margin-bottom: rem(20px);

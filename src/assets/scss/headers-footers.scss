@@ -17,15 +17,17 @@ body {
 
 .header {
 	margin-bottom: rem(40px);
+}
 
-	&:not(.header-auth) {
-		.header__mob-nav {
+.header:not(.header-auth) {
+	.header {
+		&__mob-nav {
 			z-index: 103;
 		}
+	}
 
-		.burger {
-			z-index: 104;
-		}
+	.burger {
+		z-index: 104;
 	}
 }
 
