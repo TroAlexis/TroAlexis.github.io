@@ -5,8 +5,8 @@ block head
 
 block content
     main.main.u-container
-        .row.row-1
-            .col.col-4
+        .inputs-buttons
+            .inputs-buttons__text-inputs
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     input.text-field(type='email', name='email' placeholder='Email')
                 +element([{name: 'text field'}, {attributes: {class: 'element__subheading'}, name: 'hover / focus'}])
@@ -24,7 +24,7 @@ block content
                 +element([{name: 'subscription text field'}])
                     include ../includes/forms/subs-form/subs-form
                     +subs-form
-            .col.col-4
+            .inputs-buttons__form-inputs
                 +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
                     include ../includes/forms/checkbox/checkbox
                     +checkbox({id: 'smoking', title: 'Можно курить'})
@@ -46,10 +46,9 @@ block content
                     include ../includes/rate-btn/rate-btn
                     +rate-btn({rating: 4})
                     +rate-btn({rating: 5})
-            .col.col-4
-                +element([{name: 'range slider'}, {name: '5 000₽ - 10 000₽', attributes: {class: 'element__subheading'}}])(class='range-sliders')
-                    include ../includes/forms/range-slider/range-slider
-                    +range-slider
+            .inputs-buttons__slider-buttons
+                include ../includes/forms/range-slider/range-slider
+                +range-slider({heading: 'range slider', values: {from: 5000, to: 10000}})
                 +element([{name: 'rate button'}])(class='main-buttons')
                     include ../includes/btn/btn
                     include ../includes/btn/--border/btn--border
@@ -67,8 +66,8 @@ block content
                 +element([{name: 'pagination'}])(class='paginations')
                     include ../includes/pagination/pagination
                     +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов арендыы'})
-        .row.row-2
-            .col.col-4
+        .dropdowns-lists
+            .dropdowns-lists__expandables
                 +element([{name: 'dropdown'}, {attributes: {class: 'element__subheading'}, name: 'default'}])
                     +dropdown({phText: 'Сколько спален, кроватей', selectOptions: ['спальни', 'кровати', 'ванные ' +
                         'комнаты'], type:'dropdown--auto'})(class='dropdown--rough-btm modified')
@@ -94,26 +93,25 @@ block content
                     +checkbox({id: 'shampoo-d', title: 'Шампунь'})
                     +checkbox({id: 'tv-1-d', title: 'Телевизор'})
                     +checkbox({id: 'shampoo-1-d', title: 'Шампунь'})
-            .col.col-4
+            .dropdowns-lists__drop-check
                 +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
                     +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
                             'dropdown--apply', buttons: true})(class='dropdown--rough-btm expanded')
                 +element([{name: 'rich checkbox buttons'}])(class='rich-checkboxes')
                     +checkbox({isRich: true,id: 'wide-hall',title: 'Широкий коридор', description: 'Ширина коридоров в номере не менее 91 см.'})
                     +checkbox({isRich: true,id: 'disabled-helper',title: 'Помощник для инвалидов', description:'На 1 этаже вас встретит специалист и проводит до номера.'})
-            .col.col-4
+            .dropdowns-lists__drop-bullet
                 +element([{name: 'dropdown'}])(class='dropdown--apply-expanded')
                     +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type:
                             'dropdown--apply', buttons: true})(class='dropdown--rough-btm expanded modified')
                 +element([{name: 'bullet list'}])(class='bullet-lists')
                     include ../includes/bullet-list/bullet-list
                     +bullet-list({items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']})
-        .row.row-3
-            .col.col-4
+            .dropdowns-lists__impressions
                 include ../includes/advantage/advantage
                 +advantage({title: 'Комфорт', description: 'Шумопоглощающие стены', icon: 'comfort'})
                 +advantage({title: 'Удобство', description: 'Окно в каждой из спален', icon: 'convenience'})
-            .col.col-8
+            .dropdowns-lists__comments
                 include ../includes/comment/comment
                 +comment({name: 'Мурад Сарафанов',
                     date: '5 дней назад',

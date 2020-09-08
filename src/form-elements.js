@@ -8,6 +8,7 @@ import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
 import Expandable from 'Includes/expandable/expandable';
 
 import 'Scss/form-elements.scss';
+import RangeSlider from "Includes/forms/range-slider/range-slider";
 
 // Enabling masked inputs.
 const maskedInputs = document.querySelectorAll('.text-field--masked');
@@ -80,6 +81,18 @@ const rateBtns = document.querySelectorAll('.rate-btn');
 rateBtns.forEach((buttonElement) => {
   const rateBtn = new RateBtn(buttonElement);
 });
+
+// Init range-slider
+const rangeSlider = new RangeSlider(document.querySelector('.range-slider'), {
+  track: {
+    width: 267 / 16,
+    borderWidth: 1 / 16,
+  },
+  thumb: {
+    width: 14 / 16,
+  },
+});
+
 // Init expandables
 const expandables = document.querySelectorAll('.expandable');
 expandables.forEach((expElement) => {

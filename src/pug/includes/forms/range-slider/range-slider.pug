@@ -1,6 +1,16 @@
 mixin range-slider(options)
     .range-slider&attributes(attributes)
-        .range-slider__range
-    if options
-        if options.description
-            p.range-slider__description= options.description
+        .range-slider__header
+            h3.range-slider__heading.heading-3=options.heading
+            .range-slider__numrange
+                span.range-slider__from=options.values.from
+                ='₽ - '
+                span.range-slider__to=options.values.to
+                ='₽'
+        .range-slider__container
+            span.range-slider__range
+            input.range-slider__input(type='range' min=0 max=20000 value=options.values.from step=options.step)
+            input.range-slider__input.range-slider__input-2(type='range' min=0 max=20000 value=options.values.to
+                step=options.step)
+        .range-slider__description
+            p=options.description

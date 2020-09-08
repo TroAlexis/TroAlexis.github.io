@@ -23,88 +23,76 @@
 @import '~Includes/bullet-list/bullet-list';
 @import '~Includes/comment/comment';
 
+@mixin grid-center {
+	grid-column: span 2;
+	justify-self: center;
+	width: rem(320px);
+}
 
-$row-gap: rem(20px);
+.main {
+	display: grid;
+	grid-row-gap: rem(100px);
+	grid-template: {
+		columns: 1fr;
+	};
+}
 
-.main > .row {
-	margin: -1 * $row-gap 0 0 -1 * $row-gap;
+.inputs-buttons,
+.dropdowns-lists {
+	display: grid;
+	grid-column-gap: rem(15px);
+	justify-content: space-between;
+	@include media(1080px) {
+		justify-content: space-around;
+		grid-template: {
+			columns: repeat(2, rem(320px));
+		};
+	}
+	@include media(640px) {
+		grid-row-gap: rem(20px);
+		grid-template: {
+			columns: rem(320px);
+		};
+	}
+	grid-template: {
+		columns: repeat(3, rem(320px));
+	};
+}
 
-	&-1,
-	&-2,
-	&-3 {
-		justify-content: space-between;
-		@include media(1039px) {
-			justify-content: space-around;
+.inputs-buttons {
+	&__slider-buttons {
+		@include media(1080px) {
+			@include grid-center;
 		}
 	}
 
-	&-1 {
-		margin: -1 * $row-gap 0 rem(100px) -1 * $row-gap;
-	}
-
-	&-2 {
-		margin: -1 * $row-gap 0 rem(20px) -1 * $row-gap;
-	}
-
-	&-3 {
-		@include media(1099px) {
-			justify-content: center;
+	&__text-inputs,
+	&__form-inputs {
+		@include media(640px) {
+			@include grid-center;
 		}
 	}
 }
 
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	max-width: 100%;
-}
-
-.col {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin: $row-gap 0 0 $row-gap;
-
-	&-12 {
-		max-width: 100%;
-
-		&-m {
-			@include media-m {
-				flex: 0 1 100%;
-				max-width: 100%;
-			}
+.dropdowns-lists {
+	&__drop-bullet,
+	&__impressions, {
+		@include media(1080px) {
+			@include grid-center;
 		}
 	}
 
-	&-8 {
-		flex: 0 1 66.66%;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		max-width: 66.66%;
-		@include media(1099px) {
-			flex: 0 1 50%;
-		}
-		@include media(719px) {
-			flex: 0 1 rem(320px);
-			max-width: rem(320px);
+	&__expandables,
+	&__drop-check {
+		@include media(640px) {
+			@include grid-center;
 		}
 	}
 
-	&-6 {
-		max-width: 50%;
-	}
-
-	&-4 {
-		flex: 0 1 rem(320px);
-	}
-
-	&-2 {
-		max-width: 16.66%;
+	&__comments {
+		grid-column: span 2;
 	}
 }
-
 
 .dropdown--apply {
 	&__heading {
@@ -185,14 +173,8 @@ $row-gap: rem(20px);
 	}
 }
 
-.range-sliders {
+.range-slider {
 	margin-bottom: rem(40px);
-
-	.element {
-		&__hgroup {
-			margin-bottom: rem(20px);
-		}
-	}
 }
 
 .main-buttons {
@@ -200,7 +182,7 @@ $row-gap: rem(20px);
 		margin-bottom: rem(30px);
 	}
 
-	.btn,
+	.btn:not(.btn--arrow),
 	.btn-border,
 	.btn-bdless {
 		&:not(:nth-of-type(2)) {

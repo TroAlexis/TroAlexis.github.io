@@ -4,6 +4,7 @@ import Slideshow from 'Includes/slideshow/slideshow';
 import Calendar from 'Includes/forms/calendar/calendar';
 import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
 import DropdownApplyTotal from 'Includes/forms/dropdown/--apply/dropdown--apply';
+import RangeSlider from 'Includes/forms/range-slider/range-slider';
 
 // SCSS
 import 'Scss/search-room.scss';
@@ -40,4 +41,14 @@ rateBtns.forEach((rateBtnEl) => {
       e.preventDefault();
     }
   });
+});
+
+const rangeSlider = new RangeSlider(document.querySelector('.range-slider'), {
+  track: {
+    width: 267 / 16,
+    borderWidth: 1 / 16,
+  },
+  thumb: {
+    width: 14 / 16,
+  },
 });

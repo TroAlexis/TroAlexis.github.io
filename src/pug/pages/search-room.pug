@@ -13,9 +13,9 @@ block content
                 +dropdown({heading: 'гости', phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'],
                     buttons: true })(class='dropdown--apply')
                 include ../includes/forms/range-slider/range-slider
-                +element([{name: 'диапазон цены'}, {name: '5 000₽ - 10 000₽', attributes: {class:
-                            'element__subheading'}}])(class='has-range-slider')
-                    +range-slider({description: 'Стоимость за сутки пребывания в номере'})
+                +range-slider({description: 'Стоимость за сутки пребывания в номере', heading: 'диапазон цены', values: {from:
+                            5000,
+                    to: 10000}})
                 +element([{name: 'checkbox buttons'}])(class='checkbox-buttons')
                     include ../includes/forms/checkbox/checkbox
                     +checkbox({id: 'smoking', title: 'Можно курить'})
