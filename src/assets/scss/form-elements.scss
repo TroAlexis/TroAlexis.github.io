@@ -49,10 +49,9 @@
 		};
 	}
 	@include media(640px) {
-		grid-row-gap: rem(20px);
-		grid-template: {
-			columns: rem(320px);
-		};
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	grid-template: {
 		columns: repeat(3, rem(320px));
@@ -69,7 +68,7 @@
 	&__text-inputs,
 	&__form-inputs {
 		@include media(640px) {
-			@include grid-center;
+			width: rem(320px);
 		}
 	}
 }
@@ -83,9 +82,13 @@
 	}
 
 	&__expandables,
-	&__drop-check {
+	&__drop-check,
+	&__drop-bullet,
+	&__impressions,
+	&__comments {
 		@include media(640px) {
-			@include grid-center;
+			width: rem(320px);
+			margin-bottom: rem(20px);
 		}
 	}
 
@@ -215,6 +218,12 @@
 			display: flex;
 			align-items: center;
 		}
+	}
+}
+
+.advantage {
+	&:first-of-type {
+		padding: 0 0 rem(20px) 0;
 	}
 }
 
