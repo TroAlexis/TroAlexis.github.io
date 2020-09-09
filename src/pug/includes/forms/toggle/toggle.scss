@@ -9,6 +9,8 @@
 	user-select: none;
 	// HIDING THE DEFAULT CHECKBOX
 	&__box {
+		position: absolute;
+
 		width: 0;
 		height: 0;
 

@@ -47,6 +47,8 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 	border: $thumb-border-width solid $thumb-border-color;
 	border-radius: $thumb-radius;
 	cursor: default;
+
+	pointer-events: auto;
 }
 
 
@@ -56,7 +58,20 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 	width: rem(267px);
 
 	&__container {
+		@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
 		position: relative;
+		z-index: 1;
+
+		display: grid;
+		width: 100%;
+		margin: 1rem auto;
+
+		background: $track-color;
+		border: $track-border-width solid $track-border-color;
+		border-radius: $track-radius;
+		grid-template: {
+			rows: max-content $track-height;
+		};
 	}
 
 	&__header {
@@ -74,12 +89,19 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 	}
 
 	&__input {
+		position: relative;
+		z-index: 3;
+
+		grid-row: 2;
+		grid-column: 1;
+
 		width: $track-width;
-		margin: $thumb-height / 2 0;
 
 		background: transparent;
 
 		appearance: none;
+
+		pointer-events: none;
 
 		&::-moz-focus-outer {
 			border: 0;
@@ -87,26 +109,10 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
 		&:focus {
 			outline: 0;
-
-			&::-webkit-slider-runnable-track {
-				background: lighten($track-color, $contrast);
-			}
-
-			&::-ms-fill-lower {
-				background: $track-color;
-			}
-
-			&::-ms-fill-upper {
-				background: lighten($track-color, $contrast);
-			}
 		}
 
 		&::-webkit-slider-runnable-track {
 			@include track;
-			@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-			background: $track-color;
-			border: $track-border-width solid $track-border-color;
-			border-radius: $track-radius;
 		}
 
 		&::-webkit-slider-thumb {
@@ -117,20 +123,20 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 			margin-top: ((-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2);
 
 			appearance: none;
+
+			pointer-events: auto;
 		}
 
 		&::-moz-range-track {
-			@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
 			@include track;
-			height: $track-height / 2;
 
-			background: $track-color;
-			border: $track-border-width solid $track-border-color;
-			border-radius: $track-radius;
+			height: $track-height / 2;
 		}
 
 		&::-moz-range-thumb {
 			@include thumb;
+
+			pointer-events: auto;
 		}
 
 		&::-ms-track {
@@ -142,22 +148,11 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 			border-width: ($thumb-height / 2) 0;
 		}
 
-		&::-ms-fill-lower {
-			@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-			background: $ie-bottom-track-color;
-			border: $track-border-width solid $track-border-color;
-			border-radius: ($track-radius * 2);
-		}
-
-		&::-ms-fill-upper {
-			@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-			background: $track-color;
-			border: $track-border-width solid $track-border-color;
-			border-radius: ($track-radius * 2);
-		}
-
 		&::-ms-thumb {
 			@include thumb;
+			position: relative;
+			z-index: 2;
+
 			margin-top: $track-height / 4;
 		}
 
@@ -174,25 +169,24 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 	}
 
 	&__input-2 {
-		position: absolute;
-		top: $thumb-height/2+2px;
-		left: 0;
-
 		margin: 0;
 	}
 
 	&__range {
-		position: absolute;
-		top: $thumb-height/2-1px;
-		left: $track-border-width;
-		z-index: 1;
+		position: relative;
+		z-index: 2;
 
 		display: block;
-		height: $track-height;
+		grid-row: 2;
+		grid-column: 1;
+		align-self: center;
+		height: $track-height+$track-border-width*2;
 
 		background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
 		border-radius: $track-radius;
-		transform: translateY(50%);
 
+		pointer-events: none;
 	}
 }
+
+// TODO Refactor range input for Firefox browser.

@@ -32,7 +32,7 @@ export default class RangeSlider {
     const { track, thumb } = this.sizes;
     const leftRatio = lowerValue / (lower.max - lower.min);
     const widthRatio = Math.abs(lowerValue - higherValue) / (lower.max - lower.min);
-    this.range.style.left = `${track.borderWidth + leftRatio * track.width}rem`;
+    this.range.style.left = `${(leftRatio * track.width) + track.borderWidth}rem`;
     this.range.style.width = `${(track.width - thumb.width / 2) * widthRatio}rem`;
     this.numRange.lower.textContent = RangeSlider.spacify(lowerValue);
     this.numRange.higher.textContent = RangeSlider.spacify(higherValue);

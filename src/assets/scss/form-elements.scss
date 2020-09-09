@@ -58,6 +58,10 @@
 	};
 }
 
+.dropdowns-lists {
+	grid-row-gap: rem(20px);
+}
+
 .inputs-buttons {
 	&__slider-buttons {
 		@include media(1080px) {
@@ -97,22 +101,15 @@
 	}
 }
 
-.dropdown--apply {
-	&__heading {
-		display: none;
-	}
-}
-
+.dropdown--apply,
 .input-calendar {
 	&__heading {
 		display: none;
 	}
 }
 
-.form-calendar {
-	.heading-3 {
-		flex: 0 0 rem(150px);
-	}
+.form-calendar .heading-3 {
+	flex: 0 0 rem(150px);
 }
 
 .checkbox-buttons,
@@ -176,10 +173,6 @@
 	}
 }
 
-.range-slider {
-	margin-bottom: rem(40px);
-}
-
 .main-buttons {
 	.row {
 		margin-bottom: rem(30px);
@@ -195,7 +188,8 @@
 }
 
 .dropdown-expanded,
-.dropdown--apply-expanded {
+.dropdown--apply-expanded,
+.range-slider {
 	margin-bottom: rem(40px);
 }
 
@@ -234,3 +228,6 @@
 		}
 	}
 }
+
+
+// TODO Refactor code for Firefox.
