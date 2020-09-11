@@ -186,7 +186,7 @@ export default class Calendar {
     return dayElement;
   }
 
-  static get domstrings() { // TODO check if all works fine
+  static get domstrings() {
     return DOM;
   }
 
