@@ -1,10 +1,9 @@
 include ../../forms/dropdown/dropdown
 include ../../btn/btn
 
-// TODO Add hidden input to collect data on submit.
 
 mixin booking(room, cost, discount, lux)
-    - var extra = '300₽'
+    - const extra = '300₽';
     .booking
         .booking__header
             p.booking__room.room

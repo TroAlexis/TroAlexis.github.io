@@ -15,7 +15,7 @@
 .main {
 	&__container {
 		display: grid;
-		@include media(615.98px) {
+		@include media(767.98px) {
 			grid-template: {
 				columns: 1fr;
 				rows: auto auto;
@@ -41,7 +41,7 @@
 }
 
 .sidebar {
-	@include media(615.98px) {
+	@include media(767.98px) {
 		display: grid;
 		grid-column-gap: 10px;
 		margin: 0 auto;
@@ -126,10 +126,6 @@
 
 .range-slider {
 	margin-bottom: rem(14px);
-
-	&__range {
-		margin-bottom: rem(10px);
-	}
 
 	&__description {
 		@extend %heading-body;

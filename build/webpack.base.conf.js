@@ -6,9 +6,6 @@ const webpack = require('webpack');
 //  https://webpack.js.org/plugins/mini-css-extract-plugin/
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// https://www.npmjs.com/package/clean-webpack-plugin
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 // https://webpack.js.org/plugins/copy-webpack-plugin/
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -58,10 +55,11 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}/js/[name].${(process.env.NODE_ENV === 'production') ? '[contenthash].' : ''}js`,
     path: PATHS.dist,
+    pathinfo: process.env.NODE_ENV === 'production',
     publicPath: '/',
   },
   optimization: {
-    splitChunks: {
+    splitChunks: process.env.NODE_ENV === 'production' ? {
       cacheGroups: {
         vendor: {
           name: 'vendors',
@@ -76,7 +74,9 @@ module.exports = {
           enforce: true,
         },
       },
-    },
+    } : false,
+    removeAvailableModules: process.env.NODE_ENV === 'production',
+    removeEmptyChunks: process.env.NODE_ENV === 'production',
   },
   module: {
     rules: [{
@@ -164,8 +164,6 @@ module.exports = {
       // Enable has in production mode only (prevents HMR in development)
       filename: `${PATHS.assets}/css/[name].${(process.env.NODE_ENV === 'production') ? '[contenthash].' : ''}css`,
     }),
-    //  Clean dist folder.
-    new CleanWebpackPlugin(),
     //  Copy images, fonts, static files to dist folder.
     new CopyWebpackPlugin({
       patterns: [

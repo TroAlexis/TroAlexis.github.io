@@ -7,6 +7,13 @@
 @import '~Includes/slideshow/slideshow';
 @import '~Includes/cards/room/room';
 
+.input-calendar,
+.dropdown,
+.btn.btn--arrow,
+.text-field {
+	width: 100%;
+}
+
 .group {
 	display: flex;
 	flex-direction: column;
@@ -48,6 +55,7 @@
 
 .group--3 {
 	.input-calendar {
+		width: rem(320px);
 		height: rem(406px);
 		margin-bottom: rem(40px);
 		@include media-x-lg {

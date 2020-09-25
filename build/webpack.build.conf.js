@@ -1,5 +1,8 @@
 const merge = require('webpack-merge');
 
+// https://www.npmjs.com/package/clean-webpack-plugin
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 // https://github.com/webpack-contrib/eslint-webpack-plugin
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -18,6 +21,8 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
   plugins: [
+    //  Clean dist folder.
+    new CleanWebpackPlugin(),
     new ESLintPlugin({
       fix: true,
     }),

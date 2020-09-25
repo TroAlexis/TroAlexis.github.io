@@ -8,7 +8,7 @@ import DropdownAuto from 'Includes/forms/dropdown/--auto/dropdown--auto';
 import Expandable from 'Includes/expandable/expandable';
 
 import 'Scss/form-elements.scss';
-import RangeSlider from "Includes/forms/range-slider/range-slider";
+import RangeSlider from 'Includes/forms/range-slider/range-slider';
 
 // Enabling masked inputs.
 const maskedInputs = document.querySelectorAll('.text-field--masked');

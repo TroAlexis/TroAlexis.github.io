@@ -18,7 +18,9 @@
 
 .gallery {
 	display: grid;
+	max-width: rem(1440px);
 	height: rem(485px);
+	margin: 0 auto;
 	@include media-m {
 		height: rem(485px)/1.25;
 	}
@@ -87,7 +89,7 @@
 					'rules cancellation';
 			}
 		}
-		@include media(416px) {
+		@include media(438px) {
 			justify-items: center;
 			grid-template: {
 				columns: rem(380px);
@@ -134,6 +136,12 @@
 		@include media(1092px) {
 			justify-self: center;
 		}
+
+		.input-calendar,
+		.dropdown--apply,
+		.btn--arrow {
+			width: 100%;
+		}
 	}
 
 	&__reviews {
@@ -162,12 +170,16 @@
 
 	&__cancellation {
 		grid-area: cancellation;
+		width: 100%;
 		@include media(1092px) {
 			justify-self: center;
 		}
 
 		.body-text {
 			max-width: rem(341px);
+			@include media(438px) {
+				max-width: 100%;
+			}
 		}
 	}
 }

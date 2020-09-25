@@ -76,6 +76,7 @@
 	&__content {
 		position: absolute;
 		top: rem(70px);
+		left: 50%;
 		z-index: 3;
 
 		display: none;
@@ -87,6 +88,7 @@
 		border: 1px solid map-get($colors, 'main-25');
 		border-radius: 4px;
 		box-shadow: 0 rem(10px) rem(20px) rgba(31, 32, 65, 0.05);
+		transform: translateX(-50%);
 		@include media-lg {
 			padding: rem(20px)/1.15;
 		}
