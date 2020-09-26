@@ -24,6 +24,7 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
     //  Clean dist folder.
     new CleanWebpackPlugin(),
     new ESLintPlugin({
+      context: baseWebpackConfig.externals.paths.src,
       fix: true,
     }),
     new StylelintPlugin({

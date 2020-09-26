@@ -79,6 +79,8 @@
 		border-radius: 50%;
 		box-shadow: 0 rem(5px) rem(5px) rgba(31, 32, 65, 0.3);
 
+		cursor: pointer;
+
 		&.active {
 			background: #fff;
 		}

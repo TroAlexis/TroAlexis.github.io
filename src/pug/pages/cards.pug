@@ -16,16 +16,9 @@ block content
             include ../includes/forms/calendar/calendar
             +input-calendar(['прибытие', 'выезд'])
             include ../includes/cards/room/room
-            +roomcard({roomnum: '888', lux: true, price: '9 990', reviews: 145, rating: 5, urls: [
-                Math.ceil(Math.random(19)*10),
-                Math.ceil(Math.random(19)*10),
-                Math.ceil(Math.random(19)*10),
-                Math.ceil(Math.random(19)*10)
-                ]})
-            +roomcard({roomnum: '840', lux: false, price: '9 900', reviews: 65, rating: 4, urls: [
-                    Math.ceil(Math.random(19) * 10),
-                    Math.ceil(Math.random(19) * 10),
-                    Math.ceil(Math.random(19) * 10),
-                    Math.ceil(Math.random(19) * 10)
-                ]})
+            - const getRandomInt= function(min, max) {min = Math.ceil(min);max = Math.floor(max);return Math.floor(Math.random() * (max - min)) + min;}
+            +roomcard({roomnum: '888', lux: true, price: '9 990', reviews: 145, rating: 5, urls: [getRandomInt(1,20),
+                    getRandomInt(1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+            +roomcard({roomnum: '840', lux: false, price: '9 900', reviews: 65, rating: 4, urls: [getRandomInt(1,20),
+                    getRandomInt(1,20), getRandomInt(1,20), getRandomInt(1,20)]})
 

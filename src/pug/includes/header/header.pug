@@ -2,7 +2,7 @@ mixin header(header_links, is_auth, username)
     .backdrop
     header.header(class=(is_auth ? 'header-auth' : ''))
         nav.header__container.u-container
-            a.header__logo(href='#')
+            a.header__logo(href='https://troalexis.github.io/pages/landing')
                 img(src=require('Images/ui/main-logo-gradient.svg') alt='Toxin')
             .burger
                 span.burger__line
@@ -21,10 +21,10 @@ mixin header(header_links, is_auth, username)
                 unless is_auth
                     include ../btn/--border/btn--border
                     li.header__item.header__btn(data-da='header__mob-nav,5,567.98')
-                        +btn-border({text: 'Войти'})
+                        +btn-border({text: 'Войти', href: 'https://troalexis.github.io/pages/sign-in'})
                     li.header__item.header__btn(data-da='header__mob-nav,6,567.98')
                         include ../btn/btn
-                        +btn({text: 'Зарегистрироваться', href: '#'})(class='header__item-button')
+                        +btn({text: 'Зарегистрироваться', href: 'https://troalexis.github.io/pages/registration'})(class='header__item-button')
                 else
                     .header__vline
                     li.header__item(data-da='header-auth .header__mob-nav,5,567.98')

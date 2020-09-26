@@ -1,8 +1,8 @@
 mixin socials
     .socials&attributes(attributes)
-        span.socials__icon
-            include ../../../assets/img/ui/twitter.svg
-        span.socials__icon
-            include ../../../assets/img/ui/face.svg
-        span.socials__icon
-            include ../../../assets/img/ui/inst.svg
+        .socials__icon
+            img.socials__img(src=require(`Images/ui/twitter.svg`) alt='Our Twitter')
+        .socials__icon
+            img.socials__img(src=require(`Images/ui/face.svg`) alt='Our Facebook')
+        .socials__icon
+            img.socials__img(src=require(`Images/ui/inst.svg`) alt='Our Instagram')

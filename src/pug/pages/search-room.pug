@@ -53,18 +53,31 @@ block content
                 h1.search-results__heading Номера, которые мы для вас подобрали
                 .search-results__rooms
                     include ../includes/cards/room/room
-                    +roomcard({roomnum: 888, lux: true, price: '9 990', reviews: 145, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 840, lux: false, price: '9 900', reviews: 65, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 980, lux: true, price: '8 500', reviews: 35, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 856, lux: false, price: '7 300', reviews: 19, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 740, lux: false, price: '6 000', reviews: 44, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 982, lux: false, price: '5 800', reviews: 56, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 678, lux: false, price: '5 500', reviews: 45, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 450, lux: false, price: '5 300', reviews: 39, rating: 4, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 350, lux: false, price: '5 000', reviews: 77, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 666, lux: false, price: '5 000', reviews: 25, rating: 5, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 444, lux: false, price: '5 000', reviews: 15, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
-                    +roomcard({roomnum: 352, lux: false, price: '5 000', reviews: 55, rating: 3, urls: [Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10),Math.ceil(Math.random(19) * 10)]})
+                    - const getRandomInt= function(min, max) {min = Math.ceil(min);max = Math.floor(max);return Math.floor(Math.random() * (max - min)) + min;}
+                    +roomcard({roomnum: 888, lux: true, price: '9 990', reviews: 145, rating: 5, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 840, lux: false, price: '9 900', reviews: 65, rating: 4, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 980, lux: true, price: '8 500', reviews: 35, rating: 3, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 856, lux: false, price: '7 300', reviews: 19, rating: 5, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 740, lux: false, price: '6 000', reviews: 44, rating: 4, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 982, lux: false, price: '5 800', reviews: 56, rating: 3, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 678, lux: false, price: '5 500', reviews: 45, rating: 5, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 450, lux: false, price: '5 300', reviews: 39, rating: 4, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 350, lux: false, price: '5 000', reviews: 77, rating: 3, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 666, lux: false, price: '5 000', reviews: 25, rating: 5, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 444, lux: false, price: '5 000', reviews: 15, rating: 3, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
+                    +roomcard({roomnum: 352, lux: false, price: '5 000', reviews: 55, rating: 3, urls: [getRandomInt
+                        (1,20), getRandomInt(1,20), getRandomInt(1,20)]})
                 .search-results__pagination
                     include ../includes/pagination/pagination
                     +pagination({pagesVis: 3, stopPage: 15, text: '1 – 12 из 100+ вариантов аренды'})
