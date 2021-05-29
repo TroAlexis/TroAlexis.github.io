@@ -5,14 +5,14 @@
 /*! no exports provided */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is an entry point */function(e,r,t){"use strict";t.r(r);new(t(/*! Includes/header/header */0).a)(document.querySelector(".header"))},31:
-/*!*****************************!*\
-  !*** ./src/registration.js ***!
-  \*****************************/
+/*!************************!*\
+  !*** ./src/landing.js ***!
+  \************************/
 /*! no exports provided */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is an entry point */function(e,r,t){"use strict";t.r(r);t(/*! ~/header-footer */2),t(/*! Scss/registration.scss */32)},32:
-/*!*******************************************!*\
-  !*** ./src/assets/scss/registration.scss ***!
-  \*******************************************/
+/*! ModuleConcatenation bailout: Module is an entry point */function(e,r,t){"use strict";t.r(r);t(/*! ~/header-footer */2),t(/*! Includes/cards/room-search/roomsearch */12),t(/*! Scss/landing.scss */32)},32:
+/*!**************************************!*\
+  !*** ./src/assets/scss/landing.scss ***!
+  \**************************************/
 /*! no static exports found */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e,r,t){}});
