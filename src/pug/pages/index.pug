@@ -1,0 +1,97 @@
+extends ../layout/ui-base
+
+block head
+    - const pageTitle = 'Toxin'
+
+
+block content
+    main.main
+        .u-container.main__wrapper
+            include ../includes/page-card/page-card
+            h2.heading-1 UI-Kit
+            .page-cards
+                -
+                    const uiCards = [
+                        {
+                            img: {
+                                src: require('Images/pages/colors.jpg'),
+                                alt: 'Colors and type page'
+                            },
+                            title: 'Colors & Type',
+                            href: `${webpackConfig.output.publicPath}pages/colors-type`
+                        },
+                        {
+                            img: {
+                                src: require('Images/pages/form-elements.jpg'),
+                                alt: 'Form Elements page'
+                            },
+                            title: 'Form Elements',
+                            href: `${webpackConfig.output.publicPath}pages/form-elements`
+
+                        },
+                        {
+                            img: {
+                                src: require('Images/pages/cards.jpg'),
+                                alt: 'Cards page'
+                            },
+                            title: 'Cards',
+                            href: `${webpackConfig.output.publicPath}pages/cards`
+                        },
+                        {
+                            img: {
+                                src: require('Images/pages/headers-footers.jpg'),
+                                alt: 'Headers & Footers page'
+                            },
+                            title: 'Headers & Footers',
+                            href: `${webpackConfig.output.publicPath}pages/headers-footers`
+                        },
+                    ]
+                each card in uiCards
+                    +page-card(card).page-cards__card
+            h2.heading-1 Main pages
+            .page-cards
+              -
+                  const mainCards = [
+                      {
+                          img: {
+                              src: require('Images/pages/landing.jpg'),
+                              alt: 'Landing page'
+                          },
+                          title: 'Landing',
+                          href: `${webpackConfig.output.publicPath}pages/landing`
+                      },
+                      {
+                          img: {
+                              src: require('Images/pages/registration.jpg'),
+                              alt: 'Registration page'
+                          },
+                          title: 'Registration',
+                          href: `${webpackConfig.output.publicPath}pages/registration`
+                      },
+                      {
+                          img: {
+                              src: require('Images/pages/sign-in.jpg'),
+                              alt: 'Sign-in page'
+                          },
+                          title: 'Sign-in',
+                          href: `${webpackConfig.output.publicPath}pages/sign-in`
+                      },
+                      {
+                          img: {
+                              src: require('Images/pages/room-details.png'),
+                              alt: 'Room details page'
+                          },
+                          title: 'Room details',
+                          href: `${webpackConfig.output.publicPath}pages/room-details`
+                      },
+                      {
+                          img: {
+                              src: require('Images/pages/search-room.jpg'),
+                              alt: 'Room search page'
+                          },
+                          title: 'Room search',
+                          href: `${webpackConfig.output.publicPath}pages/search-room`
+                      },
+                  ]
+              each card in mainCards
+                  +page-card(card).page-cards__card

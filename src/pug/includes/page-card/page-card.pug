@@ -1,0 +1,5 @@
+mixin page-card(props)
+    - const {img: {src, alt}, title, href} = props;
+    a.page-card(href=href)&attributes(attributes)
+        img(src=src alt=alt).page-card__img
+        h3.heading-3=title

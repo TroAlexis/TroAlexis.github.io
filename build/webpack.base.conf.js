@@ -32,7 +32,9 @@ const ALIASES = {
   Includes: path.resolve(__dirname, `../src/${PATHS.pug}/includes`),
 };
 
-const PUBLIC_PATH = '/toxin-fsd/';
+const PUBLIC_PATH = process.env.NODE_ENV === 'production'
+  ? '/toxin-fsd/'
+  : '/';
 
 // Pages const for HtmlWebpackPlugin
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;

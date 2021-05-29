@@ -19,7 +19,7 @@ form.registration
     +btn({text: 'перейти к оплате', href: '#', submit: true})(class='btn--arrow registration__payment')
     .registration__isregged
         p.registration__text Уже есть аккаунт на Toxin
-        +btn-border({text: 'войти', href: 'https://troalexis.github.io/pages/sign-in'})
+        +btn-border({text: 'войти', href: `${webpackConfig.output.publicPath}pages/sign-in`})
 
 
 

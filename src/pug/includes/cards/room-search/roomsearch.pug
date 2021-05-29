@@ -6,5 +6,5 @@
     h3.roomsearch__label.heading-3 гости
     +dropdown({phText: 'Сколько гостей', selectOptions: ['взрослые', 'дети', 'младенцы'], type: 'dropdown--apply', buttons: true})
     include ../../btn/btn
-    +btn({text: 'Подобрать номер', href: 'https://troalexis.github.io/pages/search-room'})(class='btn--arrow ' +
+    +btn({text: 'Подобрать номер', href: `${webpackConfig.output.publicPath}pages/search-room`})(class='btn--arrow ' +
     'roomsearch__button')

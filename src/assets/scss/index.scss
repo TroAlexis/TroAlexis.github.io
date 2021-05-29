@@ -1,0 +1,36 @@
+@import '~Scss/shared';
+@import '~Scss/ui-base';
+
+@import '~Includes/page-card/page-card';
+
+.heading-1 {
+	margin-bottom: rem(50);
+
+	text-align: center;
+}
+
+.main {
+	justify-content: flex-start;
+
+	&__wrapper {
+		flex-basis: 100%;
+	}
+}
+$card-m: rem(30);
+
+.page-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin: -$card-m;
+
+	& + .heading-1 {
+		margin-top: rem(50);
+	}
+
+	&__card {
+		flex-basis: rem(320);
+		margin: $card-m;
+	}
+}
+

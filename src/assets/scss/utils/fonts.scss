@@ -29,6 +29,10 @@
 		url('~Fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
+.heading-1 {
+	@extend %heading-1;
+}
+
 .heading-2 {
 	@extend %heading-2;
 }
